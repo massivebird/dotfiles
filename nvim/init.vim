@@ -1,4 +1,3 @@
-" I am updating it
 " Plugin Manager: vim-plug
 
 call plug#begin()
