@@ -149,13 +149,11 @@ nnoremap k gk
 " Spacebar as leader
 let mapleader = " " " map leader to Space
 
-" Quick save, probably redundant lol
-nnoremap <leader>w :w<cr>
-
-" Quick source init
+" Essential commands
+nnoremap <leader>ww :w<cr>
+nnoremap <leader>wq :wq<cr>
+nnoremap <leader>q :q<cr>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
-
-" Quick vim-plug commands
 nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pc :PlugClean<cr>
 
