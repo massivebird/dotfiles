@@ -1,9 +1,12 @@
 " Plugin Manager: vim-plug
 
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
-" Sensible
+" Tim Pope aka Magic Hands
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
 
 " Auto-close braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -19,14 +22,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 
-" Preview colors
+" Color previews
 Plug 'ap/vim-css-color'
 
 " Code formatting
 Plug 'sbdchd/neoformat'
-
-" Save vim sessions
-Plug 'tpope/vim-obsession'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -146,13 +146,12 @@ nnoremap k gk
 
 " Custom remaps
 
-" Spacebar as leader
+" Space bar as leader
 let mapleader = " " " map leader to Space
 
 " Essential commands
-nnoremap <leader>ww :w<cr>
-nnoremap <leader>wq :wq<cr>
-nnoremap <leader>q :q<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :wq<cr>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pc :PlugClean<cr>
