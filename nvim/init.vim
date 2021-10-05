@@ -53,6 +53,8 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 " gitgutter colors
 highlight SignColumn guibg=bg
 highlight GitGutterAdd guibg=bg
+highlight GitGutterChange guibg=bg
+highlight GitGutterDelete guibg=bg
 " let g:gitgutter_set_sign_backgrounds = 1
 " let g:gitgutter_sign_added = 'xx'
 " let g:gitgutter_sign_modified = 'pp'
@@ -76,9 +78,10 @@ endif
 
 " Smarter tab line
 let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
-let g:airline_section_b="%t%m"
+" let g:airline_section_b="%t%m"
 let g:airline_section_c="%f"
 let g:airline_section_x=""
 let g:airline_section_z=""
