@@ -4,9 +4,12 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Tim Pope aka Magic Hands
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
+
+Plug 'airblade/vim-gitgutter'
 
 " Auto-close braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -46,6 +49,20 @@ set cursorline
 set number
 set norelativenumber
 autocmd TermOpen * setlocal nonumber norelativenumber
+
+" gitgutter colors
+highlight SignColumn guibg=bg
+highlight GitGutterAdd guibg=bg
+" let g:gitgutter_set_sign_backgrounds = 1
+" let g:gitgutter_sign_added = 'xx'
+" let g:gitgutter_sign_modified = 'pp'
+" let g:gitgutter_sign_removed = 'zz'
+" let g:gitgutter_sign_removed_first_line = '^^'
+" let g:gitgutter_sign_removed_above_and_below = '{'
+" let g:gitgutter_sign_modified_removed = 'ww'
+
+" Change someday to colorscheme
+highlight GitGutterAdd guifg=SeaGreen 
 
 " color nonsense
 let base16colorspace = 256
@@ -152,6 +169,7 @@ let mapleader = " " " map leader to Space
 " Essential commands
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
+nnoremap <leader>c :close<cr>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pc :PlugClean<cr>
