@@ -43,7 +43,8 @@ call plug#end()
 colorscheme galaxian
 syntax on
 syntax enable
-set spelllang=en
+set wildmenu
+set spelllang=en_us
 set nospell
 set cursorline
 set number
@@ -169,6 +170,13 @@ nnoremap <leader>c :close<cr>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi :PlugInstall<cr>
 nnoremap <leader>pc :PlugClean<cr>
+nnoremap <leader>pu :PlugUpdate<cr>
+
+" Window resizing
+nnoremap <Up>		:resize +2<cr>
+nnoremap <Down>		:resize -2<cr>
+nnoremap <Right>	:vertical resize +2<cr>
+nnoremap <Left>		:vertical resize -2<cr>
 
 " Escape exits -- TERMINAL --
 tnoremap <Esc> <C-\><C-n>
