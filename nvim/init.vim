@@ -72,7 +72,7 @@ let g:airline_theme='murmur'
 " let g:airline_section_b="%t%m"
 let g:airline_section_c="%f"
 let g:airline_section_x=""
-let g:airline_section_z=""
+let g:airline_section_z="%p"
 
 """"""""""""""""""""""""""""""""""""""""""
 
