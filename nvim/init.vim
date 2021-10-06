@@ -8,29 +8,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-
-Plug 'airblade/vim-gitgutter'
-
-" Auto-close braces and scopes
-Plug 'jiangmiao/auto-pairs'
-
-" Interactive tree
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle' }
-
 " Airline status bar + themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
-
-" Color previews
 Plug 'ap/vim-css-color'
-
+" Auto-close braces and scopes
+Plug 'jiangmiao/auto-pairs'
+" Shorthand version control info
+Plug 'airblade/vim-gitgutter'
 " Code formatting
 Plug 'sbdchd/neoformat'
-
+" Autocomplete that doesn't work 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
