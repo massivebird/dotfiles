@@ -57,16 +57,11 @@ highlight GitGutterAdd guibg=bg
 highlight GitGutterChange guibg=bg
 highlight GitGutterDelete guibg=bg
 let g:gitgutter_set_sign_backgrounds = 1
-let g:gitgutter_sign_added = 'xx'
-let g:gitgutter_sign_modified = 'pp'
-let g:gitgutter_sign_removed = 'zz'
-let g:gitgutter_sign_removed_first_line = '^^'
-let g:gitgutter_sign_removed_above_and_below = '{'
-let g:gitgutter_sign_modified_removed = 'ww'
 
 " Change someday to colorscheme
-highlight GitGutterAdd guifg=SeaGreen 
-highlight GitGutterDelete guifg=Red
+hi GitGutterAdd guifg=SeaGreen 
+hi GitGutterDelete guifg=Red
+hi GitGutterChange guifg=LightGrey
 
 " color nonsense
 let base16colorspace = 256
