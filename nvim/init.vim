@@ -22,7 +22,7 @@ Plug 'airblade/vim-gitgutter'
 " Code formatting
 Plug 'sbdchd/neoformat'
 " Autocomplete that doesn't work 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
