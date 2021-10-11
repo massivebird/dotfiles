@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ap/vim-css-color'
+Plug 'ghifarit53/tokyonight-vim'
 " Auto-close braces and scopes
 Plug 'jiangmiao/auto-pairs'
 " Shorthand version control info
@@ -68,6 +69,7 @@ endif
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
+" theme 'murmur' for galaxian
 let g:airline_theme='murmur'
 " let g:airline_section_b="%t%m"
 let g:airline_section_c="%f"
