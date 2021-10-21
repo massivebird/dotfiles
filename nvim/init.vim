@@ -22,6 +22,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 " Code formatting
 Plug 'sbdchd/neoformat'
+" Support for .md
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim'
 " Autocomplete that doesn't work 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
