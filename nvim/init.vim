@@ -93,6 +93,12 @@ let g:python3_host_prog = '/usr/bin/python3.8'
 
 """"""""""""""""""""""""""""""""""""""""""
 
+" Markdown
+
+let g:vim_markdown_folding_disabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""
+
 " Stel's original window navigation solution
 
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
