@@ -32,7 +32,10 @@ call plug#end()
 " Terminalneous
 " You ain't no nerd?? I coulda sworn you were.
 
-colorscheme galaxian
+colorscheme sonokai
+" theme 'murmur' for galaxian
+let g:airline_theme='sonokai'
+
 syntax on
 syntax enable
 set wildmenu
@@ -69,8 +72,6 @@ endif
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
-" theme 'murmur' for galaxian
-let g:airline_theme='murmur'
 " let g:airline_section_b="%t%m"
 let g:airline_section_c="%f"
 let g:airline_section_x=""
