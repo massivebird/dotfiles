@@ -25,7 +25,7 @@ Plug 'sbdchd/neoformat'
 " Support for .md
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim'
-" Autocomplete that doesn't work 
+" Autocomplete that doesn't work
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -57,7 +57,7 @@ highlight GitGutterDelete guibg=bg
 let g:gitgutter_set_sign_backgrounds = 1
 
 " Change someday to colorscheme
-hi GitGutterAdd guifg=SeaGreen 
+hi GitGutterAdd guifg=SeaGreen
 hi GitGutterDelete guifg=Red
 hi GitGutterChange guifg=LightGrey
 
@@ -74,6 +74,7 @@ endif
 " Smarter tab line
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 " let g:airline_section_b="%t%m"
 let g:airline_section_c="%f"
@@ -190,4 +191,4 @@ nnoremap U <C-r>
 nnoremap <F7> gg=G<C-o><C-o>
 
 " \"Docs\" mode
-nnoremap <leader>d :set spell<cr>
+nnoremap <leader>d :set spell<cr> :set wrap<cr> :set linebreak<cr>
