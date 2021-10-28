@@ -22,6 +22,9 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 " Code formatting
 Plug 'sbdchd/neoformat'
+" Support for .md
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim'
 " Autocomplete that doesn't work 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -88,6 +91,12 @@ filetype plugin indent on
 " Python
 
 let g:python3_host_prog = '/usr/bin/python3.8'
+
+""""""""""""""""""""""""""""""""""""""""""
+
+" Markdown
+
+let g:vim_markdown_folding_disabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 

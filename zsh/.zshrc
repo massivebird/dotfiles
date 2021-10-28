@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
+export PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/penguino/.oh-my-zsh"
@@ -70,7 +71,7 @@ ZSH_THEME="eastwood"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf)
+plugins=(git)
 
 export FZF_BASE=/.oh-my-zsh/plugins/fzf
 
