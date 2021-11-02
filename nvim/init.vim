@@ -165,6 +165,7 @@ let mapleader = " " " map leader to Space
 " Essential commands
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :wq<cr>
+nnoremap <leader>Q :q!<cr>
 nnoremap <leader>c :close<cr>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi :PlugInstall<cr>
