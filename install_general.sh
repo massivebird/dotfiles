@@ -52,7 +52,7 @@ fi
 echo
 read -p "Install FUNTIMES package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
-	sudo apt get cmatrix
+	sudo apt install cmatrix
 	sudo apt install nethack-console
 fi
 
