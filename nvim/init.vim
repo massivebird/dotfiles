@@ -8,7 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-" Airline status bar + themes
+" Lightline statusline line
 Plug 'itchyny/lightline.vim'
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
