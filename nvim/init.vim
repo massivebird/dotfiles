@@ -9,8 +9,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 " Airline status bar + themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
@@ -37,8 +36,7 @@ call plug#end()
 " You ain't no nerd?? I coulda sworn you were.
 
 colorscheme sonokai
-" theme 'murmur' for galaxian
-let g:airline_theme='sonokai'
+let g:lightline = {'colorscheme': 'sonokai'}
 
 syntax on
 syntax enable
@@ -48,6 +46,7 @@ set nospell
 set cursorline
 set number
 set norelativenumber
+set noshowmode
 autocmd TermOpen * setlocal nonumber norelativenumber
 
 " gitgutter colors
@@ -70,17 +69,9 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Airline shit
+" Lightline
 
-" Smarter tab line
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 1
-" let g:airline_section_b="%t%m"
-let g:airline_section_c="%f"
-let g:airline_section_x=""
-let g:airline_section_z="%p"
+" let g:lightline.colorscheme = 'molokai'
 
 """"""""""""""""""""""""""""""""""""""""""
 
