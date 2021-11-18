@@ -17,6 +17,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ap/vim-css-color'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'balanceiskey/vim-framer-syntax', { 'branch': 'main'  }
 
 " Autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -44,8 +45,8 @@ call plug#end()
 " Terminalneous
 " You ain't no nerd?? I coulda sworn you were.
 
-colorscheme sonokai
-let g:lightline = {'colorscheme': 'sonokai'}
+colorscheme framer_syntax_dark
+let g:lightline = {'colorscheme': 'framer_dark'}
 
 syntax on
 syntax enable
@@ -86,6 +87,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""
 
 " Python
+"
 
 let g:python3_host_prog = '/usr/bin/python3.8'
 
