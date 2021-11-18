@@ -8,24 +8,33 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-" Lightline statusline line
+
+" Hip status line
 Plug 'itchyny/lightline.vim'
+
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ap/vim-css-color'
 Plug 'ghifarit53/tokyonight-vim'
-" Auto-close braces and scopes
+
+" Autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
-" Shorthand version control info
+
+" Active version control feedback
 Plug 'airblade/vim-gitgutter'
+
 " Code formatting
-Plug 'sbdchd/neoformat'
-" Support for .md
+" Plug 'sbdchd/neoformat'
+
+" Markdown support
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] } "req :call #mkdp#util#install()
+
 " Autocomplete that doesn't work
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Pretty colors
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
@@ -107,6 +116,7 @@ function! MoveRight()
 		:call nvim_input("<Esc><C-w>l")
 	endif
 endfunction
+
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> :call MoveLeft()<CR>
