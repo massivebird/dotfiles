@@ -147,7 +147,7 @@ nnoremap k gk
 " Custom remaps
 
 " Space bar as leader
-let mapleader = " " " map leader to Space
+let mapleader = " "
 
 " Essential commands
 nnoremap <leader>w :w<cr>
