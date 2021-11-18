@@ -48,6 +48,7 @@ set number
 set norelativenumber
 set noshowmode
 autocmd TermOpen * setlocal nonumber norelativenumber
+filetype plugin indent on
 
 " gitgutter colors
 highlight SignColumn guibg=bg
@@ -72,12 +73,6 @@ endif
 " Lightline
 
 " let g:lightline.colorscheme = 'molokai'
-
-""""""""""""""""""""""""""""""""""""""""""
-
-" no idea lol
-
-filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""
 
