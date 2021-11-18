@@ -179,8 +179,8 @@ nnoremap <Left>		:vertical resize -2<cr>
 tnoremap <Esc> <C-\><C-n>
 
 " Create new line above or below current line
-nnoremap <leader>o O<Down><Esc>
-nnoremap <leader>O o<Up><Esc>
+nnoremap <leader>o o<Up><Esc>
+nnoremap <leader>O O<Down><Esc>
 
 " Redo
 nnoremap U <C-r>
