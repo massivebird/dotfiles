@@ -19,8 +19,14 @@ read -p "Install ZSH package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install zsh
 	sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+fi
+
+echo
+read -p "Apply ZSH CONFIG + PLUGINS? [y/n] " MSG
+if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	rm -f ~/.zshrc
 	ln ~/.config/zsh/.zshrc ~/.zshrc
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
 
 echo
