@@ -1,2 +1,4 @@
 nvim/plugged
 thefuck
+*
+/* Ignore all files until explicity added. It's an ugly solution, I know. */
