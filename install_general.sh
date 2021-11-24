@@ -47,7 +47,7 @@ fi
 echo
 read -p "Install PYTHON package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
-	sudo apt install python3-pip
+	sudo apt install python3-dev python3-pip python3-setuptools
 fi
 
 echo
