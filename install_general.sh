@@ -61,6 +61,8 @@ if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	curl -O https://download.clojure.org/install/linux-install-1.10.3.1029.sh
 	chmod +x linux-install-1.10.3.1029.sh
 	sudo ./linux-install-1.10.3.1029.sh
+	sudo apt install java
+	sudo apt install default-jdk
 fi
 
 echo
