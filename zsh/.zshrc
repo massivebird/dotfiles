@@ -105,3 +105,5 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
+
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
