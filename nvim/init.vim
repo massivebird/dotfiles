@@ -99,7 +99,7 @@ let g:vim_markdown_folding_disabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Stel's original window navigation solution
+" Stel's Stellar Remaps
 
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
 " if necessary
@@ -156,20 +156,20 @@ nnoremap k gk
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Custom remaps
+" Garrett's Great Remaps
 
 " Space bar as leader
 let mapleader = " "
 
-" Essential commands
-nnoremap <leader>w :w<cr>
-nnoremap <leader>q :wq<cr>
-nnoremap <leader>Q :q!<cr>
-nnoremap <leader>c :close<cr>
-nnoremap <leader>s :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>pi :PlugInstall<cr>
-nnoremap <leader>pc :PlugClean<cr>
-nnoremap <leader>pu :PlugUpdate<cr>
+" Essentials
+nnoremap <leader>w	:w<cr>
+nnoremap <leader>q	:wq<cr>
+nnoremap <leader>Q	:q!<cr>
+nnoremap <leader>c	:close<cr>
+nnoremap <leader>s	:source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>pi	:PlugInstall<cr>
+nnoremap <leader>pc	:PlugClean<cr>
+nnoremap <leader>pu	:PlugUpdate<cr>
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
