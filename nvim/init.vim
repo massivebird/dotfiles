@@ -25,15 +25,12 @@ Plug 'jiangmiao/auto-pairs'
 " Active version control feedback
 Plug 'airblade/vim-gitgutter'
 
-" Code formatting
-" Plug 'sbdchd/neoformat'
-
 " Markdown support
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] } "req :call #mkdp#util#install()
 
-" Autocomplete that doesn't work
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Clojure support
+Plug 'olical/conjure'
 
 " Pretty colors
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
