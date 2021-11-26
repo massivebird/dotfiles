@@ -31,6 +31,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':
 
 " Clojure support
 Plug 'olical/conjure'
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'radenling/vim-dispatch-neovim'
+let g:ale_linters = {
+	\ 'clojure': ['clj-kondo']
+	\}
 
 " Pretty colors
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -189,3 +195,6 @@ nnoremap <F7> gg=G<C-o><C-o>
 
 " \"Docs\" mode
 nnoremap <leader>d :set spell<cr> :set wrap<cr> :set linebreak<cr>
+
+" Temporary clojure eval solution
+nnoremap <leader>e :%ConjureEval<cr>
