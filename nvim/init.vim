@@ -34,9 +34,6 @@ Plug 'olical/conjure'
 Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
-let g:ale_linters = {
-	\ 'clojure': ['clj-kondo']
-	\}
 
 " Pretty colors
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -83,14 +80,15 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Lightline
+" Clojure
 
-" let g:lightline.colorscheme = 'molokai'
+let g:ale_linters = {
+	\ 'clojure': ['clj-kondo']
+	\}
 
 """"""""""""""""""""""""""""""""""""""""""
 
 " Python
-"
 
 let g:python3_host_prog = '/usr/bin/python3.8'
 
