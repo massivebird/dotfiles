@@ -35,8 +35,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 
-" Pretty colors
+" Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
 call plug#end()
 
@@ -82,9 +83,7 @@ endif
 
 " Clojure
 
-let g:ale_linters = {
-	\ 'clojure': ['clj-kondo']
-	\}
+let g:ale_linters = { 'clojure': ['clj-kondo']}
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -97,6 +96,24 @@ let g:python3_host_prog = '/usr/bin/python3.8'
 " Markdown
 
 let g:vim_markdown_folding_disabled = 1
+
+""""""""""""""""""""""""""""""""""""""""""
+
+" Treesitter
+" No, it doesn't indent very well
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+rainbow = {
+enable = true,
+-- disable = { "jsx", "cpp"  }, list of languages you want to disable the plugin for
+extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+max_file_lines = nil, -- Do not enable for files with more than n lines, int
+-- colors = {}, -- table of hex strings
+-- termcolors = {} -- table of colour name strings
+},
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""
 
