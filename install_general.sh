@@ -56,6 +56,7 @@ if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install python3-dev python3-pip python3-setuptools
 fi
 
+echo
 read -p "Install CLOJURE package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	curl -O https://download.clojure.org/install/linux-install-1.10.3.1029.sh
