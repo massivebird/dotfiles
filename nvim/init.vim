@@ -206,7 +206,7 @@ nnoremap <leader>O O<Down><Esc>
 nnoremap U <C-r>
 
 " Fix indentation of entire file (deprecated soon probably)
-nnoremap <F7> gg=G<C-o><C-o>
+nnoremap <F7> gg=G<C-o><C-o><C-o>
 
 " \"Docs\" mode
 nnoremap <leader>d :set spell<cr> :set wrap<cr> :set linebreak<cr>
