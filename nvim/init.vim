@@ -190,6 +190,7 @@ nnoremap <leader>pc	:PlugClean<cr>
 nnoremap <leader>pu	:PlugUpdate<cr>
 nnoremap <leader>t	:term<cr>
 nnoremap <leader>A	ggcG
+nnoremap <leader>n	:noh<cr>
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
