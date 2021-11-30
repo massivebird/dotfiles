@@ -188,6 +188,8 @@ nnoremap <leader>s	:source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi	:PlugInstall<cr>
 nnoremap <leader>pc	:PlugClean<cr>
 nnoremap <leader>pu	:PlugUpdate<cr>
+nnoremap <leader>t	:term<cr>
+nnoremap <leader>A	ggcG
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
