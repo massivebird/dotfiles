@@ -213,3 +213,6 @@ nnoremap <leader>d :set spell<cr> :set wrap<cr> :set linebreak<cr>
 
 " Temporary clojure eval solution
 nnoremap <leader>e :%ConjureEval<cr>
+
+" Clojure: (1) Creates log in right-hand window (2) launches REPL in new tab
+nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
