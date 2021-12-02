@@ -111,3 +111,4 @@ alias src="source ~/.zshrc"
 
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
+alias ytd="youtube-dl"
