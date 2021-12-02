@@ -223,4 +223,4 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
 
 " OBS-friendly window environment
-nnoremap <leader>ST :vsplit<cr><C-w>h:vertical resize 31<cr>:split<cr><C-w>j:enew<cr><C-w>k:resize 42<cr>:e ~/docs/stream.md<cr>
+nnoremap <leader>ST :31vsp ~/docs/stream.md<cr><C-w>l
