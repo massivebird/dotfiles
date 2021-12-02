@@ -58,6 +58,7 @@ set cursorline
 set number
 set norelativenumber
 set noshowmode
+set linebreak
 autocmd TermOpen * setlocal nonumber norelativenumber
 filetype plugin indent on
 
@@ -212,7 +213,7 @@ nnoremap U <C-r>
 nnoremap <F7> gg=G<C-o><C-o><C-o>
 
 " \"Docs\" mode
-nnoremap <leader>d :set spell<cr> :set wrap<cr> :set linebreak<cr>
+nnoremap <leader>d :set spell<cr> :set wrap<cr>
 
 " Conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
@@ -220,3 +221,5 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
 " Clojure: (1) Creates log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
+
+nnoremap <leader>ST :vsplit<cr><C-w>h:vertical resize 31<cr>:split<cr><C-w>j:enew<cr><C-w>k:resize 42<cr>:e ~/docs/stream.md<cr>
