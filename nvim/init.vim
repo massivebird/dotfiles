@@ -101,7 +101,6 @@ let g:vim_markdown_folding_disabled = 1
 """"""""""""""""""""""""""""""""""""""""""
 
 " Treesitter
-" No, it doesn't indent very well
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
