@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias conf="~/.config"
+alias clj="clj/"
 
 alias src="source ~/.zshrc"
 
