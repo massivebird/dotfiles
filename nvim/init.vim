@@ -39,6 +39,8 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""
