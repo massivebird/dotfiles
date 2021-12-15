@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo
 read -p "Update APT cache? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
