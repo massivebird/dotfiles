@@ -209,7 +209,7 @@ nnoremap <Down>		:resize -2<cr>
 nnoremap <Right>	:vertical resize +2<cr>
 nnoremap <Left>		:vertical resize -2<cr>
 
-" Escape exits -- TERMINAL --
+" Escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
 " Create new line above or below current line
@@ -229,7 +229,7 @@ nnoremap <leader>d :set spell<cr> :set wrap<cr>
 nnoremap <leader>e :%ConjureEval<cr>
 nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
-" Clojure: (1) Creates log in right-hand window (2) launches REPL in new tab
+" Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
 
 " OBS-friendly window environment
