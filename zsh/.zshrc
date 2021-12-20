@@ -111,6 +111,7 @@ alias exp="explorer.exe ."
 
 alias src="source ~/.zshrc"
 
+alias c="cd"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
 alias ytd="youtube-dl"
