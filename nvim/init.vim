@@ -32,6 +32,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for':
 " Clojure support
 Plug 'olical/conjure'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fireplace'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 
