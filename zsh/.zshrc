@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias conf="~/.config"
 alias clj="clj/"
-alias exp="explorer.exe ."
+alias exp="explorer.exe"
 
 alias src="source ~/.zshrc"
 
