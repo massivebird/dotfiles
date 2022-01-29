@@ -14,6 +14,7 @@ if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install tree
 	sudo apt-get install youtube-dl # media downloader
 	sudo apt install neofetch # pretty-print system info
+	sudo apt install pandoc
 fi
 
 echo
