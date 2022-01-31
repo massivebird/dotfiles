@@ -129,6 +129,13 @@ EOF
 
 """"""""""""""""""""""""""""""""""""""""""
 
+" Notetaking tools courtesy of github.com/connermcd
+
+command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/**/*.txt
+nnoremap <leader>[ :Ngrep 
+
+""""""""""""""""""""""""""""""""""""""""""
+
 " Stel's Stellar Remaps
 
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
