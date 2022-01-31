@@ -204,21 +204,21 @@ nnoremap <leader>t	:term<cr>
 nnoremap <leader>A	ggcG
 nnoremap <leader>n	:noh<cr>
 
+" Redo
+nnoremap U <C-r>
+
+" Escape exits terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
 nnoremap <Down>		:resize -2<cr>
 nnoremap <Right>	:vertical resize +2<cr>
 nnoremap <Left>		:vertical resize -2<cr>
 
-" Escape exits terminal mode
-tnoremap <Esc> <C-\><C-n>
-
 " Create new line above or below current line
 nnoremap <leader>o o<Up><Esc>
 nnoremap <leader>O O<Down><Esc>
-
-" Redo
-nnoremap U <C-r>
 
 " Fix indentation of entire file (deprecated soon probably)
 nnoremap <F7> gg=G<C-o><C-o><C-o>
