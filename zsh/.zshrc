@@ -113,6 +113,7 @@ alias exp="explorer.exe"
 alias src="source ~/.zshrc"
 
 alias c="cd"
+alias l="ls -h1sS"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
 alias ncz="nvim ~/.config/zsh/.zshrc"
