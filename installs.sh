@@ -44,7 +44,8 @@ echo
 read -p "Install JS package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install npm
-	sudo apt install nodejs
+	curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+	sudo apt-get install -y nodejs
 fi
 
 echo
