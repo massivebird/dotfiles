@@ -210,6 +210,10 @@ nnoremap U <C-r>
 " Escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" Vimgrep navigation
+nnoremap <C-]> :cnext<cr>
+nnoremap <C-[> :cprevious<cr>
+
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
 nnoremap <Down>		:resize -2<cr>
