@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export NOTES_DIR=/mnt/c/Users/Garrett/Documents/!academia/cis120_linux/mod1
+
 alias conf="~/.config"
 alias clj="clj/"
 alias exp="explorer.exe"

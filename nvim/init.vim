@@ -131,8 +131,8 @@ EOF
 
 " Notetaking tools courtesy of github.com/connermcd
 
-" command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/**/*.txt
-command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*.txt
+" command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/**/*.md
+command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*.md
 nnoremap <leader>[ :Ngrep 
 
 """"""""""""""""""""""""""""""""""""""""""
