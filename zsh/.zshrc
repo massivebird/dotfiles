@@ -1,8 +1,7 @@
 echo Watch that posture, king
 
 # If you come from bash you might have to change your $PATH.
-PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
-export PATH
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -116,5 +115,6 @@ alias src="source ~/.zshrc"
 alias c="cd"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
+alias ncz="nvim ~/.config/zsh/.zshrc"
 alias schoo="/mnt/c/Users/[gG]*/Documents/!academia"
 alias ytd="youtube-dl"
