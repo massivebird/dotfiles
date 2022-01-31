@@ -113,7 +113,7 @@ alias exp="explorer.exe"
 alias src="source ~/.zshrc"
 
 alias c="cd"
-alias l="ls -1AsSh"
+alias l="ls -1AshX --group-directories-first"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
 alias ncz="nvim ~/.config/zsh/.zshrc"
