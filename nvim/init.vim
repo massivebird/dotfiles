@@ -133,7 +133,6 @@ EOF
 
 " command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/**/*.md
 command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*.md
-nnoremap <leader>[ :Ngrep 
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -221,6 +220,7 @@ tnoremap <Esc> <C-\><C-n>
 " Vimgrep navigation
 nnoremap <C-]> :cnext<cr>
 nnoremap <C-[> :cprevious<cr>
+nnoremap <leader>[ :Ngrep 
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
