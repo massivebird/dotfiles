@@ -225,7 +225,7 @@ command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 
 nnoremap <C-]> :Lnext<cr>
-nnoremap <C-[> :Lprevious<cr>
+nnoremap <C-[> :Lprev<cr>
 nnoremap <leader>[ :Ngrep 
 
 " Window resizing
