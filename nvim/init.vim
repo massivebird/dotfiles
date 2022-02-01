@@ -131,8 +131,7 @@ EOF
 
 " Notetaking tools courtesy of github.com/connermcd
 
-" command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/**/*.md
-command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*.md
+command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*/*/*.md
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -217,9 +216,16 @@ nnoremap U <C-r>
 " Escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Vimgrep navigation
-nnoremap <C-]> :cnext<cr>
-nnoremap <C-[> :cprevious<cr>
+" Vimgrep navigation ft. looping quickfix navigation
+
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+command! Cprev try | cprev | catch | clast | catch | endtry
+
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+
+nnoremap <C-]> :Lnext<cr>
+nnoremap <C-[> :Lprevious<cr>
 nnoremap <leader>[ :Ngrep 
 
 " Window resizing
@@ -247,3 +253,4 @@ nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.cloj
 
 " OBS-friendly window environment
 nnoremap <leader>ST :31vsp ~/docs/stream.md<cr><C-w>l
+
