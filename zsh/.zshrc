@@ -40,7 +40,6 @@ alias exp="explorer.exe"
 alias src="source ~/.zshrc"
 
 alias c="cd"
-alias gup="git pull && git push"
 alias l="ls -1AshX --group-directories-first"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
