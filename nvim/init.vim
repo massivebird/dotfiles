@@ -202,13 +202,14 @@ nnoremap <leader>w	:w<cr>
 nnoremap <leader>q	:wq<cr>
 nnoremap <leader>Q	:q!<cr>
 nnoremap <leader>c	:close<cr>
+nnoremap <leader>A	ggcG
 nnoremap <leader>s	:source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>pi	:PlugInstall<cr>
 nnoremap <leader>pc	:PlugClean<cr>
 nnoremap <leader>pu	:PlugUpdate<cr>
 nnoremap <leader>t	:term<cr>
-nnoremap <leader>A	ggcG
 nnoremap <leader>n	:noh<cr>
+nnoremap <leader>S	:%s/
 
 " Redo
 nnoremap U <C-r>
@@ -224,9 +225,9 @@ command! Cprev try | cprev | catch | clast | catch | endtry
 command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 
-nnoremap <C-]> :Lnext<cr>
-nnoremap <C-[> :Lprev<cr>
-nnoremap <leader>[ :Ngrep 
+nnoremap <C-]>		:Lnext<cr>
+nnoremap <C-[>		:Lprev<cr>
+nnoremap <leader>[	:Ngrep 
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
@@ -250,7 +251,3 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
 " Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
-
-" OBS-friendly window environment
-nnoremap <leader>ST :31vsp ~/docs/stream.md<cr><C-w>l
-
