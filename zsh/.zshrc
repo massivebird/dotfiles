@@ -33,18 +33,17 @@ set -K
 # Variable for vimgrep
 export NOTES_DIR=/mnt/c/Users/Garrett/Documents/!academia/notes_all/
 
-alias conf="~/.config"
-alias clj="clj/"
-alias exp="explorer.exe"
-
-alias src="source ~/.zshrc"
-
 alias c="cd"
+alias exp="explorer.exe"
 alias l="ls -1AshX --group-directories-first"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
 alias ncz="nvim ~/.config/zsh/.zshrc"
 alias nn="nvim $NOTES_DIR"
-alias schoo="~/academia"
+alias src="source ~/.zshrc"
 alias trees="tree -RI .g"
 alias ytd="youtube-dl"
+
+alias clj="clj/"
+alias conf="~/.config"
+alias schoo="~/academia"
