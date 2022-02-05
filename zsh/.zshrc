@@ -31,7 +31,7 @@ source $ZSH/oh-my-zsh.sh
 set -K
 
 # Variable for vimgrep
-export NOTES_DIR=/mnt/c/Users/Garrett/Documents/!academia/notes_all/
+export NOTES_DIR=~/academia/notes_all/
 
 alias c="cd"
 alias exp="explorer.exe"
