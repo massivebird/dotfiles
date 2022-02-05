@@ -17,7 +17,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ap/vim-css-color'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'balanceiskey/vim-framer-syntax', { 'branch': 'main'  }
+Plug 'massivebird/vim-framer-syntax'
 
 " Autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
