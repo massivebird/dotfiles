@@ -62,6 +62,7 @@ set cursorline
 set number
 set norelativenumber
 set noshowmode
+set splitright
 set linebreak
 autocmd TermOpen * setlocal nonumber norelativenumber
 filetype plugin indent on
@@ -133,6 +134,21 @@ EOF
 " Notetaking tools courtesy of github.com/connermcd
 
 command! -nargs=1 Ngrep lvimgrep "<args>" $NOTES_DIR/*/*/*.md
+
+" My version that doesn't immediately present results like the above
+" (and it bothers me)
+
+" fun! MyNgrep(query, ...)
+" 	let query = a:query
+" 	let course = get(a:, 1, "")
+" 	let path = "$NOTES_DIR/" . course . "*/*/*.md"
+" 	echom query course path
+" 	:vsp
+" 	" execute 'lvimgrep' query path
+" 	lvimgrep query path
+" endfunction
+
+" command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -218,6 +234,9 @@ nnoremap U <C-r>
 " Escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" Because it was doing strange things >:(
+nnoremap <leader><Esc> <Nop>
+
 " Vimgrep navigation ft. looping quickfix navigation
 
 command! Cnext try | cnext | catch | cfirst | catch | endtry
@@ -252,3 +271,4 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
 " Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
+
