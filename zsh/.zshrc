@@ -41,7 +41,7 @@ alias nc="nvim ~/.config/nvim/init.vim"
 alias ncz="nvim ~/.config/zsh/.zshrc"
 alias nn="nvim $NOTES_DIR"
 alias src="source ~/.zshrc"
-alias trees="tree -RI .g -L 2"
+alias trees="tree -RI .g -L 2 --dirsfirst"
 alias ytd="youtube-dl"
 
 alias clj="clj/"
