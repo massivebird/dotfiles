@@ -186,6 +186,7 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-h> <C-\><C-n>:call MoveLeft()<CR>
 tnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
+nnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
 
 " Move to tab by index
 noremap <leader>1 1gt
@@ -271,4 +272,3 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
 " Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
-
