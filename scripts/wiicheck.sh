@@ -26,6 +26,7 @@ echo # print newline
 
 # Paths to Wii and GCN directories based on optional argument
 if [ $(echo $1 | wc -w) -eq 0 ]; then
+	echo -e "$STATUS_OK Backup directory initialized"
 	wiigames=/mnt/*/wiiback/wbfs
 	gcngames=/mnt/*/wiiback/games
 elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
@@ -39,8 +40,8 @@ else
 fi
 
 # Returns unexpected filename(s)
-unexwii=$(ls $wiigames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
-unexgcn=$(ls $gcngames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
+unexwii=$(find $wiigames -empty)$(ls $wiigames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
+unexgcn=$(find $gcngames -empty)$(ls $gcngames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
 if [ $(echo $unexwii | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
