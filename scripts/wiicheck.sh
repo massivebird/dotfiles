@@ -1,5 +1,8 @@
 #!/bin/bash
 
+## OPTIONAL ARGUMENTS
+# $1: single character drive letter of the Wii external storage device
+
 # Color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
