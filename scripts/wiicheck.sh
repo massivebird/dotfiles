@@ -44,14 +44,14 @@ unexgcn=$(ls $gcngames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
 if [ $(echo $unexwii | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
-	echo -e $unexwii
+	echo "$unexwii"
 else
 	echo -e "$STATUS_OK $WII: Looking good!"
 fi
 
 if [ $(echo $unexgcn | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $GCN: Unexpected filename(s) detected"
-	echo $unexgcn
+	echo "$unexgcn"
 else
 	echo -e "$STATUS_OK $GCN: Looking fresh!"
 fi
