@@ -29,6 +29,7 @@ if [ $(echo $1 | wc -w) -eq 0 ]; then
 	wiigames=/mnt/*/wiiback/wbfs
 	gcngames=/mnt/*/wiiback/games
 elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
+	echo -e "$STATUS_OK Drive ${1^^} successfully initialized"
 	wiigames=/mnt/$1/wbfs
 	gcngames=/mnt/$1/games
 else
