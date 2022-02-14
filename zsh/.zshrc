@@ -42,7 +42,7 @@ alias ncz="nvim ~/.config/zsh/.zshrc"
 alias nn="nvim $NOTES_DIR"
 alias src="source ~/.zshrc"
 alias trees="tree -RI .g -L 2 --dirsfirst"
-alias wiicopy="cp -uvr /mnt/d/WIIBACK/games/* /mnt/g/games && cp -uvr /mnt/d/WIIBACK/wbfs/* /mnt/g/wbfs"
+alias wiicopy="cp -uvr /mnt/d/WIIBACK/games/* /mnt/*/games && cp -uvr /mnt/d/WIIBACK/wbfs/* /mnt/*/wbfs"
 alias ytd="youtube-dl"
 
 alias clj="clj/"
