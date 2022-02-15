@@ -25,7 +25,7 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 echo # print newline
 
 # Paths to Wii and GCN directories based on optional argument
-if [ ! -d "/mnt/*/wiiback" ]; then
+if [ ! -d "/mnt/d/wiiback" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
 	echo
 	exit
