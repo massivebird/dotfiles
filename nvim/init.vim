@@ -227,7 +227,7 @@ nnoremap <leader>pc	:PlugClean<cr>
 nnoremap <leader>pu	:PlugUpdate<cr>
 nnoremap <leader>t	:term<cr>
 nnoremap <leader>n	:noh<cr>
-nnoremap <leader>S	:%s/
+nnoremap <leader>S	:%s/\g<Left><Left>
 
 " Redo
 nnoremap U <C-r>
