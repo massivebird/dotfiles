@@ -228,6 +228,7 @@ nnoremap <leader>pu	:PlugUpdate<cr>
 nnoremap <leader>t	:term<cr>
 nnoremap <leader>n	:noh<cr>
 nnoremap <leader>S	:%s/\g<Left><Left>
+nnoremap /		:/\c<Left><Left>
 
 " Redo
 nnoremap U <C-r>

@@ -25,7 +25,11 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 echo # print newline
 
 # Paths to Wii and GCN directories based on optional argument
-if [ $(echo $1 | wc -w) -eq 0 ]; then
+if [ ! -d "/mnt/*/wiiback" ]; then
+	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
+	echo
+	exit
+elif [ $(echo $1 | wc -w) -eq 0 ]; then
 	echo -e "$STATUS_OK Backup directory initialized"
 	wiigames=/mnt/*/wiiback/wbfs
 	gcngames=/mnt/*/wiiback/games
