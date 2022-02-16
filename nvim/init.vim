@@ -64,6 +64,7 @@ set cursorline
 set number
 set norelativenumber
 set noshowmode
+set shiftwidth=0
 set splitright
 set linebreak
 autocmd TermOpen * setlocal nonumber norelativenumber
