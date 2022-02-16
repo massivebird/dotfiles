@@ -1,5 +1,7 @@
 " Plugin Manager: vim-plug
 
+let $VIM='~/.config/nvim/init.vim'
+
 call plug#begin('~/.config/nvim/plugged')
 
 " Tim Pope aka Magic Hands
