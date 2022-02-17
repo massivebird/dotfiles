@@ -18,9 +18,14 @@ NC="$(tput sgr 0)"
 # Colored Wii and GCN strings
 WII="${CYAN}WII${NC}"
 GCN="${MAGENTA}GCN${NC}"
+STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
+
+# Status check for after regex evaluations
+WIIGSTATUS=0
+GCNSTATUS=0
 
 echo # print newline
 
@@ -31,27 +36,31 @@ if [ ! -d "/mnt/d/wiiback" ]; then
 	exit
 elif [ $(echo $1 | wc -w) -eq 0 ]; then
 	echo -e "$STATUS_OK Backup directory initialized"
-	wiigames=/mnt/*/wiiback/wbfs
-	gcngames=/mnt/*/wiiback/games
+	WIIDIR=/mnt/*/wiiback/wbfs
+	GCNDIR=/mnt/*/wiiback/games
 elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
 	echo -e "$STATUS_OK Drive ${1^^} successfully initialized"
-	wiigames=/mnt/$1/wbfs
-	gcngames=/mnt/$1/games
+	WIIDIR=/mnt/$1/wbfs
+	GCNDIR=/mnt/$1/games
 else
 	echo -e "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to" /mnt/*/wiiback "\b."
-	wiigames=/mnt/*/wiiback/wbfs
-	gcngames=/mnt/*/wiiback/games
+	WIIDIR=/mnt/*/wiiback/wbfs
+	GCNDIR=/mnt/*/wiiback/games
 fi
 
+WIIGAMES=$(ls -l $WIIDIR | grep '^d' | wc -l)
+GCNGAMES=$(ls -l $GCNDIR | grep '^d' | wc -l)
+
 # Returns unexpected filename(s)
-unexwii=$(find $wiigames -empty)$(ls $wiigames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
-unexgcn=$(find $gcngames -empty)$(ls $gcngames/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
+unexwii=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
+unexgcn=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
 if [ $(echo $unexwii | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
 	echo "$unexwii"
 else
 	echo -e "$STATUS_OK $WII: Looking good!"
+	WIIGSTATUS=1
 fi
 
 if [ $(echo $unexgcn | wc -w) -gt 0 ]; then
@@ -59,6 +68,12 @@ if [ $(echo $unexgcn | wc -w) -gt 0 ]; then
 	echo "$unexgcn"
 else
 	echo -e "$STATUS_OK $GCN: Looking fresh!"
+	GCNSTATUS=1
+fi
+
+# Outputs total games if both Wii can GCN are ok
+if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
+	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games! Cool! "
 fi
 
 echo # print newline
