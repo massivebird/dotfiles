@@ -231,7 +231,7 @@ nnoremap <leader>pu	:PlugUpdate<cr>
 nnoremap <leader>t	:term<cr>
 nnoremap <leader>n	:noh<cr>
 nnoremap <leader>S	:%s//g<Left><Left>
-nnoremap /		:/\c<Left><Left>
+nnoremap /           :/\c<Left><Left>
 
 " Redo
 nnoremap U <C-r>
@@ -249,6 +249,9 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Get rid of weird location list error
+nnoremap <Esc> <Nop>
 
 " Vimgrep navigation ft. looping quickfix navigation
 
