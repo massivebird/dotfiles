@@ -15,7 +15,7 @@ RED="$(tput setaf 1)"
 YELLOW="$(tput setaf 220)"
 NC="$(tput sgr 0)"
 
-# Colored Wii and GCN strings
+# Colored strings
 WII="${CYAN}WII${NC}"
 GCN="${MAGENTA}GCN${NC}"
 STATUS_COOL="[$GREEN COOL $NC]"
@@ -27,7 +27,7 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 WIIGSTATUS=0
 GCNSTATUS=0
 
-echo # print newline
+echo # Output newline
 
 # Paths to Wii and GCN directories based on optional argument
 if [ ! -d "/mnt/d/wiiback" ]; then
@@ -48,13 +48,15 @@ else
 	GCNDIR=/mnt/*/wiiback/games
 fi
 
+# Number of games per system
 WIIGAMES=$(ls -l $WIIDIR | grep '^d' | wc -l)
 GCNGAMES=$(ls -l $GCNDIR | grep '^d' | wc -l)
 
-# Returns unexpected filename(s)
+# Locates unexpected filename(s)
 unexwii=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
 unexgcn=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
+# Main output
 if [ $(echo $unexwii | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
 	echo "$unexwii"
@@ -76,4 +78,4 @@ if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
 	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games! Cool! "
 fi
 
-echo # print newline
+echo # Output newline
