@@ -52,6 +52,9 @@ fi
 WIIGAMES=$(ls -l $WIIDIR | grep '^d' | wc -l)
 GCNGAMES=$(ls -l $GCNDIR | grep '^d' | wc -l)
 
+# Calculates total size of all games
+TOTAL_SIZE=$(du -chs $WIIDIR $GCNDIR | tail -n 1 | grep -oE '(^\w.+)[GM]')
+
 # Locates unexpected filename(s)
 unexwii=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
 unexgcn=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
@@ -75,7 +78,7 @@ fi
 
 # Outputs total games if both Wii can GCN are ok
 if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
-	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games! Cool! "
+	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games in $TOTAL_SIZE! Cool!"
 fi
 
 echo # Output newline
