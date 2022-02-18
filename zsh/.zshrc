@@ -12,6 +12,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="eastwood"
 
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION  ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
