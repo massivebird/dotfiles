@@ -56,21 +56,21 @@ GCNGAMES=$(ls -l $GCNDIR | grep '^d' | wc -l)
 TOTAL_SIZE=$(du -chs $WIIDIR $GCNDIR | tail -n 1 | grep -oE '(^\w.+)[GM]')
 
 # Locates unexpected filename(s)
-unexwii=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
-unexgcn=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
+UNEXWII=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
+UNEXGCN=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
 # Main output
-if [ $(echo $unexwii | wc -w) -gt 0 ]; then
+if [ $(echo $UNEXWII | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
-	echo "$unexwii"
+	echo "$UNEXWII"
 else
 	echo -e "$STATUS_OK $WII: Looking good!"
 	WIIGSTATUS=1
 fi
 
-if [ $(echo $unexgcn | wc -w) -gt 0 ]; then
+if [ $(echo $UNEXGCN | wc -w) -gt 0 ]; then
 	echo -e "$STATUS_OHNO $GCN: Unexpected filename(s) detected"
-	echo "$unexgcn"
+	echo "$UNEXGCN"
 else
 	echo -e "$STATUS_OK $GCN: Looking fresh!"
 	GCNSTATUS=1
