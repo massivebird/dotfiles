@@ -41,6 +41,7 @@ set -K
 export NOTES_DIR=~/academia/notes_all/
 
 alias c="cd"
+alias dirl="dirs -v"
 alias exp="explorer.exe"
 alias l="ls -1AshX --group-directories-first"
 alias n="nvim"
