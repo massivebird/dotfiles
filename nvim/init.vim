@@ -250,9 +250,6 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Get rid of weird location list error
-nnoremap <Esc> <Nop>
-
 " Vimgrep navigation ft. looping quickfix navigation
 
 command! Cnext try | cnext | catch | cfirst | catch | endtry
@@ -281,9 +278,13 @@ nnoremap <F7> gg=G<C-o><C-o><C-o>
 " \"Docs\" mode
 nnoremap <leader>d :set spell<cr> :set wrap<cr>
 
+" Get rid of weird location list error
+nnoremap <Esc> <Nop>
+
 " Conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
 nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
 " Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
+
