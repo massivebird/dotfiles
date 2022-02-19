@@ -43,6 +43,7 @@ export NOTES_DIR=~/academia/notes_all/
 alias c="cd"
 alias dirl="dirs -v"
 alias exp="explorer.exe"
+alias glop="git log --graph -p"
 alias l="ls -1AshX --group-directories-first"
 alias n="nvim"
 alias nc="nvim ~/.config/nvim/init.vim"
