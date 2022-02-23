@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## WIICHECK
 # This script validates the file system structure for an external

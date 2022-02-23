@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo
 read -p "Update APT cache? [y/n] " MSG
