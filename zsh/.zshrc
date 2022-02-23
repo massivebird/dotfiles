@@ -1,7 +1,7 @@
 echo Watch that posture, king
 
 # If you come from bash you might have to change your $PATH.
-export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
+export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -54,7 +54,7 @@ alias src="source ~/.zshrc"
 alias trees="tree -RI .g -L 2 --dirsfirst"
 alias wiicopy="cp -uvr /mnt/d/WIIBACK/games/* /mnt/*/games && cp -uvr /mnt/d/WIIBACK/wbfs/* /mnt/*/wbfs"
 alias ytd="yt-dlp"
-alias ytdy="yt-dlp -f 22 --embed-thumbnails --embed-chapters --embed-subs"
+alias ytdy="yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs"
 
 alias clj="clj/"
 alias conf="~/.config"
