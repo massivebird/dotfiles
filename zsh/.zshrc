@@ -52,7 +52,6 @@ alias nn="nvim $NOTES_DIR"
 alias pingg"ping google.com"
 alias src="source ~/.zshrc"
 alias trees="tree -RI .g -L 2 --dirsfirst"
-alias wiicopy="cp -uvr /mnt/d/WIIBACK/games/* /mnt/*/games && cp -uvr /mnt/d/WIIBACK/wbfs/* /mnt/*/wbfs"
 alias ytd="yt-dlp"
 alias ytdy="yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs"
 
