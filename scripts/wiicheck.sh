@@ -27,25 +27,28 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 WIIGSTATUS=0
 GCNSTATUS=0
 
+# Name of backup directory so I can change it later
+BACKUPNAME="WIIBACK"
+
 echo # Output newline
 
 # Paths to Wii and GCN directories based on optional argument
-if [ ! -d "/mnt/d/wiiback" ]; then
+if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
 	echo
 	exit
 elif [ $(echo $1 | wc -w) -eq 0 ]; then
 	echo -e "$STATUS_OK Backup directory initialized"
-	WIIDIR=/mnt/*/wiiback/wbfs
-	GCNDIR=/mnt/*/wiiback/games
+	WIIDIR="/mnt/*/$BACKUPNAME/wbfs"
+	GCNDIR="/mnt/*/$BACKUPNAME/games"
 elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
 	echo -e "$STATUS_OK Drive ${1^^} successfully initialized"
-	WIIDIR=/mnt/$1/wbfs
-	GCNDIR=/mnt/$1/games
+	WIIDIR="/mnt/$1/wbfs"
+	GCNDIR="/mnt/$1/games"
 else
-	echo -e "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to" /mnt/*/wiiback "\b."
-	WIIDIR=/mnt/*/wiiback/wbfs
-	GCNDIR=/mnt/*/wiiback/games
+	echo -e "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to" /mnt/*/$BACKUPNAME "\b."
+	WIIDIR="/mnt/*/$BACKUPNAME/wbfs"
+	GCNDIR="/mnt/*/$BACKUPNAME/games"
 fi
 
 # Number of games per system
