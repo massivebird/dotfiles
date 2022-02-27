@@ -1,5 +1,8 @@
 #!/usr/bin/etc bash
 
+# WIICOPY.SH
+# Copies contents of local archive to external HDD
+
 # Color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
@@ -9,26 +12,39 @@ YELLOW="$(tput setaf 220)"
 NC="$(tput sgr 0)"
 
 # Colored strings
-WII="${CYAN}WII${NC}"
+DS="$(tput setaf 253)DS${NC}"
+GB="$(tput setaf 65)GB${NC}"
+GBA="$(tput setaf 219)GBA${NC}"
 GCN="${MAGENTA}GCN${NC}"
+N64="$(tput setaf 42)N64${NC}"
+PS2="$(tput setaf 242)PS2${NC}"
+SNES="$(tput setaf 57)SNES${NC}"
+WII="${CYAN}WII${NC}"
+STATUS_CONS="[$(tput setaf 237) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
 DRIVE=$(echo "$DRIVE/wbfs" | grep -E '.{6}')
 
-echo
+# Backup directory
+DIRBACKUP="/mnt/d/wiiback"
+
+mycopy () {
+	cp -uvr $1 $2
+	echo "$STATUS_OK $3 transfer completed"
+}
+
 echo "$STATUS_OK Wii drive initialized"
-echo
-cp -uvr /mnt/d/WIIBACK/README.md $DRIVE/README.md
-echo
-echo "$STATUS_OK README updated"
-echo
-cp -uvr /mnt/d/WIIBACK/wbfs/* $DRIVE/wbfs
-echo
-echo "$STATUS_OK $WII: transfer completed"
-echo
-cp -uvr /mnt/d/WIIBACK/games/* $DRIVE/games
-echo
-echo "$STATUS_OK $GCN: transfer completed"
-echo
+mycopy $DIRBACKUP/README.md $DRIVE/README.md "README"
+mycopy $DIRBACKUP/wbfs/* $DRIVE/wbfs $WII
+mycopy $DIRBACKUP/games/* $DRIVE/games $GCN
+if [ %1 = "-a" ]; then
+	echo "$STATUS_CONS -a flag detected. Copying all systems..."
+	mycopy $DIRBACKUP/ds $DRIVE/ds $DS
+	mycopy $DIRBACKUP/gb $DRIVE/gb $GB
+	mycopy $DIRBACKUP/gba $DRIVE/gba $GBA
+	mycopy $DIRBACKUP/n64 $DRIVE/n64 $N64
+	mycopy $DIRBACKUP/ps2 $DRIVE/ps2 $PS2
+	mycopy $DIRBACKUP/snes $DRIVE/snes $SNES
+fi
