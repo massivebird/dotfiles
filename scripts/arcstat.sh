@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## ARCHSTAT.SH
+## ARCSTAT.SH
 # Statistics about my local video game archive
 
 # Color presets
