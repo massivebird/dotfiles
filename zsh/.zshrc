@@ -54,7 +54,7 @@ alias pingg"ping google.com"
 alias src="source ~/.zshrc"
 alias trees="tree -RI .g -L 2 --dirsfirst"
 alias ytd="yt-dlp"
-alias ytdy="yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs"
+alias ytdy="yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat"
 
 alias clj="clj/"
 alias conf="~/.config"
