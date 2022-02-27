@@ -41,10 +41,10 @@ mycopy $DIRBACKUP/wbfs/* $DRIVE/wbfs $WII
 mycopy $DIRBACKUP/games/* $DRIVE/games $GCN
 if [ %1 = "-a" ]; then
 	echo "$STATUS_CONS -a flag detected. Copying all systems..."
-	mycopy $DIRBACKUP/ds $DRIVE/ds $DS
-	mycopy $DIRBACKUP/gb $DRIVE/gb $GB
-	mycopy $DIRBACKUP/gba $DRIVE/gba $GBA
-	mycopy $DIRBACKUP/n64 $DRIVE/n64 $N64
-	mycopy $DIRBACKUP/ps2 $DRIVE/ps2 $PS2
-	mycopy $DIRBACKUP/snes $DRIVE/snes $SNES
+	mycopy $DIRBACKUP/ds/* $DRIVE/ds $DS
+	mycopy $DIRBACKUP/gb/* $DRIVE/gb $GB
+	mycopy $DIRBACKUP/gba/* $DRIVE/gba $GBA
+	mycopy $DIRBACKUP/n64/* $DRIVE/n64 $N64
+	mycopy $DIRBACKUP/ps2/* $DRIVE/ps2 $PS2
+	mycopy $DIRBACKUP/snes/* $DRIVE/snes $SNES
 fi
