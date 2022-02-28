@@ -1,4 +1,4 @@
-#!/usr/bin/etc bash
+#!/usr/bin/env bash
 
 # WIICOPY.SH
 # Copies contents of local archive to external HDD
@@ -25,7 +25,7 @@ STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
-DRIVE=$(echo "$DRIVE/wbfs" | grep -E '.{6}')
+DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
 
 # Backup directory
 DIRBACKUP="/mnt/d/wiiback"
@@ -36,15 +36,15 @@ mycopy () {
 }
 
 echo "$STATUS_OK Wii drive initialized"
-mycopy $DIRBACKUP/README.md $DRIVE/README.md "README"
-mycopy $DIRBACKUP/wbfs/* $DRIVE/wbfs $WII
-mycopy $DIRBACKUP/games/* $DRIVE/games $GCN
-if [ %1 = "-a" ]; then
+# mycopy $DIRBACKUP/README.md $DRIVE/README.md "README"
+mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
+mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
+if [ $1 = "-a" ]; then
 	echo "$STATUS_CONS -a flag detected. Copying all systems..."
-	mycopy $DIRBACKUP/ds/* $DRIVE/ds $DS
-	mycopy $DIRBACKUP/gb/* $DRIVE/gb $GB
-	mycopy $DIRBACKUP/gba/* $DRIVE/gba $GBA
-	mycopy $DIRBACKUP/n64/* $DRIVE/n64 $N64
-	mycopy $DIRBACKUP/ps2/* $DRIVE/ps2 $PS2
-	mycopy $DIRBACKUP/snes/* $DRIVE/snes $SNES
+	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
+	mycopy "$DIRBACKUP/gb/*" $DRIVE/gb $GB
+	mycopy "$DIRBACKUP/gba/*" $DRIVE/gba $GBA
+	mycopy "$DIRBACKUP/n64/*" $DRIVE/n64 $N64
+	mycopy "$DIRBACKUP/ps2/*" $DRIVE/ps2 $PS2
+	mycopy "$DIRBACKUP/snes/*" $DRIVE/snes $SNES
 fi
