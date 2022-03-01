@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-# WIICOPY.SH
-# Copies contents of local archive to external HDD
+## WIICOPY.SH
+# Copies contents of local archive to external HDD.
+# Only transfers WII and GCN games by default.
+
+## OPTIONAL ARGUMENTS
+# -a, --all
+#	Transfers all system archives
 
 # Color presets
 CYAN="$(tput setaf 45)"
@@ -43,7 +48,7 @@ echo "$STATUS_OK External drive initialized"
 mycopy $DIRBACKUP/README.md $DRIVE "README"
 mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
 mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
-if [ $1 = "-a" ]; then
+if [ $1 = "-a" ] || [ $1 = "--all" ]; then
 	echo "$STATUS_CONS -a flag detected. Copying all systems..."
 	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
 	mycopy "$DIRBACKUP/3ds/*" $DRIVE/3ds $DS3
