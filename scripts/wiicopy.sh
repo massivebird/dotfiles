@@ -26,18 +26,21 @@ STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
-DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
 
 # Backup directory
 DIRBACKUP="/mnt/d/wiiback"
 
+# Locates external drive in /mnt/?/ format
+DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
+
 mycopy () {
+	echo "$STATUS_CONS Initiating $3 transfer"
 	cp -uvr $1 $2
 	echo "$STATUS_OK $3 transfer completed"
 }
 
-echo "$STATUS_OK Wii drive initialized"
-# mycopy $DIRBACKUP/README.md $DRIVE/README.md "README"
+echo "$STATUS_OK External drive initialized"
+mycopy $DIRBACKUP/README.md $DRIVE "README"
 mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
 mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
 if [ $1 = "-a" ]; then
