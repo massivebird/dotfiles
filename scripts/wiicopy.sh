@@ -13,6 +13,7 @@ NC="$(tput sgr 0)"
 
 # Colored strings
 DS="$(tput setaf 253)DS${NC}"
+DS3="$(tput setaf 196)3DS${NC}"
 GB="$(tput setaf 65)GB${NC}"
 GBA="$(tput setaf 219)GBA${NC}"
 GCN="${MAGENTA}GCN${NC}"
@@ -42,6 +43,7 @@ mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
 if [ $1 = "-a" ]; then
 	echo "$STATUS_CONS -a flag detected. Copying all systems..."
 	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
+	mycopy "$DIRBACKUP/3ds/*" $DRIVE/3ds $DS3
 	mycopy "$DIRBACKUP/gb/*" $DRIVE/gb $GB
 	mycopy "$DIRBACKUP/gba/*" $DRIVE/gba $GBA
 	mycopy "$DIRBACKUP/n64/*" $DRIVE/n64 $N64

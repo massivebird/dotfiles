@@ -14,6 +14,7 @@ NC="$(tput sgr 0)"
 
 # Colored strings
 DS="$(tput setaf 253)DS${NC}"
+DS3="$(tput setaf 160)3DS${NC}"
 GB="$(tput setaf 65)GB${NC}"
 GBA="$(tput setaf 219)GBA${NC}"
 GCN="${MAGENTA}GCN${NC}"
@@ -32,6 +33,7 @@ DIRBACKUP="/mnt/d/wiiback"
 
 # System directories
 DIRDS="$DIRBACKUP/ds"
+DIRDS3="$DIRBACKUP/3ds"
 DIRGB="$DIRBACKUP/gb"
 DIRGBA="$DIRBACKUP/gba"
 DIRGCN="$DIRBACKUP/games"
@@ -42,6 +44,7 @@ DIRWII="$DIRBACKUP/wbfs"
 
 # Number of games per system
 NUMDS=$(ls -l $DIRDS | grep -E '\.nds' | wc -l)
+NUMDS3=$(ls -l $DIRDS3 | grep -E '\.cia' | wc -l)
 NUMGB=$(ls -l $DIRGB | grep -E '\.gb[c]?' | wc -l)
 NUMGBA=$(ls -l $DIRGBA | grep -E '\.gba' | wc -l)
 NUMGCN=$(ls -l $DIRGCN | grep -E '^d' | wc -l)
@@ -49,7 +52,7 @@ NUMN64=$(ls -l $DIRN64 | grep -E '\.[nz]64|.rom' | wc -l)
 NUMPS2=$(ls -l $DIRPS2 | grep -E '\.iso' | wc -l)
 NUMSNES=$(ls -l $DIRSNES | grep -E '\.sfc' | wc -l)
 NUMWII=$(ls -l $DIRWII | grep -E '^d' | wc -l)
-NUMTOTAL=$[ $NUMDS + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
+NUMTOTAL=$[ $NUMDS + $NUMDS3 + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
 
 # Calculates total drive usage of all directory arguments
 calcsize () {
@@ -58,6 +61,7 @@ calcsize () {
 
 # Drive usage
 SIZEDS=$(calcsize $DIRDS)
+SIZEDS3=$(calcsize $DIRDS3)
 SIZEGB=$(calcsize $DIRGB)
 SIZEGBA=$(calcsize $DIRGBA)
 SIZEGCN=$(calcsize $DIRGCN)
@@ -71,6 +75,7 @@ echo # Output newline
 
 echo -e "${HEADER}System${NC}\t${HEADER}# Games${NC}\t${HEADER}""Size${NC}"
 echo -e "${DS}\t${NUMDS}\t${SIZEDS}"
+echo -e "${DS3}\t${NUMDS3}\t${SIZEDS3}"
 echo -e "${GB}\t${NUMGB}\t${SIZEGB}"
 echo -e "${GBA}\t${NUMGBA}\t${SIZEGBA}"
 echo -e "${GCN}\t${NUMGCN}\t${SIZEGCN}"
