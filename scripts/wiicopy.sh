@@ -5,8 +5,10 @@
 # Only transfers WII and GCN games by default.
 
 ## OPTIONAL ARGUMENTS
-# -a, --all
+# -a
 #	Transfers all system archives
+# -v
+# 	Copies contents verbosely
 
 # Identifies flags
 while getopts "av" arg; do
