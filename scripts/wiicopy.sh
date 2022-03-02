@@ -8,6 +8,18 @@
 # -a, --all
 #	Transfers all system archives
 
+# Identifies flags
+while getopts "av" arg; do
+	case "${arg}" in
+		v)
+			FLAG_VERBOSE=1
+			;;
+		a)
+			FLAG_ALL=1
+			;;
+	esac
+done
+
 # Color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
@@ -44,17 +56,26 @@ else
 	exit
 fi
 
+# Configures copy function
+if [ -n "$FLAG_VERBOSE" ]; then
+	COPYOPTS="-ur"
+else
+	COPYOPTS="-uvr"
+fi
+
+# Copy function per system/item copied
 mycopy () {
 	echo "$STATUS_CONS Initiating $3 transfer"
-	cp -uvr $1 $2
+	cp $COPYOPTS $1 $2
 	echo "$STATUS_OK $3 transfer completed"
 }
 
+# Copying process begins
 echo "$STATUS_OK External drive initialized"
 mycopy $DIRBACKUP/README.md $DRIVE "README"
 mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
 mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
-if [ $1 = "-a" ] || [ $1 = "--all" ]; then
+if [ -n "$FLAG_ALL" ]; then
 	echo "$STATUS_CONS -a flag detected. Copying all systems..."
 	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
 	mycopy "$DIRBACKUP/3ds/*" $DRIVE/3ds $DS3
