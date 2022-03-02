@@ -36,7 +36,13 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 DIRBACKUP="/mnt/d/wiiback"
 
 # Locates external drive in /mnt/?/ format
-DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
+if [ -d /mnt/*/wbfs ]; then
+	echo "$STATUS_OK External drive detected"
+	DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
+else
+	echo "$STATUS_OHNO No external drive detected"
+	exit
+fi
 
 mycopy () {
 	echo "$STATUS_CONS Initiating $3 transfer"
