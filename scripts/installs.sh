@@ -11,6 +11,7 @@ read -p "Install BASICS package? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install build-essential # gcc + more libraries
 	sudo apt install git-all
+   sudo apt install net-tools # netstat
 	sudo apt install tree
 	sudo apt-get install youtube-dl # media downloader
 	sudo apt install neofetch # pretty-print system info
