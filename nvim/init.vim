@@ -20,6 +20,7 @@ Plug 'evprkr/galaxian-vim'
 Plug 'ap/vim-css-color'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
+Plug 'massivebird/ibm-vim'
 
 " Autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
