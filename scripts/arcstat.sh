@@ -74,8 +74,8 @@ SIZETOTAL=$(calcsize $DIRWII $DIRGCN $DIRPS2 $DIRDS $DIRSNES $DIRGBA $DIRGB $DIR
 echo # Output newline
 
 echo -e "${HEADER}System${NC}\t${HEADER}# Games${NC}\t${HEADER}""Size${NC}"
-echo -e "${DS}\t${NUMDS}\t${SIZEDS}"
 echo -e "${DS3}\t${NUMDS3}\t${SIZEDS3}"
+echo -e "${DS}\t${NUMDS}\t${SIZEDS}"
 echo -e "${GB}\t${NUMGB}\t${SIZEGB}"
 echo -e "${GBA}\t${NUMGBA}\t${SIZEGBA}"
 echo -e "${GCN}\t${NUMGCN}\t${SIZEGCN}"
