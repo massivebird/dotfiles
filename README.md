@@ -2,12 +2,16 @@
 
 Streamlining auto-configuration on new machines since 2021!
 
-## scripts/
+## ./scripts
 
-Here are my Bash scripts!
+### arcstat
 
-`installs.sh` offers categorical app/dependency package installation.
+Displays statistics on my local game archive
 
-`wiicheck.sh` validates file system conventions for USB Loader GX, a Wii Homebrew app.
- 
-`zsh-history-fix.sh` solves issues with ZSH history file corruption.
+![arcstat-preview](https://i.imgur.com/wfEoj96.png)
+
+### wiicheck
+
+Validates file system conventions for USB Loader GX, a Wii Homebrew app
+
+![wiicheck-preview](https://i.imgur.com/DaCQKue.png)
