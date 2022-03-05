@@ -27,9 +27,14 @@ STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
 
-# Parent backup directory
-# contains all relevant directories below
-DIRBACKUP="/mnt/d/wiiback"
+# Locates backup directory
+if [ -d /mnt/*/wiiback ]; then
+	echo "$STATUS_OK Archive detected"
+	DIRBACKUP=/mnt/*/wiiback
+else
+	echo "$STATUS_OHNO No archive directory detected"
+	exit 1
+fi
 
 # System directories
 DIRDS="$DIRBACKUP/ds"
