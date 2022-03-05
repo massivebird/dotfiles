@@ -30,8 +30,6 @@ GCNSTATUS=0
 # Name of backup directory so I can change it later
 BACKUPNAME="WIIBACK"
 
-echo # Output newline
-
 # Paths to Wii and GCN directories based on optional argument
 if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
@@ -83,5 +81,3 @@ fi
 if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
 	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games in $TOTAL_SIZE! Cool!"
 fi
-
-echo # Output newline
