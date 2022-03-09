@@ -33,7 +33,6 @@ BACKUPNAME="WIIBACK"
 # Paths to Wii and GCN directories based on optional argument
 if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
-	echo
 	exit
 elif [ $(echo $1 | wc -w) -eq 0 ]; then
 	echo -e "$STATUS_OK Backup directory initialized"
