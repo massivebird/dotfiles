@@ -26,11 +26,10 @@ if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 fi
 
 echo
-read -p "Apply ZSH CONFIG + PLUGINS? [y/n] " MSG
+read -p "Install ZSH PLUGINS? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
-	rm -f ~/.zshrc
-	ln -s ~/.config/zsh/.zshrc ~/.zshrc
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+	git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
 fi
 
 echo
