@@ -44,6 +44,7 @@ export NOTES_DIR=~/academia/notes_all/
 alias c="cd"
 alias dirl="dirs -v"
 alias exp="explorer.exe"
+alias k="k -Ah --group-directories-first"
 alias glop="git log --graph -p"
 alias l="ls -1AshX --group-directories-first"
 alias ll="ls -1Alh --group-directories-first"
