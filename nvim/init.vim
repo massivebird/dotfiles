@@ -142,17 +142,17 @@ command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 " My version that doesn't immediately present results like the above
 " (and it bothers me)
 
-" fun! MyNgrep(query, ...)
-" 	let query = a:query
-" 	let course = get(a:, 1, "")
-" 	let path = "$NOTES_DIR/" . course . "*/*/*.md"
-" 	echom query course path
-" 	:vsp
-" 	" execute 'lvimgrep' query path
-" 	lvimgrep query path
-" endfunction
+fun! MyNgrep(query, ...)
+	let query = a:query
+	let course = get(a:, 1, "")
+	let path = "$NOTES_DIR/" . course . "*/*/*.md"
+	echom query course path
+	" :vsp
+	" execute 'vimgrep' query path
+	" vimgrep query path
+endfunction
 
-" command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
+command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 
 """"""""""""""""""""""""""""""""""""""""""
 
