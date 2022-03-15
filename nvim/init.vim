@@ -137,7 +137,7 @@ EOF
 
 " Notetaking tools courtesy of github.com/connermcd
 
-command! -nargs=1 Ngrep lvimgrep "<args>\c" $NOTES_DIR/*/*/*.md
+command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
 " My version that doesn't immediately present results like the above
 " (and it bothers me)
@@ -275,9 +275,6 @@ nnoremap <F7> gg=G<C-o><C-o><C-o>
 " \"Docs\" mode
 nnoremap <leader>d :set spell<cr> :set wrap<cr>
 
-" Get rid of weird location list error
-nnoremap <Esc> <Nop>
-
 " Conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
 nnoremap <leader>f :ConjureEvalCurrentForm<cr>
@@ -289,3 +286,6 @@ nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.cloj
 nnoremap <C-]>		:Lnext<cr>
 nnoremap <C-[>		:Lprev<cr>
 nnoremap <leader>[	:Ngrep 
+
+" Get rid of weird location list error
+nnoremap <Esc> <Nop>
