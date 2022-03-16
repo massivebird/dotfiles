@@ -139,20 +139,23 @@ EOF
 
 command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
-" My version that doesn't immediately present results like the above
-" (and it bothers me)
-
+" CURRENT ISSUE : 'Cannot open files' aka does not immediately show first
+" result
 fun! MyNgrep(query, ...)
-	let query = a:query
+	let query = "/".a:query."/j"
 	let course = get(a:, 1, "")
 	let path = "$NOTES_DIR/" . course . "*/*/*.md"
-	echom query course path
-	" :vsp
-	" execute 'vimgrep' query path
-	" vimgrep query path
+	if course == ""
+		let path = "$NOTES_DIR/*/*/*.md"
+	else
+		let path = "$NOTES_DIR/" . course . "*/*/*.md"
+	endif
+	echom query path
+	execute "vimgrep" query path bufname("#")
 endfunction
 
 command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
+command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -251,13 +254,6 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" Vimgrep navigation ft. looping quickfix navigation
-
-command! Cnext try | cnext | catch | cfirst | catch | endtry
-command! Cprev try | cprev | catch | clast | catch | endtry
-
-command! Lnext try | lnext | catch | lfirst | catch | endtry
-command! Lprev try | lprev | catch | llast | catch | endtry
 
 " Window resizing
 nnoremap <Up>		:resize +2<cr>
@@ -282,9 +278,16 @@ nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 " Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
 
-" Location list nav remaps
-nnoremap <C-]>		:Lnext<cr>
-nnoremap <C-[>		:Lprev<cr>
+" Vimgrep navigation ft. looping quickfix navigation
+command! Cprev try | cprev | catch | clast | catch | endtry
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+
+" Quickfix list nav remaps
+nnoremap <C-p>		:Cnext<cr>
+nnoremap <C-o>		:Cprev<cr>
 nnoremap <leader>[	:Ngrep 
 
 " Get rid of weird location list error
