@@ -30,7 +30,7 @@ echo
 read -p "Install ZSH PLUGINS? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+	git clone https://github.com/massivebird/k $ZSH_CUSTOM/plugins/k
 fi
 
 echo
