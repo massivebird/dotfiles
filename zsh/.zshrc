@@ -25,6 +25,7 @@ source ~/.zplug/init.zsh
 
 # zplug: install plugins
 zplug "massivebird/k"
+zplug load
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
