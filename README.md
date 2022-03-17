@@ -1,4 +1,4 @@
-# My .config directory
+# My dotfiles
 
 Streamlining auto-configuration on new machines since 2021!
 
