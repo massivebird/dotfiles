@@ -1,3 +1,4 @@
+# Startup prompt
 echo "Watch that posture, king $USER :)"
 
 # If you come from bash you might have to change your $PATH.
@@ -19,14 +20,18 @@ else
   export EDITOR='nvim'
 fi
 
+# Load up zplug plugin manager
+source ~/.zplug/init.zsh
+
+# zplug: install plugins
+zplug "massivebird/k"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# NOT required for plugins installed via zplug
 plugins=(
 	git
-	k
 	zsh-autosuggestions
 )
 
