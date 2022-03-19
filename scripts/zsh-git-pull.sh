@@ -33,6 +33,7 @@ source_repo () {
 	REPO_PATH=$1
 	REPO_LABEL=$2
 	ERROR_DUMP="empty"
+	REPO_BRANCH=\[$(git -C $REPO_PATH branch -a | grep -Po '(?<=\*\ ).*')\]
 	# Check if path exists
 	# Perform `git pull`
 	if [ -d $REPO_PATH ]; then
@@ -45,7 +46,7 @@ source_repo () {
 		echo "$STATUS_OHNO $REPO_LABEL failed to pull"
 	# If -v, print message on successful pull
 	elif [ -n "$FLAG_VERBOSE" ]; then
-		echo "$STATUS_COOL $REPO_LABEL up to date!"
+		echo "$STATUS_COOL $REPO_LABEL up to date! $REPO_BRANCH"
 	fi
 }
 
