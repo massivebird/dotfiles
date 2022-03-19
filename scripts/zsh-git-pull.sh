@@ -54,6 +54,7 @@ source_repo () {
 		if [ -n "$ERROR_DUMP" ]; then
 			# ... inform user that the update failed
 			echo "$STATUS_OHNO $REPO_LABEL failed to pull"
+			echo $ERROR_DUMP
 		# If repo needed to update or -v...
 		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that the update succeeded
