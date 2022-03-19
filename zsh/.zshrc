@@ -1,5 +1,6 @@
 # Startup prompt
 echo "Watch that posture, king $USER :)"
+setopt auto_cd
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
