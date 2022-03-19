@@ -33,7 +33,7 @@ source_repo () {
 	# Declaring readable variables
 	REPO_PATH=$1
 	REPO_LABEL=$2
-	REPO_BRANCH="$(git -C $REPO_PATH branch -a | grep -Po '(?<=\*\ ).*')"
+	REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
 	# Check if repo path exists
 	# If it does...
 	if [ -d $REPO_PATH ]; then
