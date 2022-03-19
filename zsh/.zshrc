@@ -1,6 +1,7 @@
 # Startup prompt
 echo "Watch that posture, king $USER :)"
-setopt auto_cd
+
+bash ~/.config/scripts/zsh-git-pull.sh $@
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
@@ -16,9 +17,9 @@ ZSH_THEME="eastwood"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION  ]]; then
-  export EDITOR='nvim'
+	export EDITOR='nvim'
 else
-  export EDITOR='nvim'
+	export EDITOR='nvim'
 fi
 
 # Load up zplug plugin manager
@@ -39,8 +40,11 @@ plugins=(
 
 export FZF_BASE=/.oh-my-zsh/plugins/fzf
 
-# What does this do? I forgot
+# Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Fix permission errors when cd-ing
+setopt auto_cd
 
 # Disables BASH history expansion via ![number]
 set -K
@@ -48,12 +52,15 @@ set -K
 # Variable for vimgrep
 export NOTES_DIR=~/academia/notes_all/
 
+# Aliases
 alias c="cd"
+alias clj="clj/"
+alias conf="~/.config"
 alias dirl="dirs -v"
 alias exp="explorer.exe"
 alias glop="git log --graph -p"
-alias lessr="less -r"
 alias l="ls -1AshX --color=always --group-directories-first"
+alias lessr="less -r"
 alias ll="k -Ah --group-directories-first"
 alias lll="ls -1Alh --color=always --group-directories-first"
 alias n="nvim"
@@ -62,6 +69,7 @@ alias ncz="nvim ~/.config/zsh/.zshrc"
 alias nn="nvim $NOTES_DIR"
 alias nr="nvim -R"
 alias pingg"ping google.com"
+alias schoo="~/academia"
 alias src="source ~/.zshrc"
 alias trees="tree -RCI .g -L 2 --dirsfirst"
 alias ytd="yt-dlp"
@@ -70,7 +78,3 @@ alias zpc="zplug clean"
 alias zpi="zplug install"
 alias zpl="zplug list"
 alias zpu="zplug update"
-
-alias clj="clj/"
-alias conf="~/.config"
-alias schoo="~/academia"
