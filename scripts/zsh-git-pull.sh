@@ -14,7 +14,7 @@ RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
 # Colored strings
-STATUS_CONS="[$(tput setaf 237) CONS $NC]"
+STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
