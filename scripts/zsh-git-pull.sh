@@ -33,9 +33,12 @@ source_repo () {
 	REPO_PATH=$1
 	REPO_LABEL=$2
 	ERROR_DUMP=""
+	# Check if path exists
 	# Perform `git pull`
 	if [ -d "$REPO_PATH" ]; then
 		git -C "$REPO_PATH" pull 2> "${ERROR_DUMP}"
+	else
+		echo "$STATUS_WARN $REPO_LABEL not found."
 	fi
 	# Print vague error if pull fails
 	if [ -n "$ERROR_DUMP" ]; then
