@@ -66,6 +66,6 @@ source_repo () {
 	fi
 }
 
-source_repo "$HOME/.config/" "Configuration directory"
+source_repo "$HOME/.config/" "Configuration"
 source_repo "$HOME/docs" "Documents"
 source_repo "$HOME/academia" "Academia"
