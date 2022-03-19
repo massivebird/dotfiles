@@ -32,16 +32,16 @@ source_repo () {
 	# Arguments -> readable variables
 	REPO_PATH=$1
 	REPO_LABEL=$2
-	ERROR_DUMP=""
+	ERROR_DUMP="empty"
 	# Check if path exists
 	# Perform `git pull`
-	if [ -d "$REPO_PATH" ]; then
-		git -C "$REPO_PATH" pull 2> "${ERROR_DUMP}"
+	if [ -d $REPO_PATH ]; then
+		git -C $REPO_PATH pull 1> /dev/null 2> "$ERROR_DUMP"
 	else
-		echo "$STATUS_WARN $REPO_LABEL not found."
+		echo "$STATUS_OHNO $REPO_LABEL not found."
 	fi
 	# Print vague error if pull fails
-	if [ -n "$ERROR_DUMP" ]; then
+	if [ "$ERROR_DUMP" != "empty" ]; then
 		echo "$STATUS_OHNO $REPO_LABEL failed to pull"
 	# If -v, print message on successful pull
 	elif [ -n "$FLAG_VERBOSE" ]; then
@@ -49,6 +49,6 @@ source_repo () {
 	fi
 }
 
-source_repo "~/.config" "Configuration directory"
-source_repo "~/docs" "Documents"
-source_repo "~/academia" "Academia"
+source_repo "$HOME/.config/" "Configuration directory"
+source_repo "$HOME/docs" "Documents"
+source_repo "$HOME/academia" "Academia"
