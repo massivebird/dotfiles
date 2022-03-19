@@ -1,7 +1,8 @@
 # Startup prompt
 echo "Watch that posture, king $USER :)"
 
-bash ~/.config/scripts/zsh-git-pull.sh $@
+# Updates select git repositories
+bash ~/.config/scripts/zsh-git-pull.sh $@ -v
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
