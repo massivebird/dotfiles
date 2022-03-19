@@ -46,8 +46,19 @@ source_repo () {
 			# ... inform user that it's being updated
 			echo "$STATUS_CONS Updating $REPO_LABEL..."
 		fi
-		# Oh, and `git pull` and store its errors
+
+		# `git pull` and store its errors
 		ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
+
+		# If `git pull` produced an error...
+		if [ -n "$ERROR_DUMP" ]; then
+			# ... inform user that the update failed
+			echo "$STATUS_OHNO $REPO_LABEL failed to pull"
+		# If repo needed to update or -v...
+		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
+			# ... inform user that the update succeeded
+			echo "$STATUS_COOL $REPO_LABEL up to date! [$REPO_BRANCH]"
+		fi
 	# If path does not exist...
 	else
 		# ... inform user and exit the function
@@ -55,15 +66,6 @@ source_repo () {
 		return
 	fi
 	
-	# If previous `git pull` produced an error...
-	if [ -n "$ERROR_DUMP" ]; then
-		# ... inform user that the update failed
-		echo "$STATUS_OHNO $REPO_LABEL failed to pull"
-	# If -v...
-	elif [ -n "$FLAG_VERBOSE" ]; then
-		# ... inform user that the update succeeded
-		echo "$STATUS_COOL $REPO_LABEL up to date! [$REPO_BRANCH]"
-	fi
 }
 
 ## Calling main function
