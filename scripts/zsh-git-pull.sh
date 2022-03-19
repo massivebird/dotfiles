@@ -14,6 +14,7 @@ RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
 # Colored strings
+STATUS_CONS="[$(tput setaf 237) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
@@ -35,8 +36,12 @@ source_repo () {
 	ERROR_DUMP="empty"
 	REPO_BRANCH=\[$(git -C $REPO_PATH branch -a | grep -Po '(?<=\*\ ).*')\]
 	# Check if path exists
-	# Perform `git pull`
 	if [ -d $REPO_PATH ]; then
+		# If path exists,
+		# check if it needs updating
+		if [ -n $(git -C $REPO_PATH diff $REPO_BRANCH origin/$REPO_BRANCH) ]; then
+			echo "$STATUS_CONS Updating $REPO_LABEL..." 1> /dev/null
+		fi
 		git -C $REPO_PATH pull 1> /dev/null 2> "$ERROR_DUMP"
 	else
 		echo "$STATUS_OHNO $REPO_LABEL not found."
