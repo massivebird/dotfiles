@@ -66,6 +66,9 @@ source_repo () {
 	fi
 }
 
+## Calling main function
+# $1: absolute path to repo
+# $2: human readable repo label
 source_repo "$HOME/.config/" "Configuration"
 source_repo "$HOME/docs" "Documents"
 source_repo "$HOME/academia" "Academia"
