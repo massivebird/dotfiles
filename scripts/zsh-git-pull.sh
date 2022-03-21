@@ -19,7 +19,7 @@ STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
-STATUS_SPINOK="[$GREEN#$NC]"
+STATUS_SPINOK="[$GREEN=$NC]"
 
 # Flag checks
 while getopts "v" arg; do
@@ -92,5 +92,5 @@ do
 	printf "\r[$GRAY${spin:$i:1}$NC] Updating Git repositories..."
 	sleep .1
 done
-printf "\r$STATUS_SPINOK Git repositories successfully updated\n"
+printf "\r$STATUS_SPINOK Git repositories up to date  \n"
 tput cnorm
