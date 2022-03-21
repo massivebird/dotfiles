@@ -72,6 +72,23 @@ source_repo () {
 ## Calling main function
 # $1: absolute path to repo
 # $2: human readable repo label
-source_repo "$HOME/.config/" "Configuration"
-source_repo "$HOME/docs" "Documents"
-source_repo "$HOME/academia" "Academia"
+update_all () {
+	source_repo "$HOME/.config/" "Configuration"
+	source_repo "$HOME/docs" "Documents"
+	source_repo "$HOME/academia" "Academia"
+}
+
+update_all &
+pid=$! # Process Id of the previous running command
+
+spin='-\|/'
+tput civis
+i=0
+while kill -0 $pid 2>/dev/null
+do
+	i=$(( (i+1) %4  ))
+	printf "\r${spin:$i:1}"
+	sleep .1
+done
+printf "\r# DONE!\n"
+tput cnorm
