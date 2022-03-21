@@ -9,16 +9,17 @@
 # 	Outputs successful git pull messages
 
 # Color presets
+GRAY="$(tput setaf 240)"
 GREEN="$(tput setaf 34)"
 RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
 # Colored strings
 STATUS_CONS="[$(tput setaf 244) CONS $NC]"
-STATUS_SPINOK="[$GREEN#$NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
-STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
+STATUS_OK="[$GREEN  OK  $NC]"
+STATUS_SPINOK="[$GREEN#$NC]"
 
 # Flag checks
 while getopts "v" arg; do
@@ -82,13 +83,13 @@ update_all () {
 update_all &
 pid=$! # Process Id of the previous running command
 
-spin='-\|/'
+spin="-\|/"
 tput civis
 i=0
 while kill -0 $pid 2>/dev/null
 do
 	i=$(( (i+1) %4  ))
-	printf "\r[${spin:$i:1}] Updating Git repositories..."
+	printf "\r[$GRAY${spin:$i:1}$NC] Updating Git repositories..."
 	sleep .1
 done
 printf "\r$STATUS_SPINOK Git repositories successfully updated\n"
