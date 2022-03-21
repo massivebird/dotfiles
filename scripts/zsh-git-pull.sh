@@ -44,7 +44,7 @@ source_repo () {
 		# If there are differences...
 		if [ -n "$DIFF_DUMP" ]; then
 			# ... inform user that it's being updated
-			echo "$STATUS_CONS Updating $REPO_LABEL..."
+			printf "\r$STATUS_CONS Updating $REPO_LABEL...\n"
 		fi
 
 		# `git pull` and store its errors
@@ -53,17 +53,17 @@ source_repo () {
 		# If `git pull` produced an error...
 		if [ -n "$ERROR_DUMP" ]; then
 			# ... inform user that the update failed
-			echo "$STATUS_OHNO $REPO_LABEL failed to pull"
+			printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
 			echo $ERROR_DUMP
 		# If repo needed to update or -v...
 		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that the update succeeded
-			echo "$STATUS_COOL $REPO_LABEL up to date! [$REPO_BRANCH]"
+			printf "\r$STATUS_COOL $REPO_LABEL up to date! [$REPO_BRANCH]\n"
 		fi
 	# If path does not exist...
 	else
 		# ... inform user and exit the function
-		echo "$STATUS_OHNO $REPO_LABEL not found."
+		printf "\r$STATUS_OHNO $REPO_LABEL not found.\n"
 		return
 	fi
 	
@@ -87,8 +87,8 @@ i=0
 while kill -0 $pid 2>/dev/null
 do
 	i=$(( (i+1) %4  ))
-	printf "\r${spin:$i:1}"
+	printf "\r[${spin:$i:1}] Updating Git repositories..."
 	sleep .1
 done
-printf "\r# DONE!\n"
+printf "\r[#] Git repositories successfully updated\n"
 tput cnorm
