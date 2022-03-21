@@ -15,6 +15,7 @@ NC="$(tput sgr 0)"
 
 # Colored strings
 STATUS_CONS="[$(tput setaf 244) CONS $NC]"
+STATUS_SPINOK="[$GREEN#$NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
@@ -90,5 +91,5 @@ do
 	printf "\r[${spin:$i:1}] Updating Git repositories..."
 	sleep .1
 done
-printf "\r[#] Git repositories successfully updated\n"
+printf "\r$STATUS_SPINOK Git repositories successfully updated\n"
 tput cnorm
