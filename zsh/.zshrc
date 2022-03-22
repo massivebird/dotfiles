@@ -1,9 +1,6 @@
 # Startup prompt
 echo "Watch that posture, king $USER :)"
 
-# Updates select git repositories
-bash ~/.config/scripts/zsh-git-pull.sh $@
-
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
 
@@ -79,3 +76,6 @@ alias zpc="zplug clean"
 alias zpi="zplug install"
 alias zpl="zplug list"
 alias zpu="zplug update"
+
+# Updates select git repositories
+bash ~/.config/scripts/zsh-git-pull.sh $@
