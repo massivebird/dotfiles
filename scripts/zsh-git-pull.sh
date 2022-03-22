@@ -19,6 +19,7 @@ STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_OK="[$GREEN  OK  $NC]"
+STATUS_SPINOHNO="[$RED!$NC]"
 STATUS_SPINOK="[$GREEN=$NC]"
 
 # Flag checks
@@ -68,29 +69,41 @@ source_repo () {
 		printf "\r$STATUS_OHNO $REPO_LABEL not found.\n"
 		return
 	fi
-	
+	echo -n "$ERROR_DUMP" > "/tmp/gitup.txt"
 }
-
-## Calling main function
-# $1: absolute path to repo
-# $2: human readable repo label
+# All main function calls
 update_all () {
+	## Calling main function
+	# $1: absolute path to repo
+	# $2: human readable repo label
 	source_repo "$HOME/.config/" "Configuration"
 	source_repo "$HOME/docs" "Documents"
 	source_repo "$HOME/academia" "Academia"
 }
 
+# Updates all in background...
 update_all &
-pid=$! # Process Id of the previous running command
-
-spin="-\|/"
+# ... so it creates a PID with
+# which to make a loading spinner
+pid=$!
+# Spinner animation frames
+SPIN="-\|/"
+# Makes cursor invisible
 tput civis
+# Index var and loop to animate spinner
 i=0
-while kill -0 $pid 2>/dev/null
-do
+while kill -0 $pid 2>/dev/null; do
 	i=$(( (i+1) %4  ))
-	printf "\r[$GRAY${spin:$i:1}$NC] Updating Git repositories..."
+	printf "\r[$GRAY${SPIN:$i:1}$NC] Updating Git repositories..."
 	sleep .1
 done
-printf "\r$STATUS_SPINOK Git repositories up to date  \n"
+# Final status message
+if [ $(cat /tmp/gitup.txt | wc -c) -ne 0 ]; then
+	printf "\r$STATUS_SPINOHNO Error(s) updating Git repositories  \n"
+else
+	printf "\r$STATUS_SPINOK Git repositories up to date  \n"
+fi
+# Makes cursor visible
 tput cnorm
+# Clears contents of error dump file
+: > "/tmp/gitup.txt"
