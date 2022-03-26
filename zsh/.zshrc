@@ -54,6 +54,7 @@ export NOTES_DIR=~/academia/notes_all/
 alias c="cd"
 alias clj="clj/"
 alias conf="~/.config"
+alias diff="diff --color=always"
 alias dirl="dirs -v"
 alias exp="explorer.exe"
 alias glop="git log --graph -p"
