@@ -19,7 +19,7 @@ STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_SPINOHNO="[$RED!$NC]"
-STATUS_SPINOK="[$GREEN=$NC]"
+STATUS_SPINOK="[$GREEN-$NC]"
 
 # Flag checks
 while getopts "v" arg; do
