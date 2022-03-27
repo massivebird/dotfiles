@@ -57,7 +57,7 @@ if [[ "$CHOICE" == *"INBASICS"* ]]; then
 		apt install net-tools 2> /dev/null # netstat
 		percent-and-title 30 "BASICS: Installing tree..."
 		apt install tree 2> /dev/null
-		percent-and-title 45 "BASICS: Installing youtube-dl..."
+		percent-and-title 45 "BASICS: Installing youtube-dlp..."
 		curl -Ls https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
 		chmod a+rx /usr/local/bin/yt-dlp
 		percent-and-title 60 "BASICS: Installing neofetch..."
