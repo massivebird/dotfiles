@@ -13,7 +13,8 @@ if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
 	sudo apt install git-all
    sudo apt install net-tools # netstat
 	sudo apt install tree
-	sudo apt-get install youtube-dl # media downloader
+	sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+	sudo chmod a+rx /usr/local/bin/yt-dlp
 	sudo apt install neofetch # pretty-print system info
 	sudo apt install pandoc
 	sudo apt install rename
