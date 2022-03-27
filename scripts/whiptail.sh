@@ -93,7 +93,9 @@ if [[ "$CHOICE" == *"INVIM"* ]]; then
 		percent-and-title 0 "NEOVIM: Adding Neovim repository..."
 		add-apt-repository ppa:neovim-ppa/unstable
 		apt-get update
-		percent-and-title 50 "NEOVIM: Installing Neovim..."
+		percent-and-title 20 "NEOVIM: Installing dependencies..."
+		apt install g++
+		percent-and-title 70 "NEOVIM: Installing Neovim..."
 		apt-get install neovim
 		percent-and-title 100 "NEOVIM: Done!"
 		sleep $PAUSE
