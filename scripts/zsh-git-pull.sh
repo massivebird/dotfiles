@@ -46,7 +46,7 @@ source_repo () {
 		# If there are differences...
 		if [ -n "$DIFF_DUMP" ]; then
 			# ... inform user that it's being updated
-			printf "\r$STATUS_CONS Updating $REPO_LABEL...\n"
+			printf "\r$STATUS_CONS Updating $REPO_LABEL...     \n"
 		fi
 
 		# `git pull` and store its errors
