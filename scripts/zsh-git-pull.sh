@@ -60,7 +60,7 @@ source_repo () {
 		# If repo needed to update or -v...
 		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that the update succeeded
-			printf "\r$STATUS_COOL $REPO_LABEL up to date! [$REPO_BRANCH]\n"
+			printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC\n"
 		fi
 	# If path does not exist...
 	else
