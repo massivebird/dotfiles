@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+## SHELL-SPLASH.SH
+# Neofetch-like splash text for
+# shell startup
+
 # Global variables
 COLOR_SPLASH="$(tput setaf 75)"
 COLOR_FETCH="$(tput setaf 33)"
@@ -27,7 +31,7 @@ echo-splash-name 1
 echo -e "$COLOR_FETCH$USER@$HOSTNAME$NC"
 echo "$USER@$HOSTNAME" | sed 's/./-/g'
 echo-fetch "OS" "$(grep PRETTY_NAME < /etc/os-release | sed -E 's/"|PRETTY_NAME=//g')"
-echo-fetch "Hostname" "$HOSTNAME"
+echo-fetch "Host" "$HOSTNAME"
 echo-fetch "Kernel" "$(uname -r)"
 echo-fetch "Uptime" "$(uptime -p | sed 's/up //')"
 echo-fetch "Shell" "$(zsh --version)"
