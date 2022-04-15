@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## ZSH-GIT-PULL
+## GIT-UPDATER.SH
 # Script utilized by .zshrc to automatically
 # update git repositories
 

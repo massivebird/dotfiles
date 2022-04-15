@@ -81,4 +81,4 @@ alias zpl="zplug list"
 alias zpu="zplug update"
 
 # Updates select git repositories
-bash ~/.config/scripts/zsh-git-pull.sh $@
+bash ~/.config/scripts/git-updater.sh $@
