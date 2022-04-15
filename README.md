@@ -14,15 +14,21 @@ This works on fresh Ubuntu Server installation _after deleting the existing `~/.
 
 I'll make a better way later I promise
 
-## ./scripts
+## ./scripts - My Favorites
 
-### arcstat
+### arcstat.sh
 
-Displays statistics on my local game archive
+Displays statistics about my local game archive
 
-![arcstat-preview](https://i.imgur.com/wfEoj96.png)
+![arcstat-preview](https://i.imgur.com/6q6SrFS.png)
 
-### wiicheck
+### git-updater.sh
+
+Updates local git repositories (very cool!)
+
+![git-updater-preview](https://i.imgur.com/ulG5AnG.gif)
+
+### wiicheck.sh
 
 Validates file system conventions for USB Loader GX, a Wii Homebrew app
 
