@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+## OLD-INSTALLS.SH (deprecated)
+# Original non-GUI version of current
+# installs.sh
+
 echo
 read -p "Update APT cache? [y/n] " MSG
 if [ "$MSG" == "yes" ] || [ "$MSG" == "y" ]; then
