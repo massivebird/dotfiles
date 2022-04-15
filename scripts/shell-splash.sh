@@ -37,5 +37,5 @@ echo-fetch "Uptime" "$(uptime -p | sed 's/up //')"
 echo-fetch "Shell" "$(zsh --version)"
 echo-fetch "CPU" "$(lscpu | grep 'Model name' | sed 's/^.*:\ *//')"
 echo # New line
-echo "$COLOR_SPLASH\"Watch that posture, king\"$NC"
+echo "$COLOR_SPLASH\"$(shuf -n 1 ~/.config/scripts/res/splash-messages.txt)\"$NC"
 echo 
