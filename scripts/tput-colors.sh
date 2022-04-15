@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+## TPUT-COLORS.SH
+# Outputs [all?] shell colors alongside
+# their respective numeric tput codes
+
 color(){
 	for c; do
 		printf '\e[48;5;%dm%03d' $c $c
