@@ -1,5 +1,7 @@
 # Startup prompt
-echo "Watch that posture, king $USER :)"
+if [ -z "$SSH_SHELL" ]; then
+	bash ~/.config/scripts/shell-splash.sh
+fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
