@@ -7,6 +7,8 @@
 ## OPTIONAL ARGUMENTS
 # -v
 # 	Outputs successful git pull messages
+# -f
+#	Exits script immediately, used by shell rc
 
 # Color presets
 GRAY="$(tput setaf 240)"
@@ -22,11 +24,13 @@ STATUS_SPINOHNO="[$RED!$NC]"
 STATUS_SPINOK="[$GREEN-$NC]"
 
 # Flag checks
-while getopts "v" arg; do
+while getopts "vf" arg; do
 	case "${arg}" in
-		v)
+		v) # "Verbose"
 			FLAG_VERBOSE=1
 			;;
+		f) # "Fast"
+			exit 0
 	esac
 done
 
