@@ -9,7 +9,8 @@ COLOR_SPLASH="$(tput setaf 75)"
 COLOR_FETCH="$(tput setaf 33)"
 NC="$(tput sgr 0)"
 
-# ASCII splash text selector
+## ASCII splash text selector
+# ASCII text generator: https://patorjk.com/software/taag/
 echo-splash-name () {
 if [ "$1" == "0" ]; then
 	# "Short"
