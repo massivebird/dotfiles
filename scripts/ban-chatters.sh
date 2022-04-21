@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## BAN-MNGR-LIST.SH
+## BAN-CHATTERS.SH
 # A tool for formatting a "blocklist" CSV
 # into a "to-ban" CSV from CommanderRoot's
 # Twitch Tools
@@ -16,4 +16,4 @@ else
 	exit 1
 fi
 
-cat "$FILE" | tr -d $'\r' | cut -d',' -f1
+cat "$FILE" | tr -d $'\r' | cut -d',' -f1 > test.txt
