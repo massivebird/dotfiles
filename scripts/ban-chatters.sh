@@ -16,4 +16,5 @@ else
 	exit 1
 fi
 
-cat "$FILE" | tr -d $'\r' | cut -d',' -f1 > test.txt
+cat "$FILE" | tr -d $'\r' | cut -d',' -f1 > ban-these-chatters.txt
+echo "Wrote to ban-these-chatters.txt in the current working directory."
