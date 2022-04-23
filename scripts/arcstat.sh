@@ -91,3 +91,4 @@ echo -e "${WII}\t${NUMWII}\t${SIZEWII}"
 echo -e "\t${NUMTOTAL}\t${SIZETOTAL}"
 
 echo # Output newline
+exit 0
