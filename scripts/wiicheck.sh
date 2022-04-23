@@ -34,7 +34,7 @@ BACKUPNAME="WIIBACK"
 if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
 	exit 1
-elif [ $(echo $1 | wc -w) -eq 0 ]; then
+elif [ -z "$1" ]; then
 	echo -e "$STATUS_OK Backup directory initialized"
 	WIIDIR="/mnt/*/$BACKUPNAME/wbfs"
 	GCNDIR="/mnt/*/$BACKUPNAME/games"
@@ -60,7 +60,7 @@ UNEXWII=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1
 UNEXGCN=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
 # Main output
-if [ $(echo $UNEXWII | wc -w) -gt 0 ]; then
+if [ -n "$UNEXWII" ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
 	echo "$UNEXWII"
 else
@@ -68,7 +68,7 @@ else
 	WIIGSTATUS=1
 fi
 
-if [ $(echo $UNEXGCN | wc -w) -gt 0 ]; then
+if [ -n "$UNEXGCN" ]; then
 	echo -e "$STATUS_OHNO $GCN: Unexpected filename(s) detected"
 	echo "$UNEXGCN"
 else
