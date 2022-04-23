@@ -52,7 +52,7 @@ DIRBACKUP="/mnt/d/wiiback"
 # Locates external drive in /mnt/?/ format
 if [ -d /mnt/*/wbfs ]; then
 	echo "$STATUS_OK External drive detected"
-	DRIVE=$(echo "/mnt/*/wbfs" | grep -oE '.{6}')
+	DRIVE=$(grep -oE '.{6}' <<< "/mnt/*/wbfs")
 else
 	echo "$STATUS_OHNO No external drive detected"
 	exit
