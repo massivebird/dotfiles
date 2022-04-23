@@ -30,7 +30,7 @@ echo "$COLOR_FETCH$1$NC: $2"
 
 echo-splash-name 1
 echo -e "$COLOR_FETCH$USER@$HOSTNAME$NC"
-echo "$USER@$HOSTNAME" | sed 's/./-/g'
+sed 's/./-/g' <<< "$USER@$HOSTNAME"
 echo-fetch "OS" "$(grep PRETTY_NAME < /etc/os-release | sed -E 's/"|PRETTY_NAME=//g')"
 echo-fetch "Host" "$HOSTNAME"
 echo-fetch "Kernel" "$(uname -r)"

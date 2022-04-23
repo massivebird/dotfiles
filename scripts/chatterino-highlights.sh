@@ -8,9 +8,7 @@
 # Takes input from pastebin
 INP=$(curl -s https://pastebin.com/raw/TTkLHuvg)
 
-# String manipulations
-echo $INP | \
-	# Remove leading/trailing whitespace
-	sed -E 's/^\ *|\ *$//' | \
+# Remove leading/trailing whitespace
+sed -E 's/^\ *|\ *$//' <<< "$INP" | \
 	# Turns spaces into booleans
 	sed 's/\ /|/g'
