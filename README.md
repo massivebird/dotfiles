@@ -26,6 +26,8 @@ Displays statistics about my local game archive
 
 Updates local git repositories (very cool!)
 
+This runs every time I source my shell rc, which includes booting up my machine(s) 😎
+
 ![git-updater-preview](https://i.imgur.com/ulG5AnG.gif)
 
 ### wiicheck.sh
