@@ -22,6 +22,16 @@ Displays statistics about my local game archive
 
 ![arcstat-preview](https://i.imgur.com/6q6SrFS.png)
 
+### shell-splash.sh
+
+A welcoming message to start the day.
+
+Executed by shell on start-up alongside `git-updater.sh` (see below).
+
+Here is a typical start-up screen:
+
+![shell-splash-preview](https://i.imgur.com/tcLmsIB.png)
+
 ### git-updater.sh
 
 Updates local git repositories (very cool!)
