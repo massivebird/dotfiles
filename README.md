@@ -1,6 +1,6 @@
-# My dotfiles
+# Linux dotfiles
 
-Streamlining auto-configuration on new machines since 2021!
+Streamlining configuration on new machines since 2021!
 
 ## Installation
 
@@ -20,7 +20,7 @@ I'll make a better way later I promise
 
 ### arcstat.sh
 
-Displays statistics about my local game archive
+Displays statistics about my local game archive.
 
 ![arcstat-preview](https://i.imgur.com/6q6SrFS.png)
 
@@ -42,8 +42,10 @@ This runs every time I source my shell rc, which includes booting up my machine(
 
 ![git-updater-preview](https://i.imgur.com/ulG5AnG.gif)
 
+> Utilizes `./scripts/lib/loading-spinner.sh` to create a loading animation
+
 ### wiicheck.sh
 
-Validates file system conventions for USB Loader GX, a Wii Homebrew app
+Validates file system conventions for USB Loader GX, a Wii Homebrew app.
 
 ![wiicheck-preview](https://i.imgur.com/DaCQKue.png)
