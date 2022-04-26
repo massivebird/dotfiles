@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ## loading-spinner.sh
+# Based on https://unix.stackexchange.com/a/225183
 # Generates loading spinner animation
 # for most recent background process
 #
