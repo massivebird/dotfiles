@@ -8,7 +8,7 @@ This repo is intended to be cloned into/as the system's `~/.config` directory.
 
 Here is an inefficient example of such:
 
-```
+```bash
 git clone https://github.com/massivebird/dotfiles
 mv dotfiles/* ~/.config
 rm -rf dotfiles
