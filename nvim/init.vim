@@ -120,7 +120,7 @@ require'nvim-treesitter.configs'.setup {
       },
    highlight = {
       enable = true,              -- false will disable the whole extension
-      disable = {"vim"},  -- list of language that will be disabled
+      disable = {"vim", "markdown"},  -- list of language that will be disabled
       },
    rainbow = {
       enable = true,
@@ -297,3 +297,5 @@ function! SynGroup()
    let l:s = synID(line('.'), col('.'), 1)
    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
+
+set t_md=
