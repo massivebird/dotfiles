@@ -10,6 +10,8 @@
 # -f
 #	Exits script immediately, used by shell rc
 
+. ./lib/loading-spinner.sh
+
 # Color presets
 GRAY="$(tput setaf 240)"
 GREEN="$(tput setaf 34)"
@@ -20,8 +22,6 @@ NC="$(tput sgr 0)"
 STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
-STATUS_SPINOHNO="[$RED!$NC]"
-STATUS_SPINOK="[$GREEN-$NC]"
 
 # Flag checks
 while getopts "vf" arg; do
@@ -86,27 +86,9 @@ update_all () {
 
 # Updates all in background...
 update_all &
-# ... so it creates a PID with
-# which to make a loading spinner
-pid=$!
-# Spinner animation frames
-SPIN="-\|/"
-# Makes cursor invisible
-tput civis
-# Index var and loop to animate spinner
-i=0
-while kill -0 $pid 2>/dev/null; do
-	i=$(( (i+1) %4  ))
-	printf "\r[$GRAY${SPIN:$i:1}$NC] Updating Git repositories..."
-	sleep .1
-done
-# Final status message
-if [ $(wc -c < "/tmp/gitup.txt") -ne 0 ]; then
-	printf "\r$STATUS_SPINOHNO Error(s) updating Git repositories  \n"
-else
-	printf "\r$STATUS_SPINOK Git repositories up to date  \n"
-fi
-# Makes cursor visible
-tput cnorm
+# lib script: generates loading message
+loading-spinner \
+	"Updating Git repositories..." \
+	"Git repositories up to date" \
 # Clears contents of error dump file
 : > "/tmp/gitup.txt"
