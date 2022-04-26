@@ -36,7 +36,7 @@ done
 
 # Main function
 source_repo () {
-	# Declaring readable variables
+	# Declaring variables
 	REPO_PATH=$1
 	REPO_LABEL=$2
 	REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
@@ -101,7 +101,7 @@ while kill -0 $pid 2>/dev/null; do
 	sleep .1
 done
 # Final status message
-if [ $(cat /tmp/gitup.txt | wc -c) -ne 0 ]; then
+if [ $(wc -c <<< /tmp/gitup.txt) -ne 0 ]; then
 	printf "\r$STATUS_SPINOHNO Error(s) updating Git repositories  \n"
 else
 	printf "\r$STATUS_SPINOK Git repositories up to date  \n"
