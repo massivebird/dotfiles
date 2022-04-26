@@ -6,11 +6,13 @@ Streamlining auto-configuration on new machines since 2021!
 
 This repo is intended to be cloned into/as the system's `~/.config` directory.
 
-### Lazy way
+Here is an inefficient example of such:
 
-This works on fresh Ubuntu Server installation _after deleting the existing `~/.config` directory._
-
-`git clone https://github.com/massivebird/dotfiles ~/.config`
+```
+git clone https://github.com/massivebird/dotfiles
+mv dotfiles/* ~/.config
+rm -rf dotfiles
+```
 
 I'll make a better way later I promise
 
