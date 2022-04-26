@@ -86,7 +86,7 @@ hi GitGutterChange guifg=LightGrey
 " color nonsense
 let base16colorspace = 256
 if has("termguicolors")
-	set termguicolors
+   set termguicolors
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -113,24 +113,24 @@ let g:vim_markdown_folding_disabled = 1
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-ignore_install = { "javascript" }, -- List of parsers to ignore installing
-indent = {
-enable = true
-},
-	highlight = {
-	enable = true,              -- false will disable the whole extension
-	disable = {"vim"},  -- list of language that will be disabled
-	},
-rainbow = {
-enable = true,
-disable = { "jsx", "cpp" }, -- list of languages you want to disable the plugin for
-extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-max_file_lines = nil, -- Do not enable for files with more than n lines, int
--- colors = {}, -- table of hex strings
--- termcolors = {} -- table of colour name strings
-},
-}
+   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+   ignore_install = { "javascript" }, -- List of parsers to ignore installing
+   indent = {
+      enable = true
+      },
+   highlight = {
+      enable = true,              -- false will disable the whole extension
+      disable = {"vim"},  -- list of language that will be disabled
+      },
+   rainbow = {
+      enable = true,
+      disable = { "jsx", "cpp" }, -- list of languages you want to disable the plugin for
+      extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+      max_file_lines = nil, -- Do not enable for files with more than n lines, int
+      -- colors = {}, -- table of hex strings
+      -- termcolors = {} -- table of colour name strings
+      },
+   }
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -142,16 +142,16 @@ command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 " CURRENT ISSUE : 'Cannot open files' aka does not immediately show first
 " result
 fun! MyNgrep(query, ...)
-	let query = "/".a:query."/j"
-	let course = get(a:, 1, "")
-	let path = "$NOTES_DIR/" . course . "*/*/*.md"
-	if course == ""
-		let path = "$NOTES_DIR/*/*/*.md"
-	else
-		let path = "$NOTES_DIR/" . course . "*/*/*.md"
-	endif
-	echom query path
-	execute "vimgrep" query path bufname("#")
+   let query = "/".a:query."/j"
+   let course = get(a:, 1, "")
+   let path = "$NOTES_DIR/" . course . "*/*/*.md"
+   if course == ""
+      let path = "$NOTES_DIR/*/*/*.md"
+   else
+      let path = "$NOTES_DIR/" . course . "*/*/*.md"
+   endif
+   echom query path
+   execute "vimgrep" query path bufname("#")
 endfunction
 
 command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
@@ -164,19 +164,19 @@ command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
 " if necessary
 function! MoveLeft()
-	if (winnr() == winnr('1h'))
-		:tabprevious
-	else
-		:call nvim_input("<Esc><C-w>h")
-	endif
+   if (winnr() == winnr('1h'))
+      :tabprevious
+   else
+      :call nvim_input("<Esc><C-w>h")
+   endif
 endfunction
 
 function! MoveRight()
-	if (winnr() == winnr('1l'))
-		:tabnext
-	else
-		:call nvim_input("<Esc><C-w>l")
-	endif
+   if (winnr() == winnr('1l'))
+      :tabnext
+   else
+      :call nvim_input("<Esc><C-w>l")
+   endif
 endfunction
 
 nnoremap <C-j> <C-w>j
@@ -292,3 +292,8 @@ nnoremap <leader>[	:Ngrep
 
 " Get rid of weird location list error
 nnoremap <Esc> <Nop>
+
+function! SynGroup()
+   let l:s = synID(line('.'), col('.'), 1)
+   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
