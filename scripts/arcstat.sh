@@ -48,15 +48,15 @@ DIRSNES="$DIRBACKUP/snes"
 DIRWII="$DIRBACKUP/wbfs"
 
 # Number of games per system
-NUMDS=$(ls -l $DIRDS | grep -E '\.nds' | wc -l)
-NUMDS3=$(ls -l $DIRDS3 | grep -E '\.cia' | wc -l)
-NUMGB=$(ls -l $DIRGB | grep -E '\.gb[c]?' | wc -l)
-NUMGBA=$(ls -l $DIRGBA | grep -E '\.gba' | wc -l)
-NUMGCN=$(ls -l $DIRGCN | grep -E '^d' | wc -l)
-NUMN64=$(ls -l $DIRN64 | grep -E '\.[nz]64|.rom' | wc -l)
-NUMPS2=$(ls -l $DIRPS2 | grep -E '\.iso' | wc -l)
-NUMSNES=$(ls -l $DIRSNES | grep -E '\.sfc' | wc -l)
-NUMWII=$(ls -l $DIRWII | grep -E '^d' | wc -l)
+NUMDS=$(ls -l $DIRDS | grep -cE '\.nds')
+NUMDS3=$(ls -l $DIRDS3 | grep -cE '\.cia')
+NUMGB=$(ls -l $DIRGB | grep -cE '\.gb[c]?')
+NUMGBA=$(ls -l $DIRGBA | grep -cE '\.gba')
+NUMGCN=$(ls -l $DIRGCN | grep -cE '^d')
+NUMN64=$(ls -l $DIRN64 | grep -cE '\.[nz]64|.rom')
+NUMPS2=$(ls -l $DIRPS2 | grep -cE '\.iso')
+NUMSNES=$(ls -l $DIRSNES | grep -cE '\.sfc')
+NUMWII=$(ls -l $DIRWII | grep -cE '^d')
 NUMTOTAL=$[ $NUMDS + $NUMDS3 + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
 
 # Calculates total drive usage of all directory arguments
