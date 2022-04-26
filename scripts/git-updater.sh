@@ -10,7 +10,7 @@
 # -f
 #	Exits script immediately, used by shell rc
 
-. ./lib/loading-spinner.sh
+. ~/.config/scripts/lib/loading-spinner.sh
 
 # Color presets
 GRAY="$(tput setaf 240)"
