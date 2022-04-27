@@ -1,17 +1,25 @@
 set $mod Mod1
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Return exec kitty
-bindsym $mod+e exec firefox
+bindsym $mod+3 exec kitty
+bindsym $mod+1 exec firefox
+bindsym $mod+2 exec firefox
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-font JetBrains Mono NL
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
+
+bindsym $mod+g gaps vertical current toggle 20
+
+default_border pixel
+
+font pango:JetBrains Mono NL 11
 # border pixel
-# gaps 2
 # floating enable
 bindsym ctrl+shift+f5 reload
-smart_gaps on
