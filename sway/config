@@ -1,9 +1,11 @@
 # Alt
 set $mod Mod1
 
+set $terminal kitty
+
 bindsym $mod+f fullscreen toggle
 bindsym ctrl+shift+f5 reload
-bindsym $mod+ctrl+shift+e exit
+bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+g gaps outer current toggle 20
 default_border pixel
 
@@ -11,6 +13,14 @@ default_border pixel
 ## Font
 
 font JetBrains Mono NL 11
+
+#######################################
+## Bar
+
+bar {
+	swaybar_command waybar
+	workspace_buttons yes
+}
 
 #######################################
 ## Application shortcuts
@@ -62,7 +72,6 @@ input "type:keyboard" {
 
 input "type:touchpad" {
 	dwt enabled
-	natural_scroll enabled
 	tap enabled
 	tap_button_map lrm
 }
