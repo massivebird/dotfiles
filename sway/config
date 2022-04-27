@@ -9,19 +9,25 @@ set $mod Mod1
 set $terminal kitty
 
 bindsym $mod+f fullscreen toggle
-bindsym ctrl+shift+f5 reload
+bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+g gaps outer current toggle 20
 default_border pixel
-
+bindsym $mod+d exec $menu
 
 #######################################
-## Font
+# Desktop
+
+# Wallpaper
+output * bg ~/Downloads/0JRUReK.jpg fill
+
+#######################################
+# Font
 
 font JetBrains Mono NL 11
 
 #######################################
-## Bar
+# Bar
 
 bar {
 	swaybar_command waybar
@@ -29,18 +35,20 @@ bar {
 }
 
 #######################################
-## Application shortcuts
+# Application shortcuts
 
 bindsym $mod+o+1 exec firefox
 bindsym $mod+o+2 exec alacritty
 bindsym $mod+o+3 exec kitty
 bindsym $mod+o+t exec kitty
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+s exec rofi -show run
 
+bindsym $mod+Shift+q kill
+
 #######################################
-## Focus
+# Focus
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -50,26 +58,51 @@ bindsym $mod+l focus right
 focus_wrapping no
 
 #######################################
-## Moving stuff
+# Moving stuff
 
 bindsym $mod+w+h move left
 bindsym $mod+w+j move down
 bindsym $mod+w+k move up
 bindsym $mod+w+l move right
 
-bindsym $mod+s split toggle
-
 #######################################
-## Workspaces
+# Workspaces
 
+# Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 workspace_layout default
 
 #######################################
-## Input
+# Layout
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+#######################################
+# Input
 
 input "type:keyboard" {
 	xkb_layout us
