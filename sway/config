@@ -30,8 +30,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+focus_wrapping no
+
 #######################################
-## Windows
+## Moving stuff
 
 bindsym $mod+shift+h move left
 bindsym $mod+shift+j move down
