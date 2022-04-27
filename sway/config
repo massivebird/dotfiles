@@ -15,11 +15,14 @@ bindsym $mod+shift+j move down
 bindsym $mod+shift+k move up
 bindsym $mod+shift+l move right
 
-bindsym $mod+g gaps vertical current toggle 20
+bindsym $mod+g gaps outer current toggle 20
+
+bindsym $mod+ctrl+shift+e exit
+
+bindsym ctrl+shift+f5 reload
 
 default_border pixel
 
 font JetBrains Mono NL 11
-# border pixel
-# floating enable
-bindsym ctrl+shift+f5 reload
+
+workspace_layout default
