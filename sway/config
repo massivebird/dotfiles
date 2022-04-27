@@ -8,7 +8,6 @@ set $mod Mod1
 
 set $terminal kitty
 
-bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+g gaps outer current toggle 20
@@ -32,6 +31,11 @@ font JetBrains Mono NL 11
 bar {
 	swaybar_command waybar
 	workspace_buttons yes
+	colors {
+		statusline #ffffff
+		background #323232
+		inactive_workspace #32323200 #32323200 #5c5c5c
+		}
 }
 
 #######################################
@@ -97,22 +101,52 @@ workspace_layout default
 #######################################
 # Layout
 
+bindsym $mod+f fullscreen toggle
+
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# Toggle current focus as tiling/floating
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+#######################################
+# Resizing containers
+
+mode "resize" {
+# left will shrink the containers width
+# right will grow the containers width
+# up will shrink the containers height
+# down will grow the containers height
+	bindsym Left resize shrink width 10px
+		bindsym Down resize grow height 10px
+		bindsym Up resize shrink height 10px
+		bindsym Right resize grow width 10px
+
+# Return to default mode
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
 
 #######################################
 # Input
 
 input "type:keyboard" {
 	xkb_layout us
-	xkb_options caps:escape
+		xkb_options caps:escape
 }
 
 input "type:touchpad" {
 	dwt enabled
-	tap enabled
-	tap_button_map lrm
+		tap enabled
+		tap_button_map lrm
 }
 
 mouse_warping output
