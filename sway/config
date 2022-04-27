@@ -1,0 +1,17 @@
+set $mod Mod1
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Return exec kitty
+bindsym $mod+e exec firefox
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+font JetBrains Mono NL
+# border pixel
+# gaps 2
+# floating enable
+bindsym ctrl+shift+f5 reload
+smart_gaps on
