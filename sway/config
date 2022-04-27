@@ -3,7 +3,6 @@ set $mod Mod1
 bindsym $mod+f fullscreen toggle
 bindsym $mod+3 exec kitty
 bindsym $mod+1 exec firefox
-bindsym $mod+2 exec firefox
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
