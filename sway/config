@@ -1,5 +1,10 @@
-# Alt
+# Windows key
+# set $mod Mod4
+
+# Alt key
 set $mod Mod1
+
+# output * resolution --custom 1920x1080
 
 set $terminal kitty
 
@@ -8,6 +13,7 @@ bindsym ctrl+shift+f5 reload
 bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+g gaps outer current toggle 20
 default_border pixel
+
 
 #######################################
 ## Font
