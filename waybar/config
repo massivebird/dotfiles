@@ -1,4 +1,25 @@
 {
 	"layer": "bottom",
-	"position": "top"
+	"position": "top",
+	"height": 30,
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	/* "modules-center": ["sway/workspaces", "sway/mode"] */
+	"modules-right": ["memory", "cpu", "network", "pulseaudio", "battery", "clock"],
+
+	"sway/workspaces": {
+		"format": "{name}",
+		"disable-scroll-wraparound": true,
+		"enable-bar-scroll": true,
+		"smooth-scrolling-threshold": 30
+	},
+
+	"sway/window": {
+		"max-length": 80,
+		"tooltip": false
+	},
+
+	"clock": {
+		/* "format": "{:%g.%M %p}", */
+		"tooltip": false
+	}
 }
