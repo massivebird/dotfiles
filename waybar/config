@@ -1,25 +1,57 @@
 {
 	"layer": "bottom",
-	"position": "top",
-	"height": 30,
-	"modules-left": ["sway/workspaces", "sway/mode"],
-	/* "modules-center": ["sway/workspaces", "sway/mode"] */
-	"modules-right": ["memory", "cpu", "network", "pulseaudio", "battery", "clock"],
+		"position": "top",
+		"height": 30,
+		"modules-left": ["sway/workspaces", "sway/mode"],
+		/* "modules-center": ["sway/workspaces", "sway/mode"] */
+		"modules-right": ["memory", "cpu", "network", "pulseaudio", "battery", "clock"],
 
-	"sway/workspaces": {
-		"format": "{name}",
-		"disable-scroll-wraparound": true,
-		"enable-bar-scroll": true,
-		"smooth-scrolling-threshold": 30
-	},
+		"sway/workspaces": {
+			"format": "{name}",
+			"disable-scroll-wraparound": true,
+			"enable-bar-scroll": true,
+			"smooth-scrolling-threshold": 30
+		},
 
-	"sway/window": {
-		"max-length": 80,
-		"tooltip": false
-	},
+		"sway/window": {
+			"max-length": 80,
+			"tooltip": false
+		},
 
-	"clock": {
-		/* "format": "{:%g.%M %p}", */
-		"tooltip": false
-	}
-}
+		"clock": {
+			/* "format": "{:%g.%M %p}", */
+			"tooltip": false
+		}
+		"battery": {
+			"format": "{icon} {capacity}%",
+			"format-icons": ["", "", "", "", ""],
+			"format-charging": " {capacity}%",
+			"interval": 30,
+			"states": {
+				"warning": 25,
+				"critical": 10
+
+			},
+			"tooltip": false
+		},
+			"cpu": {
+				"tooltip": false,
+				"format": " {}%"
+
+			},
+
+			"memory": {
+				"tooltip": false,
+				"format": " {}%"
+					// "format": "{used} / {total}  "
+
+			},
+			"network": {
+				"format-wifi": " {essid} ({signalStrength}%)",
+				"format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+				"format-linked": " {ifname} (No IP)",
+				"format-disconnected": "Disconnected ⚠",
+				"format-alt": "{ifname}: {ipaddr}/{cidr}"
+
+			}
+		y
