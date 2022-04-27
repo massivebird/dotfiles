@@ -19,6 +19,7 @@ bindsym $mod+o+1 exec firefox
 bindsym $mod+o+2 exec alacritty
 bindsym $mod+o+3 exec kitty
 bindsym $mod+o+t exec kitty
+bindsym $mod+Return exec kitty
 
 #######################################
 ## Focus
