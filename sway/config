@@ -1,3 +1,8 @@
+## TO-DO:
+# + Can I run nnn in dedicated window?
+# + Fix missing symbols
+# + Get a spotify alternative
+
 # Alt key
 set $mod Mod1
 
@@ -50,7 +55,7 @@ bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+s exec $menu
 
-bindsym $mod+n exec nnn -SHeE
+bindsym $mod+n exec nnn -cSHE
 
 bindsym $mod+Shift+q kill
 
