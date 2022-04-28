@@ -14,10 +14,12 @@ Plug 'tpope/vim-obsession'
 " Hip status line
 Plug 'itchyny/lightline.vim'
 
+" Color name highlighter
+Plug 'ap/vim-css-color'
+
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
-Plug 'ap/vim-css-color'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
 Plug 'massivebird/ibm-vim'
