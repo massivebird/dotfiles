@@ -1,13 +1,6 @@
 # Alt key
 set $mod Mod1
 
-# output * resolution --custom 1920x1080
-output eDP-1 {
-                background ~/Downloads/0JRUReK.jpg fill
-                resolution 1920x1080
-		scale 1.3
-           }
-
 set $term kitty
 set $menu rofi -show run
 
@@ -17,10 +10,13 @@ bindsym $mod+g gaps outer current toggle 20
 bindsym $mod+d exec $menu
 
 #######################################
-# Desktop
+# Display
 
-# Wallpaper
-output * bg ~/Downloads/0JRUReK.jpg fill
+output eDP-1 {
+                background ~/Pictures/Wallpapers/0JRUReK.jpg fill
+                resolution 1920x1080
+		scale 1.3
+           }
 
 #######################################
 # Font
@@ -53,6 +49,8 @@ bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+s exec $menu
+
+bindsym $mod+n exec nnn -SHeE
 
 bindsym $mod+Shift+q kill
 
@@ -167,11 +165,9 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86MonBrightnessUp exec light -A 5    # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5  # decrease screen brightness
 
-bindsym XF86AudioPlay  exec "mpc toggle"
-bindsym XF86AudioStop  exec "mpc stop"
-bindsym XF86AudioNext  exec "mpc next"
-bindsym XF86AudioPrev  exec "mpc prev"
-bindsym XF86AudioPause exec "mpc pause"
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
