@@ -14,7 +14,6 @@ set $menu rofi -show run
 bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+g gaps outer current toggle 20
-default_border pixel
 bindsym $mod+d exec $menu
 
 #######################################
@@ -22,6 +21,18 @@ bindsym $mod+d exec $menu
 
 # Wallpaper
 output * bg ~/Downloads/0JRUReK.jpg fill
+
+#######################################
+# Font
+
+set $color_focused #f38019
+set $color_unfocused #000000FF
+
+default_border pixel 3
+
+client.focused #FF0000 $color_focused $color_focused $color_focused
+client.focused_inactive $color_unfocused $color_unfocused $color_unfocused $color_unfocused
+client.unfocused $color_unfocused $color_unfocused $color_unfocused $color_unfocused
 
 #######################################
 # Font
@@ -107,7 +118,7 @@ bindsym $mod+e layout toggle split
 # Toggle current focus as tiling/floating
 bindsym $mod+Shift+space floating toggle
 
-# Swap focus between the tiling area and the floating area
+# Swap focus between the twdiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
