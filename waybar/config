@@ -51,8 +51,8 @@
         "format-alt-click": "click-right",
         "format-muted": "",
         "format-icons": {
-            "phone": [" ", " ", " ", " "],
-            "default": ["", "", "", ""]
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
         },
         "scroll-step": 10,
         "on-click": "pavucontrol",
