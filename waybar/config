@@ -35,12 +35,12 @@
     },
     "network": {
         "format": "{icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        "format-alt-click": "click-right",
+        /* "format-alt": "{ipaddr}/{cidr} {icon}", */
+        /* "format-alt-click": "click-right", */
         "format-icons": {
             "wifi": ["", "" ,""],
             "ethernet": [""],
-            "disconnected": [""]
+            "disconnected": [""]
         },
         "on-click": "termite -e nmtui",
     "tooltip": false
