@@ -7,10 +7,12 @@
 
 * {
 	font: "JetBrains Mono NL 13";
+	padding-text-hor: 0 10px;
 	accent: #00BBcc;
 	bg: #0e0e0e;
+	bg-selected: #e0e0e0;
 
-	selected-normal-foreground:  rgba(248, 248, 242, 1);
+	selected-normal-foreground:  @bg;
 	foreground:                  rgba(248, 248, 242, 1);
 	normal-foreground:           @foreground;
 	alternate-normal-background: rgba(39, 40, 34, 0);
@@ -28,7 +30,7 @@
 	alternate-normal-foreground: @foreground;
 	normal-background:           rgba(39, 40, 34, 0);
 	lightfg:                     rgba(88, 104, 117, 1);
-	selected-normal-background:  rgba(20, 20, 17, 1);
+	selected-normal-background:  @bg-selected;
 	border-color:                @foreground;
 	spacing:                     2;
 	separatorcolor:              @accent;
@@ -43,11 +45,13 @@
 window {
 	background-color: @background;
 	border:           2;
-	padding:          5;
+	padding:          0.2em 0 0 0;
+	width: 24em;
+	height: 10.5em;
 }
 mainbox {
 	border:  0;
-	padding: 0;
+	/* padding: 15; */
 }
 message {
 	border:       2px 0px 0px ;
@@ -56,18 +60,20 @@ message {
 }
 textbox {
 	text-color: @foreground;
+	padding: @padding-text-hor;
 }
 listview {
 	fixed-height: 0;
 	border:       2px 0px 0px ;
-	border-color: @separatorcolor;
-	spacing:      2px ;
-	scrollbar:    true;
-	padding:      2px 0px 0px ;
+	border-color: @bg;
+	spacing:      3px ;
+	scrollbar:    false;
+	padding:      0px 0px;
 }
 element {
 	border:  0;
 	padding: 1px ;
+	padding: @padding-text-hor;
 }
 element-text {
 	background-color: inherit;
@@ -109,12 +115,12 @@ element.alternate.active {
 	background-color: @alternate-active-background;
 	text-color:       @alternate-active-foreground;
 }
-scrollbar {
-	width:        4px ;
-	border:       0;
-	handle-width: 8px ;
-	padding:      0;
-}
+/* scrollbar { */
+/* 	width:        4px ; */
+/* 	border:       0; */
+/* 	handle-width: 8px ; */
+/* 	padding:      0; */
+/* } */
 mode-switcher {
 	border:       2px 0px 0px ;
 	border-color: @separatorcolor;
@@ -126,7 +132,7 @@ button.selected {
 inputbar {
 	spacing:    0;
 	text-color: @normal-foreground;
-	padding:    1px ;
+	padding: @padding-text-hor;
 }
 case-indicator {
 	spacing:    0;
@@ -141,7 +147,7 @@ prompt {
 	text-color: @normal-foreground;
 }
 inputbar {
-	children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+	children:   [ entry,case-indicator ];
 	}
 	textbox-prompt-colon {
 		expand:     false;
