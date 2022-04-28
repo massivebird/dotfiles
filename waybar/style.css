@@ -59,8 +59,12 @@ window#waybar.solo {
 	color:      rgba(238, 46, 36, 1);
 }
 
+#battery.full {
+	color:      #00BBFF;
+}
+
 #battery.charging {
-	/* color:      rgba(217, 216, 216, 1); */
+	/* color:      #f38019; */
 }
 
 #custom-storage.warning {
