@@ -1,13 +1,9 @@
-# Windows key
-# set $mod Mod4
-
 # Alt key
 set $mod Mod1
 
 # output * resolution --custom 1920x1080
 
 set $term kitty
-
 set $menu rofi -show run
 
 bindsym $mod+Shift+c reload
@@ -38,9 +34,6 @@ bar {
 # Application shortcuts
 
 bindsym $mod+o+1 exec firefox
-bindsym $mod+o+2 exec alacritty
-bindsym $mod+o+3 exec kitty
-bindsym $mod+o+t exec kitty
 bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+s exec $menu
@@ -96,6 +89,9 @@ workspace_layout default
 
 #######################################
 # Layout
+
+gaps inner 10
+gaps outer 5
 
 bindsym $mod+f fullscreen toggle
 
