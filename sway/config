@@ -2,6 +2,11 @@
 set $mod Mod1
 
 # output * resolution --custom 1920x1080
+output eDP-1 {
+                background ~/Downloads/0JRUReK.jpg fill
+                resolution 1920x1080
+		scale 1.4
+           }
 
 set $term kitty
 set $menu rofi -show run
@@ -143,3 +148,26 @@ input "type:touchpad" {
 
 mouse_warping output
 focus_follows_mouse yes
+
+bindsym XF86AudioMute exec pactl set-sink-mute  $(pacmd list-sinks |awk '/* index:/{print $3}') toggle # Mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5% # Raise
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5% # Lower
+
+bindsym XF86MonBrightnessUp exec light -A 5    # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5  # decrease screen brightness
+
+bindsym XF86AudioPlay  exec "mpc toggle"
+bindsym XF86AudioStop  exec "mpc stop"
+bindsym XF86AudioNext  exec "mpc next"
+bindsym XF86AudioPrev  exec "mpc prev"
+bindsym XF86AudioPause exec "mpc pause"
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
