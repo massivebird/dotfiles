@@ -5,7 +5,7 @@ set $mod Mod1
 output eDP-1 {
                 background ~/Downloads/0JRUReK.jpg fill
                 resolution 1920x1080
-		scale 1.4
+		scale 1.2
            }
 
 set $term kitty
@@ -58,10 +58,10 @@ focus_wrapping no
 #######################################
 # Moving stuff
 
-bindsym $mod+w+h move left
-bindsym $mod+w+j move down
-bindsym $mod+w+k move up
-bindsym $mod+w+l move right
+bindsym $mod+shift+h move left
+bindsym $mod+shift+j move down
+bindsym $mod+shift+k move up
+bindsym $mod+shift+l move right
 
 #######################################
 # Workspaces
