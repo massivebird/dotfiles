@@ -3,8 +3,11 @@
 # + Get a spotify alternative
 # + Fix opening folder from Firefox
 
-# Alt key
+# Alt as mod
 set $mod Mod1
+
+# Map Windows key
+set $win Mod4
 
 set $term kitty
 set $menu rofi -show drun
@@ -24,10 +27,10 @@ output eDP-1 {
 #######################################
 # Font
 
-set $color_focused #f38019
-set $color_unfocused #000000FF
+set $color_focused #3a96dd
+set $color_unfocused #1b1f21
 
-default_border pixel 3
+default_border pixel 4
 
 client.focused #FF0000 $color_focused $color_focused $color_focused
 client.focused_inactive $color_unfocused $color_unfocused $color_unfocused $color_unfocused
@@ -50,7 +53,7 @@ bar {
 
 bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
-bindsym $mod+d exec $menu
+bindsym $win+r exec $menu
 
 # This doesn't work
 bindsym $mod+n exec nnn -cSHE
