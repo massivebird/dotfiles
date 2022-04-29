@@ -26,7 +26,7 @@ output eDP-1 {
 # Visuals #############################
 
 set $color_focused #3a96dd
-set $color_unfocused #1b1f21
+set $color_unfocused #0e0e0e
 
 default_border pixel 4
 
