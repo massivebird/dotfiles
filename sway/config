@@ -26,14 +26,16 @@ output eDP-1 {
 
 # Visuals #############################
 
-set $color_focused #3a96dd
-set $color_unfocused #0e0e0e
+set $c_0 #3a96dd
+set $c_1 #0e0e0e
+set $c_2 #FFFFFF
 
 default_border pixel 4
 
-client.focused #FF0000 $color_focused $color_focused $color_focused
-client.focused_inactive $color_unfocused $color_unfocused $color_unfocused $color_unfocused
-client.unfocused $color_unfocused $color_unfocused $color_unfocused $color_unfocused
+# class                 border  bground text    indicator	child_border
+client.focused		$c_0	$c_0	$c_2	$c_0		$c_0
+client.focused_inactive	$c_1	$c_1	$c_2	$c_0		$c_1
+client.unfocused	$c_1	$c_1	$c_2	$c_0		$c_1
 
 # Font ################################
 
