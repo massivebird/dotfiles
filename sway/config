@@ -1,24 +1,22 @@
 ## TO-DO:
 # + Can I run nnn in dedicated window?
-# + Fix missing symbols
 # + Get a spotify alternative
+# + Fix opening folder from Firefox
 
 # Alt key
 set $mod Mod1
 
 set $term kitty
-set $menu rofi -show run
+set $menu rofi -show drun
 
 bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+e exit 
-bindsym $mod+g gaps outer current toggle 20
-bindsym $mod+d exec $menu
 
 #######################################
 # Display
 
 output eDP-1 {
-                background ~/Pictures/Wallpapers/0JRUReK.jpg fill
+                background ~/Pictures/Wallpapers/paint-bluewave.jpg fill
                 resolution 1920x1080
 		scale 1.3
            }
@@ -52,11 +50,12 @@ bar {
 
 bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
 
-bindsym $mod+Shift+s exec $menu
-
+# This doesn't work
 bindsym $mod+n exec nnn -cSHE
 
+# Close focused window
 bindsym $mod+Shift+q kill
 
 #######################################
