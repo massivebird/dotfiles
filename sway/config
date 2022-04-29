@@ -15,8 +15,7 @@ set $menu rofi -show drun
 bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+e exit 
 
-#######################################
-# Display
+# Display #############################
 
 output eDP-1 {
                 background ~/Pictures/Wallpapers/paint-bluewave.jpg fill
@@ -24,8 +23,7 @@ output eDP-1 {
 		scale 1.3
            }
 
-#######################################
-# Font
+# Visuals #############################
 
 set $color_focused #3a96dd
 set $color_unfocused #1b1f21
@@ -36,20 +34,17 @@ client.focused #FF0000 $color_focused $color_focused $color_focused
 client.focused_inactive $color_unfocused $color_unfocused $color_unfocused $color_unfocused
 client.unfocused $color_unfocused $color_unfocused $color_unfocused $color_unfocused
 
-#######################################
-# Font
+# Font ################################
 
 font pango:JetBrains Mono NL 11
 
-#######################################
-# Bar
+# Bar #################################
 
 bar {
 	swaybar_command waybar
 }
 
-#######################################
-# Application shortcuts
+# Applications ########################
 
 bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
@@ -61,8 +56,7 @@ bindsym $mod+n exec nnn -cSHE
 # Close focused window
 bindsym $mod+Shift+q kill
 
-#######################################
-# Focus
+# Focus ###############################
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -71,16 +65,14 @@ bindsym $mod+l focus right
 
 focus_wrapping no
 
-#######################################
-# Moving stuff
+# Moving stuff ########################
 
 bindsym $mod+shift+h move left
 bindsym $mod+shift+j move down
 bindsym $mod+shift+k move up
 bindsym $mod+shift+l move right
 
-#######################################
-# Workspaces
+# Workspaces ##########################
 
 # Switch to workspace
 bindsym $mod+1 workspace number 1
@@ -108,8 +100,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 workspace_layout default
 
-#######################################
-# Layout
+# Layout ##############################
 
 gaps inner 10
 gaps outer 5
@@ -129,8 +120,7 @@ bindsym $mod+space focus mode_toggle
 # Move focus to the parent container
 bindsym $mod+a focus parent
 
-#######################################
-# Resizing containers
+# Resizing #############################
 
 mode "resize" {
 # left will shrink the containers width
@@ -148,8 +138,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#######################################
-# Input
+# Input ###############################
 
 input "type:keyboard" {
 	xkb_layout us
