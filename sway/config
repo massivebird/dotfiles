@@ -2,6 +2,7 @@
 # + Can I run nnn in dedicated window?
 # + Get a spotify alternative
 # + Fix opening folder from Firefox
+# + Figure out how to change a window
 
 # Alt as mod
 set $mod Mod1
