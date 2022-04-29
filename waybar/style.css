@@ -1,24 +1,15 @@
 * {
-	border:        none;
 	border-radius: 0;
 	font-family:   'JetBrains Mono NL', 'FontAwesome 5 Free';
 	font-size:     15px;
 	box-shadow:    none;
 	text-shadow:   none;
 	transition-duration: 0.2s;
-	color: #5777cc;
 }
 
-window {
-	/* margin: 50px; */
+window, window#waybar.solo {
 	color:      rgba(217, 216, 216, 1);
-	background: rgba(35, 31, 32, 0.80);
-	border-radius: 20px;
-}
-
-window#waybar.solo {
-	color:      rgba(217, 216, 216, 1);
-	background: rgba(35, 31, 32, 0.80);
+	background: #1f1f1f;
 	border-radius: 20px;
 }
 
@@ -26,19 +17,16 @@ window#waybar.solo {
 	margin: 0px 5px;
 }
 
-#workspaces button {
+#workspaces button, #workspaces button.visible {
 	padding:    0 5px;
-	color:      rgba(217, 216, 216, 0.0);
-}
-
-#workspaces button.visible {
-	color:      rgba(217, 216, 216, 1);
+	color:      #666666;
 }
 
 #workspaces button.focused {
 	border-radius: 0.2em;
-	border-top: 3px solid rgba(217,217,217,0.4);
+	border-top: 3px solid rgba(217,217,217,0.0);
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
+	color: #FFFFFF;
 }
 
 #workspaces button.urgent {
