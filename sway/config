@@ -3,7 +3,7 @@
 # + Fix opening folder from Firefox
 # + Figure out how to change window app
 # + Fix keyboard not working on startup
-# + nnn: edit text file in neovim
+# + nnn: edit text file in neovim w/ config
 
 # Alt as mod
 set $mod Mod1
@@ -55,7 +55,7 @@ bindsym $mod+Return exec $term
 bindsym $win+r exec $menu
 
 # This doesn't work
-bindsym $mod+n exec kitty nnn -cSHeo ~
+bindsym $mod+n exec kitty nnn -SHe -Tv ~
 
 # Close focused window
 bindsym $mod+Shift+q kill
