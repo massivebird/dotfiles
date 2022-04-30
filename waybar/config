@@ -45,7 +45,8 @@
             "ethernet": [""],
             "disconnected": [""]
         },
-        "on-click": "termite -e nmtui",
+	/* https://github.com/ericmurphyxyz/rofi-wifi-menu */
+        "on-click": "~/bin/rofi-wifi-menu",
     "tooltip": false
     },
     "pulseaudio": {
