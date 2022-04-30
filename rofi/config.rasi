@@ -30,8 +30,8 @@
 	alternate-normal-foreground: @foreground;
 	normal-background:           rgba(39, 40, 34, 0);
 	lightfg:                     rgba(88, 104, 117, 1);
-	selected-normal-background:  @bg-selected;
-	border-color:                @foreground;
+	selected-normal-background:  @accent;
+	border-color:                @accent;
 	spacing:                     2;
 	separatorcolor:              @accent;
 	urgent-background:           rgba(39, 40, 34, 0);
