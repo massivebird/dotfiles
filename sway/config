@@ -158,6 +158,10 @@ input "type:touchpad" {
 mouse_warping output
 focus_follows_mouse yes
 
+# Key Binds Maps Whatever #############
+
+bindsym Print exec grim ~/Pictures/screenshot.png
+
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
