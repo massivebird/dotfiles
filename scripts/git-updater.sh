@@ -26,11 +26,12 @@ STATUS_OHNO="[$RED OHNO $NC]"
 # Flag checks
 while getopts "vf" arg; do
 	case "${arg}" in
+		f) # "Fast"
+			exit 0
+			;;
 		v) # "Verbose"
 			FLAG_VERBOSE=1
 			;;
-		f) # "Fast"
-			exit 0
 	esac
 done
 
