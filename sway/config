@@ -3,7 +3,7 @@
 # + Fix opening folder from Firefox
 # + Figure out how to change window app
 # + Fix keyboard not working on startup
-# + nnn: edit text file in neovim w/ config
+# + Fix dedicated kitty window launching with bourne shell
 
 # Alt as mod
 set $mod Mod1
@@ -56,7 +56,7 @@ bindsym $mod+Return exec $term
 bindsym $win+r exec $menu
 
 # This doesn't work
-bindsym $mod+n exec kitty $browser
+bindsym $mod+n exec kitty --single-instance $browser
 
 # Close focused window
 bindsym $mod+Shift+q kill
