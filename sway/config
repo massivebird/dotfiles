@@ -161,6 +161,8 @@ focus_follows_mouse yes
 
 # Key Binds Maps Whatever #############
 
+bindsym ctrl+shift+n nop
+
 bindsym Print exec grim ~/Pictures/screenshot.png
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
