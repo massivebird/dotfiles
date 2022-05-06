@@ -11,13 +11,22 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 
-# Load up zplug plugin manager
+# zplug ###############################
+
+# load up zplug plugin manager
 source ~/.zplug/init.zsh
 
-# zplug: install plugins
+# load plugins
 zplug "massivebird/k"
 zplug "zsh-users/zsh-autosuggestions"
 zplug load
+
+# autosuggestions config ##############
+
+# all options: (history completion match_prev_cmd)
+export ZSH_AUTOSUGGEST_STRATEGY=(history)
+
+#######################################
 
 # Fix permission errors when cd-ing
 setopt auto_cd
@@ -28,7 +37,7 @@ set -K
 # Variable for vimgrep
 export NOTES_DIR=~/academia/notes_all/
 
-# Aliases
+# aliases #############################
 alias c="cd"
 alias clj="clj/"
 alias conf="~/.config"
@@ -79,6 +88,8 @@ alias zpc="zplug clean"
 alias zpi="zplug install"
 alias zpl="zplug list"
 alias zpu="zplug update"
+
+#######################################
 
 # Updates select git repositories
 bash ~/.config/scripts/git-updater.sh $@
