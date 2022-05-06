@@ -1,9 +1,20 @@
+# massivebird's ranger colorscheme based on
+# balanceiskey/vim-framer-syntax
 from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import *
 
 # custom colors
-# white=15
-blue=blue
+white=231
+black=16
+blue=39
+lightblue=153
+red=168
+yellow=221
+orange=209
+pink=204
+lightpink=219
+purple=141
+gray=102
 
 class ColorScheme(ColorScheme):
 
@@ -19,21 +30,21 @@ class ColorScheme(ColorScheme):
             else:
                 attr = normal
             if context.empty or context.error:
-                fg = 6
-                bg = 1
+                fg = black
+                bg = red
             if context.border:
                 fg = white
             if context.image:
-                fg = 201
+                fg = purple
             if context.video:
-                fg = 13
+                fg = purple
             if context.audio:
                 fg = 10
             if context.document:
-                fg = 12
+                fg = blue
             if context.container:
                 attr |= bold
-                fg = 1
+                fg = red
             if context.directory:
                 attr |= bold
                 fg = blue
@@ -43,20 +54,20 @@ class ColorScheme(ColorScheme):
                 attr |= bold
                 fg = 2
             if context.socket:
-                fg = 21
+                fg = lightblue
                 attr |= bold
             if context.fifo or context.device:
-                fg = 21
+                fg = lightblue
                 if context.device:
                     attr |= bold
             if context.link:
-                fg = context.good and 6 or 1
+                fg = context.good and lightblue or red
             if context.bad:
                 fg = 0
-                bg = 1
+                bg = red
             if context.tag_marker and not context.selected:
                 attr |= bold
-                fg = 88
+                fg = red
             if not context.selected and (context.cut or context.copied):
                 attr = reverse
             if context.main_column:
@@ -64,19 +75,19 @@ class ColorScheme(ColorScheme):
                     attr |= bold
                 if context.marked:
                     attr |= bold
-                    fg = 8
+                    fg = gray
             if context.badinfo:
                 if attr & reverse:
-                    bg = 1
+                    bg = red
                 else:
-                    fg = 7
+                    fg = white
 
         elif context.in_titlebar:
             attr |= bold
             if context.hostname:
-                fg = context.bad and 1 or white
+                fg = context.bad and red or white
             elif context.directory:
-                fg = blue
+                fg = white
             elif context.tab:
                 if context.good:
                     bg = 2
@@ -84,19 +95,19 @@ class ColorScheme(ColorScheme):
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
-                    fg = 2
+                    fg = blue
                     bg = 0
                 elif context.bad:
-                    fg = 1
+                    fg = red
             if context.marked:
                 attr |= bold | reverse
-                fg = 88
+                fg = red
             if context.message:
                 if context.bad:
                     attr |= bold
-                    fg = 9
+                    fg = pink
             if context.loaded:
-                bg = 1
+                bg = red
 
 
         if context.text:
@@ -105,16 +116,16 @@ class ColorScheme(ColorScheme):
 
         if context.in_taskview:
             if context.title:
-                fg = 4
+                fg = blue
 
             if context.selected:
                 attr |= reverse
 
             if context.loaded:
                 if context.selected:
-                    fg = 1
+                    fg = red
                 else:
-                    bg = 1
+                    bg = red
 
         return fg, bg, attr
 
