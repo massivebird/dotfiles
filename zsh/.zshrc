@@ -4,7 +4,6 @@ if [ -z "$SSH_SHELL" ]; then
 fi
 
 # load command prompt
-setopt prompt_subst
 source ~/.config/zsh/eastwood.zsh-theme
 
 # If you come from bash you might have to change your $PATH.
