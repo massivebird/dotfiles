@@ -38,12 +38,28 @@ set -K
 export NOTES_DIR=~/academia/notes_all/
 
 # aliases #############################
-alias c="cd"
-alias clj="clj/"
+
+# navigation
+alias -- -="cd - > /dev/null"
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
 alias conf="~/.config"
-alias diff="diff --color=always"
-alias dirl="dirs -v"
-alias exp="explorer.exe"
+alias schoo="~/academia"
+
+# git
 alias g="git"
 alias ga="git add"
 alias gaa="git add --all"
@@ -59,12 +75,8 @@ alias gll="git log --graph --stat"
 alias glop="git log --graph -p"
 alias grs="git restore"
 alias gst="git status"
-alias l="ls -1AshX --color=always --group-directories-first"
-alias lessr="less -r"
-alias ll="k -Ah --group-directories-first"
-alias lll="ls -1Alh --color=always --group-directories-first"
-alias lo="gnome-session-save --force-logout"
-alias n="nvim"
+
+# config shortcuts
 alias nc="nvim ~/.config/nvim/init.vim"
 alias nck="nvim ~/.config/kitty/kitty.conf"
 alias ncr="nvim ~/.config/rofi/config.css"
@@ -72,12 +84,24 @@ alias ncs="nvim ~/.config/sway/config"
 alias ncw="nvim ~/.config/waybar/config"
 alias ncws="nvim ~/.config/waybar/style.css"
 alias ncz="nvim ~/.config/zsh/.zshrc"
+
+# misc
+alias c="cd"
+alias clj="clj/"
+alias diff="diff --color=always"
+alias dirl="dirs -v"
+alias exp="explorer.exe"
+alias l="ls -1AshX --color=always --group-directories-first"
+alias lessr="less -r"
+alias ll="k -Ah --group-directories-first"
+alias lll="ls -1Alh --color=always --group-directories-first"
+alias lo="gnome-session-save --force-logout"
+alias n="nvim"
 alias nn="ranger $NOTES_DIR"
 alias nr="nvim -R"
 alias pingg="ping google.com"
 alias r="ranger ."
 alias rename="prename"
-alias schoo="~/academia"
 alias shx="chmod +x *.sh"
 alias src="source ~/.zshrc"
 alias tree="tree -RC --dirsfirst"
