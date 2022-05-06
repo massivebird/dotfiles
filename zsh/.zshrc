@@ -79,13 +79,13 @@ alias gc!="git commit -v --amend"
 alias gc="git commit -v"
 alias gca="git commit -v -a"
 alias gf="git fetch"
-alias ggpull="git pull origin $(git branch --show-current)"
-alias ggpush="git push origin $(git branch --show-current)"
 alias gl="git log --oneline --decorate=short --graph"
 alias gll="git log --graph --stat"
 alias glop="git log --graph -p"
 alias grs="git restore"
 alias gst="git status"
+ggpull () { git pull origin $(git branch --show-current); }
+ggpush () { git push origin $(git branch --show-current); }
 
 # config shortcuts
 alias nc="nvim ~/.config/nvim/init.vim"
