@@ -6,12 +6,10 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION  ]]; then
-	export EDITOR='nvim'
-else
-	export EDITOR='nvim'
-fi
+# Preferred editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+export PAGER="less"
 
 # Load up zplug plugin manager
 source ~/.zplug/init.zsh
