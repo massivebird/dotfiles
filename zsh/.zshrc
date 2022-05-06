@@ -3,9 +3,6 @@ if [ -z "$SSH_SHELL" ]; then
 	bash ~/.config/scripts/shell-splash.sh
 fi
 
-# load command prompt
-source ~/.config/zsh/eastwood.zsh-theme
-
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
 
@@ -79,3 +76,6 @@ alias zpu="zplug update"
 
 # Updates select git repositories
 bash ~/.config/scripts/git-updater.sh $@
+
+# load command prompt
+source ~/.config/zsh/eastwood.zsh-theme
