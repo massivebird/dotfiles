@@ -11,6 +11,20 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export PAGER="less"
 
+# zsh options #########################
+
+# fixes permission errors when cd-ing
+setopt auto_cd
+# on cd, push prev dir onto dir stack
+setopt auto_pushd
+# do not push multiple of one dir onto stack
+setopt pushd_ignore_dups
+
+# keybinds ############################
+
+# ctrl-backspace deletes word
+bindkey '^H' backward-kill-word
+
 # zplug ###############################
 
 # load up zplug plugin manager
@@ -27,9 +41,6 @@ zplug load
 export ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 #######################################
-
-# Fix permission errors when cd-ing
-setopt auto_cd
 
 # Disables BASH history expansion via ![number]
 set -K
@@ -120,3 +131,4 @@ bash ~/.config/scripts/git-updater.sh $@
 
 # load command prompt
 source ~/.config/zsh/eastwood.zsh-theme
+
