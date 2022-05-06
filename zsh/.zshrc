@@ -1,19 +1,14 @@
-# Startup prompt
+# splash screen
 if [ -z "$SSH_SHELL" ]; then
 	bash ~/.config/scripts/shell-splash.sh
 fi
 
+# load command prompt
+setopt prompt_subst
+source ~/.config/zsh/eastwood.zsh-theme
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION  ]]; then
@@ -27,21 +22,8 @@ source ~/.zplug/init.zsh
 
 # zplug: install plugins
 zplug "massivebird/k"
+zplug "zsh-users/zsh-autosuggestions"
 zplug load
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# NOT required for plugins installed via zplug
-plugins=(
-	git
-	zsh-autosuggestions
-)
-
-export FZF_BASE=/.oh-my-zsh/plugins/fzf
-
-# Load oh-my-zsh
-source $ZSH/oh-my-zsh.sh
 
 # Fix permission errors when cd-ing
 setopt auto_cd
@@ -59,9 +41,13 @@ alias conf="~/.config"
 alias diff="diff --color=always"
 alias dirl="dirs -v"
 alias exp="explorer.exe"
+alias ggpull="git pull origin $(git_current_branch)"
+alias ggpush="git push origin $(git_current_branch)"
 alias gl="git log --oneline --decorate=short --graph"
 alias gll="git log --graph --stat"
 alias glop="git log --graph -p"
+alias gca="git commit -v -a"
+alias gst="git status"
 alias l="ls -1AshX --color=always --group-directories-first"
 alias lessr="less -r"
 alias ll="k -Ah --group-directories-first"
@@ -77,7 +63,7 @@ alias ncws="nvim ~/.config/waybar/style.css"
 alias ncz="nvim ~/.config/zsh/.zshrc"
 alias nn="ranger $NOTES_DIR"
 alias nr="nvim -R"
-alias pingg"ping google.com"
+alias pingg="ping google.com"
 alias r="ranger ."
 alias rename="prename"
 alias schoo="~/academia"
