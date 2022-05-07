@@ -5,7 +5,7 @@
 # in Neovim
 
 if [ -z "$1" ]; then
-	echo "nb.sh: missing operand"
+	echo "$0: missing operand"
 	exit 1
 fi
 

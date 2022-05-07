@@ -6,21 +6,21 @@
 
 # Error if missing operand
 if [ -z "$1" ]; then
-	echo "script-bin.sh: missing operand"
+	echo "$0: missing operand"
 	exit 1
 fi
 
 # Error if pathname is not an absolute path
 # (not necessary, but a good habit)
 if ! grep -qE '^[~/]' <<< "$1"; then
-	echo "script-bin.sh: $1: not an absolute path"
+	echo "$0: $1: not an absolute path"
 	exit 1
 fi
 
 # Error if file does not exist and/or
 # is not a shell script
 if [ ! -f "$1" ] && ! grep -qE '\.sh$' <<< "$1"; then
-	echo "script-bin.sh: $1: shell script does not exist"
+	echo "$0: $1: shell script does not exist"
 	exit 1
 fi
 

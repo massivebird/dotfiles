@@ -12,7 +12,7 @@
 if [ -n "$1" ]; then
 	FILE="$1";
 else
-	echo "ban-mngr-list.sh: missing operand"
+	echo "$0: missing operand"
 	exit 1
 fi
 
