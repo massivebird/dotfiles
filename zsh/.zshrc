@@ -20,11 +20,6 @@ setopt auto_pushd
 # do not push multiple of one dir onto stack
 setopt pushd_ignore_dups
 
-# keybinds ############################
-
-# ctrl-backspace deletes word
-bindkey '^H' backward-kill-word
-
 # zplug ###############################
 
 # load up zplug plugin manager
@@ -34,6 +29,11 @@ source ~/.zplug/init.zsh
 zplug "massivebird/k"
 zplug "zsh-users/zsh-autosuggestions"
 zplug load
+
+# keybinds ############################
+
+# ctrl-backspace deletes word
+bindkey '^H' backward-kill-word
 
 # autosuggestions config ##############
 
