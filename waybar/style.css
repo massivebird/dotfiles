@@ -33,14 +33,20 @@ window, window#waybar.solo {
 	color:      rgba(238, 46, 36, 1);
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
-	margin:     0px 6px 0px 10px;
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate {
+	margin:     0px 10px 0px 10px;
 	min-width:  25px;
 }
 
+#custom-jpdate {
+	margin-right: 0;
+}
+
 #clock {
-	margin:     0px 16px 0px 10px;
-	min-width:  140px;
+	margin:     0px 16px 0px 0px;
+	padding-left: 10px;
+	/* background: #FF0000; */
+	/* min-width:  90px; */
 }
 
 #battery.warning {
