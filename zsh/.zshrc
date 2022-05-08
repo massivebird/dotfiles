@@ -3,6 +3,9 @@ if [ -z "$SSH_SHELL" ]; then
 	bash ~/.config/scripts/shell-splash.sh
 fi
 
+# load all those silly oh-my-zsh scripts
+source ~/.config/zsh/lib/*
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/bin:/usr/bin:/usr/local/bin:${PATH}:$HOME/bin
 
@@ -34,6 +37,16 @@ zplug load
 
 # ctrl-backspace deletes word
 bindkey '^H' backward-kill-word
+# shift-tab navigates to previous menu item
+bindkey '^[[Z' reverse-menu-complete
+# ctrl-up moves cursor to beginning of line
+bindkey '^[[1;5A' beginning-of-line
+# ctrl-down moves cursor to end of line
+bindkey '^[[1;5B' end-of-line
+# ctrl-right moves cursor forward one word
+bindkey '^[[1;5C' forward-word
+# ctrl-left moves cursor backward one word
+bindkey '^[[1;5D' backward-word
 
 # autosuggestions config ##############
 
