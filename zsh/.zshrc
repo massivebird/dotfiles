@@ -68,6 +68,7 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 alias conf="~/.config"
+alias docc="~/docs"
 alias schoo="~/academia"
 
 # git
