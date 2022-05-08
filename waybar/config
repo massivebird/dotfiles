@@ -35,7 +35,7 @@
 	"custom/jpdate": {
 		"format": "{}",
 		"exec": "~/.config/scripts/jpdate.sh",
-		"interval": 5
+		"interval": 60
 	},
 	"clock": {
 		"format": "{:%H:%M}",
@@ -80,7 +80,7 @@
 		"tooltip": false
 	},
 	"custom/spotify": {
-		"interval": 1,
+		"interval": 5,
 		"return-type": "json",
 		"exec": "~/.config/waybar/modules/spotify.sh",
 		"exec-if": "pgrep spotify",
