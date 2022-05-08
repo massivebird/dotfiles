@@ -1,8 +1,19 @@
-# Linux dotfiles
+![screenshot-desktop](https://i.imgur.com/sgvnYrl.png)
 
-Streamlining configuration on new machines since 2021!
+# massivebird's dotfiles
 
-## Installation
+Fedora Linux btw
+
+# programs
+
++ [`sway`](https://github.com/swaywm/sway) window manager
++ [`waybar`](https://github.com/Alexays/Waybar) status bar
++ [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
++ [`zsh`](https://www.zsh.org/) shell
++ [`nvim`](https://github.com/neovim/neovim) text editor
++ [`ranger`](https://github.com/ranger/ranger) file browser
+
+## installation
 
 This repo is intended to be cloned into/as the system's `~/.config` directory.
 
@@ -16,7 +27,7 @@ rm -rf dotfiles
 
 I'll make a better way later I promise
 
-## ./scripts - My Favorites
+## my favorite ./scripts
 
 ### arcstat.sh
 
@@ -49,3 +60,7 @@ This runs every time I source my shell rc, which includes booting up my machine(
 Validates file system conventions for USB Loader GX, a Wii Homebrew app.
 
 ![wiicheck-preview](https://i.imgur.com/DaCQKue.png)
+
+## misc
+
+[wallpaper](https://unsplash.com/photos/VWEFQ7q9GFw)
