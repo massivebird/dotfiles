@@ -132,4 +132,3 @@ bash ~/.config/scripts/git-updater.sh $@
 
 # load command prompt
 source ~/.config/zsh/eastwood.zsh-theme
-
