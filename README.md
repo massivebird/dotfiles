@@ -6,12 +6,13 @@ Fedora Linux btw
 
 # programs
 
-+ [`sway`](https://github.com/swaywm/sway) window manager
-+ [`waybar`](https://github.com/Alexays/Waybar) status bar
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
-+ [`zsh`](https://www.zsh.org/) shell
 + [`nvim`](https://github.com/neovim/neovim) text editor
 + [`ranger`](https://github.com/ranger/ranger) file browser
++ [`rofi`](https://github.com/davatorium/rofi) app launcher
++ [`sway`](https://github.com/swaywm/sway) window manager
++ [`waybar`](https://github.com/Alexays/Waybar) status bar
++ [`zsh`](https://www.zsh.org/) shell
 
 ## installation
 
