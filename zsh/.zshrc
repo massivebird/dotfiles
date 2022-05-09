@@ -55,11 +55,13 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 #######################################
 
-# Disables BASH history expansion via ![number]
+# disables BASH history expansion via ![number]
 set -K
 
-# Variable for vimgrep
+# variable for vimgrep
 export NOTES_DIR=~/academia/notes_all/
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # aliases #############################
 
