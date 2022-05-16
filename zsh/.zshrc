@@ -108,7 +108,7 @@ alias nc="nvim ~/.config/nvim/init.vim"
 alias nck="nvim ~/.config/kitty/kitty.conf"
 alias ncr="nvim ~/.config/ranger/rc.conf"
 alias ncs="nvim ~/.config/sway/config"
-alias ncw="nvim ~/.config/waybar/config.json"
+alias ncw="nvim ~/.config/waybar/config"
 alias ncws="nvim ~/.config/waybar/style.css"
 alias ncz="nvim ~/.config/zsh/.zshrc"
 
