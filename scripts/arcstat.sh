@@ -3,7 +3,7 @@
 ## ARCSTAT.SH
 # Statistics about my local video game archive
 
-# Color presets
+# color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
 MAGENTA="$(tput setaf 99)"
@@ -12,7 +12,7 @@ YELLOW="$(tput setaf 220)"
 HEADER="$(tput setab 237)"
 NC="$(tput sgr 0)"
 
-# Colored strings
+# colored strings
 DS="$(tput setaf 253)DS${NC}"
 DS3="$(tput setaf 160)3DS${NC}"
 GB="$(tput setaf 65)GB${NC}"
@@ -27,7 +27,7 @@ STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
 
-# Locates backup directory
+# locates backup directory
 if [ -d /mnt/*/wiiback ]; then
 	echo "$STATUS_OK Archive detected"
 	DIRBACKUP=/mnt/*/wiiback
@@ -36,7 +36,7 @@ else
 	exit 1
 fi
 
-# System directories
+# system directories
 DIRDS="$DIRBACKUP/ds"
 DIRDS3="$DIRBACKUP/3ds"
 DIRGB="$DIRBACKUP/gb"
@@ -47,7 +47,7 @@ DIRPS2="$DIRBACKUP/ps2"
 DIRSNES="$DIRBACKUP/snes"
 DIRWII="$DIRBACKUP/wbfs"
 
-# Number of games per system
+# number of games per system
 NUMDS=$(ls -l $DIRDS | grep -cE '\.nds')
 NUMDS3=$(ls -l $DIRDS3 | grep -cE '\.cia')
 NUMGB=$(ls -l $DIRGB | grep -cE '\.gb[c]?')
@@ -59,12 +59,12 @@ NUMSNES=$(ls -l $DIRSNES | grep -cE '\.sfc')
 NUMWII=$(ls -l $DIRWII | grep -cE '^d')
 NUMTOTAL=$[ $NUMDS + $NUMDS3 + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
 
-# Calculates total drive usage of all directory arguments
+# calculates total drive usage of all directory arguments
 calcsize () {
 	du -chs $* | tail -n 1 | grep -oE '(^\w.+)[GM]'
 }
 
-# Drive usage
+# use function above to record drive usages
 SIZEDS=$(calcsize $DIRDS)
 SIZEDS3=$(calcsize $DIRDS3)
 SIZEGB=$(calcsize $DIRGB)
@@ -76,19 +76,17 @@ SIZESNES=$(calcsize $DIRSNES)
 SIZEWII=$(calcsize $DIRWII)
 SIZETOTAL=$(calcsize $DIRWII $DIRGCN $DIRPS2 $DIRDS $DIRSNES $DIRGBA $DIRGB $DIRN64)
 
-echo # Output newline
+# main output
+printf """\n${HEADER}System${NC}\t${HEADER}# Games${NC}\t${HEADER}Size${NC}
+${DS3}\t${NUMDS3}\t${SIZEDS3}
+${DS}\t${NUMDS}\t${SIZEDS}
+${GB}\t${NUMGB}\t${SIZEGB}
+${GBA}\t${NUMGBA}\t${SIZEGBA}
+${GCN}\t${NUMGCN}\t${SIZEGCN}
+${N64}\t${NUMN64}\t${SIZEN64}
+${PS2}\t${NUMPS2}\t${SIZEPS2}
+${SNES}\t${NUMSNES}\t${SIZESNES}
+${WII}\t${NUMWII}\t${SIZEWII}
+\t${NUMTOTAL}\t${SIZETOTAL}\n\n"""
 
-echo -e "${HEADER}System${NC}\t${HEADER}# Games${NC}\t${HEADER}""Size${NC}"
-echo -e "${DS3}\t${NUMDS3}\t${SIZEDS3}"
-echo -e "${DS}\t${NUMDS}\t${SIZEDS}"
-echo -e "${GB}\t${NUMGB}\t${SIZEGB}"
-echo -e "${GBA}\t${NUMGBA}\t${SIZEGBA}"
-echo -e "${GCN}\t${NUMGCN}\t${SIZEGCN}"
-echo -e "${N64}\t${NUMN64}\t${SIZEN64}"
-echo -e "${PS2}\t${NUMPS2}\t${SIZEPS2}"
-echo -e "${SNES}\t${NUMSNES}\t${SIZESNES}"
-echo -e "${WII}\t${NUMWII}\t${SIZEWII}"
-echo -e "\t${NUMTOTAL}\t${SIZETOTAL}"
-
-echo # Output newline
 exit 0
