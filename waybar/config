@@ -35,23 +35,24 @@
 	"custom/jpdate": {
 		"format": "{}",
 		"exec": "~/.config/scripts/jpdate.sh",
-		"interval": 60
+		"interval": 60,
+		"tooltip": false
 	},
 	"clock": {
 		"format": "{:%H:%M}",
 		"tooltip": false
 	},
 	"battery": {
-		"format": "{capacity}% {icon}",
-		"format-alt": "{icon}",
+		"format": "{icon}",
 		"format-icons": ["", "", "", "", ""],
-		"format-charging": "{capacity}% ",
+		"format-charging": "",
 		"interval": 30,
 		"states": {
 			"warning": 25,
 			"critical": 10
 		},
-		"tooltip": false
+		"tooltip": true,
+		"tooltip-format": "{capacity}%"
 	},
 	"network": {
 		"format": "{icon}",
@@ -64,7 +65,8 @@
 		},
 		/* https://github.com/ericmurphyxyz/rofi-wifi-menu */
 		"on-click": "~/bin/rofi-wifi-menu",
-		"tooltip": false
+		"tooltip": true,
+		"tooltip-format": "{}"
 	},
 	"pulseaudio": {
 		"format": "{icon}",
@@ -132,3 +134,5 @@
 		"icon-size": 18
 	}
 }
+
+# vim:filetype=json
