@@ -60,15 +60,15 @@ fi
 
 # Configures copy function
 if [ -n "$FLAG_VERBOSE" ]; then
-	COPYOPTS="-ur"
+	COPYOPTS="-ah --progress"
 else
-	COPYOPTS="-uvr"
+	COPYOPTS="-vah --progress"
 fi
 
 # Copy function per system/item copied
 mycopy () {
 	echo "$STATUS_CONS Initiating $3 transfer"
-	cp $COPYOPTS $1 $2
+	rsync $COPYOPTS $1 $2
 	echo "$STATUS_OK $3 transfer completed"
 }
 
