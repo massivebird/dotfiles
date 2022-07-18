@@ -81,7 +81,9 @@ SIZEWII=$(calcsize $DIRWII)
 SIZETOTAL=$(calcsize $DIRWII $DIRGCN $DIRPS2 $DIRDS $DIRSNES $DIRGBA $DIRGB $DIRN64)
 
 # main output
-printf """\n${HEADER}System${NC}\t${HEADER}# Games${NC}\t${HEADER}Size${NC}
+printf """\n\
+$(tput setaf 246)System\tGames\tSize
+────────────────────${NC}
 ${DS3}\t${NUMDS3}\t${SIZEDS3}
 ${DS}\t${NUMDS}\t${SIZEDS}
 ${GB}\t${NUMGB}\t${SIZEGB}
