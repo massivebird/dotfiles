@@ -20,6 +20,7 @@ GBA="$(tput setaf 219)GBA${NC}"
 GCN="${MAGENTA}GCN${NC}"
 N64="$(tput setaf 42)N64${NC}"
 PS2="$(tput setaf 242)PS2${NC}"
+PSP="$(tput setaf 69)PSP${NC}"
 SNES="$(tput setaf 57)SNES${NC}"
 WII="${CYAN}WII${NC}"
 STATUS_COOL="[$GREEN COOL $NC]"
@@ -44,6 +45,7 @@ DIRGBA="$DIRBACKUP/gba"
 DIRGCN="$DIRBACKUP/games"
 DIRN64="$DIRBACKUP/n64"
 DIRPS2="$DIRBACKUP/ps2"
+DIRPSP="$DIRBACKUP/psp"
 DIRSNES="$DIRBACKUP/snes"
 DIRWII="$DIRBACKUP/wbfs"
 
@@ -55,6 +57,7 @@ NUMGBA=$(ls -l $DIRGBA | grep -cE '\.gba')
 NUMGCN=$(ls -l $DIRGCN | grep -cE '^d')
 NUMN64=$(ls -l $DIRN64 | grep -cE '\.[nz]64|.rom')
 NUMPS2=$(ls -l $DIRPS2 | grep -cE '\.iso')
+NUMPSP=$(ls -l $DIRPSP | grep -cE '\.iso')
 NUMSNES=$(ls -l $DIRSNES | grep -cE '\.sfc')
 NUMWII=$(ls -l $DIRWII | grep -cE '^d')
 NUMTOTAL=$[ $NUMDS + $NUMDS3 + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
@@ -72,6 +75,7 @@ SIZEGBA=$(calcsize $DIRGBA)
 SIZEGCN=$(calcsize $DIRGCN)
 SIZEN64=$(calcsize $DIRN64)
 SIZEPS2=$(calcsize $DIRPS2)
+SIZEPSP=$(calcsize $DIRPSP)
 SIZESNES=$(calcsize $DIRSNES)
 SIZEWII=$(calcsize $DIRWII)
 SIZETOTAL=$(calcsize $DIRWII $DIRGCN $DIRPS2 $DIRDS $DIRSNES $DIRGBA $DIRGB $DIRN64)
@@ -85,6 +89,7 @@ ${GBA}\t${NUMGBA}\t${SIZEGBA}
 ${GCN}\t${NUMGCN}\t${SIZEGCN}
 ${N64}\t${NUMN64}\t${SIZEN64}
 ${PS2}\t${NUMPS2}\t${SIZEPS2}
+${PSP}\t${NUMPSP}\t${SIZEPSP}
 ${SNES}\t${NUMSNES}\t${SIZESNES}
 ${WII}\t${NUMWII}\t${SIZEWII}
 \t${NUMTOTAL}\t${SIZETOTAL}\n\n"""
