@@ -46,7 +46,7 @@ bindsym ctrl+shift+n nop
 # Display #############################
 
 output eDP-1 {
-                background ~/Pictures/Wallpapers/paint-bluewave.jpg fill
+                background #1e2724 solid_color
                 resolution 1920x1080
 		scale 1.3
            }
