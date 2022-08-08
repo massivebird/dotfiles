@@ -83,6 +83,7 @@ update_all () {
 	source_repo "$HOME/.config/" "Configuration"
 	source_repo "$HOME/docs" "Documents"
 	source_repo "$HOME/academia" "Academia"
+	source_repo "$HOME/tutoring" "Tutoring"
 }
 
 # Updates all in background...
