@@ -95,4 +95,10 @@ if status is-interactive
 	alias zpi 'zplug install'
 	alias zpl 'zplug list'
 	alias zpu 'zplug update'
+
+	# keybinds ############################
+	# use fish_key_reader!
+
+	bind \cC 'commandline -r ""'
+	bind \cP history-search-backward
 end
