@@ -1,6 +1,22 @@
+# Set some display-related env vars when in graphical environment so I can use
+# fish to reliably launch graphical apps by using `fish -c "somecommand"`
+if set -q XDG_CURRENT_DESKTOP
+	set -x _JAVA_AWT_WM_NONREPARENTING 1
+	# If using wayland, set appropriate env vars
+	if set -q WAYLAND_DISPLAY
+		set -x MOZ_ENABLE_WAYLAND 1
+		set -x QT_QPA_PLATFORM 'wayland'
+	end
+	if test (command -s qt5ct)
+		set -x QT_QPA_PLATFORMTHEME "qt5ct"
+	end
+end
+
 if status is-interactive
 	# Commands to run in interactive sessions can go here
 	# fish_vi_key_bindings
+	bash ~/.config/scripts/shell-splash.sh
+	bash ~/.config/scripts/git-updater.sh
 
 	# aliases #############################
 
@@ -44,6 +60,7 @@ if status is-interactive
 
 	# config shortcuts
 	alias nc 'nvim ~/.config/nvim/init.vim'
+	alias ncf 'nvim ~/.config/fish/config.fish'
 	alias nck 'nvim ~/.config/kitty/kitty.conf'
 	alias ncr 'nvim ~/.config/ranger/rc.conf'
 	alias ncs 'nvim ~/.config/sway/config'
