@@ -16,7 +16,7 @@ if status is-interactive
 	# Commands to run in interactive sessions can go here
 	fish_vi_key_bindings
 	bash ~/.config/scripts/shell-splash.sh
-	bash ~/.config/scripts/git-updater.sh
+	bash ~/.config/scripts/git-updater.sh $argv
 
 	# variables ###########################
 
