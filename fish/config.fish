@@ -14,9 +14,16 @@ end
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-	fish_vi_key_bindings
 	bash ~/.config/scripts/shell-splash.sh
 	bash ~/.config/scripts/git-updater.sh $argv
+
+	# vi mode #############################
+
+	fish_vi_key_bindings
+
+	set fish_cursor_default block
+	set fish_cursor_insert line
+	set fish_cursor_replace_one underscore
 
 	# variables ###########################
 
@@ -110,6 +117,10 @@ if status is-interactive
 	bind \cP history-search-backward
 
 	# prompt ##############################
+
+	function fish_prompt
+		printf '%s[%s]%s > ' (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal)
+	end
 
 	# starship init fish | source
 end
