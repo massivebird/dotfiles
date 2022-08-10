@@ -126,7 +126,20 @@ if status is-interactive
 	# prompt ##############################
 
 	function fish_prompt
-		printf '%s%s[%s]%s > ' (fish_git_prompt) (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal)
+		# check user privileges
+		if fish_is_root_user
+			set -f STR_ROOT '#'
+		else
+			set -f STR_ROOT '$'
+		end
+		# check if git exists here
+		if fish_git_prompt 1> /dev/null
+			set -f STR_GIT (fish_git_prompt)
+		else
+			set -f STR_GIT ""
+		end
+		# prompt as formatted string
+		printf '%s%s%s[%s]%s%s ' (set_color $fish_color_user) $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal) $STR_ROOT
 	end
 
 	# starship init fish | source
