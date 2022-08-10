@@ -132,19 +132,26 @@ if status is-interactive
 		else
 			set -f STR_ROOT '$'
 		end
-		# check if git exists here
-		if fish_git_prompt 1> /dev/null
+		# if cwd is git controlled...
+		if fish_git_prompt > /dev/null
+			# ... then prepare git string
 			set -f STR_GIT (set_color $fish_color_user)\[(git branch --show-current)\]
-			if git status -s 1> /dev/null
+			# and if cwd is dirty...
+			set -l DIRTY_TEST (git status --porcelain)
+			if test -n "$DIRTY_TEST"
+				# ... then prepare dirty indicator
 				set -f STR_DIRTY (set_color $fish_color_error)\*
 			else
+				# or empty if clean
 				set -f STR_DIRTY ''
 			end
+		# if cwd is not git controlled...
 		else
+			# ... make git strings empty
 			set -f STR_GIT ''
 			set -f STR_DIRTY ''
 		end
-		# prompt as formatted string
+		# print prompt as formatted string
 		printf '%s%s%s[%s]%s%s ' $STR_DIRTY $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal) $STR_ROOT
 	end
 
