@@ -14,9 +14,15 @@ end
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-	# fish_vi_key_bindings
+	fish_vi_key_bindings
 	bash ~/.config/scripts/shell-splash.sh
 	bash ~/.config/scripts/git-updater.sh
+
+	# variables ###########################
+
+	set -x BROWSER "firefox"
+	set -x EDITOR "nvim"
+	set -x PAGER "less -r"
 
 	# aliases #############################
 
@@ -32,10 +38,10 @@ if status is-interactive
 	alias 8 'cd -8'
 	alias 9 'cd -9'
 
-	alias ... '../..'
-	alias .... '../../..'
-	alias ..... '../../../..'
-	alias ...... '../../../../..'
+	# alias ...  '../..'
+	# alias .... '../../..'
+	# alias ..... '../../../..'
+	# alias ...... '../../../../..'
 
 	alias conf 'cd ~/.config'
 	alias docc 'cd ~/docs'
@@ -77,7 +83,7 @@ if status is-interactive
 	alias l 'ls -1AshX --color=always --group-directories-first'
 	alias less 'less -r'
 	alias ll 'k -Ah --group-directories-first'
-	alias lll 'ls -1Alh --color always --group-directories-first'
+	alias lll 'ls -1Alh --color=always --group-directories-first'
 	alias lo 'gnome-session-save --force-logout'
 	alias n 'nvim'
 	alias nn 'ranger $NOTES_DIR'
