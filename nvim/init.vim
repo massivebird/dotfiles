@@ -50,6 +50,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-loc
 
 call plug#end()
 
+" Let's see what this does
+let g:coc_global_extensions = ['coc-conjure']
+
 """"""""""""""""""""""""""""""""""""""""""
 
 " Terminalneous
