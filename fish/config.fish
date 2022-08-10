@@ -55,6 +55,7 @@ if status is-interactive
 	alias gc! 'git commit -v --amend'
 	alias gc 'git commit -v'
 	alias gca 'git commit -v -a'
+	alias gcam 'git commit -a -m'
 	alias gf 'git fetch'
 	alias gl 'git log --oneline --decorate short --graph'
 	alias gll 'git log --graph --stat'
