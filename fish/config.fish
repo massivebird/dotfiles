@@ -134,12 +134,18 @@ if status is-interactive
 		end
 		# check if git exists here
 		if fish_git_prompt 1> /dev/null
-			set -f STR_GIT (fish_git_prompt)
+			set -f STR_GIT (set_color $fish_color_user)\[(git branch --show-current)\]
+			if git status -s 1> /dev/null
+				set -f STR_DIRTY (set_color $fish_color_error)\*
+			else
+				set -f STR_DIRTY ''
+			end
 		else
-			set -f STR_GIT ""
+			set -f STR_GIT ''
+			set -f STR_DIRTY ''
 		end
 		# prompt as formatted string
-		printf '%s%s%s[%s]%s%s ' (set_color $fish_color_user) $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal) $STR_ROOT
+		printf '%s%s%s[%s]%s%s ' $STR_DIRTY $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal) $STR_ROOT
 	end
 
 	# starship init fish | source
@@ -147,7 +153,7 @@ end
 
 # color scheme ########################
 
-set fish_color_normal cccccc # good!
+set fish_color_normal cccccc
 set fish_color_command $fish_color_normal
 set fish_color_keyword $fish_color_command
 set fish_color_quote $fish_color_normal
@@ -157,16 +163,16 @@ set fish_color_error c50f1f
 set fish_color_param $fish_color_normal
 set fish_color_valid_path $fish_color_normal
 set fish_color_option $fish_color_normal
-set fish_color_comment 656565 # good!
+set fish_color_comment 656565
 set fish_color_selection red
 set fish_color_operator $fish_color_comment
 set fish_color_escape $fish_color_comment
 set fish_color_autosuggestion $fish_color_comment
-set fish_color_cwd 13a10e
+set fish_color_cwd 00bbff 
 set fish_color_cwd_root $fish_color_cwd
-set fish_color_user 5fafff # good?
+set fish_color_user ffcc66
 set fish_color_host $fish_color_user
-set fish_color_host_remote $fish_color_user
+set fish_color_host_remote $fish_color_usr
 set fish_color_status red
 set fish_color_cancel $fish_color_comment
 set fish_color_search_match default
