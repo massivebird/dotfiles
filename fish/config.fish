@@ -17,13 +17,20 @@ if status is-interactive
 	bash ~/.config/scripts/shell-splash.sh
 	bash ~/.config/scripts/git-updater.sh $argv
 
+	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin
+
 	# vi mode #############################
 
-	fish_vi_key_bindings
+	fish_vi_key_bindings insert
 
 	set fish_cursor_default block
 	set fish_cursor_insert line
 	set fish_cursor_replace_one underscore
+
+	# format vi mode indicator in prompt
+	function fish_mode_prompt
+		# echo -n "$fish_bind_mode"
+	end
 
 	# variables ###########################
 
@@ -119,7 +126,7 @@ if status is-interactive
 	# prompt ##############################
 
 	function fish_prompt
-		printf '%s[%s]%s > ' (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal)
+		printf '%s%s[%s]%s > ' (fish_git_prompt) (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal)
 	end
 
 	# starship init fish | source
