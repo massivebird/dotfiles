@@ -46,9 +46,9 @@ source_repo () {
 	if [ -d $REPO_PATH ]; then
 		# ...  `git fetch` to get latest remote commits
 		git -C $REPO_PATH fetch -q origin $REPO_BRANCH 2>/dev/null
-		# Store differences between newest local and newest remote commits
-		DIFF_DUMP=$(git -C $REPO_PATH diff $REPO_BRANCH origin/$REPO_BRANCH --compact-summary)
-		# If there are differences...
+		# show commits from remote that are not present in local
+		DIFF_DUMP=$(git -C $REPO_PATH log HEAD..origin/$REPO_BRANCH)
+		# if such commits exist...
 		if [ -n "$DIFF_DUMP" ]; then
 			# ... inform user that it's being updated
 			printf "\r$STATUS_CONS Updating $REPO_LABEL...     \n"
