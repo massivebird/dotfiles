@@ -111,7 +111,7 @@ if status is-interactive
 
 	# prompt ##############################
 
-	starship init fish | source
+	# starship init fish | source
 end
 
 # color scheme ########################
