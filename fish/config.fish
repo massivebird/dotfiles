@@ -52,10 +52,10 @@ if status is-interactive
 	alias 8 'cd -8'
 	alias 9 'cd -9'
 
-	# alias ...  '../..'
-	# alias .... '../../..'
-	# alias ..... '../../../..'
-	# alias ...... '../../../../..'
+	function ...; '../..'; end
+	function ....; '../../..'; end
+	function .....; '../../../..'; end
+	function ......; '../../../../..'; end
 
 	alias conf 'cd ~/.config'
 	alias docc 'cd ~/docs'
