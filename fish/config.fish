@@ -121,9 +121,11 @@ if status is-interactive
 	# keybinds ############################
 	# use fish_key_reader!
 
-	bind \cC 'commandline -r ""'
-	bind \cP 'up-or-search'
-	bind \cN 'down-or-search'
+	for mode in insert default visual
+		bind -M $mode \cC 'commandline -r ""'
+		bind -M $mode \cP 'up-or-search'
+		bind -M $mode \cN 'down-or-search'
+	end
 
 	# prompt ##############################
 
