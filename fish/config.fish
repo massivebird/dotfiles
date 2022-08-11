@@ -122,7 +122,8 @@ if status is-interactive
 	# use fish_key_reader!
 
 	bind \cC 'commandline -r ""'
-	bind \cP history-search-backward
+	bind \cP 'up-or-search'
+	bind \cN 'down-or-search'
 
 	# prompt ##############################
 
