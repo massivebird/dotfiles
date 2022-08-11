@@ -161,8 +161,6 @@ if status is-interactive
 		printf $STR_ROOT
 		set_color normal
 	end
-
-	# starship init fish | source
 end
 
 # color scheme ########################
