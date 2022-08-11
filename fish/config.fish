@@ -29,7 +29,7 @@ if status is-interactive
 
 	# format vi mode indicator in prompt
 	function fish_mode_prompt
-		# echo -n "$fish_bind_mode"
+		# printf "$fish_bind_mode"
 	end
 
 	# variables ###########################
@@ -129,9 +129,9 @@ if status is-interactive
 	function fish_prompt
 		# check user privileges
 		if fish_is_root_user
-			set -f STR_ROOT '#'
+			set -f STR_ROOT '# '
 		else
-			set -f STR_ROOT '$'
+			set -f STR_ROOT '$ '
 		end
 		# if cwd is git controlled...
 		if fish_git_prompt > /dev/null
@@ -152,8 +152,14 @@ if status is-interactive
 			set -f STR_GIT ''
 			set -f STR_DIRTY ''
 		end
-		# print prompt as formatted string
-		printf '%s%s%s[%s]%s%s%s ' $STR_DIRTY $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color --bold $fish_color_normal) $STR_ROOT (set_color normal)
+		# print prompt from left to right
+		printf $STR_DIRTY
+		printf $STR_GIT
+		set_color $fish_color_cwd
+		printf [(prompt_pwd)]
+		set_color --bold $fish_color_normal
+		printf $STR_ROOT
+		set_color normal
 	end
 
 	# starship init fish | source
