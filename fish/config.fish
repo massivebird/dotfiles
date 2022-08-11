@@ -32,6 +32,14 @@ if status is-interactive
 		# printf "$fish_bind_mode"
 	end
 
+	# keybinds ############################
+	# use fish_key_reader!
+
+	for mode in insert default visual
+		bind -M $mode \cP 'up-or-search'
+		bind -M $mode \cN 'down-or-search'
+	end
+
 	# variables ###########################
 
 	set -x BROWSER "firefox"
@@ -117,15 +125,6 @@ if status is-interactive
 	alias zpi 'zplug install'
 	alias zpl 'zplug list'
 	alias zpu 'zplug update'
-
-	# keybinds ############################
-	# use fish_key_reader!
-
-	for mode in insert default visual
-		bind -M $mode \cC 'commandline -r ""'
-		bind -M $mode \cP 'up-or-search'
-		bind -M $mode \cN 'down-or-search'
-	end
 
 	# prompt ##############################
 
