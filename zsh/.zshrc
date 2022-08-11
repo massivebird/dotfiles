@@ -1,6 +1,6 @@
 # splash screen
 if [ -z "$SSH_SHELL" ]; then
-	bash ~/.config/scripts/shell-splash.sh
+	bash ~/.config/scripts/shell-splash.sh zsh
 fi
 
 # load all those silly oh-my-zsh scripts

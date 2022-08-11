@@ -14,7 +14,7 @@ end
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-	bash ~/.config/scripts/shell-splash.sh
+	bash ~/.config/scripts/shell-splash.sh fish
 	bash ~/.config/scripts/git-updater.sh $argv
 
 	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin

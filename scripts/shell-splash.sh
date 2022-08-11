@@ -3,11 +3,20 @@
 ## SHELL-SPLASH.SH
 # Neofetch-like splash text for
 # shell startup
+## ARGUMENTS
+# $1: name of your shell
 
 # Global variables
 COLOR_SPLASH="$(tput setaf 75)"
 COLOR_FETCH="$(tput setaf 33)"
 NC="$(tput sgr 0)"
+
+# checks if script argument exists and is a command
+if [ -n "$1" ] && command -v $1 > /dev/null; then
+	SHELL_INFO=$($1 --version | head -n1)
+else
+	SHELL_INFO=$(bash --version | head -n1)
+fi
 
 ## ASCII splash text selector
 # ASCII text generator: https://patorjk.com/software/taag/
@@ -35,7 +44,7 @@ echo-fetch "OS" "$(grep PRETTY_NAME < /etc/os-release | sed -E 's/"|PRETTY_NAME=
 echo-fetch "Host" "$HOSTNAME"
 echo-fetch "Kernel" "$(uname -r)"
 echo-fetch "Uptime" "$(uptime -p | sed 's/up //')"
-echo-fetch "Shell" "$(zsh --version)"
+echo-fetch "Shell" "$SHELL_INFO"
 echo-fetch "CPU" "$(lscpu | grep 'Model name' | sed 's/^.*:\ *//')"
 echo # New line
 echo "$COLOR_SPLASH\"$(shuf -n 1 ~/.config/scripts/res/splash-messages.txt)\"$NC"
