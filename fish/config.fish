@@ -152,7 +152,7 @@ if status is-interactive
 			set -f STR_DIRTY ''
 		end
 		# print prompt as formatted string
-		printf '%s%s%s[%s]%s%s ' $STR_DIRTY $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color $fish_color_normal) $STR_ROOT
+		printf '%s%s%s[%s]%s%s%s ' $STR_DIRTY $STR_GIT (set_color $fish_color_cwd) (prompt_pwd) (set_color --bold $fish_color_normal) $STR_ROOT (set_color normal)
 	end
 
 	# starship init fish | source
