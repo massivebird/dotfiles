@@ -168,25 +168,47 @@ end
 # color scheme ########################
 
 set fish_color_normal cccccc
-set fish_color_command $fish_color_normal
+# commands: echo
+set fish_color_command 00bbff
+# keywords: if
 set fish_color_keyword $fish_color_command
-set fish_color_quote $fish_color_normal
-set fish_color_redirection $fish_color_normal
+# quoted text: "echo"
+set fish_color_quote eeaaff
+# IO redirs: > /dev/null
+set fish_color_redirection ff8867
+# process separators: ; &
 set fish_color_end $fish_color_normal
-set fish_color_error c50f1f
-set fish_color_param $fish_color_normal
-set fish_color_valid_path $fish_color_normal
-set fish_color_option $fish_color_normal
+# syntax errors
+set fish_color_error fb5599
+# command parameters
+set fish_color_param ff8867 --italics
+# filename command parameters
+set fish_color_valid_path ff8867 --italics
+# command flags/options: --ignore-case -i
+set fish_color_option aaddff
+# comments
 set fish_color_comment 656565
+# selected text in vi visual mode
 set fish_color_selection red
+# param expansion chars: * ~
 set fish_color_operator $fish_color_comment
+# character escapes: \n \x70
 set fish_color_escape $fish_color_comment
+# command autosuggestions
 set fish_color_autosuggestion $fish_color_comment
+# prompt cwd
 set fish_color_cwd 00bbff 
+# prompt cwd for root user
 set fish_color_cwd_root $fish_color_cwd
+# prompt username
 set fish_color_user ffcc66
+# prompt hostname
 set fish_color_host $fish_color_user
+# prompt hostname for remote sessions
 set fish_color_host_remote $fish_color_usr
+# prompt nonzero exit code of last command
 set fish_color_status red
+# ^C indicator
 set fish_color_cancel $fish_color_comment
+# bg of history search matches, selected pager items
 set fish_color_search_match default
