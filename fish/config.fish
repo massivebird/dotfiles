@@ -167,9 +167,9 @@ end
 
 # color scheme ########################
 
-set fish_color_normal cccccc
+set fish_color_normal f2f2f2
 # commands: echo
-set fish_color_command 00bbff
+set fish_color_command $fish_color_normal
 # keywords: if
 set fish_color_keyword $fish_color_command
 # quoted text: "echo"
@@ -185,7 +185,7 @@ set fish_color_param ff8867 --italics
 # filename command parameters
 set fish_color_valid_path ff8867 --italics
 # command flags/options: --ignore-case -i
-set fish_color_option aaddff
+set fish_color_option $fish_color_normal
 # comments
 set fish_color_comment 656565
 # selected text in vi visual mode
