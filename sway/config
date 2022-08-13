@@ -61,7 +61,7 @@ default_border pixel 4
 
 # class                 border  bground text    indicator	child_border
 client.focused		$c_0	$c_0	$c_2	$c_0		$c_0
-client.focused_inactive	$c_1	$c_1	$c_2	$c_0		$c_1
+client.focused_inactive	$c_1	$c_1	$c_2	$c_1		$c_1
 client.unfocused	$c_1	$c_1	$c_2	$c_0		$c_1
 
 # Font ################################
