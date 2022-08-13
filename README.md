@@ -1,4 +1,4 @@
-![screenshot-desktop](https://i.imgur.com/sgvnYrl.png)
+![screenshot-desktop](https://i.imgur.com/Z3We6yE.png)
 
 # massivebird's dotfiles
 
@@ -12,7 +12,7 @@ Fedora Linux btw
 + [`rofi`](https://github.com/davatorium/rofi) app launcher
 + [`sway`](https://github.com/swaywm/sway) window manager
 + [`waybar`](https://github.com/Alexays/Waybar) status bar
-+ [`zsh`](https://www.zsh.org/) shell
++ [`fish`](https://github.com/fish-shell/fish-shell) shell
 
 ## installation
 
