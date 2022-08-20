@@ -119,6 +119,7 @@ if status is-interactive
 	alias src 'source ~/.config/fish/config.fish'
 	alias tree 'tree -RC --dirsfirst'
 	alias trees 'tree -RCI .g -L 2 --dirsfirst'
+	alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
 	alias ytd 'yt-dlp'
 	alias ytdy 'yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat'
 	alias zpc 'zplug clean'
