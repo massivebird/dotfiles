@@ -59,8 +59,8 @@
 		/* "format-alt": "{ipaddr}/{cidr} {icon}", */
 		/* "format-alt-click": "click-right", */
 		"format-icons": {
-			"wifi": ["", "" ,""],
-			"ethernet": [""],
+			"wifi": ["", "" ,""],
+			"ethernet": [""],
 			"disconnected": [""]
 		},
 		/* https://github.com/ericmurphyxyz/rofi-wifi-menu */
