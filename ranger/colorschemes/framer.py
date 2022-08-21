@@ -4,17 +4,18 @@ from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import *
 
 # custom colors
-white=231
 black=16
 blue=39
+gray=102
+green=36
 lightblue=153
-red=168
-yellow=221
+lightpink=219
 orange=209
 pink=204
-lightpink=219
 purple=141
-gray=102
+red=168
+white=231
+yellow=221
 
 class ColorScheme(ColorScheme):
 
@@ -39,7 +40,7 @@ class ColorScheme(ColorScheme):
             if context.video:
                 fg = purple
             if context.audio:
-                fg = 10
+                fg = green
             if context.document:
                 fg = white
             if context.container:
