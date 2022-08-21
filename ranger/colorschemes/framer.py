@@ -41,12 +41,11 @@ class ColorScheme(ColorScheme):
             if context.audio:
                 fg = 10
             if context.document:
-                fg = blue
+                fg = white
             if context.container:
                 attr |= bold
                 fg = red
             if context.directory:
-                attr |= bold
                 fg = blue
             elif context.executable and not \
                 any((context.media, context.container,
