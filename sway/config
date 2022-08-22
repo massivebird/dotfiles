@@ -22,7 +22,6 @@ bindsym $mod+Shift+c reload
 
 # log out
 bindsym $mod+ctrl+shift+e exit 
-
 # quick desktop screenshot
 bindsym Print exec grim ~/Pictures/screenshot.png
 
@@ -32,8 +31,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5    # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 1    # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 1  # decrease screen brightness
 
 # media controls
 bindsym XF86AudioPlay exec playerctl play-pause
