@@ -38,7 +38,7 @@ while kill -0 $pid 2>/dev/null; do
 	sleep .1
 done
 # Final status message
-if [ $(wc -c <<< "$ERRORFILE") -ne 0 ] && [ -n "$MSG_ERROR" ] && [ -n "$ERRORFILE" ]; then
+if [ -s /tmp/gitup.txt ] && [ -n "$MSG_ERROR" ] && [ -n "$ERRORFILE" ]; then
 	printf "\r$SPIN_OHNO $MSG_ERROR      \n"
 else
 	printf "\r$SPIN_OK $MSG_DONE       \n"

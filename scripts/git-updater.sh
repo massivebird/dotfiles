@@ -38,7 +38,7 @@ done
 # validate internet connection
 check-connection () {
 	# if connection is good...
-	if ping -q -c 1 github.com &> /dev/null; then
+	if ping -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
 		# ... all is good
 		if [ -n "$FLAG_VERBOSE" ]; then
 			printf "\r$STATUS_COOL Internet connection established. \n"
@@ -93,6 +93,7 @@ source-repo () {
 	fi
 	echo -n "$ERROR_DUMP" > "/tmp/gitup.txt"
 }
+
 # all main function calls
 update-all () {
 	## calling main function
