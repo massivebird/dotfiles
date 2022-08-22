@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 ## jpdate.sh
-# Outputs current date in Japanese format
-# Ex: Sat May 7 -> 5月7日(土)
+# outputs current date in Japanese format
+# ex: Sat May 7 -> 5月7日(土)
 #
-# Written for waybar
+# written for waybar
 
 # kanji representing Sunday to Saturday
 kanji=(日 月 火 水 木 金 土)

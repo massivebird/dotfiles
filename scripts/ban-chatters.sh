@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 ## BAN-CHATTERS.SH
-# A tool for formatting a "blocklist" CSV
+# tool for formatting a "blocklist" CSV
 # into a "to-ban" CSV from CommanderRoot's
 # Twitch Tools
 # https://twitch-tools.rootonline.de/
+
 # Arguments:
 #	$1: pathname to blocklist CSV
 
-# Argument check
+# argument check
 if [ -n "$1" ]; then
 	FILE="$1";
 else

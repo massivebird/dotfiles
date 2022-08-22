@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 ## WIICOPY.SH
-# Copies contents of local archive to external HDD.
-# Only transfers WII and GCN games by default.
+# copies contents of local archive to external HDD,
+# only transfers WII and GCN games by default
 
 ## OPTIONAL ARGUMENTS
 # -a
@@ -10,7 +10,7 @@
 # -v
 # 	Copies contents verbosely
 
-# Identifies flags
+# identifies flags
 while getopts "av" arg; do
 	case "${arg}" in
 		v)
@@ -22,7 +22,7 @@ while getopts "av" arg; do
 	esac
 done
 
-# Color presets
+# color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
 MAGENTA="$(tput setaf 99)"
@@ -30,7 +30,7 @@ RED="$(tput setaf 1)"
 YELLOW="$(tput setaf 220)"
 NC="$(tput sgr 0)"
 
-# Colored strings
+# colored strings
 DS="$(tput setaf 253)DS${NC}"
 DS3="$(tput setaf 196)3DS${NC}"
 GB="$(tput setaf 65)GB${NC}"
@@ -46,10 +46,10 @@ STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
 
-# Backup directory
+# backup directory
 DIRBACKUP="/mnt/d/wiiback"
 
-# Locates external drive in /mnt/?/ format
+# locates external drive in /mnt/?/ format
 if [ -d /mnt/*/wbfs ]; then
 	echo "$STATUS_OK External drive detected"
 	DRIVE=$(grep -oE '.{6}' <<< "/mnt/*/wbfs")
@@ -58,21 +58,21 @@ else
 	exit
 fi
 
-# Configures copy function
+# configures copy function
 if [ -n "$FLAG_VERBOSE" ]; then
 	COPYOPTS="-ah --progress"
 else
 	COPYOPTS="-vah --progress"
 fi
 
-# Copy function per system/item copied
+# copy function per system/item copied
 mycopy () {
 	echo "$STATUS_CONS Initiating $3 transfer"
 	rsync $COPYOPTS $1 $2
 	echo "$STATUS_OK $3 transfer completed"
 }
 
-# Copying process begins
+# copying process begins
 echo "$STATUS_OK External drive initialized"
 mycopy $DIRBACKUP/README.md $DRIVE "README"
 mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII

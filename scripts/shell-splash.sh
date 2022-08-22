@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 ## SHELL-SPLASH.SH
-# Neofetch-like splash text for
+# neofetch-like splash text for
 # shell startup
+
 ## ARGUMENTS
 # $1: name of your shell
 
-# Global variables
+# global variables
 COLOR_SPLASH="$(tput setaf 75)"
 COLOR_FETCH="$(tput setaf 33)"
 NC="$(tput sgr 0)"
@@ -22,17 +23,17 @@ fi
 # ASCII text generator: https://patorjk.com/software/taag/
 echo-splash-name () {
 if [ "$1" == "0" ]; then
-	# "Short"
+	# "short"
 	echo -e "\n${COLOR_SPLASH}|_| _ ||     /~        _ |-|- |\n| |(/_||(),  \_|(||\`|\`(/_|_|_ .\n${NC}"
 elif [ "$1" == "1" ]; then
-	# "Three Point"
+	# "three Point"
 	echo -e "\n${COLOR_SPLASH}|_| _ || _    /~_ _  _ _ _ _|__|_|\n| |(/_||(_),  \_/(_|| | (/_ |  | .\n${NC}"
 else
 	echo -e "\nERROR - Missing or invalid splash name selector\n"
 fi
 }
 
-# Neofetch-like print format
+# neofetch-like print format
 echo-fetch () {
 echo "$COLOR_FETCH$1$NC: $2"
 }
@@ -46,6 +47,6 @@ echo-fetch "Kernel" "$(uname -r)"
 echo-fetch "Uptime" "$(uptime -p | sed 's/up //')"
 echo-fetch "Shell" "$SHELL_INFO"
 echo-fetch "CPU" "$(lscpu | grep 'Model name' | sed 's/^.*:\ *//')"
-echo # New line
+echo # new line
 echo "$COLOR_SPLASH\"$(shuf -n 1 ~/.config/scripts/res/splash-messages.txt)\"$NC"
 echo 

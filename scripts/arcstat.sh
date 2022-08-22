@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## ARCSTAT.SH
-# Statistics about my local video game archive
+# statistics about my local video game archive
 
 # color presets
 CYAN="$(tput setaf 45)"

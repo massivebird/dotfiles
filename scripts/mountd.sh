@@ -2,7 +2,7 @@
 
 ## MOUNTD
 # [ For WSL on Windows ]
-# Mounts a drive visible through Windows
+# mounts a drive visible through Windows
 # to the WSL file system
 
 ## ARGUMENTS

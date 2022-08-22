@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 ## WIICHECK
-# This script validates the file system structure for an external
-# storage device to be used by the Wii Homebrew application USB Loader GX.
+# validates the file system structure for an external
+# storage device to be used by the Wii Homebrew application "USB Loader GX"
 
 ## OPTIONAL ARGUMENTS
 # $1: single character drive letter of the Wii external storage device
 
-# Color presets
+# color presets
 CYAN="$(tput setaf 45)"
 GREEN="$(tput setaf 34)"
 MAGENTA="$(tput setaf 99)"
@@ -15,7 +15,7 @@ RED="$(tput setaf 1)"
 YELLOW="$(tput setaf 220)"
 NC="$(tput sgr 0)"
 
-# Colored strings
+# colored strings
 WII="${CYAN}WII${NC}"
 GCN="${MAGENTA}GCN${NC}"
 STATUS_COOL="[$GREEN COOL $NC]"
@@ -23,14 +23,14 @@ STATUS_OK="[$GREEN  OK  $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 STATUS_WARN="[$YELLOW WARN $NC]"
 
-# Status check for after regex evaluations
+# status check for after regex evaluations
 WIIGSTATUS=0
 GCNSTATUS=0
 
-# Name of backup directory so I can change it later
+# name of backup directory so I can change it later
 BACKUPNAME="WIIBACK"
 
-# Paths to Wii and GCN directories based on optional argument
+# paths to Wii and GCN directories based on optional argument
 if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
 	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
 	exit 1
@@ -48,18 +48,18 @@ else
 	GCNDIR="/mnt/*/$BACKUPNAME/games"
 fi
 
-# Number of games per system
+# number of games per system
 WIIGAMES=$(ls -l $WIIDIR | grep '^d' | wc -l)
 GCNGAMES=$(ls -l $GCNDIR | grep '^d' | wc -l)
 
-# Calculates total size of all games
+# calculates total size of all games
 TOTAL_SIZE=$(du -chs $WIIDIR $GCNDIR | tail -n 1 | grep -oE '(^\w.+)[GM]')
 
-# Locates unexpected filename(s)
+# locates unexpected filename(s)
 UNEXWII=$(find $WIIDIR -empty)$(ls $WIIDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/\1\.wbf[s0-9]')
 UNEXGCN=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/game\.iso')
 
-# Main output
+# main output
 if [ -n "$UNEXWII" ]; then
 	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
 	echo "$UNEXWII"
@@ -76,7 +76,7 @@ else
 	GCNSTATUS=1
 fi
 
-# Outputs total games if both Wii can GCN are ok
+# outputs total games if both Wii can GCN are ok
 if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
 	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games in $TOTAL_SIZE! Cool!"
 fi

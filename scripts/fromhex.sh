@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ## fromhex.sh
-# Converts colors from hex to tput
+# converts colors from hex to tput
 #
 # Arguments :
 #	$1: six-character hex code
