@@ -14,7 +14,7 @@
 
 # color presets
 GRAY="$(tput setaf 240)"
-GREEN="$(tput setaf 34)"
+GREEN="$(tput setaf 2)"
 RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
