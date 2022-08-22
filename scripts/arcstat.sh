@@ -60,7 +60,7 @@ NUMPS2=$(ls -l $DIRPS2 | grep -cE '\.iso')
 NUMPSP=$(ls -l $DIRPSP | grep -cE '\.iso')
 NUMSNES=$(ls -l $DIRSNES | grep -cE '\.sfc')
 NUMWII=$(ls -l $DIRWII | grep -cE '^d')
-NUMTOTAL=$[ $NUMDS + $NUMDS3 + $NUMGB + $NUMGBA + $NUMGCN + $NUMN64 + $NUMPS2 + $NUMSNES + $NUMWII ]
+NUMTOTAL=$[ NUMDS + NUMDS3 + NUMGB + NUMGBA + NUMGCN + NUMN64 + NUMPS2 + NUMSNES + NUMWII ]
 
 # calculates total drive usage of all directory arguments
 calcsize () {
