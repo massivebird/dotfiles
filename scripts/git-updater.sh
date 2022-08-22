@@ -47,7 +47,9 @@ check-connection () {
 		return
 	fi
 	# bad connection
-	printf "\r$STATUS_OHNO Internet connection bad.   \n"
+		if [ -n "$FLAG_VERBOSE" ]; then
+			printf "\r$STATUS_OHNO Internet connection bad.   \n"
+		fi
 	exit 1
 }
 
@@ -109,5 +111,7 @@ update-all &
 loading-spinner \
 	"Updating Git repositories..." \
 	"Git repositories up to date" \
+	"Git repository update failed :(" \
+	"/tmp/gitup.txt"
 # clears contents of error dump file
 : > "/tmp/gitup.txt"
