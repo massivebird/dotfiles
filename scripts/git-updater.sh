@@ -35,6 +35,22 @@ while getopts "vf" arg; do
 	esac
 done
 
+# validate internet connection
+check_connection () {
+	# if connection is good...
+	if ping -q -c 1 github.com &> /dev/null; then
+		# ... all is good
+		if [ -n "$FLAG_VERBOSE" ]; then
+			printf "\r$STATUS_COOL Internet connection established. \n"
+		fi
+		# exit back to main()
+		return
+	fi
+	# bad connection
+	printf "\r$STATUS_OHNO Internet connection bad.   \n"
+	exit 1
+}
+
 # Main function
 source_repo () {
 	# Declaring variables
@@ -80,6 +96,7 @@ update_all () {
 	## Calling main function
 	# $1: absolute path to repo
 	# $2: human readable repo label
+	check_connection
 	source_repo "$HOME/.config/" "Configuration"
 	source_repo "$HOME/docs" "Documents"
 	source_repo "$HOME/academia" "Academia"
