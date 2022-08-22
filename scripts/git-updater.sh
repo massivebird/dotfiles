@@ -91,6 +91,7 @@ source-repo () {
 		printf "\r$STATUS_OHNO $REPO_LABEL not found.\n"
 		return
 	fi
+	# emergency report
 	echo -n "$ERROR_DUMP" > "/tmp/gitup.txt"
 }
 
