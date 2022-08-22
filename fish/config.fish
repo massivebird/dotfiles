@@ -17,6 +17,9 @@ if status is-interactive
 	bash ~/.config/scripts/shell-splash.sh fish
 	bash ~/.config/scripts/git-updater.sh $argv
 
+	# Java because I don't know where to put it
+	set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/bin
+
 	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin
 
 	# vi mode #############################
