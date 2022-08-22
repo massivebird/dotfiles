@@ -12,31 +12,31 @@
 
 . ~/.config/scripts/lib/loading-spinner.sh
 
-# Color presets
+# color presets
 GRAY="$(tput setaf 240)"
 GREEN="$(tput setaf 34)"
 RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
-# Colored strings
+# colored strings
 STATUS_CONS="[$(tput setaf 244) CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 
-# Flag checks
+# flag checks
 while getopts "vf" arg; do
 	case "${arg}" in
-		f) # "Fast"
+		f) # "fast"
 			exit 0
 			;;
-		v) # "Verbose"
+		v) # "verbose"
 			FLAG_VERBOSE=1
 			;;
 	esac
 done
 
 # validate internet connection
-check_connection () {
+check-connection () {
 	# if connection is good...
 	if ping -q -c 1 github.com &> /dev/null; then
 		# ... all is good
@@ -51,14 +51,14 @@ check_connection () {
 	exit 1
 }
 
-# Main function
-source_repo () {
-	# Declaring variables
+# main function
+source-repo () {
+	# declaring variables
 	REPO_PATH=$1
 	REPO_LABEL=$2
 	REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
-	# Check if repo path exists
-	# If it does...
+	# check if repo path exists
+	# if it does...
 	if [ -d $REPO_PATH ]; then
 		# ...  `git fetch` to get latest remote commits
 		git -C $REPO_PATH fetch -q origin $REPO_BRANCH 2>/dev/null
@@ -73,17 +73,17 @@ source_repo () {
 		# `git pull` and store its errors
 		ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
-		# If `git pull` produced an error...
+		# if `git pull` produced an error...
 		if [ -n "$ERROR_DUMP" ]; then
 			# ... inform user that the update failed
 			printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
 			echo $ERROR_DUMP
-		# If repo needed to update or -v...
+		# if repo needed to update or -v...
 		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that the update succeeded
 			printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC\n"
 		fi
-	# If path does not exist...
+	# if path does not exist...
 	else
 		# ... inform user and exit the function
 		printf "\r$STATUS_OHNO $REPO_LABEL not found.\n"
@@ -91,23 +91,23 @@ source_repo () {
 	fi
 	echo -n "$ERROR_DUMP" > "/tmp/gitup.txt"
 }
-# All main function calls
-update_all () {
-	## Calling main function
+# all main function calls
+update-all () {
+	## calling main function
 	# $1: absolute path to repo
 	# $2: human readable repo label
-	check_connection
-	source_repo "$HOME/.config/" "Configuration"
-	source_repo "$HOME/docs" "Documents"
-	source_repo "$HOME/academia" "Academia"
-	source_repo "$HOME/tutoring" "Tutoring"
+	check-connection
+	source-repo "$HOME/.config/" "Configuration"
+	source-repo "$HOME/docs" "Documents"
+	source-repo "$HOME/academia" "Academia"
+	source-repo "$HOME/tutoring" "Tutoring"
 }
 
-# Updates all in background...
-update_all &
+# updates all in background...
+update-all &
 # lib script: generates loading message
 loading-spinner \
 	"Updating Git repositories..." \
 	"Git repositories up to date" \
-# Clears contents of error dump file
+# clears contents of error dump file
 : > "/tmp/gitup.txt"
