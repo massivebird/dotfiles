@@ -118,6 +118,7 @@ if status is-interactive
 	alias shx 'chmod +x *.sh'
 	alias s 'source ~/.config/fish/config.fish'
 	alias sf 'source ~/.config/fish/config.fish -f'
+	alias sv 'source ~/.config/fish/config.fish -v'
 	alias tree 'tree -RC --dirsfirst'
 	alias trees 'tree -RCI .g -L 2 --dirsfirst'
 	alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
