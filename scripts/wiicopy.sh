@@ -51,10 +51,10 @@ DIRBACKUP="/mnt/d/wiiback"
 
 # locates external drive in /mnt/?/ format
 if [ -d /mnt/*/wbfs ]; then
-	echo "$STATUS_OK External drive detected"
+	printf "$STATUS_OK External drive detected\n"
 	DRIVE=$(grep -oE '.{6}' <<< "/mnt/*/wbfs")
 else
-	echo "$STATUS_OHNO No external drive detected"
+	printf "$STATUS_OHNO No external drive detected\n"
 	exit
 fi
 
@@ -67,18 +67,18 @@ fi
 
 # copy function per system/item copied
 mycopy () {
-	echo "$STATUS_CONS Initiating $3 transfer"
+	printf "$STATUS_CONS Initiating $3 transfer\n"
 	rsync $COPYOPTS $1 $2
-	echo "$STATUS_OK $3 transfer completed"
+	printf "$STATUS_OK $3 transfer completed\n"
 }
 
 # copying process begins
-echo "$STATUS_OK External drive initialized"
+printf "$STATUS_OK External drive initialized\n"
 mycopy $DIRBACKUP/README.md $DRIVE "README"
 mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
 mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
 if [ -n "$FLAG_ALL" ]; then
-	echo "$STATUS_CONS -a flag detected. Copying all systems..."
+	printf "$STATUS_CONS -a flag detected. Copying all systems...\n"
 	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
 	mycopy "$DIRBACKUP/3ds/*" $DRIVE/3ds $DS3
 	mycopy "$DIRBACKUP/gb/*" $DRIVE/gb $GB

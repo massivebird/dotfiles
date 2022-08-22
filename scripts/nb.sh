@@ -5,9 +5,9 @@
 # in neovim
 
 if [ -z "$1" ]; then
-	echo "$0: missing operand"
+	printf "$0: missing operand\n"
 	exit 1
 fi
 
-echo "$1"
+printf "$1\n"
 nvim $(which "$1")

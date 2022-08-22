@@ -30,10 +30,10 @@ STATUS_WARN="[$YELLOW WARN $NC]"
 
 # locates backup directory
 if [ -d /mnt/*/wiiback ]; then
-	echo "$STATUS_OK Archive detected"
+	printf "$STATUS_OK Archive detected\n"
 	DIRBACKUP=/mnt/*/wiiback
 else
-	echo "$STATUS_OHNO No archive directory detected"
+	printf "$STATUS_OHNO No archive directory detected\n"
 	exit 1
 fi
 

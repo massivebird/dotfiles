@@ -32,18 +32,18 @@ BACKUPNAME="WIIBACK"
 
 # paths to Wii and GCN directories based on optional argument
 if [ ! -d "/mnt/d/$BACKUPNAME" ]; then
-	echo -e "$STATUS_OHNO No valid directories found. Sorry!"
+	printf "$STATUS_OHNO No valid directories found. Sorry!\n"
 	exit 1
 elif [ -z "$1" ]; then
-	echo -e "$STATUS_OK Backup directory initialized"
+	printf "$STATUS_OK Backup directory initialized\n"
 	WIIDIR="/mnt/*/$BACKUPNAME/wbfs"
 	GCNDIR="/mnt/*/$BACKUPNAME/games"
 elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
-	echo -e "$STATUS_OK Drive ${1^^} successfully initialized"
+	printf "$STATUS_OK Drive ${1^^} successfully initialized\n"
 	WIIDIR="/mnt/$1/wbfs"
 	GCNDIR="/mnt/$1/games"
 else
-	echo -e "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to" /mnt/*/$BACKUPNAME "\b."
+	printf "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to" /mnt/*/$BACKUPNAME "\b.\n"
 	WIIDIR="/mnt/*/$BACKUPNAME/wbfs"
 	GCNDIR="/mnt/*/$BACKUPNAME/games"
 fi
@@ -61,23 +61,23 @@ UNEXGCN=$(find $GCNDIR -empty)$(ls $GCNDIR/*/* | grep -vE '\[([A-Z0-9]{6})\]\/ga
 
 # main output
 if [ -n "$UNEXWII" ]; then
-	echo -e "$STATUS_OHNO $WII: Unexpected filename(s) detected"
-	echo "$UNEXWII"
+	printf "$STATUS_OHNO $WII: Unexpected filename(s) detected\n"
+	printf "$UNEXWII\n"
 else
-	echo -e "$STATUS_OK $WII: Looking good!"
+	printf "$STATUS_OK $WII: Looking good!\n"
 	WIIGSTATUS=1
 fi
 
 if [ -n "$UNEXGCN" ]; then
-	echo -e "$STATUS_OHNO $GCN: Unexpected filename(s) detected"
-	echo "$UNEXGCN"
+	printf "$STATUS_OHNO $GCN: Unexpected filename(s) detected\n"
+	printf "$UNEXGCN\n"
 else
-	echo -e "$STATUS_OK $GCN: Looking fresh!"
+	printf "$STATUS_OK $GCN: Looking fresh!\n"
 	GCNSTATUS=1
 fi
 
 # outputs total games if both Wii can GCN are ok
 if [ $WIIGSTATUS -eq 1 ] && [ $GCNSTATUS -eq 1 ]; then
-	echo "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games in $TOTAL_SIZE! Cool!"
+	printf "$STATUS_COOL $(( $WIIGAMES + $GCNGAMES )) games in $TOTAL_SIZE! Cool!\n"
 fi
 exit 0 

@@ -13,9 +13,9 @@
 if [ -n "$1" ]; then
 	FILE="$1";
 else
-	echo "$0: missing operand"
+	printf "$0: missing operand\n"
 	exit 1
 fi
 
 cat "$FILE" | tr -d $'\r' | cut -d',' -f1 > ban-these-chatters.txt
-echo "Wrote to ban-these-chatters.txt in the current working directory."
+printf "Wrote to ban-these-chatters.txt in the current working directory.\n"

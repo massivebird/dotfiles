@@ -79,7 +79,7 @@ source-repo () {
 		if [ -n "$ERROR_DUMP" ]; then
 			# ... inform user that the update failed
 			printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
-			echo $ERROR_DUMP
+			printf $ERROR_DUMP"\n"
 		# if repo needed to update or -v...
 		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that the update succeeded
@@ -92,7 +92,7 @@ source-repo () {
 		return
 	fi
 	# emergency report
-	echo -n "$ERROR_DUMP" > "/tmp/gitup.txt"
+	printf "$ERROR_DUMP\n" > "/tmp/gitup.txt"
 }
 
 # all main function calls

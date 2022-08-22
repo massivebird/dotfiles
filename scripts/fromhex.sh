@@ -8,7 +8,7 @@
 
 # argument detection
 if [ -z "$1" ]; then
-	echo "$0: missing operand"
+	printf "$0: missing operand\n"
 	exit 1
 fi
 
