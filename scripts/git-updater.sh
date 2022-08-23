@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 ## GIT-UPDATER.SH
-# Script utilized by .zshrc to automatically
-# update git repositories
+# updates git repositories, customizable
+# via update-all() function
 
 ## OPTIONAL ARGUMENTS
 # -v
@@ -10,16 +10,17 @@
 # -f
 #	Exits script immediately, used by shell rc
 
+# load dependencies
 . ~/.config/scripts/lib/loading-spinner.sh
 
 # color presets
-GRAY="$(tput setaf 240)"
+GRAY="$(tput setaf 15)"
 GREEN="$(tput setaf 2)"
 RED="$(tput setaf 1)"
 NC="$(tput sgr 0)"
 
 # colored strings
-STATUS_CONS="[$(tput setaf 244) CONS $NC]"
+STATUS_CONS="[$GRAY CONS $NC]"
 STATUS_COOL="[$GREEN COOL $NC]"
 STATUS_OHNO="[$RED OHNO $NC]"
 
@@ -35,36 +36,38 @@ while getopts "vf" arg; do
 	esac
 done
 
-# validate internet connection
+# validates internet connection
 check-connection () {
 	# if connection is good...
 	if ping -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
-		# ... all is good
+		# ... and user wants verbose output...
 		if [ -n "$FLAG_VERBOSE" ]; then
+         # ... inform user we're cool
 			printf "\r$STATUS_COOL Internet connection established. \n"
 		fi
-		# exit back to main()
 		return
 	fi
-	# bad connection
+	# on a bad connection...
 		if [ -n "$FLAG_VERBOSE" ]; then
+         # ... inform user if applicable
 			printf "\r$STATUS_OHNO Internet connection bad.   \n"
 		fi
+   # abort script
 	exit 1
 }
 
-# main function
+# updates a git repository
 source-repo () {
-	# declaring variables
+	# arguments -> variables
 	REPO_PATH=$1
 	REPO_LABEL=$2
-	REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
-	# check if repo path exists
+	# verify repo path exists, and
 	# if it does...
 	if [ -d $REPO_PATH ]; then
-		# ...  `git fetch` to get latest remote commits
+		# ...  `git fetch` for latest remote commits
+      REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
 		git -C $REPO_PATH fetch -q origin $REPO_BRANCH 2>/dev/null
-		# show commits from remote that are not present in local
+		# find commits from remote that are not present in local
 		DIFF_DUMP=$(git -C $REPO_PATH log HEAD..origin/$REPO_BRANCH)
 		# if such commits exist...
 		if [ -n "$DIFF_DUMP" ]; then
@@ -72,7 +75,7 @@ source-repo () {
 			printf "\r$STATUS_CONS Updating $REPO_LABEL...     \n"
 		fi
 
-		# `git pull` and store its errors
+		# `git pull` while storing its errors
 		ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
 		# if `git pull` produced an error...
@@ -80,25 +83,29 @@ source-repo () {
 			# ... inform user that the update failed
 			printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
 			printf $ERROR_DUMP"\n"
+         return
+      fi
+
 		# if repo needed to update or -v...
-		elif [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
-			# ... inform user that the update succeeded
+		if [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
+			# ... inform user that repo is up to date
 			printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC\n"
 		fi
-	# if path does not exist...
-	else
-		# ... inform user and exit the function
-		printf "\r$STATUS_OHNO $REPO_LABEL not found.\n"
-		return
-	fi
+
+      return
+   fi
+	# if repo path does not exist, inform user
+   printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee /tmp/gitup.txt
+   return
 }
 
-# all main function calls
+# contains all function calls
 update-all () {
-	## calling main function
+   # aborts script on bad connection
+	check-connection
+   ## source-repo() calls
 	# $1: absolute path to repo
 	# $2: human readable repo label
-	check-connection
 	source-repo "$HOME/.config/" "Configuration"
 	source-repo "$HOME/docs" "Documents"
 	source-repo "$HOME/academia" "Academia"
@@ -107,11 +114,12 @@ update-all () {
 
 # updates all in background...
 update-all &
-# lib script: generates loading message
+# ... so loading-spinner can track it
 loading-spinner \
 	"Updating Git repositories..." \
 	"Git repositories up to date" \
-	"Git repository update failed :(" \
+   "Git repository update(s) failed :(" \
 	"/tmp/gitup.txt"
+
 # clears contents of error dump file
 : > "/tmp/gitup.txt"
