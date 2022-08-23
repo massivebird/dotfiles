@@ -45,7 +45,9 @@ bindsym ctrl+shift+n nop
 # Display #############################
 
 output eDP-1 {
-                background #262628 solid_color
+		# (1) PATH fill
+		# (2) HEX solid_color
+                background ~/Downloads/bg-paper0.png fill
                 resolution 1920x1080
 		scale 1.3
            }
