@@ -1,4 +1,11 @@
+bottom
+coc
+configstore
+fish/fish_variables
+neofetch
+nnn
 nvim/plugged
-thefuck
-*
-/* Ignore all files until explicity added. It's an ugly solution, I know. */
+pulse
+ranger/colorschemes/__*
+twitch-cli
+wslu
