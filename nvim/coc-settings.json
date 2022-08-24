@@ -1,0 +1,23 @@
+{
+	"languageserver": {
+		"go": {
+			"command": "gopls",
+			"rootPatterns": ["go.mod"],
+			"trace.server": "verbose",
+			"filetypes": ["go"]
+
+		},
+		"clojure-lsp": {
+			"command": "bash",
+			"args": ["-c", "clojure-lsp"],
+			"filetypes": ["clojure"],
+			"rootPatterns": ["project.clj"],
+			"additionalSchemes": ["jar", "zipfile"],
+			"trace.server": "verbose",
+			"initializationOptions": {
+			}
+
+		}
+	}
+
+}
