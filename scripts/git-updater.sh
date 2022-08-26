@@ -39,20 +39,23 @@ done
 # validates internet connection
 check-connection () {
 	# if connection is good...
-	if ping -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
+	if ping -w 3 -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
 		# ... and user wants verbose output...
 		if [ -n "$FLAG_VERBOSE" ]; then
-         # ... inform user we're cool
+			# ... inform user we're cool
 			printf "\r$STATUS_COOL Internet connection established. \n"
 		fi
 		return
 	fi
 	# on a bad connection...
 		if [ -n "$FLAG_VERBOSE" ]; then
-         # ... inform user if applicable
+			# ... inform user if applicable
 			printf "\r$STATUS_OHNO Internet connection bad.   \n"
 		fi
-   # abort script
+	# make sure error file is populated
+	# (ping redirection sometimes unreliable)
+	printf "L" > /tmp/gitup.txt
+	# abort script
 	exit 1
 }
 
