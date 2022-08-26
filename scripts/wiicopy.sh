@@ -4,7 +4,7 @@
 # copies contents of local archive to external HDD,
 # only transfers WII and GCN games by default
 
-## OPTIONAL ARGUMENTS
+## OPTIONS
 # -a
 #	Transfers all system archives
 # -v
