@@ -30,23 +30,40 @@ GCN_IS_GOOD=0
 # name of backup directory so I can change it later
 DIR_BACKUP="/mnt/d/wiiback"
 
-# paths to Wii and GCN directories based on optional argument
-if [ ! -d "$DIR_BACKUP" ]; then
-	printf "$STATUS_OHNO No valid directories found. Sorry!\n"
+}
+
+assign-directories () {
+# if user passed $1...
+if [ -n "$1" ]; then
+	# ... and it contains the correct directories...
+	if [ -d "$1/wbfs" ] && [ -d "$1/games" ]; then
+		# ... then assign directory vars
+		printf "$STATUS_OK $(grep -Eo '\/[^\/]*$' <<< $1) successfully initialized\n"
+		DIR_WII="$1/wbfs"
+		DIR_GCN="$1/games"
+		return
+	fi
+	# $1 exists but doesn't pass the vibe checks, so
+	# exit the script
+	printf "$STATUS_OHNO $(grep -Eo '\/[^\/]*$' <<< $1) is an invalid path. Sorry!\n"
 	exit 1
-elif [ -z "$1" ]; then
+fi
+# when $1 does not exist
+# and $DIR_BACKUP is valid...
+if [ -d "$DIR_BACKUP/games" ] && [ -d "$DIR_BACKUP/wbfs" ]; then
+	# ... assign directory vars
 	printf "$STATUS_OK Backup directory initialized\n"
 	DIR_WII="$DIR_BACKUP/wbfs"
 	DIR_GCN="$DIR_BACKUP/games"
-elif [ -d "/mnt/$1/wbfs" ] && [ -d "/mnt/$1/games" ]; then
-	printf "$STATUS_OK Drive ${1^^} successfully initialized\n"
-	DIR_WII="/mnt/$1/wbfs"
-	DIR_GCN="/mnt/$1/games"
-else
-	printf "$STATUS_WARN Drive ${1^^} is not your Wii drive! Defaulting to $DIR_BACKUP.\n"
-	DIR_WII="$DIR_BACKUP/wbfs"
-	DIR_GCN="$DIR_BACKUP/games"
+	return
 fi
+# $1 does not exist and $DIR_BACKUP is uncool, so
+# exit the script
+printf "$STATUS_OHNO Backup directory not found! Sorry."
+exit 1
+} 
+
+assign-directories $@
 
 # number of games per system
 GAMES_WII=$(ls -l $DIR_WII | grep '^d' | wc -l)
