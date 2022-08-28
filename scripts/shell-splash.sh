@@ -23,11 +23,33 @@ fi
 # ASCII text generator: https://patorjk.com/software/taag/
 print-splash-name () {
 if [ "$1" == "0" ]; then
-	# "short"
-	printf "\n${COLOR_SPLASH}|_| _ ||     /~        _ |-|- |\n| |(/_||(),  \_|(||\`|\`(/_|_|_ .\n${NC}\n"
+	# "big"
+	printf "\n${COLOR_SPLASH}\
+ _    _      _ _           _____                     _   _   _ 
+| |  | |    | | |         / ____|                   | | | | | |
+| |__| | ___| | | ___    | |  __  __ _ _ __ _ __ ___| |_| |_| |
+|  __  |/ _ \ | |/ _ \   | | |_ |/ _\` | '__| '__/ _ \ __| __| |
+| |  | |  __/ | | (_) |  | |__| | (_| | |  | | |  __/ |_| |_|_|
+|_|  |_|\___|_|_|\___( )  \_____|\__,_|_|  |_|  \___|\__|\__(_)
+	             |/${NC}\n"
 elif [ "$1" == "1" ]; then
-	# "three Point"
-	printf "\n${COLOR_SPLASH}|_| _ || _    /~_ _  _ _ _ _|__|_|\n| |(/_||(_),  \_/(_|| | (/_ |  | .\n${NC}\n"
+	# "three point"
+	printf "\n${COLOR_SPLASH}\
+|_| _ || _    /~_ _  _ _ _ _|__|_|\n\
+| |(/_||(_),  \_/(_|| | (/_ |  | .\n${NC}\n"
+elif [ "$1" == "2" ]; then
+	# "1row"
+	printf "\n${COLOR_SPLASH}\
+|-| [- |_ |_ ()   (_, /\ /? /? [- ~|~ ~|~\
+\n${NC}\n"
+elif [ "$1" == "3" ]; then
+	# "js cursive"
+	printf "\n${COLOR_SPLASH}\
+            _   _                                       
+  /_   _   //  //  _,_     __  __,   ,_   ,_   _  -/--/-
+_/ (__(/__(/__(/__(_/    _(_/_(_/(__/ (__/ (__(/__/__/_ 
+                          _/_                           
+                         (/${NC}\n"
 else
 	printf "\nERROR - Missing or invalid splash name selector\n\n"
 fi
