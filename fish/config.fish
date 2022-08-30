@@ -20,7 +20,7 @@ if status is-interactive
 	# Java because I don't know where to put it
 	set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/bin
 
-	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin
+	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin
 
 	# vi mode #############################
 
