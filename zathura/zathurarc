@@ -1,0 +1,48 @@
+# key remaps
+
+map <Space> scroll 0
+
+map <C-=> zoom in
+map <C--> zoom out
+
+map <C-s> toggle_statusbar
+
+# font
+
+set font "JetBrains Mono 13"
+
+# behavior
+
+set page-padding 10
+set guioptions "s"
+
+# color
+
+set recolor true
+
+set default-fg "#eeeeee"
+set default-bg "#0e0e0e"
+
+set statusbar-fg "#eeeeee"
+set statusbar-bg "#0e0e0e"
+
+set inputbar-fg "#eeeeee"
+set inputbar-bg "#0e0e0e"
+
+set notification-fg "#eeeeee"
+set notification-bg "#0e0e0e"
+
+set notification-warning-fg #0e0e0e
+set notification-warning-bg #ff8867
+
+set notification-error-fg "#0e0e0e"
+set notification-error-bg "#fb5599"
+
+set highlight-color "#aaddff"
+set highlight-active-color "#00bbff"
+
+set completion-fg "#eeeeee"
+set completion-bg "#0e0e0e"
+set completion-group-bg "#141414"
+set completion-highlight-fg "#0e0e0e"
+set completion-highlight-bg "#00bbff"
