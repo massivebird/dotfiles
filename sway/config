@@ -42,6 +42,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # was opening a new terminal
 bindsym ctrl+shift+n nop
 
+# sleep mode
+bindsym $mod+shift+s exec systemctl suspend -i
+
 # Display #############################
 
 output eDP-1 {
