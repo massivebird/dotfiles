@@ -15,7 +15,9 @@ Plug 'tpope/vim-obsession'
 Plug 'itchyny/lightline.vim'
 
 " Color name highlighter
+" top one is prob deprecated
 Plug 'ap/vim-css-color'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Color schemes
 Plug 'rafi/awesome-vim-colorschemes'
@@ -57,6 +59,8 @@ let g:coc_global_extensions = ['coc-conjure']
 
 " Terminalneous
 " You ain't no nerd?? I coulda sworn you were.
+
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 colorscheme framer_syntax_dark
 let g:lightline = {'colorscheme': 'framer_dark'}
@@ -303,4 +307,5 @@ function! SynGroup()
    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
 
+" what is this lmao
 set t_md=
