@@ -1,63 +1,63 @@
-" Plugin Manager: vim-plug
+" plugin manager: vim-plug
 
 let $VIM='~/.config/nvim/init.vim'
 
 call plug#begin('~/.config/nvim/plugged')
 
-" Tim Pope aka Magic Hands
+" tim Pope aka Magic Hands
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 
-" Hip status line
+" hip status line
 Plug 'itchyny/lightline.vim'
 
-" Color name highlighter
+" [hex] color highlighter
 " top one is prob deprecated
 Plug 'ap/vim-css-color'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" Color schemes
+" color schemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
 Plug 'massivebird/ibm-vim'
 
-" Autocomplete braces and scopes
+" autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
 
-" Active version control feedback
+" active version control feedback
 Plug 'airblade/vim-gitgutter'
 
-" Markdown support
+" markdown support
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] } "req :call #mkdp#util#install()
 
-" Clojure support
+" clojure support
 Plug 'olical/conjure'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 
-" Treesitter
+" treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
-" COC autocomplete
+" autocomplete, suggestions
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
-" Let's see what this does
+" let's see what this does
 let g:coc_global_extensions = ['coc-conjure']
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Terminalneous
+" terminalneous
 " You ain't no nerd?? I coulda sworn you were.
 
 let g:Hexokinase_highlighters = ['backgroundfull']
@@ -87,7 +87,7 @@ highlight GitGutterChange guibg=bg
 highlight GitGutterDelete guibg=bg
 let g:gitgutter_set_sign_backgrounds = 1
 
-" Change someday to colorscheme
+" change someday to colorscheme
 hi GitGutterAdd guifg=SeaGreen
 hi GitGutterDelete guifg=Red
 hi GitGutterChange guifg=LightGrey
@@ -100,25 +100,25 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Clojure
+" clojure
 
 let g:ale_linters = { 'clojure': ['clj-kondo']}
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Python
+" python
 
 let g:python3_host_prog = '/usr/bin/python3.8'
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Markdown
+" markdown
 
 let g:vim_markdown_folding_disabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Treesitter
+" treesitter
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -144,7 +144,7 @@ EOF
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" Notetaking tools courtesy of github.com/connermcd
+" notetaking tools courtesy of github.com/connermcd
 
 command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
@@ -204,7 +204,7 @@ tnoremap <C-h> <C-\><C-n>:call MoveLeft()<CR>
 tnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
 nnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
 
-" Move to tab by index
+" move to tab by index
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -228,10 +228,10 @@ nnoremap k gk
 
 " Garrett's Great Remaps
 
-" Space bar as leader
+" space bar as leader
 let mapleader = " "
 
-" Essentials
+" essentials
 nnoremap <leader>w	:w<cr>
 nnoremap <leader>q	:wq<cr>
 nnoremap <leader>Q	:q!<cr>
@@ -246,16 +246,16 @@ nnoremap <leader>n	:noh<cr>
 nnoremap <leader>S	:%s//g<Left><Left>
 nnoremap /           :/\c<Left><Left>
 
-" Redo
+" redo
 nnoremap U <C-r>
 
-" Escape exits terminal mode
+" escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Because it was doing strange things >:(
+" because it was doing strange things >:(
 nnoremap <leader><Esc> <Nop>
 
-" Move line up/down
+" move line up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -264,42 +264,42 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
-" Window resizing
+" window resizing
 nnoremap <Up>		:resize +2<cr>
 nnoremap <Down>		:resize -2<cr>
 nnoremap <Right>	:vertical resize +2<cr>
 nnoremap <Left>		:vertical resize -2<cr>
 
-" Create new line above or below current line
+" create new line above or below current line
 nnoremap <leader>o o<Up><Esc>
 nnoremap <leader>O O<Down><Esc>
 
-" Fix indentation of entire file (deprecated soon probably)
+" fix indentation of entire file (deprecated soon probably)
 nnoremap <F7> gg=G<C-o><C-o><C-o>
 
 " \"Docs\" mode
 nnoremap <leader>d :set spell<cr> :set wrap<cr>
 
-" Conjure evaluations
+" conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
 nnoremap <leader>f :ConjureEvalCurrentForm<cr>
 
-" Clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
+" clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 nnoremap <leader>CL :ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\><C-n>:tabprevious<cr><C-w>h
 
-" Vimgrep navigation ft. looping quickfix navigation
+" vimgrep navigation ft. looping quickfix navigation
 command! Cprev try | cprev | catch | clast | catch | endtry
 command! Cnext try | cnext | catch | cfirst | catch | endtry
 
 command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 
-" Quickfix list nav remaps
+" quickfix list nav remaps
 nnoremap <C-p>		:Cnext<cr>
 nnoremap <C-o>		:Cprev<cr>
 nnoremap <leader>[	:Ngrep 
 
-" Get rid of weird location list error
+" get rid of weird location list error
 nnoremap <Esc> <Nop>
 
 function! SynGroup()
