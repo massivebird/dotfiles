@@ -1,9 +1,8 @@
 ## TO-DO:
-# + Get a spotify alternative
-# + Fix opening folder from Firefox
-# + Figure out how to change window app
-# + Fix keyboard not working on startup
-# + Fix dedicated kitty window launching with bourne shell
+# + get a spotify alternative
+# + fix opening folder from Firefox
+# + figure out how to change window app
+# + fix dedicated kitty window launching with bourne shell
 
 set $term kitty
 set $menu rofi -show drun
@@ -22,6 +21,7 @@ bindsym $mod+Shift+c reload
 
 # log out
 bindsym $mod+ctrl+shift+e exit 
+
 # quick desktop screenshot
 bindsym Print exec grim ~/Pictures/screenshot.png
 
@@ -45,7 +45,7 @@ bindsym ctrl+shift+n nop
 # sleep mode
 bindsym $mod+shift+s exec systemctl suspend -i
 
-# Display #############################
+# display #############################
 
 output eDP-1 {
 		# (1) PATH fill
@@ -55,7 +55,10 @@ output eDP-1 {
 		scale 1.3
            }
 
-# Visuals #############################
+# hides cursor after inactivity
+seat * hide_cursor 2200
+
+# colors ##############################
 
 set $c_0 #3a96dd
 set $c_1 #0e0e0e
@@ -68,29 +71,29 @@ client.focused		$c_0	$c_0	$c_2	$c_0		$c_0
 client.focused_inactive	$c_1	$c_1	$c_2	$c_1		$c_1
 client.unfocused	$c_1	$c_1	$c_2	$c_0		$c_1
 
-# Font ################################
+# font ################################
 
 font pango:JetBrainsMono Nerd Font Mono 11
 
-# Bar #################################
+# bar #################################
 
 bar {
 	swaybar_command waybar
 }
 
-# Applications ########################
+# applications ########################
 
 bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
 bindsym $win+r exec $menu
 
-# This doesn't work
+# this doesn't work
 bindsym $mod+n exec kitty --single-instance $browser
 
-# Close focused window
+# close focused window
 bindsym $mod+Shift+q kill
 
-# Focus ###############################
+# focus ###############################
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -166,7 +169,7 @@ mode "resize" {
 		bindsym Up resize shrink height 10px
 		bindsym Right resize grow width 10px
 
-# Return to default mode
+# return to default mode
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
