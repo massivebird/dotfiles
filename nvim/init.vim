@@ -77,8 +77,10 @@ set noshowmode
 set shiftwidth=0
 set splitright
 set linebreak
-autocmd TermOpen * setlocal nonumber norelativenumber
 filetype plugin indent on
+
+" disables line numbers for terminal windows
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " gitgutter colors
 highlight SignColumn guibg=bg
