@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## SHELL-SPLASH.SH
+## FETCH-NEO.SH
 # neofetch-like splash text for
 # shell startup
 
