@@ -8,7 +8,7 @@
 }
 
 window, window#waybar.solo {
-	color:      rgba(217, 216, 216, 1);
+	color:      #eeeeee;
 	background: #0e0e0e;
 	border-radius: 20px;
 }
@@ -19,18 +19,18 @@ window, window#waybar.solo {
 
 #workspaces button, #workspaces button.visible {
 	padding:    0 5px;
-	color:      #666666;
+	color:      #656565;
 }
 
 #workspaces button.focused {
 	border-radius: 0.2em;
 	border-top: 3px solid rgba(217,217,217,0.0);
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
-	color: #FFFFFF;
+	color: #eeeeee;
 }
 
 #workspaces button.urgent {
-	color:      rgba(238, 46, 36, 1);
+	color:      #fb5599;
 }
 
 #mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate #discord {
@@ -54,11 +54,11 @@ window, window#waybar.solo {
 }
 
 #battery.warning {
-	color:       rgba(255, 210, 4, 1);
+	color:       #ffcc66;
 }
 
 #battery.critical {
-	color:      rgba(238, 46, 36, 1);
+	color:      #fb5599;
 }
 
 #battery.full {
@@ -70,12 +70,12 @@ window, window#waybar.solo {
 }
 
 #custom-storage.warning {
-	color:      rgba(255, 210, 4, 1);
+	color:      #ffcc66;
 }
 
 #custom-storage.critical {
-	color:      rgba(238, 46, 36, 1);
+	color:      #fb5599;
 }
 #pulseaudio.muted {
-	color:      rgba(217, 216, 216, 0.5);
+	color:      #656565;
 }
