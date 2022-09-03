@@ -14,7 +14,7 @@ end
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-	bash ~/.config/scripts/shell-splash.sh fish
+	bash ~/.config/scripts/fetch-p.sh
 	bash ~/.config/scripts/git-updater.sh $argv
 
 	# Java because I don't know where to put it
