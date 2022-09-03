@@ -98,7 +98,7 @@ if status is-interactive
 	alias ncs 'nvim ~/.config/sway/config'
 	alias ncw 'nvim ~/.config/waybar/config'
 	alias ncws 'nvim ~/.config/waybar/style.css'
-	alias ncz 'nvim ~/.config/zsh/.zshrc'
+	alias ncz 'nvim ~/.config/zathura/zathurarc'
 
 	# misc
 	alias c 'cd'
@@ -120,6 +120,7 @@ if status is-interactive
 	alias rename 'prename'
 	alias shx 'chmod +x *.sh'
 	alias s 'source ~/.config/fish/config.fish'
+	alias sc 'clear && source ~/.config/fish/config.fish -f'
 	alias sf 'source ~/.config/fish/config.fish -f'
 	alias sv 'source ~/.config/fish/config.fish -v'
 	alias tree 'tree -RC --dirsfirst'
