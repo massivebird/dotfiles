@@ -7,12 +7,13 @@ Fedora Linux btw
 # programs
 
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
-+ [`nvim`](https://github.com/neovim/neovim) text editor
++ [`neovim`](https://github.com/neovim/neovim) text editor
 + [`ranger`](https://github.com/ranger/ranger) file browser
 + [`rofi`](https://github.com/davatorium/rofi) app launcher
 + [`sway`](https://github.com/swaywm/sway) window manager
 + [`waybar`](https://github.com/Alexays/Waybar) status bar
 + [`fish`](https://github.com/fish-shell/fish-shell) shell
++ [`zathura`](https://pwmt.org/projects/zathura/) pdf viewer
 
 ## installation
 
@@ -36,15 +37,13 @@ Displays statistics about my local game archive.
 
 ![arcstat-preview](https://i.imgur.com/6q6SrFS.png)
 
-### shell-splash.sh
+### fetch-p.sh
 
-A welcoming message to start the day.
+A pfetch-inspired splash message.
 
 Executed by shell on start-up alongside `git-updater.sh` (see below).
 
-Here is a typical start-up screen:
-
-![shell-splash-preview](https://i.imgur.com/tcLmsIB.png)
+![shell-splash-preview](https://i.imgur.com/W0EWRO1.png)
 
 ### git-updater.sh
 
@@ -64,4 +63,4 @@ Validates file system conventions for USB Loader GX, a Wii Homebrew app.
 
 ## misc
 
-[wallpaper](https://unsplash.com/photos/VWEFQ7q9GFw)
+[previous wallpaper](https://unsplash.com/photos/VWEFQ7q9GFw)
