@@ -18,7 +18,7 @@ if status is-interactive
 	bash ~/.config/scripts/git-updater.sh $argv
 
 	# Java because I don't know where to put it
-	set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64/bin
+	set -x JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.16.0.  8-1.fc35.x86_64/
 
 	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin
 
