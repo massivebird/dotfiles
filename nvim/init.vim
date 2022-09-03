@@ -17,7 +17,7 @@ Plug 'itchyny/lightline.vim'
 " [hex] color highlighter
 " top one is prob deprecated
 Plug 'ap/vim-css-color'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase' }
 
 " color schemes
 Plug 'rafi/awesome-vim-colorschemes'
