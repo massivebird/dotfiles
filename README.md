@@ -35,7 +35,7 @@ I'll make a better way later I promise
 
 Displays statistics about my local game archive.
 
-![arcstat-preview](https://i.imgur.com/6q6SrFS.png)
+![arcstat-preview](https://i.imgur.com/wV42FWx.png)
 
 ### fetch-p.sh
 
