@@ -92,7 +92,7 @@ source-repo () {
 		# if repo needed to update or -v...
 		if [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
 			# ... inform user that repo is up to date
-			printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC\n"
+			printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC        \n"
 		fi
 
       return
@@ -113,6 +113,7 @@ update-all () {
 	source-repo "$HOME/docs" "Documents"
 	source-repo "$HOME/academia" "Academia"
 	source-repo "$HOME/tutoring" "Tutoring"
+	source-repo "$HOME/.task" "Tasks"
 }
 
 # updates all in background...
