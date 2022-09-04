@@ -4,19 +4,22 @@
 # generates procedural ascii art
 # in fixed rectangle
 
-WIDTH=10
-HEIGHT=4
-BG_CHAR="="
+WIDTH=${1:-8}
+HEIGHT=${2:-4}
+BG_CHAR="${3:-=}"
+
 PARA_CHARS=("~" "-" "\"")
 
 NL=$'\n'
 
+# generates ascii canvas as array
 generate-canvas () {
 	for i in $(seq 1 $[ WIDTH * HEIGHT ]); do
 		BG+=( "$BG_CHAR" )
 	done
 }
 
+# prints array as rectangle
 print-it () {
 	for i in $(seq 1 $[ WIDTH * HEIGHT ]); do
 		if [[ $[ i % WIDTH ] -eq 0 ]]; then
@@ -30,19 +33,19 @@ print-it () {
 
 # generates procedural strand
 draw-strand () {
-	# generate direction
-	DIR=$[ RANDOM % 2 ]
-
-	# direction is left
-	if [[ $[ RANDOM % 2 ] -eq 0 ]]; then
+	# determine starting conditions
+	case $[ RANDOM % 2 ] in
+		0) # top going left
 		BORDER="/"
 		D_X () { echo $[POS_X - 1]; }
 		char-to-fix () { echo $[ 1 + OFFSET * WIDTH ]; }
-	else
+		;;
+		1) # top going right
 		BORDER="\\"
 		D_X () { echo $[POS_X + 1]; }
 		char-to-fix () { echo $[ $[ 1 + OFFSET ] * WIDTH - 1 ]; }
-	fi
+		;;
+	esac
 
 	# generate starting point for strand,
 	# never on the edge
@@ -53,18 +56,22 @@ draw-strand () {
 	FILL=${PARA_CHARS[$[ RANDOM % ${#PARA_CHARS[@]} ]]}
 
 	while [[ $[ POS_X % WIDTH ] -ne 0 ]]; do
-	# print line
-	BG[$[ POS_X + $[ OFFSET * WIDTH ] - 1 ]]="$BORDER"
-	BG[$[ POS_X + $[ OFFSET * WIDTH ] + 1 ]]="$BORDER"
-	BG[ POS_X + $[ OFFSET * WIDTH ] ]="$FILL"
+		# print line
+		BG[$[ POS_X + $[ OFFSET * WIDTH ] - 1 ]]="$BORDER"
+		BG[$[ POS_X + $[ OFFSET * WIDTH ] + 1 ]]="$BORDER"
+		BG[ POS_X + $[ OFFSET * WIDTH ] ]="$FILL"
 
-	# increment
-	POS_X=$(D_X)
-	OFFSET=$[ OFFSET + 1 ]
+		# increment
+		POS_X=$(D_X)
+		OFFSET=$[ OFFSET + 1 ]
 	done
-	printf "$POS_X:$OFFSET\n"
+
+	# debug
+	# printf "$POS_X:$OFFSET\n"
+	# printf "$(char-to-fix)\n"
+
+	# fix end if applicable
 	if [[ $OFFSET -lt $HEIGHT ]]; then
-		printf "$(char-to-fix)\n"
 		BG[$(char-to-fix)]="$BORDER"
 	fi
 }
