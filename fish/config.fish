@@ -19,6 +19,7 @@ if status is-interactive
 
 	# Java because I don't know where to put it
 	set -x JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.16.0.  8-1.fc35.x86_64/
+	set -x NOTES_DIR $HOME/academia/notes_all/
 
 	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin
 
