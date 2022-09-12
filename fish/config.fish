@@ -14,8 +14,6 @@ end
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
-	bash ~/.config/scripts/fetch-p.sh
-	bash ~/.config/scripts/git-updater.sh $argv
 
 	# Java because I don't know where to put it
 	set -x JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.16.0.  8-1.fc35.x86_64/
@@ -174,6 +172,10 @@ if status is-interactive
 		printf $STR_ROOT
 		set_color normal
 	end
+
+	# bash scripts
+	bash ~/.config/scripts/fetch-p.sh
+	bash ~/.config/scripts/git-updater.sh $argv
 end
 
 # color scheme ########################
