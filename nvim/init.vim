@@ -72,7 +72,7 @@ set spelllang=en_us
 set nospell
 set cursorline
 set number
-set norelativenumber
+set relativenumber
 set noshowmode
 set shiftwidth=0
 set splitright
