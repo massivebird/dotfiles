@@ -30,8 +30,6 @@ GCN_IS_GOOD=0
 # name of backup directory so I can change it later
 DIR_BACKUP="/mnt/d/wiiback"
 
-}
-
 assign-directories () {
 # if user passed $1...
 if [ -n "$1" ]; then
