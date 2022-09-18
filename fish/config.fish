@@ -102,7 +102,7 @@ if status is-interactive
 	# misc
 	alias c 'cd'
 	alias clj 'clj/'
-	alias diff 'diff --color always'
+	alias diff 'diff --color=always'
 	alias dirl 'dirs -v'
 	alias exp 'explorer.exe'
 	alias foxdie "systemctl poweroff"
