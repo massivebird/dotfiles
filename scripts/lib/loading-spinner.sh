@@ -15,6 +15,7 @@
 NC="$(tput sgr 0)"
 SPIN_OHNO="[$(tput setaf 1)!$NC]"
 SPIN_OK="[$(tput setaf 2)-$NC]"
+GRAY=$(tput setaf 15)
 
 loading-spinner () {
 	# assign positional args to variables
@@ -37,7 +38,7 @@ loading-spinner () {
 		sleep .1
 	done
 	# final status message
-	if [ -s /tmp/gitup.txt ] && [ -n "$MSG_ERROR" ] && [ -n "$ERRORFILE" ]; then
+	if [ -s "$ERRORFILE" ] && [ -n "$MSG_ERROR" ] && [ -n "$ERRORFILE" ]; then
 		printf "\r$SPIN_OHNO $MSG_ERROR      \n"
 	else
 		printf "\r$SPIN_OK $MSG_DONE       \n"
