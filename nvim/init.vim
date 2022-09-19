@@ -157,6 +157,18 @@ command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
 """"""""""""""""""""""""""""""""""""""""""
+" update lightline colorscheme without
+" exiting neovim
+
+command! LightlineReload call LightlineReload()
+
+function! LightlineReload()
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""
 
 " Stel's Stellar Remaps
 
