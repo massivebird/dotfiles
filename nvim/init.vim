@@ -82,18 +82,6 @@ filetype plugin indent on
 " disables line numbers for terminal windows
 autocmd TermOpen * setlocal nonumber norelativenumber
 
-" gitgutter colors
-highlight SignColumn guibg=bg
-highlight GitGutterAdd guibg=bg
-highlight GitGutterChange guibg=bg
-highlight GitGutterDelete guibg=bg
-let g:gitgutter_set_sign_backgrounds = 1
-
-" change someday to colorscheme
-hi GitGutterAdd guifg=SeaGreen
-hi GitGutterDelete guifg=Red
-hi GitGutterChange guifg=LightGrey
-
 " color nonsense
 let base16colorspace = 256
 if has("termguicolors")
