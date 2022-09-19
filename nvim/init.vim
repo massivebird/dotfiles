@@ -60,10 +60,8 @@ let g:coc_global_extensions = ['coc-conjure']
 " terminalneous
 " You ain't no nerd?? I coulda sworn you were.
 
+" not sure what this is yet
 let g:Hexokinase_highlighters = ['backgroundfull']
-
-colorscheme framer_syntax_dark
-let g:lightline = {'colorscheme': 'framer_dark'}
 
 syntax on
 syntax enable
@@ -86,6 +84,17 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 let base16colorspace = 256
 if has("termguicolors")
    set termguicolors
+endif
+
+""""""""""""""""""""""""""""""""""""""""""
+
+" colorscheme switcher
+
+let colorscheme_option = 0
+
+if colorscheme_option == 0
+	colorscheme framer_syntax_dark
+	let g:lightline = {'colorscheme': 'framer_dark'}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -254,6 +263,9 @@ nnoremap U <C-r>
 " escape exits terminal mode
 tnoremap <Esc> <C-\><C-n>
 
+" view registers
+nnoremap <leader>r :registers<cr>
+
 " because it was doing strange things >:(
 nnoremap <leader><Esc> <Nop>
 
@@ -264,7 +276,6 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
 
 " window resizing
 nnoremap <Up>		:resize +2<cr>
