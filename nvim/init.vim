@@ -72,7 +72,7 @@ set cursorline
 set number
 set relativenumber
 set noshowmode
-set shiftwidth=0
+set shiftwidth=3
 set splitright
 set linebreak
 filetype plugin indent on
