@@ -128,11 +128,11 @@ require'nvim-treesitter.configs'.setup {
       },
    highlight = {
       enable = true,              -- false will disable the whole extension
-      disable = {"vim", "markdown"},  -- list of language that will be disabled
+      disable = {"vim", "markdown", "html"},  -- list of language that will be disabled
       },
    rainbow = {
       enable = true,
-      disable = { "jsx", "cpp" }, -- list of languages you want to disable the plugin for
+      disable = { "jsx", "cpp", "html"}, -- list of languages you want to disable the plugin for
       extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
       max_file_lines = nil, -- Do not enable for files with more than n lines, int
       -- colors = {}, -- table of hex strings
@@ -319,6 +319,8 @@ function! SynGroup()
    let l:s = synID(line('.'), col('.'), 1)
    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
+
+nnoremap <leader>hg :call SynGroup()<cr>
 
 " what is this lmao
 set t_md=
