@@ -16,10 +16,10 @@ if status is-interactive
 	# Commands to run in interactive sessions can go here
 
 	# Java because I don't know where to put it
-	set -x JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.16.0.  8-1.fc35.x86_64/
+	set -x JAVA_HOME /opt/jdk-18
 	set -x NOTES_DIR $HOME/academia/notes_all/
 
-	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin
+	fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
 
 	# vi mode #############################
 
@@ -176,7 +176,7 @@ if status is-interactive
 
 	# bash scripts
 	bash ~/.config/scripts/fetch-p.sh
-	bash ~/.config/scripts/git-updater.sh $argv
+	bash ~/.config/scripts/git-updater.sh -v $argv
 end
 
 # color scheme ########################
