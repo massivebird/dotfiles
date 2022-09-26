@@ -112,7 +112,6 @@ check-connection
 source-repo "$HOME/.config/" "Configuration"
 source-repo "$HOME/docs" "Documents"
 source-repo "$HOME/academia" "Academia"
-source-repo "$HOME/tutoring" "Tutoring"
 source-repo "$HOME/.task" "Tasks"
 }
 
