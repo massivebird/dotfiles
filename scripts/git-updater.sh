@@ -39,7 +39,7 @@ done
 # validates internet connection
 check-connection () {
 # if connection is good...
-if ping -w 3 -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
+if ping -w 1 -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
    # ... and user wants verbose output...
    if [ -n "$FLAG_VERBOSE" ]; then
       # ... inform user we're cool
