@@ -12,17 +12,7 @@
 
 # load dependencies
 . ~/.config/scripts/lib/loading-spinner.sh
-
-# color presets
-GRAY="$(tput setaf 15)"
-GREEN="$(tput setaf 2)"
-RED="$(tput setaf 1)"
-NC="$(tput sgr 0)"
-
-# colored strings
-STATUS_CONS="[$GRAY CONS $NC]"
-STATUS_COOL="[$GREEN COOL $NC]"
-STATUS_OHNO="[$RED OHNO $NC]"
+. ~/.config/scripts/lib/str-main.sh
 
 # flag checks
 while getopts "vf" arg; do

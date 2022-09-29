@@ -7,28 +7,14 @@
 ## OPTIONAL ARGUMENTS
 # $1: single character drive letter of the Wii external storage device
 
-# color presets
-CYAN="$(tput setaf 45)"
-GREEN="$(tput setaf 34)"
-MAGENTA="$(tput setaf 99)"
-RED="$(tput setaf 1)"
-YELLOW="$(tput setaf 220)"
-NC="$(tput sgr 0)"
-
-# colored strings
-WII="${CYAN}WII${NC}"
-GCN="${MAGENTA}GCN${NC}"
-STATUS_COOL="[$GREEN COOL $NC]"
-STATUS_OK="[$GREEN  OK  $NC]"
-STATUS_OHNO="[$RED OHNO $NC]"
-STATUS_WARN="[$YELLOW WARN $NC]"
+# load dependencies
+. ~/.config/scripts/lib/str-main.sh
+. ~/.config/scripts/lib/str-games.sh
+. ~/.config/scripts/lib/dir-games.sh
 
 # status check for after regex evaluations
 WII_IS_GOOD=0
 GCN_IS_GOOD=0
-
-# name of backup directory so I can change it later
-DIR_BACKUP="/mnt/d/wiiback"
 
 assign-directories () {
 # if user passed $1...

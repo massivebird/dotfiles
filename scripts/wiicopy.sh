@@ -22,32 +22,9 @@ while getopts "av" arg; do
 	esac
 done
 
-# color presets
-CYAN="$(tput setaf 45)"
-GREEN="$(tput setaf 34)"
-MAGENTA="$(tput setaf 99)"
-RED="$(tput setaf 1)"
-YELLOW="$(tput setaf 220)"
-NC="$(tput sgr 0)"
-
-# colored strings
-DS="$(tput setaf 253)DS${NC}"
-DS3="$(tput setaf 196)3DS${NC}"
-GB="$(tput setaf 65)GB${NC}"
-GBA="$(tput setaf 219)GBA${NC}"
-GCN="${MAGENTA}GCN${NC}"
-N64="$(tput setaf 42)N64${NC}"
-PS2="$(tput setaf 242)PS2${NC}"
-SNES="$(tput setaf 57)SNES${NC}"
-WII="${CYAN}WII${NC}"
-STATUS_CONS="[$(tput setaf 244) CONS $NC]"
-STATUS_COOL="[$GREEN COOL $NC]"
-STATUS_OK="[$GREEN  OK  $NC]"
-STATUS_OHNO="[$RED OHNO $NC]"
-STATUS_WARN="[$YELLOW WARN $NC]"
-
-# backup directory
-DIRBACKUP="/mnt/d/wiiback"
+. ~/.config/scripts/lib/str-main.sh
+. ~/.config/scripts/lib/str-games.sh
+. ~/.config/scripts/lib/dir-games.sh
 
 # locates external drive in /mnt/?/ format
 if [ -d /mnt/*/wbfs ]; then
@@ -79,8 +56,8 @@ mycopy "$DIRBACKUP/wbfs/*" $DRIVE/wbfs $WII
 mycopy "$DIRBACKUP/games/*" $DRIVE/games $GCN
 if [ -n "$FLAG_ALL" ]; then
 	printf "$STATUS_CONS -a flag detected. Copying all systems...\n"
-	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
 	mycopy "$DIRBACKUP/3ds/*" $DRIVE/3ds $DS3
+	mycopy "$DIRBACKUP/ds/*" $DRIVE/ds $DS
 	mycopy "$DIRBACKUP/gb/*" $DRIVE/gb $GB
 	mycopy "$DIRBACKUP/gba/*" $DRIVE/gba $GBA
 	mycopy "$DIRBACKUP/n64/*" $DRIVE/n64 $N64
