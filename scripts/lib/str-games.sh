@@ -3,8 +3,10 @@
 # contains formatted strings relevant
 # to local game archive
 
+. ~/.config/scripts/lib/str-main.sh
+
 # platforms
-DS="$(tput setaf 253)DS${NC}"
+DS="$(tput setaf 117)DS${NC}"
 DS3="$(tput setaf 160)3DS${NC}"
 GB="$(tput setaf 65)GB${NC}"
 GBA="$(tput setaf 219)GBA${NC}"
