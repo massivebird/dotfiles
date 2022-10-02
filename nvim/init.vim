@@ -324,3 +324,6 @@ nnoremap <leader>hg :call SynGroup()<cr>
 
 " what is this lmao
 set t_md=
+
+" I HATE ex mode
+nnoremap Q <Nop>
