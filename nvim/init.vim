@@ -93,8 +93,8 @@ endif
 let colorscheme_option = 0
 
 if colorscheme_option == 0
-	colorscheme framer_syntax_dark
-	let g:lightline = {'colorscheme': 'framer_dark'}
+   colorscheme framer_syntax_dark
+   let g:lightline = {'colorscheme': 'framer_dark'}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -172,9 +172,9 @@ command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 command! LightlineReload call LightlineReload()
 
 function! LightlineReload()
-  call lightline#init()
-  call lightline#colorscheme()
-  call lightline#update()
+   call lightline#init()
+   call lightline#colorscheme()
+   call lightline#update()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""
