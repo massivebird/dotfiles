@@ -1,3 +1,4 @@
+QtProject.conf
 alacritty
 anthy
 azuredatastudio
@@ -6,6 +7,7 @@ coc
 configstore
 dconf
 dleyna-renderer-service.conf
+dolphin-emu/
 enchant
 eog
 evolution
