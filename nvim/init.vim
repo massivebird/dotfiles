@@ -327,3 +327,6 @@ set t_md=
 
 " I HATE ex mode
 nnoremap Q <Nop>
+
+" places semicolon at end of current line
+nnoremap <leader>; A;<Esc>
