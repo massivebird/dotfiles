@@ -330,3 +330,13 @@ nnoremap Q <Nop>
 
 " places semicolon at end of current line
 nnoremap <leader>; A;<Esc>
+
+" COC keybinds
+" ctrl+enter dismisses completion list without completion
+inoremap <C-Enter> <Enter>
+" tab to go down
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+" shift tab to go down
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+" enter selects first/selected item
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
