@@ -22,6 +22,9 @@ bindsym $mod+Shift+c reload
 # log out
 bindsym $mod+ctrl+shift+e exit 
 
+# shut down
+bindsym $mod+ctrl+shift+f+d exec systemctl poweroff 
+
 # quick desktop screenshot
 bindsym Print exec grim ~/Pictures/screenshot.png
 
