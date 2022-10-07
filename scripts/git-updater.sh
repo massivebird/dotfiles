@@ -28,8 +28,10 @@ done
 
 # validates internet connection
 check-connection () {
+# tests connection
+curl --max-time 0.7 -Is https://github.com 1> /dev/null
 # if connection is good...
-if ping -w 1 -q -c 1 github.com 1> /dev/null 2> /tmp/gitup.txt; then
+if [ $? -eq 0 ]; then
    # ... and user wants verbose output...
    if [ -n "$FLAG_VERBOSE" ]; then
       # ... inform user we're cool
@@ -94,15 +96,15 @@ if [ -d $REPO_PATH ]; then
 
 # contains all function calls
 update-all () {
-# aborts script on bad connection
-check-connection
-## source-repo() calls
-# $1: absolute path to repo
-# $2: human readable repo label
-source-repo "$HOME/.config/" "Configuration"
-source-repo "$HOME/docs" "Documents"
-source-repo "$HOME/academia" "Academia"
-source-repo "$HOME/.task" "Tasks"
+   # aborts script on bad connection
+   check-connection
+   ## source-repo() calls
+   # $1: absolute path to repo
+   # $2: human readable repo label
+   source-repo "$HOME/.config/" "Configuration"
+   source-repo "$HOME/docs" "Documents"
+   source-repo "$HOME/academia" "Academia"
+   source-repo "$HOME/.task" "Tasks"
 }
 
 # updates all in background...
