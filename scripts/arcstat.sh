@@ -20,13 +20,13 @@ NUM_DS=$(ls -l $DIR_DS | grep -cE '\.nds')
 NUM_DS3=$(ls -l $DIR_DS3 | grep -cE '\.cia')
 NUM_GB=$(ls -l $DIR_GB | grep -cE '\.gb[c]?')
 NUM_GBA=$(ls -l $DIR_GBA | grep -cE '\.gba')
-NUM_GCN=$(ls -l $DIR_GCN | grep -cE '^d')
+NUM_GCN=$(ls -l $DIR_GCN | grep -cE '^d.*\[.*')
 NUM_N64=$(ls -l $DIR_N64 | grep -cE '\.[nz]64|.rom')
 NUM_PS1=$(ls -l $DIR_PS1 | grep -vcE '^d.*(Disc [^1])|bios|total')
 NUM_PS2=$(ls -l $DIR_PS2 | grep -cE '\.iso')
 NUM_PSP=$(ls -l $DIR_PSP | grep -cE '\.iso')
 NUM_SNES=$(ls -l $DIR_SNES | grep -cE '\.sfc')
-NUM_WII=$(ls -l $DIR_WII | grep -cE '^d')
+NUM_WII=$(ls -l $DIR_WII | grep -cE '^d.*\[.*')
 NUM_TOTAL=$[ NUM_DS + NUM_DS3 + NUM_GB + NUM_GBA + NUM_GCN + NUM_N64 + NUM_PS2 + NUM_SNES + NUM_WII + NUM_PS1 ]
 
 # calculates total drive usage of all directory arguments
