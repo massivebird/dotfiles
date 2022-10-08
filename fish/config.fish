@@ -16,7 +16,7 @@ if status is-interactive
    # Commands to run in interactive sessions can go here
 
    # Java because I don't know where to put it
-if test -f /opt/jdk-18
+if test -d /opt/jdk-18
    set -x JAVA_HOME /opt/jdk-18
 else
    set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
