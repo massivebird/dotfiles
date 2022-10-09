@@ -33,7 +33,7 @@ bindsym $mod+ctrl+shift+r exec systemctl reboot
 # shut down
 bindsym $mod+ctrl+shift+f+d exec systemctl poweroff 
 # quick desktop screenshot
-bindsym Print exec grim ~/Pictures/screenshot.png
+bindsym Print exec grim ~/Pictures/$(date +"%m-%d-%YT%H-%M-%S").png
 # was opening a new terminal
 bindsym ctrl+shift+n nop
 # app shortcuts
