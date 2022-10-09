@@ -136,7 +136,8 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # layout ##############################
 
 gaps inner 10
-gaps outer 5
+gaps outer 3
+gaps top 0
 
 bindsym $mod+f fullscreen toggle
 
