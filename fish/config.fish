@@ -185,7 +185,7 @@ if status is-interactive
 
    # bash scripts
    bash ~/.config/scripts/fetch-p.sh
-   bash ~/.config/scripts/git-updater.sh -v $argv
+   bash ~/.config/scripts/git-updater.sh $argv
 end
 
 # color scheme ########################
