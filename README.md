@@ -1,10 +1,10 @@
-![screenshot-desktop](https://i.imgur.com/Z3We6yE.png)
-
 # massivebird's dotfiles
+
+![screenshot-desktop](https://i.imgur.com/A4A2p1Z.png)
 
 Fedora Linux btw
 
-# programs
+## programs
 
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
 + [`neovim`](https://github.com/neovim/neovim) text editor
@@ -48,8 +48,6 @@ Executed by shell on start-up alongside `git-updater.sh` (see below).
 ### git-updater.sh
 
 Updates local git repositories (very cool!)
-
-This runs every time I source my shell rc, which includes booting up my machine(s) 😎
 
 ![git-updater-preview](https://i.imgur.com/ulG5AnG.gif)
 

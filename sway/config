@@ -33,7 +33,7 @@ bindsym $mod+ctrl+shift+r exec systemctl reboot
 # shut down
 bindsym $mod+ctrl+shift+f+d exec systemctl poweroff 
 # quick desktop screenshot
-bindsym Print exec grim ~/Pictures/screenshot.png
+bindsym Print exec grim ~/Pictures/$(date +"%m-%d-%YT%H-%M-%S").png
 # was opening a new terminal
 bindsym ctrl+shift+n nop
 # app shortcuts
@@ -136,7 +136,8 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # layout ##############################
 
 gaps inner 10
-gaps outer 5
+gaps outer 3
+gaps top 0
 
 bindsym $mod+f fullscreen toggle
 
