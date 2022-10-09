@@ -5,7 +5,7 @@ if set -q XDG_CURRENT_DESKTOP
    # If using wayland, set appropriate env vars
    if set -q WAYLAND_DISPLAY
       set -x MOZ_ENABLE_WAYLAND 1
-      set -x QT_QPA_PLATFORM 'wayland'
+      set -x QT_QPA_PLATFORM 'wayland obs'
    end
    if test (command -s qt5ct)
       set -x QT_QPA_PLATFORMTHEME "qt5ct"
@@ -15,15 +15,26 @@ end
 if status is-interactive
    # Commands to run in interactive sessions can go here
 
-   # Java because I don't know where to put it
-if test -d /opt/jdk-18
-   set -x JAVA_HOME /opt/jdk-18
-else
-   set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
-end
-   set -x NOTES_DIR $HOME/academia/notes_all/
+   # variables ###########################
 
    fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
+
+   set -x BROWSER "firefox"
+   set -x EDITOR "nvim"
+   set -x PAGER "less -r"
+   # neovim notes querying
+   set -x NOTES_DIR $HOME/academia/notes_all/
+
+   # variables: java #####################
+
+   if test -d /opt/jdk-18
+      set -x JAVA_HOME /opt/jdk-18
+   else
+      set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
+   end
+
+   set -x QT_QPA_PLATFORM 'wayland obs'
+   set -x CLASSPATH $HOME/p-java/*/classes
 
    # vi mode #############################
 
@@ -45,12 +56,6 @@ end
       bind -M $mode \cP 'up-or-search'
       bind -M $mode \cN 'down-or-search'
    end
-
-   # variables ###########################
-
-   set -x BROWSER "firefox"
-   set -x EDITOR "nvim"
-   set -x PAGER "less -r"
 
    # aliases #############################
 
