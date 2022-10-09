@@ -70,12 +70,14 @@ set spelllang=en_us
 set nospell
 set cursorline
 set number
-set relativenumber
-set noshowmode
-set shiftwidth=3
-set splitright
 set linebreak
-filetype plugin indent on
+set noshowmode
+set relativenumber
+set shiftwidth=0
+set splitright
+set tabstop=3
+" filetype plugin indent on
+filetype plugin on
 
 " disables line numbers for terminal windows
 autocmd TermOpen * setlocal nonumber norelativenumber
@@ -243,18 +245,18 @@ nnoremap k gk
 let mapleader = " "
 
 " essentials
-nnoremap <leader>w	:w<cr>
-nnoremap <leader>q	:wq<cr>
-nnoremap <leader>Q	:q!<cr>
-nnoremap <leader>c	:close<cr>
-nnoremap <leader>A	ggcG
-nnoremap <leader>s	:source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>pi	:PlugInstall<cr>
-nnoremap <leader>pc	:PlugClean<cr>
-nnoremap <leader>pu	:PlugUpdate<cr>
-nnoremap <leader>t	:term<cr>
-nnoremap <leader>n	:noh<cr>
-nnoremap <leader>S	:%s//g<Left><Left>
+nnoremap <leader>w   :w<cr>
+nnoremap <leader>q   :wq<cr>
+nnoremap <leader>Q   :q!<cr>
+nnoremap <leader>c   :close<cr>
+nnoremap <leader>A   ggcG
+nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>pi  :PlugInstall<cr>
+nnoremap <leader>pc  :PlugClean<cr>
+nnoremap <leader>pu  :PlugUpdate<cr>
+nnoremap <leader>t   :term<cr>
+nnoremap <leader>n   :noh<cr>
+nnoremap <leader>S   :%s//g<Left><Left>
 nnoremap /           :/\c<Left><Left>
 
 " redo
@@ -278,10 +280,10 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " window resizing
-nnoremap <Up>		:resize +2<cr>
-nnoremap <Down>		:resize -2<cr>
-nnoremap <Right>	:vertical resize +2<cr>
-nnoremap <Left>		:vertical resize -2<cr>
+nnoremap <Up>    :resize +2<cr>
+nnoremap <Down>  :resize -2<cr>
+nnoremap <Right> :vertical resize +2<cr>
+nnoremap <Left>  :vertical resize -2<cr>
 
 " create new line above or below current line
 nnoremap <leader>o o<Up><Esc>
@@ -290,8 +292,8 @@ nnoremap <leader>O O<Down><Esc>
 " fix indentation of entire file (deprecated soon probably)
 nnoremap <F7> gg=G<C-o><C-o><C-o>
 
-" \"Docs\" mode
-nnoremap <leader>d :set spell<cr> :set wrap<cr>
+" toggle spelling, wrap mode
+nnoremap <leader>d :set spell!<cr> :set wrap!<cr>
 
 " conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
@@ -308,9 +310,9 @@ command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 
 " quickfix list nav remaps
-nnoremap <C-p>		:Cnext<cr>
-nnoremap <C-o>		:Cprev<cr>
-nnoremap <leader>[	:Ngrep 
+nnoremap <C-p>     :Cnext<cr>
+nnoremap <C-o>     :Cprev<cr>
+nnoremap <leader>[ :Ngrep 
 
 " get rid of weird location list error
 nnoremap <Esc> <Nop>
