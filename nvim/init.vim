@@ -88,6 +88,8 @@ set nrformats+=alpha
 set tabstop=3
 " num spaces << and >> account for (0 -> tabstop)
 set shiftwidth=0
+" use spaces instead of tab characters
+set expandtab
 " new window appears to right of current one
 set splitright
 " enable filetype-specific configuration files
