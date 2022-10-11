@@ -260,6 +260,10 @@ noremap <leader>0 :tablast<cr>
 nnoremap <silent> <TAB> 10j
 nnoremap <silent> <S-TAB> 10k
 
+" move through wrapped lines visually
+nnoremap j gj
+nnoremap k gk
+
 """"""""""""""""""""""""""""""""""""""""""
 
 " Garrett's Great Remaps
