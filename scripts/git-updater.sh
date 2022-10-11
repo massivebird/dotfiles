@@ -18,11 +18,11 @@
 while getopts "vf" arg; do
    case "${arg}" in
       f) # "fast"
-	 exit 0
-	 ;;
+         exit 0
+         ;;
       v) # "verbose"
-	 FLAG_VERBOSE=1
-	 ;;
+         FLAG_VERBOSE=1
+         ;;
    esac
 done
 
@@ -70,41 +70,41 @@ if [ -d $REPO_PATH ]; then
       printf "\r$STATUS_CONS Updating $REPO_LABEL...                 \n"
    fi
 
-		# `git pull` while storing its errors
-		ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
+# `git pull` while storing its errors
+ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
-		# if `git pull` produced an error...
-		if [ -n "$ERROR_DUMP" ]; then
-		   # ... inform user that the update failed
-		   printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
-		   printf $ERROR_DUMP"\n"
-		   return
-		fi
+# if `git pull` produced an error...
+if [ -n "$ERROR_DUMP" ]; then
+   # ... inform user that the update failed
+   printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
+   printf $ERROR_DUMP"\n"
+   return
+fi
 
-		# if repo needed to update or -v...
-		if [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
-		   # ... inform user that repo is up to date
-		   printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC        \n"
-		fi
+# if repo needed to update or -v...
+if [ -n "$DIFF_DUMP" ] || [ -n "$FLAG_VERBOSE" ]; then
+   # ... inform user that repo is up to date
+   printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC        \n"
+fi
 
-		return
-		fi
-		# if repo path does not exist, inform user
-		printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee /tmp/gitup.txt
-		return
-	     }
+return
+fi
+# if repo path does not exist, inform user
+printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee /tmp/gitup.txt
+return
+}
 
 # contains all function calls
 update-all () {
-   # aborts script on bad connection
-   check-connection
-   ## source-repo() calls
-   # $1: absolute path to repo
-   # $2: human readable repo label
-   source-repo "$HOME/.config/" "Configuration"
-   source-repo "$HOME/docs" "Documents"
-   source-repo "$HOME/academia" "Academia"
-   source-repo "$HOME/.task" "Tasks"
+# aborts script on bad connection
+check-connection
+## source-repo() calls
+# $1: absolute path to repo
+# $2: human readable repo label
+source-repo "$HOME/.config/" "Configuration"
+source-repo "$HOME/docs" "Documents"
+source-repo "$HOME/academia" "Academia"
+source-repo "$HOME/.task" "Tasks"
 }
 
 # updates all in background...
