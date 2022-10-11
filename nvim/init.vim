@@ -24,7 +24,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
-Plug 'massivebird/ibm-vim'
+" Plug 'massivebird/ibm-vim'
 
 " autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -48,7 +48,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
 " autocomplete, suggestions
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -57,26 +57,40 @@ let g:coc_global_extensions = ['coc-conjure']
 
 """"""""""""""""""""""""""""""""""""""""""
 
-" terminalneous
+" general settings
 " You ain't no nerd?? I coulda sworn you were.
 
 " not sure what this is yet
 let g:Hexokinase_highlighters = ['backgroundfull']
 
+" syntax highlighting
 syntax on
 syntax enable
+" menu for command line completions
 set wildmenu
+" spellcheck languages
 set spelllang=en_us
+" spellcheck
 set nospell
+" highlight entire line
 set cursorline
+" line numbers
 set number
-set linebreak
-set noshowmode
+" line numbers are relative to current line
 set relativenumber
-set shiftwidth=0
-set splitright
+" wrap long lines
+set linebreak
+" show mode in command area
+set noshowmode
+" allows [inc|dec]rememnting letters
+set nrformats+=alpha
+" num spaces <Tab> accounts for
 set tabstop=3
-" filetype plugin indent on
+" num spaces << and >> account for (0 -> tabstop)
+set shiftwidth=0
+" new window appears to right of current one
+set splitright
+" enable filetype-specific configuration files
 filetype plugin on
 
 " disables line numbers for terminal windows
@@ -85,8 +99,15 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 " color nonsense
 let base16colorspace = 256
 if has("termguicolors")
-   set termguicolors
+	set termguicolors
 endif
+
+""""""""""""""""""""""""""""""""""""""""""
+
+" terminal mode settings
+
+" bold mode?? idk
+set t_md=
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -95,8 +116,11 @@ endif
 let colorscheme_option = 0
 
 if colorscheme_option == 0
-   colorscheme framer_syntax_dark
-   let g:lightline = {'colorscheme': 'framer_dark'}
+	colorscheme framer_syntax_dark
+	let g:lightline = {'colorscheme': 'framer_dark'}
+elseif colorscheme_option == 1
+	colorscheme default
+	let g:lightline = {'colorscheme': 'default'}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -123,24 +147,24 @@ let g:vim_markdown_folding_disabled = 1
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-   ignore_install = { "javascript" }, -- List of parsers to ignore installing
-   indent = {
-      enable = true
-      },
-   highlight = {
-      enable = true,              -- false will disable the whole extension
-      disable = {"vim", "markdown", "html", "php"},  -- list of language that will be disabled
-      },
-   rainbow = {
-      enable = true,
-      disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
-      extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-      max_file_lines = nil, -- Do not enable for files with more than n lines, int
-      -- colors = {}, -- table of hex strings
-      -- termcolors = {} -- table of colour name strings
-      },
-   }
+	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ignore_install = { "javascript" }, -- List of parsers to ignore installing
+	indent = {
+		enable = true,
+		},
+	highlight = {
+		enable = true,              -- false will disable the whole extension
+		disable = {"vim", "markdown", "html", "php"},  -- list of language that will be disabled
+		},
+	rainbow = {
+		enable = true,
+		disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		max_file_lines = nil, -- Do not enable for files with more than n lines, int
+		-- colors = {}, -- table of hex strings
+		-- termcolors = {} -- table of colour name strings
+		},
+	}
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -152,16 +176,16 @@ command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 " CURRENT ISSUE : 'Cannot open files' aka does not immediately show first
 " result
 fun! MyNgrep(query, ...)
-   let query = "/".a:query."/j"
-   let course = get(a:, 1, "")
-   let path = "$NOTES_DIR/" . course . "*/*/*.md"
-   if course == ""
-      let path = "$NOTES_DIR/*/*/*.md"
-   else
-      let path = "$NOTES_DIR/" . course . "*/*/*.md"
-   endif
-   echom query path
-   execute "vimgrep" query path bufname("#")
+	let query = "/".a:query."/j"
+	let course = get(a:, 1, "")
+	let path = "$NOTES_DIR/" . course . "*/*/*.md"
+	if course == ""
+		let path = "$NOTES_DIR/*/*/*.md"
+	else
+		let path = "$NOTES_DIR/" . course . "*/*/*.md"
+	endif
+	echom query path
+	execute "vimgrep" query path bufname("#")
 endfunction
 
 command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
@@ -174,31 +198,32 @@ command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 command! LightlineReload call LightlineReload()
 
 function! LightlineReload()
-   call lightline#init()
-   call lightline#colorscheme()
-   call lightline#update()
+	call lightline#init()
+	call lightline#colorscheme()
+	call lightline#update()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""
 
 " Stel's Stellar Remaps
+" https://github.com/stelcodes/xdg-config
 
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
 " if necessary
 function! MoveLeft()
-   if (winnr() == winnr('1h'))
-      :tabprevious
-   else
-      :call nvim_input("<Esc><C-w>h")
-   endif
+	if (winnr() == winnr('1h'))
+		:tabprevious
+	else
+		:call nvim_input("<Esc><C-w>h")
+	endif
 endfunction
 
 function! MoveRight()
-   if (winnr() == winnr('1l'))
-      :tabnext
-   else
-      :call nvim_input("<Esc><C-w>l")
-   endif
+	if (winnr() == winnr('1l'))
+		:tabnext
+	else
+		:call nvim_input("<Esc><C-w>l")
+	endif
 endfunction
 
 nnoremap <C-j> <C-w>j
@@ -232,10 +257,6 @@ noremap <leader>0 :tablast<cr>
 " tab moves cursor 10 lines down, shift-tab 10 lines up
 nnoremap <silent> <TAB> 10j
 nnoremap <silent> <S-TAB> 10k
-
-" move through wrapped lines visually
-nnoremap j gj
-nnoremap k gk
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -318,14 +339,11 @@ nnoremap <leader>[ :Ngrep
 nnoremap <Esc> <Nop>
 
 function! SynGroup()
-   let l:s = synID(line('.'), col('.'), 1)
-   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+	let l:s = synID(line('.'), col('.'), 1)
+	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
 
 nnoremap <leader>hg :call SynGroup()<cr>
-
-" what is this lmao
-set t_md=
 
 " I HATE ex mode
 nnoremap Q <Nop>
@@ -342,3 +360,8 @@ inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " enter selects first/selected item
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" gitgutter shortcuts
+nnoremap <leader>gn :GitGutterNextHunk<cr>
+nnoremap <leader>gp :GitGutterPrevHunk<cr>
+nnoremap <leader>gv :GitGutterPreviewHunk<cr>
