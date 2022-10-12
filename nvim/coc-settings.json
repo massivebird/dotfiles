@@ -1,10 +1,13 @@
 {
    // general settings
-   // display menu anywhere on same line
+   // hint/warning displayed anywhere on same line
    "diagnostic.checkCurrentLine": true,
+   "diagnostic.refreshOnInsertMode": true,
 
    // bash: coc-sh
    "sh.enable": true,
+
+   "java.completion.enabled": true,
 
    "languageserver": {
       "clojure-lsp": {
@@ -18,7 +21,8 @@
          }
 
       }
-   }
+  },
+  "java.errors.incompleteClasspath.severity": "ignore"
 
 }
 
