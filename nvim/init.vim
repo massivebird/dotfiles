@@ -355,7 +355,7 @@ nnoremap <leader>hg :call SynGroup()<cr>
 nnoremap Q <Nop>
 
 " places semicolon at end of current line
-nnoremap <leader>; A;<Esc>
+nnoremap <silent> <leader>; mY:s/$/;<cr>:noh<cr>`Y
 
 " COC keybinds
 " ctrl+enter dismisses completion list without completion
@@ -366,6 +366,8 @@ inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " enter selects first/selected item
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" reopens CoC completion menu without typing
+inoremap <silent><expr> <c-space> coc#refresh()
 
 " gitgutter shortcuts
 nnoremap <leader>gn :GitGutterNextHunk<cr>
