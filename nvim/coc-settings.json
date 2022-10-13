@@ -4,10 +4,11 @@
    "diagnostic.checkCurrentLine": true,
    "diagnostic.refreshOnInsertMode": true,
 
-   // bash: coc-sh
-   "sh.enable": true,
-
+   "coc.source.conjure.filetypes": [ "clojure", "fennel" ],
+   "html.filetypes": [ "html" ],
    "java.completion.enabled": true,
+   "java.errors.incompleteClasspath.severity": "ignore",
+   "sh.enable": true,
 
    "languageserver": {
       "clojure-lsp": {
@@ -21,9 +22,7 @@
          }
 
       }
-  },
-  "java.errors.incompleteClasspath.severity": "ignore"
-
+  }
 }
 
 // vim: filetype=jsonc
