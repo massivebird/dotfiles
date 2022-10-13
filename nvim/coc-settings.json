@@ -9,6 +9,8 @@
    "java.completion.enabled": true,
    "java.errors.incompleteClasspath.severity": "ignore",
    "sh.enable": true,
+   "snippets.ultisnips.enable": false,
+   "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips",
 
    "languageserver": {
       "clojure-lsp": {
