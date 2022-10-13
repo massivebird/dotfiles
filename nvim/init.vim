@@ -19,7 +19,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase' }
 
-" color schemes
+" colorschemes
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ghifarit53/tokyonight-vim'
@@ -49,6 +49,9 @@ Plug 'p00f/nvim-ts-rainbow'
 
 " autocomplete, suggestions
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" snippets
+Plug 'sirver/ultisnips' " pair w coc-snippets
 
 call plug#end()
 
@@ -135,7 +138,7 @@ let g:ale_linters = { 'clojure': ['clj-kondo']}
 
 " python
 
-let g:python3_host_prog = '/usr/bin/python3.8'
+let g:python3_host_prog = '/usr/bin/python3.10'
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -373,3 +376,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <leader>gn :GitGutterNextHunk<cr>
 nnoremap <leader>gp :GitGutterPrevHunk<cr>
 nnoremap <leader>gv :GitGutterPreviewHunk<cr>
+
+" trigger snippet command
+imap <C-l> <Plug>(coc-snippets-expand)
+" select text for visual placeholder
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+" edit snippets in vertical window
+let g:UltiSnipsEditSplit="vertical"
