@@ -5,7 +5,7 @@ if set -q XDG_CURRENT_DESKTOP
    # If using wayland, set appropriate env vars
    if set -q WAYLAND_DISPLAY
       set -x MOZ_ENABLE_WAYLAND 1
-      set -x QT_QPA_PLATFORM 'wayland obs'
+      set -x QT_QPA_PLATFORM 'wayland'
    end
    if test (command -s qt5ct)
       set -x QT_QPA_PLATFORMTHEME "qt5ct"
@@ -24,6 +24,10 @@ if status is-interactive
    set -x PAGER "less -r"
    # neovim notes querying
    set -x NOTES_DIR $HOME/academia/notes_all/
+   # OBS wants these
+   set -x QT_QPA_PLATFORM 'wayland'
+   set -x XDG_CURRENT_DESKTOP 'sway'
+   set -x XDG_SESSION_TYPE 'wayland'
 
    # variables: java #####################
 
@@ -33,7 +37,6 @@ if status is-interactive
       set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
    end
 
-   set -x QT_QPA_PLATFORM 'wayland obs'
    set -x CLASSPATH $HOME/p-java/*/classes
 
    # vi mode #############################
