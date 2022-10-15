@@ -138,7 +138,13 @@ let g:ale_linters = { 'clojure': ['clj-kondo']}
 
 " python
 
-let g:python3_host_prog = '/usr/bin/python3.10'
+if filereadable('/usr/bin/python3.10')
+   " laptop
+   let g:python3_host_prog = '/usr/bin/python3.10'
+else
+   " desktop
+   let g:python3_host_prog = '/usr/bin/python3.8'
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
 
