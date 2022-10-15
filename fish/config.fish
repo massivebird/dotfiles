@@ -126,6 +126,7 @@ if status is-interactive
    alias ta 'task add'
    alias tl 'task list'
    alias tn 'task next'
+   alias tpc 'tput cnorm'
    alias tree 'tree -RC --dirsfirst'
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
