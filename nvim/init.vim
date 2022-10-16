@@ -4,7 +4,7 @@ let $VIM='~/.config/nvim/init.vim'
 
 call plug#begin('~/.config/nvim/plugged')
 
-" tim Pope aka Magic Hands
+" tim pope's dark arts
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
@@ -353,11 +353,11 @@ nnoremap <leader>[ :Ngrep
 " get rid of weird location list error
 nnoremap <Esc> <Nop>
 
+" identify highlight group under cursor
 function! SynGroup()
 	let l:s = synID(line('.'), col('.'), 1)
 	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
-
 nnoremap <leader>hg :call SynGroup()<cr>
 
 " I HATE ex mode
@@ -368,13 +368,13 @@ nnoremap <silent> <leader>; mY:s/$/;<cr>:noh<cr>`Y
 
 " COC keybinds
 " ctrl+enter dismisses completion list without completion
-inoremap <C-Enter> <Enter>
+" inoremap <C-Enter> <Enter>
 " tab to go down
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 " shift tab to go down
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " enter selects first/selected item
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
 " reopens CoC completion menu without typing
 inoremap <silent><expr> <c-space> coc#refresh()
 
