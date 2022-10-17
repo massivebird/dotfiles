@@ -142,28 +142,28 @@ if status is-interactive
    function fish_prompt
       # check user privileges
       if fish_is_root_user
-	 set -f STR_ROOT '# '
+         set -f STR_ROOT '# '
       else
-	 set -f STR_ROOT '$ '
+         set -f STR_ROOT '$ '
       end
       # if cwd is git controlled...
       if fish_git_prompt > /dev/null
-	 # ... then prepare git string
-	 set -f STR_GIT (set_color $fish_color_user)\[(git branch --show-current)\]
-	 # and if cwd is dirty...
-	 set -l DIRTY_TEST (git status --porcelain)
-	 if test -n "$DIRTY_TEST"
-	    # ... then prepare dirty indicator
-	    set -f STR_DIRTY (set_color $fish_color_error)\*
-	 else
-	    # or empty if clean
-	    set -f STR_DIRTY ''
-	 end
-	 # if cwd is not git controlled...
+         # ... then prepare git string
+         set -f STR_GIT (set_color $fish_color_user)\[(git branch --show-current)\]
+         # and if cwd is dirty...
+         set -l DIRTY_TEST (git status --porcelain)
+         if test -n "$DIRTY_TEST"
+            # ... then prepare dirty indicator
+            set -f STR_DIRTY (set_color $fish_color_error)\*
+         else
+            # or empty if clean
+            set -f STR_DIRTY ''
+         end
+         # if cwd is not git controlled...
       else
-	 # ... make git strings empty
-	 set -f STR_GIT ''
-	 set -f STR_DIRTY ''
+         # ... make git strings empty
+         set -f STR_GIT ''
+         set -f STR_DIRTY ''
       end
       # print prompt from left to right
       printf $STR_DIRTY
@@ -175,55 +175,55 @@ if status is-interactive
       set_color normal
    end
 
+   # color scheme ########################
+
+   set fish_color_normal f2f2f2
+   # commands: echo
+   set fish_color_command $fish_color_normal
+   # keywords: if
+   set fish_color_keyword $fish_color_command
+   # quoted text: "echo"
+   set fish_color_quote eeaaff
+   # IO redirs: > /dev/null
+   set fish_color_redirection ff8867
+   # process separators: ; &
+   set fish_color_end $fish_color_normal
+   # syntax errors
+   set fish_color_error fb5599
+   # command parameters
+   set fish_color_param ff8867 --italics
+   # filename command parameters
+   set fish_color_valid_path ff8867 --italics
+   # command flags/options: --ignore-case -i
+   set fish_color_option $fish_color_normal
+   # comments
+   set fish_color_comment 656565
+   # selected text in vi visual mode
+   set fish_color_selection red
+   # param expansion chars: * ~
+   set fish_color_operator $fish_color_comment
+   # character escapes: \n \x70
+   set fish_color_escape $fish_color_comment
+   # command autosuggestions
+   set fish_color_autosuggestion $fish_color_comment
+   # prompt cwd
+   set fish_color_cwd 00bbff 
+   # prompt cwd for root user
+   set fish_color_cwd_root $fish_color_cwd
+   # prompt username
+   set fish_color_user ffcc66
+   # prompt hostname
+   set fish_color_host $fish_color_user
+   # prompt hostname for remote sessions
+   set fish_color_host_remote $fish_color_usr
+   # prompt nonzero exit code of last command
+   set fish_color_status red
+   # ^C indicator
+   set fish_color_cancel $fish_color_comment
+   # bg of history search matches, selected pager items
+   set fish_color_search_match default
+
    # bash scripts
    bash ~/.config/scripts/fetch-p.sh
    bash ~/.config/scripts/git-updater.sh $argv
 end
-
-# color scheme ########################
-
-set fish_color_normal f2f2f2
-# commands: echo
-set fish_color_command $fish_color_normal
-# keywords: if
-set fish_color_keyword $fish_color_command
-# quoted text: "echo"
-set fish_color_quote eeaaff
-# IO redirs: > /dev/null
-set fish_color_redirection ff8867
-# process separators: ; &
-set fish_color_end $fish_color_normal
-# syntax errors
-set fish_color_error fb5599
-# command parameters
-set fish_color_param ff8867 --italics
-# filename command parameters
-set fish_color_valid_path ff8867 --italics
-# command flags/options: --ignore-case -i
-set fish_color_option $fish_color_normal
-# comments
-set fish_color_comment 656565
-# selected text in vi visual mode
-set fish_color_selection red
-# param expansion chars: * ~
-set fish_color_operator $fish_color_comment
-# character escapes: \n \x70
-set fish_color_escape $fish_color_comment
-# command autosuggestions
-set fish_color_autosuggestion $fish_color_comment
-# prompt cwd
-set fish_color_cwd 00bbff 
-# prompt cwd for root user
-set fish_color_cwd_root $fish_color_cwd
-# prompt username
-set fish_color_user ffcc66
-# prompt hostname
-set fish_color_host $fish_color_user
-# prompt hostname for remote sessions
-set fish_color_host_remote $fish_color_usr
-# prompt nonzero exit code of last command
-set fish_color_status red
-# ^C indicator
-set fish_color_cancel $fish_color_comment
-# bg of history search matches, selected pager items
-set fish_color_search_match default
