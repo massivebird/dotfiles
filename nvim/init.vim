@@ -24,7 +24,6 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
-" Plug 'massivebird/ibm-vim'
 
 " autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -107,6 +106,11 @@ if has("termguicolors")
 	set termguicolors
 endif
 
+" comment styles for tpope/commentary
+
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType fish          setlocal commentstring=#\ %s
+
 """"""""""""""""""""""""""""""""""""""""""
 
 " terminal mode settings
@@ -123,9 +127,6 @@ let colorscheme_option = 0
 if colorscheme_option == 0
 	colorscheme framer_syntax_dark
 	let g:lightline = {'colorscheme': 'framer_dark'}
-elseif colorscheme_option == 1
-	colorscheme default
-	let g:lightline = {'colorscheme': 'default'}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
