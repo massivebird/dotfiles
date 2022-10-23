@@ -11,6 +11,9 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # Need to restart because xdg-desktop-portal is not starting automatically
 exec systemctl --user restart xdg-desktop-portal-wlr
 
+# notification daemon
+exec systemctl --user start mako
+
 # default applications
 set $term kitty
 set $menu rofi -show drun
@@ -29,6 +32,8 @@ set $win Mod4
 
 # reload sway
 bindsym $mod+Shift+c reload
+# reload mako
+bindsym $mod+shift+n exec makoctl reload
 # close focused window
 bindsym $mod+Shift+q kill
 # sleep mode
