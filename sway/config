@@ -33,7 +33,7 @@ set $win Mod4
 # reload sway
 bindsym $mod+Shift+c reload
 # reload mako
-bindsym $mod+shift+n exec makoctl reload
+bindsym $mod+shift+n exec makoctl reload && bash ~/.config/scripts/mako-test.sh
 # close focused window
 bindsym $mod+Shift+q kill
 # sleep mode
