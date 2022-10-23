@@ -17,16 +17,16 @@
       "format": "{icon}",
       "disable-scroll": true,
       "format-icons": {
-	 "1": "一",
-	 "2": "二",
-	 "3": "三",
-	 "4": "四",
-	 "5": "五",
-	 "6": "六",
-	 "7": "七",
-	 "8": "八",
-	 "9": "九",
-	 "10": "十"
+         "1": "一",
+         "2": "二",
+         "3": "三",
+         "4": "四",
+         "5": "五",
+         "6": "六",
+         "7": "七",
+         "8": "八",
+         "9": "九",
+         "10": "十"
       }
    },
    "sway/window": {
@@ -49,22 +49,22 @@
       "format-charging": "",
       "interval": 30,
       "states": {
-	 "warning": 25,
-	 "critical": 10
+         "warning": 25,
+         "critical": 10
       },
       "tooltip": true,
       "tooltip-format": "{capacity}%"
    },
    "network": {
       "format": "{icon}",
-      /* "format-alt": "{ipaddr}/{cidr} {icon}", */
-      /* "format-alt-click": "click-right", */
+      // "format-alt": "{ipaddr}/{cidr} {icon}",
+      // "format-alt-click": "click-right",
       "format-icons": {
-	 "wifi": ["", "" ,""],
-	 "ethernet": [""],
-	 "disconnected": [""]
+         "wifi": ["", "" ,""],
+         "ethernet": [""],
+         "disconnected": [""]
       },
-      /* https://github.com/ericmurphyxyz/rofi-wifi-menu */
+      // https://github.com/ericmurphyxyz/rofi-wifi-menu
       "on-click": "~/bin/rofi-wifi-menu",
       "tooltip": true,
       "tooltip-format": "{}"
@@ -75,8 +75,8 @@
       "format-alt-click": "click-right",
       "format-muted": "",
       "format-icons": {
-	 "phone": [" ", " ", " ", " "],
-	 "default": ["", "", "", ""]
+         "phone": [" ", " ", " ", " "],
+         "default": ["", "", "", ""]
       },
       "scroll-step": 10,
       "on-click": "pavucontrol",
@@ -117,8 +117,8 @@
    "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-	 "activated": "",
-	 "deactivated": ""
+         "activated": "",
+         "deactivated": ""
       },
       "tooltip": false
    },
@@ -135,4 +135,4 @@
       "icon-size": 18
    }
 }
-# vim:filetype=json
+// vim:filetype=jsonc
