@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# test-notification.sh
+# mako-test.sh
 # invokes dummy notification
 # for mako daemon
 
