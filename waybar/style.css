@@ -1,81 +1,96 @@
 * {
-	border-radius: 0;
-	font-family:   'JetBrains Mono NL', 'FontAwesome 5 Free';
-	font-size:     15px;
-	box-shadow:    none;
-	text-shadow:   none;
-	transition-duration: 0.2s;
+   border-radius: 0;
+   font-family:   'JetBrains Mono NL', 'FontAwesome 5 Free';
+   font-size:     15px;
+   box-shadow:    none;
+   text-shadow:   none;
+   transition-duration: 0.2s;
 }
 
 window, window#waybar.solo {
-	color:      #eeeeee;
-	background: #0e0e0e;
-	border-radius: 20px;
+   color:      #eeeeee;
+   background: #0e0e0e;
+   border-radius: 20px;
 }
 
 #workspaces {
-	margin: 0px 5px;
+   margin: 0px 5px;
 }
 
 #workspaces button, #workspaces button.visible {
-	padding:    0 5px;
-	color:      #656565;
+   padding:    0 5px;
+   color:      #656565;
 }
 
 #workspaces button.focused {
-	border-radius: 0.2em;
-	border-top: 3px solid rgba(217,217,217,0.0);
-	border-bottom: 3px solid rgba(0, 0, 0, 0);
-	color: #eeeeee;
+   border-radius: 0.2em;
+   border-top: 3px solid rgba(217,217,217,0.0);
+   border-bottom: 3px solid rgba(0, 0, 0, 0);
+   color: #eeeeee;
 }
 
 #workspaces button.urgent {
-	color:      #fb5599;
+   color:      #fb5599;
 }
 
 #mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate #discord {
-	margin:     0px 10px 0px 10px;
-	min-width:  25px;
+   margin:     0px 10px 0px 10px;
+   min-width:  25px;
 }
 
 #tray {
-	margin-right: 13px;
+   margin-right: 13px;
 }
 
 #custom-jpdate {
-	margin-right: 0;
+   margin-right: 0;
 }
 
 #clock {
-	margin:     0px 16px 0px 0px;
-	padding-left: 10px;
-	/* background: #FF0000; */
-	/* min-width:  90px; */
+   margin:     0px 16px 0px 0px;
+   padding-left: 10px;
+   /* background: #FF0000; */
+   /* min-width:  90px; */
+}
+
+#battery {
+   animation-name: blinking;
 }
 
 #battery.warning {
-	color:       #ffcc66;
+   color:       #ffcc66;
+}
+
+@keyframes blinking {
+   0% {opacity: 1;}
+   49% {opacity: 1;}
+   50% {opacity: 0;}
+   100% {opacity: 0;}
 }
 
 #battery.critical {
-	color:      #fb5599;
+   animation-duration: 1.5s;
+   animation-iteration-count: infinite;
+   animation-name: blinking;
+   animation-timing-function: linear;
+   color:      #fb5599;
 }
 
 #battery.full {
-	color:      #00BBFF;
+   color:      #00BBFF;
 }
 
 #battery.charging {
-	/* color:      #f38019; */
+   /* color:      #f38019; */
 }
 
 #custom-storage.warning {
-	color:      #ffcc66;
+   color:      #ffcc66;
 }
 
 #custom-storage.critical {
-	color:      #fb5599;
+   color:      #fb5599;
 }
 #pulseaudio.muted {
-	color:      #656565;
+   color:      #656565;
 }
