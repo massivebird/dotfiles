@@ -103,7 +103,7 @@ autocmd TermOpen * setlocal nonumber norelativenumber
 " color nonsense
 let base16colorspace = 256
 if has("termguicolors")
-	set termguicolors
+   set termguicolors
 endif
 
 " comment styles for tpope/commentary
@@ -125,9 +125,22 @@ set t_md=
 let colorscheme_option = 0
 
 if colorscheme_option == 0
-	colorscheme framer_syntax_dark
-	let g:lightline = {'colorscheme': 'framer_dark'}
+   colorscheme framer_syntax_dark
+   let g:lightline = {'colorscheme': 'framer_dark'}
 endif
+
+""""""""""""""""""""""""""""""""""""""""""
+
+" ultisnips settings
+
+" edit snippets in vertical window
+let g:UltiSnipsEditSplit="vertical"
+
+" remaps
+let g:UltiSnipsExpandTrigger="<Nop>"
+let g:UltiSnipsListSnippets="<Nop>"
+let g:UltiSnipsJumpForwardTrigger="<Nop>"
+let g:UltiSnipsJumpBackwardTrigger="<Nop>"
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -159,24 +172,28 @@ let g:vim_markdown_folding_disabled = 1
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ignore_install = { "javascript" }, -- List of parsers to ignore installing
-	indent = {
-		enable = true,
-		},
-	highlight = {
-		enable = true,              -- false will disable the whole extension
-		disable = {"vim", "markdown", "html", "php"},  -- list of language that will be disabled
-		},
-	rainbow = {
-		enable = true,
-		disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
-		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-		max_file_lines = nil, -- Do not enable for files with more than n lines, int
-		-- colors = {}, -- table of hex strings
-		-- termcolors = {} -- table of colour name strings
-		},
-	}
+   ensure_installed = { "c", "php", "python", "clojure", "rust", "html", "css", "markdown", "vim", "fish", "json" }, 
+   ignore_install = {}, 
+   auto_install = true,
+   indent = {
+      enable = true,
+   },
+   highlight = {
+      enable = true,              -- false will disable the whole extension
+      disable = {"vim", "markdown", "html", "php"},  -- list of language that will be disabled
+      -- true, false, or list of languages
+      -- may slow editor
+      additional_vim_regex_highlighting = true,
+   },
+   rainbow = {
+      enable = true,
+      disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
+      extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+      max_file_lines = nil, -- Do not enable for files with more than n lines, int
+      -- colors = {}, -- table of hex strings
+      -- termcolors = {} -- table of colour name strings
+   },
+}
 EOF
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -188,16 +205,16 @@ command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 " CURRENT ISSUE : 'Cannot open files' aka does not immediately show first
 " result
 fun! MyNgrep(query, ...)
-	let query = "/".a:query."/j"
-	let course = get(a:, 1, "")
-	let path = "$NOTES_DIR/" . course . "*/*/*.md"
-	if course == ""
-		let path = "$NOTES_DIR/*/*/*.md"
-	else
-		let path = "$NOTES_DIR/" . course . "*/*/*.md"
-	endif
-	echom query path
-	execute "vimgrep" query path bufname("#")
+   let query = "/".a:query."/j"
+   let course = get(a:, 1, "")
+   let path = "$NOTES_DIR/" . course . "*/*/*.md"
+   if course == ""
+      let path = "$NOTES_DIR/*/*/*.md"
+   else
+      let path = "$NOTES_DIR/" . course . "*/*/*.md"
+   endif
+   echom query path
+   execute "vimgrep" query path bufname("#")
 endfunction
 
 command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
@@ -210,9 +227,9 @@ command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 command! LightlineReload call LightlineReload()
 
 function! LightlineReload()
-	call lightline#init()
-	call lightline#colorscheme()
-	call lightline#update()
+   call lightline#init()
+   call lightline#colorscheme()
+   call lightline#update()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -223,19 +240,19 @@ endfunction
 " ctrl-[hjkl] moves window focus in that direction, moving to another tab
 " if necessary
 function! MoveLeft()
-	if (winnr() == winnr('1h'))
-		:tabprevious
-	else
-		:call nvim_input("<Esc><C-w>h")
-	endif
+   if (winnr() == winnr('1h'))
+      :tabprevious
+   else
+      :call nvim_input("<Esc><C-w>h")
+   endif
 endfunction
 
 function! MoveRight()
-	if (winnr() == winnr('1l'))
-		:tabnext
-	else
-		:call nvim_input("<Esc><C-w>l")
-	endif
+   if (winnr() == winnr('1l'))
+      :tabnext
+   else
+      :call nvim_input("<Esc><C-w>l")
+   endif
 endfunction
 
 nnoremap <C-j> <C-w>j
@@ -356,8 +373,8 @@ nnoremap <Esc> <Nop>
 
 " identify highlight group under cursor
 function! SynGroup()
-	let l:s = synID(line('.'), col('.'), 1)
-	echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+   let l:s = synID(line('.'), col('.'), 1)
+   echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfun
 nnoremap <leader>hg :call SynGroup()<cr>
 
@@ -367,28 +384,26 @@ nnoremap Q <Nop>
 " places semicolon at end of current line
 nnoremap <silent> <leader>; mY:s/$/;<cr>:noh<cr>`Y
 
-" COC keybinds
+" coc keybinds
 " ctrl+enter dismisses completion list without completion
-" inoremap <C-Enter> <Enter>
+inoremap <C-Enter> <Space>
 " tab to go down
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 " shift tab to go down
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 " enter selects first/selected item
 inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
-" reopens CoC completion menu without typing
+" reopens coc completion menu without typing
 inoremap <silent><expr> <c-space> coc#refresh()
+" snippet: insert snippet
+imap <C-l> <Plug>(coc-snippets-expand)
+" snippet: use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 
 " gitgutter shortcuts
 nnoremap <leader>gn :GitGutterNextHunk<cr>
 nnoremap <leader>gp :GitGutterPrevHunk<cr>
 nnoremap <leader>gv :GitGutterPreviewHunk<cr>
-
-" trigger snippet command
-imap <C-l> <Plug>(coc-snippets-expand)
-" select text for visual placeholder
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-" edit snippets in vertical window
-let g:UltiSnipsEditSplit="vertical"
+nnoremap <leader>gu :GitGutterUndoHunk<cr>
