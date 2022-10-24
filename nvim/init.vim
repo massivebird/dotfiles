@@ -347,7 +347,7 @@ nnoremap <leader>O O<Down><Esc>
 nnoremap <F7> gg=G<C-o><C-o><C-o>
 
 " toggle spelling, wrap mode
-nnoremap <leader>d :set spell!<cr> :set wrap!<cr>
+nnoremap <leader>d :set spell!<cr>
 
 " conjure evaluations
 nnoremap <leader>e :%ConjureEval<cr>
