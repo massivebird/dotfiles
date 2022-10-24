@@ -1,14 +1,15 @@
 {
    "layer": "top",
    "position": "top",
-   "height": 30,
-   "margin-top": 10,
-   "margin-right": 10,
+
+   "margin-top": 0,
+   // width is one pixel off for some reason
+   "margin-right": -1,
    "margin-bottom": 0,
-   "margin-left": 10,
+   "margin-left": 0,
 
    "modules-left": ["sway/workspaces", "sway/mode"],
-   "modules-center": ["sway/window"],
+   // "modules-center": ["sway/window"],
    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/jpdate", "clock"],
    "sway/mode": {
       "format": " {}"
