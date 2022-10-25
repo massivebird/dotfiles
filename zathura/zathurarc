@@ -33,8 +33,8 @@ set inputbar-bg "#0e0e0e"
 set notification-fg "#eeeeee"
 set notification-bg "#0e0e0e"
 
-set notification-warning-fg #0e0e0e
-set notification-warning-bg #ff8867
+set notification-warning-fg "#0e0e0e"
+set notification-warning-bg "#ff8867"
 
 set notification-error-fg "#0e0e0e"
 set notification-error-bg "#fb5599"
