@@ -24,6 +24,7 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'evprkr/galaxian-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'massivebird/vim-framer-syntax'
+Plug 'neozenith/estilo-xoria256'
 
 " autocomplete braces and scopes
 Plug 'jiangmiao/auto-pairs'
@@ -127,6 +128,9 @@ let colorscheme_option = 0
 if colorscheme_option == 0
    colorscheme framer_syntax_dark
    let g:lightline = {'colorscheme': 'framer_dark'}
+elseif colorscheme_option == 1
+   colorscheme xoria256
+   let g:lightline = {'colorscheme': 'xoria256'}
 endif
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -164,7 +168,9 @@ endif
 
 " markdown
 
-let g:vim_markdown_folding_disabled = 1
+set conceallevel=2
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_level = 3
 
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -383,6 +389,10 @@ nnoremap Q <Nop>
 
 " places semicolon at end of current line
 nnoremap <silent> <leader>; mY:s/$/;<cr>:noh<cr>`Y
+
+" markdown
+nnoremap zl zA
+nnoremap zh zC
 
 " coc keybinds
 " ctrl+enter dismisses completion list without completion
