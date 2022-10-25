@@ -34,7 +34,7 @@ window, window#waybar.solo {
 }
 
 #mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate #discord {
-   margin-right: 30px;
+   margin-right: 25px;
    min-width:  25px;
 }
 
