@@ -37,7 +37,7 @@ if status is-interactive
       set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
    end
 
-   set -x CLASSPATH $HOME/p-java/*/classes
+   set -x CLASSPATH ".:./classes:../classes:"
 
    # vi mode #############################
 
