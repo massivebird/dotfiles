@@ -1,3 +1,4 @@
+vim.cmd 'au BufNewFile, BufRead *'
 -- plugin manager: vim-plug ---------------------
 -- `config = function()` NOT RUNNING
 local packer = require('packer')
@@ -177,8 +178,15 @@ if vim.fn.has("termguicolors") then
 end
 
 -- comment styles for plugin tpope/commentary
-vim.cmd 'autocmd FileType c,cpp,cs,java setlocal commentstring=// %s'
-vim.cmd 'autocmd FileType fish          setlocal commentstring=# %s'
+vim.cmd [[
+augroup init
+" remove all autocmds to prevent duplicates
+autocmd!
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+" commentstring keeps terminating at # character
+" autocmd FileType fish          setlocal commentstring=#\ %s
+augroup end
+]]
 
 -- colorscheme switcher -------------------------
 
