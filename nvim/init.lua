@@ -19,7 +19,6 @@ packer.startup(function(use)
    -- [hex] color highlighter
    -- top one is prob deprecated
    use 'ap/vim-css-color'
-
    use {
       'rrethy/vim-hexokinase',
       -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
@@ -193,22 +192,12 @@ elseif colorscheme_option == 1 then
    vim.g['lightline'] = {['colorscheme'] = 'xoria256'}
 end
 
--- lang: python ---------------------------------
+-- functions ------------------------------------
 
 function file_exists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
 end
-
-if file_exists('/usr/bin/python3.10') then
-   -- laptop
-   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.10\''
-else
-   -- desktop
-   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
-end
-
--- functions ------------------------------------
 
 -- note-querying function
 -- github.com/connermcd
@@ -247,6 +236,16 @@ end
 --    endfun
 --    nnoremap <leader>hg :call SynGroup()<cr>
 --    ]]
+
+-- lang: python ---------------------------------
+
+if file_exists('/usr/bin/python3.10') then
+   -- laptop
+   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.10\''
+else
+   -- desktop
+   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
+end
 
 -- Stel's navigation solutions ------------------
 
@@ -308,6 +307,7 @@ end
 --       ]]
 
 -- remaps keymaps keybinds ----------------------
+
 -- space bar as leader
 vim.g.mapleader = ' '
 
