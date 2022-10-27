@@ -1,10 +1,12 @@
 QtProject.conf
+Unknown Organization
 alacritty
 anthy
 azuredatastudio
 bottom
 coc
 configstore
+connections.db
 dconf
 dleyna-renderer-service.conf
 dolphin-emu/
@@ -42,3 +44,4 @@ user-dirs.locale
 vlc
 wslu
 yelp
+zoomus.conf
