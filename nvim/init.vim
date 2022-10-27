@@ -139,7 +139,7 @@ endif
 " ultisnips settings
 
 " edit snippets in vertical window
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="horizontal"
 
 " remaps
 let g:UltiSnipsExpandTrigger="<Nop>"
