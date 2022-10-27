@@ -91,7 +91,7 @@ if status is-interactive
    function ggpush; command git push origin $(git branch --show-current); end
 
    # config shortcuts
-   alias nc 'nvim ~/.config/nvim/init.vim'
+   alias nc 'nvim ~/.config/nvim/init.lua'
    alias ncf 'nvim ~/.config/fish/config.fish'
    alias nck 'nvim ~/.config/kitty/kitty.conf'
    alias ncr 'nvim ~/.config/ranger/rc.conf'

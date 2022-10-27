@@ -311,7 +311,7 @@ nnoremap <leader>q   :wq<cr>
 nnoremap <leader>Q   :q!<cr>
 nnoremap <leader>c   :close<cr>
 nnoremap <leader>A   ggcG
-nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>s   :source ~/.config/nvim/.init.lua<cr>
 nnoremap <leader>pi  :PlugInstall<cr>
 nnoremap <leader>pc  :PlugClean<cr>
 nnoremap <leader>pu  :PlugUpdate<cr>

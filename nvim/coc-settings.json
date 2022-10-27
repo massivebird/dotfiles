@@ -4,6 +4,7 @@
    "diagnostic.checkCurrentLine": true,
    "diagnostic.refreshOnInsertMode": true,
 
+   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
    "coc.source.conjure.filetypes": [ "clojure", "fennel" ],
    "html.filetypes": [ "html" ],
    "java.completion.enabled": true,
@@ -11,6 +12,8 @@
    "sh.enable": true,
    "snippets.ultisnips.enable": true,
    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips",
+   // "sumneko-lua.enableNvimLuaDev": true,
+   "Lua.telemetry.enable": true,
 
    "languageserver": {
       "clojure-lsp": {
@@ -24,8 +27,27 @@
          }
 
       }
-  },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd"
+      // "lua": {
+      //    "command": "/home/penguino/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls",
+      //    "args": [
+      //       "-E",
+      //       "$HOME/.config/coc/extensions/coc-lua-data/sumneko-lua-ls"
+      //    ],
+      //    "filetypes": ["lua"],
+      //    "settings": {
+      //       "Lua": {
+      //          "workspace.library": {
+      //             "/usr/share/nvim/runtime/lua": true,
+      //             "/usr/share/nvim/runtime/lua/vim": true,
+      //             "/usr/share/nvim/runtime/lua/vim/lsp": true
+      //          },
+      //          "diagnostics": {
+      //             "globals": [ "vim" ]
+      //          }  
+      //       }
+      //    }
+      // }
+  }
 }
 
 // vim: filetype=jsonc
