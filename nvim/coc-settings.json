@@ -14,6 +14,7 @@
    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips",
    // "sumneko-lua.enableNvimLuaDev": true,
    "Lua.telemetry.enable": true,
+   "Lua.diagnostics.globals": ["vim"],
 
    "languageserver": {
       "clojure-lsp": {
