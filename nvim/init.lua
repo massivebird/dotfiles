@@ -38,6 +38,10 @@ packer.startup(function(use)
    use 'tpope/vim-surround'
    use 'tpope/vim-obsession'
    use 'tpope/vim-abolish'
+   use 'tpope/vim-repeat'
+
+   -- close buffer without closing window with :Bdelete
+   use 'moll/vim-bbye'
 
    -- status line
    use 'itchyny/lightline.vim'
@@ -321,26 +325,26 @@ setkeymap('n', '<c-l>', '<c-w>l')
 vim.g.mapleader = ' '
 
 -- saving and quitting
-setkeymap('n', '<leader>w',   ':w!<cr>')
-setkeymap('n', '<leader>q',   ':wq<cr>')
-setkeymap('n', '<leader>Q',   ':q!<cr>')
+setkeymap('n', '<leader>w', ':w!<cr>')
+setkeymap('n', '<leader>q', ':wq<cr>')
+setkeymap('n', '<leader>Q', ':q!<cr>')
 
 -- close window
-setkeymap('n', '<leader>c',   ':close<cr>')
+setkeymap('n', '<leader>c', ':close<cr>')
 
 -- erase entire document
-setkeymap('n', '<leader>A',   'ggcG')
+setkeymap('n', '<leader>A', 'ggcG')
 
 -- source init.lua
-setkeymap('n', '<leader>s',   ':source ~/.config/nvim/init.lua<cr>')
+setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>')
 
 -- packer commands
-setkeymap('n', '<leader>pi',  ':PackerInstall<cr>')
-setkeymap('n', '<leader>pc',  ':PackerClean<cr>')
-setkeymap('n', '<leader>pu',  ':PackerUpdate<cr>')
+setkeymap('n', '<leader>pi', ':PackerInstall<cr>')
+setkeymap('n', '<leader>pc', ':PackerClean<cr>')
+setkeymap('n', '<leader>pu', ':PackerUpdate<cr>')
 
 -- terminal mode
-setkeymap('n', '<leader>t',   ':term<cr>')
+setkeymap('n', '<leader>t', ':term<cr>')
 -- escape exits terminal mode
 setkeymap('t', '<Esc>', '<C-\\><C-n>')
 
@@ -348,16 +352,21 @@ setkeymap('t', '<Esc>', '<C-\\><C-n>')
 setkeymap('n', 'U', '<C-r>')
 
 -- stop highlighting after search/substitute
-setkeymap('n', '<leader>n',   ':noh<cr>')
+setkeymap('n', '<leader>n', ':noh<cr>')
 
 -- initiate global substitute
-setkeymap('n', '<leader>S',   ':%s//g<Left><Left>')
+setkeymap('n', '<leader>S', ':%s//g<Left><Left>')
 
 -- search defaults to case insensitive
-setkeymap('n', '/',           ':/\\c<Left><Left>')
+setkeymap('n', '/', ':/\\c<Left><Left>')
 
 -- view registers
 setkeymap('n', '<leader>r', ':registers<cr>')
+
+-- buffer controls
+setkeymap('n', '<leader>bn', ':bNext')
+setkeymap('n', '<leader>bp', ':bPrev')
+setkeymap('n', '<leader>bd', ':Bdelete')
 
 -- because it was doing strange things >:(
 setkeymap('n', '<leader><Esc>', '<Nop>')
