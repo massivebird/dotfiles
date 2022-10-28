@@ -215,6 +215,9 @@ if vim.fn.has("termguicolors") then
    set.termguicolors = true
 end
 
+-- edit init.lua
+cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
+
 -- comment styles for plugin tpope/commentary
 cmd [[
 augroup init
@@ -292,27 +295,6 @@ else
    -- desktop
    cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
 end
-
--- keymaps: Stel's navigation solutions ----------
--- github.com/stelcodes/xdg-config
-
--- move to tab by index
-setkeymap('n', '<leader>1', '1gt')
-setkeymap('n', '<leader>2', '2g <leader>3 3gt')
-setkeymap('n', '<leader>4', '4g <leader>5 5gt')
-setkeymap('n', '<leader>6', '6g <leader>7 7gt')
-setkeymap('n', '<leader>8', '8g <leader>9 9gt')
-setkeymap('n', '<leader>0', ':tablast<cr>')
-
--- tab moves cursor 10 lines down, shift-tab 10 lines up
-setkeymap('n', '<tab>',   '10j')
-setkeymap('n', '<s-tab>', '10k')
-
--- navigate windows in a way that actually makes sense
-setkeymap('n', '<c-j>', '<C-w>j')
-setkeymap('n', '<c-k>', '<C-w>k')
-setkeymap('n', '<c-h>', '<c-w>h')
-setkeymap('n', '<c-l>', '<c-w>l')
 
 -- keymaps remaps keybinds -----------------------
 
@@ -452,16 +434,23 @@ setkeymap('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
 -- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
 setkeymap('i', '<C-l>', '<Plug>(coc-snippets-expand)')
 
--- I need the below since `config = function()` does not run
--- cmd [[
--- " let g:UltiSnipsEditSplit="horizontal"
+-- keymaps: Stel's navigation solutions ----------
+-- github.com/stelcodes/xdg-config
 
--- " remaps
--- let g:UltiSnipsExpandTrigger="<Nop>"
--- let g:UltiSnipsListSnippets="<Nop>"
--- let g:UltiSnipsJumpForwardTrigger="<Nop>"
--- let g:UltiSnipsJumpBackwardTrigger="<Nop>"
--- let g:coc_snippet_next = '<c-j>'
--- " snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
--- let g:coc_snippet_prev = '<c-k>'
--- ]]
+-- move to tab by index
+setkeymap('n', '<leader>1', '1gt')
+setkeymap('n', '<leader>2', '2g <leader>3 3gt')
+setkeymap('n', '<leader>4', '4g <leader>5 5gt')
+setkeymap('n', '<leader>6', '6g <leader>7 7gt')
+setkeymap('n', '<leader>8', '8g <leader>9 9gt')
+setkeymap('n', '<leader>0', ':tablast<cr>')
+
+-- tab moves cursor 10 lines down, shift-tab 10 lines up
+setkeymap('n', '<tab>',   '10j')
+setkeymap('n', '<s-tab>', '10k')
+
+-- navigate windows in a way that actually makes sense
+setkeymap('n', '<c-j>', '<C-w>j')
+setkeymap('n', '<c-k>', '<C-w>k')
+setkeymap('n', '<c-h>', '<c-w>h')
+setkeymap('n', '<c-l>', '<c-w>l')
