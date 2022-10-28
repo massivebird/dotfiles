@@ -33,13 +33,9 @@ window, window#waybar.solo {
    color:      #fb5599;
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate #discord {
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate, #tray {
    margin-right: 25px;
    min-width:  25px;
-}
-
-#tray {
-   margin-right: 13px;
 }
 
 #custom-jpdate {
@@ -73,11 +69,11 @@ window, window#waybar.solo {
    animation-iteration-count: infinite;
    animation-name: blinking;
    animation-timing-function: linear;
-   color:      #fb5599;
+   color: #fb5599;
 }
 
 #battery.full {
-   color:      #00BBFF;
+   color: #00BBFF;
 }
 
 #battery.charging {
