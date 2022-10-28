@@ -96,8 +96,7 @@ if status is-interactive
    alias nck 'nvim ~/.config/kitty/kitty.conf'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
-   alias ncw 'nvim ~/.config/waybar/config'
-   alias ncws 'nvim ~/.config/waybar/style.css'
+   alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
    alias ncz 'nvim ~/.config/zathura/zathurarc'
 
    # misc
