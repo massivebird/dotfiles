@@ -11,6 +11,8 @@ local setkeymap = vim.keymap.set
 local packer = require('packer')
 packer.startup(function(use)
 
+   -- packer manages packer itself,
+   -- packer is very powerful
    use 'wbthomason/packer.nvim'
 
    -- tim pope's dark arts
@@ -21,7 +23,7 @@ packer.startup(function(use)
    use 'tpope/vim-obsession'
    use 'tpope/vim-abolish'
 
-   -- hip status line
+   -- status line
    use 'itchyny/lightline.vim'
 
    -- [hex] color highlighter
@@ -79,6 +81,8 @@ packer.startup(function(use)
    use 'clojure-vim/vim-jack-in'
    use 'radenling/vim-dispatch-neovim'
 
+   use 'p00f/nvim-ts-rainbow'
+
    -- treesitter
    -- exe installer: `npm install -g tree-sitter-cli`
    use {
@@ -112,8 +116,6 @@ packer.startup(function(use)
       end
    }
 
-   use 'p00f/nvim-ts-rainbow'
-
    -- autocomplete, suggestions, so delicious
    use {
       'neoclide/coc.nvim',
@@ -131,7 +133,9 @@ packer.startup(function(use)
       'sirver/ultisnips',
       config = function()
          -- edit snippets in vertical window
+         vim.g.UltiSnipsEditSplit = 'vertical'
          vim.g['UltiSnipsEditSplit'] = 'vertical'
+         cmd 'let g:UltiSnipsEditSplit="vertical"'
          -- remaps
          vim.g['UltiSnipsExpandTrigger'] = '<Nop>'
          vim.g['UltiSnipsListSnippets'] = '<Nop>'
@@ -422,15 +426,15 @@ setkeymap('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
 setkeymap('i', '<C-l>', '<Plug>(coc-snippets-expand)')
 
 -- I need the below since `config = function()` does not run
-cmd [[
-" let g:UltiSnipsEditSplit="horizontal"
+-- cmd [[
+-- " let g:UltiSnipsEditSplit="horizontal"
 
-" remaps
-let g:UltiSnipsExpandTrigger="<Nop>"
-let g:UltiSnipsListSnippets="<Nop>"
-let g:UltiSnipsJumpForwardTrigger="<Nop>"
-let g:UltiSnipsJumpBackwardTrigger="<Nop>"
-let g:coc_snippet_next = '<c-j>'
-" snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-]]
+-- " remaps
+-- let g:UltiSnipsExpandTrigger="<Nop>"
+-- let g:UltiSnipsListSnippets="<Nop>"
+-- let g:UltiSnipsJumpForwardTrigger="<Nop>"
+-- let g:UltiSnipsJumpBackwardTrigger="<Nop>"
+-- let g:coc_snippet_next = '<c-j>'
+-- " snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
+-- let g:coc_snippet_prev = '<c-k>'
+-- ]]
