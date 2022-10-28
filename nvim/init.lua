@@ -1,6 +1,13 @@
-vim.cmd 'au BufNewFile, BufRead *'
--- plugin manager: vim-plug ---------------------
--- `config = function()` NOT RUNNING
+-- global variables ------------------------------
+
+local cmd = vim.cmd
+local set = vim.opt
+local setkeymap = vim.keymap.set
+
+-- plugin manager: vim-plug ----------------------
+
+-- `config = function()` NOT RUNNING??
+
 local packer = require('packer')
 packer.startup(function(use)
 
@@ -36,18 +43,19 @@ packer.startup(function(use)
    -- autocomplete braces and scopes
    use 'jiangmiao/auto-pairs'
 
-   -- active version control feedback
+   -- live version control feedback
    use 'airblade/vim-gitgutter'
 
-   -- markdown support
+   -- markdown: features
    use {
       'plasticboy/vim-markdown',
       config = function()
-         vim.opt.conceallevel = 2
+         set.conceallevel = 2
          vim.g['vim_markdown_folding_disabled'] = 0
          vim.g['vim_markdown_folding_level'] = 3
       end
    }
+   -- markdown: preview in web browser
    use {
       'iamcco/markdown-preview.nvim',
       run = 'cd app && npm install',
@@ -66,13 +74,13 @@ packer.startup(function(use)
          }
       end
    }
-
    use 'tpope/vim-dispatch'
    use 'tpope/vim-fireplace'
    use 'clojure-vim/vim-jack-in'
    use 'radenling/vim-dispatch-neovim'
 
    -- treesitter
+   -- exe installer: `npm install -g tree-sitter-cli`
    use {
       'nvim-treesitter/nvim-treesitter',
       -- ['do'] = ':TSUpdate',
@@ -91,6 +99,7 @@ packer.startup(function(use)
                -- may slow editor
                -- additional_vim_regex_highlighting = true,
             },
+            -- rainbow parentheses/brackets
             rainbow = {
                enable = true,
                disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
@@ -105,7 +114,7 @@ packer.startup(function(use)
 
    use 'p00f/nvim-ts-rainbow'
 
-   -- autocomplete, suggestions
+   -- autocomplete, suggestions, so delicious
    use {
       'neoclide/coc.nvim',
       ['branch'] = 'release',
@@ -122,7 +131,7 @@ packer.startup(function(use)
       'sirver/ultisnips',
       config = function()
          -- edit snippets in vertical window
-         vim.g['UltiSnipsEditSplit'] = 'horizontal'
+         vim.g['UltiSnipsEditSplit'] = 'vertical'
          -- remaps
          vim.g['UltiSnipsExpandTrigger'] = '<Nop>'
          vim.g['UltiSnipsListSnippets'] = '<Nop>'
@@ -133,52 +142,56 @@ packer.startup(function(use)
 
 end)
 
--- general settings -----------------------------
+-- general settings ------------------------------
 
 -- syntax highlighting
-vim.cmd [[
+cmd [[
 syntax on
 syntax enable
 ]]
 -- menu for command line completions
-vim.opt.wildmenu = true
+set.wildmenu = true
 -- spellcheck languages
-vim.opt.spelllang = 'en_us'
+set.spelllang = 'en_us'
 -- spellcheck
-vim.opt.spell = false
+set.spell = false
 -- highlight entire line
-vim.opt.cursorline = true
+set.cursorline = true
 -- line numbers
-vim.opt.number = true
+set.number = true
 -- line numbers are relative to current line
-vim.opt.relativenumber = true
+set.relativenumber = true
 -- wrap long lines
-vim.opt.linebreak = true
+set.linebreak = true
 -- show mode in command area
-vim.opt.showmode = false
+set.showmode = false
 -- allows [inc|dec]rememnting letters
--- set.nrformats += 'alpha'
--- num spaces <Tab> accounts for
-vim.opt.tabstop = 3
+cmd [[ set nrformats+=alpha ]]
+-- num of spaces <tab> accounts for
+set.tabstop = 3
 -- num spaces << and >> account for (0 -> tabstop)
-vim.opt.shiftwidth = 0
+set.shiftwidth = 0
 -- use spaces instead of tab characters
-vim.opt.expandtab = true
+set.expandtab = true
 -- new window appears to right of current one
-vim.opt.splitright = true
+set.splitright = true
+-- always show sign column, would otherwise shift text every time
+set.signcolumn = "yes"
+-- default updatetime is 4000ms, too slow
+set.updatetime = 300
 -- enable filetype-specific configuration files
-vim.cmd 'filetype plugin on'
+cmd 'filetype plugin on'
 
-vim.cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
+cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
 
 -- color nonsense
--- local base16colorspace = 256
+cmd 'let base16colorspace = 256'
 if vim.fn.has("termguicolors") then
-   vim.opt.termguicolors = true
+   set.termguicolors = true
 end
 
 -- comment styles for plugin tpope/commentary
-vim.cmd [[
+cmd [[
 augroup init
 " remove all autocmds to prevent duplicates
 autocmd!
@@ -188,19 +201,19 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 augroup end
 ]]
 
--- colorscheme switcher -------------------------
+-- colorscheme switcher --------------------------
 
 local colorscheme_option = 0
 
 if colorscheme_option == 0 then
-   vim.cmd 'colorscheme framer_syntax_dark'
+   cmd 'colorscheme framer_syntax_dark'
    vim.g['lightline'] = {['colorscheme'] = 'framer_dark'}
 elseif colorscheme_option == 1 then
-   vim.cmd 'colorscheme xoria256'
+   cmd 'colorscheme xoria256'
    vim.g['lightline'] = {['colorscheme'] = 'xoria256'}
 end
 
--- functions ------------------------------------
+-- functions -------------------------------------
 
 function file_exists(name)
    local f=io.open(name,"r")
@@ -209,9 +222,7 @@ end
 
 -- note-querying function
 -- github.com/connermcd
-
--- vim.cmd [[
--- command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
+cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 
 -- fun! MyNgrep(query, ...)
 -- let query = "/".a:query."/j"
@@ -229,13 +240,15 @@ end
 --    command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 --    command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
---    command! LightlineReload call LightlineReload()
+cmd [[ command! LightlineReload call LightlineReload() ]]
 
---    function! LightlineReload()
---    call lightline#init()
---    call lightline#colorscheme()
---    call lightline#update()
---    endfunction
+function LightlineReload()
+   cmd [[
+   call lightline#init()
+   call lightline#colorscheme()
+   call lightline#update()
+   ]]
+end
 
 --    " identify highlight group under cursor
 --    function! SynGroup()
@@ -245,188 +258,172 @@ end
 --    nnoremap <leader>hg :call SynGroup()<cr>
 --    ]]
 
--- lang: python ---------------------------------
+-- lang: python ----------------------------------
 
 if file_exists('/usr/bin/python3.10') then
    -- laptop
-   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.10\''
+   cmd 'let g:python3_host_prog = \'/usr/bin/python3.10\''
 else
    -- desktop
-   vim.cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
+   cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
 end
 
--- Stel's navigation solutions ------------------
-
+-- keymaps: Stel's navigation solutions ----------
 -- github.com/stelcodes/xdg-config
 
--- ctrl-[hjkl] moves window focus in that direction, moving to another tab (if necessary)
--- vim.cmd [[
--- function! MoveLeft()
--- if (winnr() == winnr('1h'))
---    :tabprevious
--- else
---    :call nvim_input("<Esc><C-w>h")
---    endif
---    endfunction
+-- move to tab by index
+setkeymap('n', '<leader>1', '1gt')
+setkeymap('n', '<leader>2', '2g <leader>3 3gt')
+setkeymap('n', '<leader>4', '4g <leader>5 5gt')
+setkeymap('n', '<leader>6', '6g <leader>7 7gt')
+setkeymap('n', '<leader>8', '8g <leader>9 9gt')
+setkeymap('n', '<leader>0', ':tablast<cr>')
 
---    function! MoveRight()
---    if (winnr() == winnr('1l'))
---       :tabnext
---    else
---       :call nvim_input("<Esc><C-w>l")
---       endif
---       endfunction
+-- tab moves cursor 10 lines down, shift-tab 10 lines up
+setkeymap('n', '<tab>',   '10j')
+setkeymap('n', '<s-tab>', '10k')
 
---       nnoremap <C-j> <C-w>j
---       nnoremap <C-k> <C-w>k
---       nnoremap <C-h> :call MoveLeft()<CR>
---       nnoremap <C-l> :call MoveRight()<CR>
+-- navigate windows in a way that actually makes sense
+setkeymap('n', '<c-j>', '<C-w>j')
+setkeymap('n', '<c-k>', '<C-w>k')
+setkeymap('n', '<c-h>', '<c-w>h')
+setkeymap('n', '<c-l>', '<c-w>l')
 
---       inoremap <C-j> <Esc><C-w>j
---       inoremap <C-k> <Esc><C-w>k
---       inoremap <C-h> <Esc>:call MoveLeft()<CR>
---       inoremap <C-l> <Esc>:call MoveRight()<CR>
-
---       tnoremap <C-j> <C-\><C-n><C-w>j
---       tnoremap <C-k> <C-\><C-n><C-w>k
---       tnoremap <C-h> <C-\><C-n>:call MoveLeft()<CR>
---       tnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
---       nnoremap <C-l> <C-\><C-n>:call MoveRight()<CR>
-
---       " move to tab by index
---       noremap <leader>1 1gt
---       noremap <leader>2 2gt
---       noremap <leader>3 3gt
---       noremap <leader>4 4gt
---       noremap <leader>5 5gt
---       noremap <leader>6 6gt
---       noremap <leader>7 7gt
---       noremap <leader>8 8gt
---       noremap <leader>9 9gt
---       noremap <leader>0 :tablast<cr>
-
---       " tab moves cursor 10 lines down, shift-tab 10 lines up
---       nnoremap <silent> <TAB> 10j
---       nnoremap <silent> <S-TAB> 10k
-
---       " move through wrapped lines visually
---       nnoremap j gj
---       nnoremap k gk
---       ]]
-
--- remaps keymaps keybinds ----------------------
+-- keymaps remaps keybinds -----------------------
 
 -- space bar as leader
 vim.g.mapleader = ' '
 
--- essentials
-vim.keymap.set('n', '<leader>w',   ':w!<cr>')
-vim.keymap.set('n', '<leader>q',   ':wq<cr>')
-vim.keymap.set('n', '<leader>Q',   ':q!<cr>')
-vim.keymap.set('n', '<leader>c',   ':close<cr>')
-vim.keymap.set('n', '<leader>A',   'ggcG')
-vim.keymap.set('n', '<leader>s',   ':source ~/.config/nvim/init.lua<cr>')
-vim.keymap.set('n', '<leader>pi',  ':PackerInstall<cr>')
-vim.keymap.set('n', '<leader>pc',  ':PackerClean<cr>')
-vim.keymap.set('n', '<leader>pu',  ':PackerUpdate<cr>')
-vim.keymap.set('n', '<leader>t',   ':term<cr>')
-vim.keymap.set('n', '<leader>n',   ':noh<cr>')
-vim.keymap.set('n', '<leader>S',   ':%s//g<Left><Left>')
-vim.keymap.set('n', '/',           ':/\\c<Left><Left>')
+-- saving and quitting
+setkeymap('n', '<leader>w',   ':w!<cr>')
+setkeymap('n', '<leader>q',   ':wq<cr>')
+setkeymap('n', '<leader>Q',   ':q!<cr>')
+
+-- close window
+setkeymap('n', '<leader>c',   ':close<cr>')
+
+-- erase entire document
+setkeymap('n', '<leader>A',   'ggcG')
+
+-- source init.lua
+setkeymap('n', '<leader>s',   ':source ~/.config/nvim/init.lua<cr>')
+
+-- packer commands
+setkeymap('n', '<leader>pi',  ':PackerInstall<cr>')
+setkeymap('n', '<leader>pc',  ':PackerClean<cr>')
+setkeymap('n', '<leader>pu',  ':PackerUpdate<cr>')
+
+-- terminal mode
+setkeymap('n', '<leader>t',   ':term<cr>')
+-- escape exits terminal mode
+setkeymap('t', '<Esc>', '<C-\\><C-n>')
 
 -- redo
-vim.keymap.set('n', 'U', '<C-r>')
+setkeymap('n', 'U', '<C-r>')
 
--- escape exits terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+-- stop highlighting after search/substitute
+setkeymap('n', '<leader>n',   ':noh<cr>')
+
+-- initiate global substitute
+setkeymap('n', '<leader>S',   ':%s//g<Left><Left>')
+
+-- search defaults to case insensitive
+setkeymap('n', '/',           ':/\\c<Left><Left>')
 
 -- view registers
-vim.keymap.set('n', '<leader>r', ':registers<cr>')
+setkeymap('n', '<leader>r', ':registers<cr>')
 
 -- because it was doing strange things >:(
-vim.keymap.set('n', '<leader><Esc>', '<Nop>')
+setkeymap('n', '<leader><Esc>', '<Nop>')
 
 -- move line up/down
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==')
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==')
-vim.keymap.set('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
-vim.keymap.set('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
--- vim.keymap.set('v', '<A-j>', ':m '>+1<CR>gv=gv')
--- vim.keymap.set('v', '<A-k>', ':m '<-2<CR>gv=gv')
+setkeymap('n', '<A-j>', ':m .+1<CR>==')
+setkeymap('n', '<A-k>', ':m .-2<CR>==')
+setkeymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi')
+setkeymap('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
+-- setkeymap('v', '<A-j>', ':m '>+1<CR>gv=gv')
+-- setkeymap('v', '<A-k>', ':m '<-2<CR>gv=gv')
 
--- window resizing
-vim.keymap.set('n', '<Up>',    ':resize +2<cr>')
-vim.keymap.set('n', '<Down>',  ':resize -2<cr>')
-vim.keymap.set('n', '<Right>', ':vertical resize +2<cr>')
-vim.keymap.set('n', '<Left>',  ':vertical resize -2<cr>')
+-- resize window
+setkeymap('n', '<Up>',    ':resize +2<cr>')
+setkeymap('n', '<Down>',  ':resize -2<cr>')
+setkeymap('n', '<Right>', ':vertical resize +2<cr>')
+setkeymap('n', '<Left>',  ':vertical resize -2<cr>')
 
 -- create new line above or below current line
-vim.keymap.set('n', '<leader>o', 'o<Up><Esc>')
-vim.keymap.set('n', '<leader>O', 'O<Down><Esc>')
+setkeymap('n', '<leader>o', 'o<Up><Esc>')
+setkeymap('n', '<leader>O', 'O<Down><Esc>')
 
--- fix indentation of entire file (deprecated soon probably)
-vim.keymap.set('n', '<F7>', 'gg=G<C-o><C-o><C-o>')
+-- fix indentation of entire file
+setkeymap('n', '<F7>', 'mtgg=G`t')
 
--- toggle spelling, wrap mode
-vim.keymap.set('n', '<leader>d', ':set spell!<cr>')
+-- toggle spelling
+setkeymap('n', '<leader>d', ':set spell!<cr>')
+
+-- gitgutter shortcuts
+setkeymap('n', '<leader>gn', ':GitGutterNextHunk<cr>')
+setkeymap('n', '<leader>gp', ':GitGutterPrevHunk<cr>')
+setkeymap('n', '<leader>gv', ':GitGutterPreviewHunk<cr>')
+setkeymap('n', '<leader>gu', ':GitGutterUndoHunk<cr>')
+
 
 -- conjure evaluations
-vim.keymap.set('n', '<leader>e', ':%ConjureEval<cr>')
-vim.keymap.set('n', '<leader>f', ':ConjureEvalCurrentForm<cr>')
+setkeymap('n', '<leader>e', ':%ConjureEval<cr>')
+setkeymap('n', '<leader>f', ':ConjureEvalCurrentForm<cr>')
 
 -- clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
-vim.keymap.set('n', '<leader>CL', ':ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\\><C-n>:tabprevious<cr><C-w>h')
+setkeymap('n', '<leader>CL', ':ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\\><C-n>:tabprevious<cr><C-w>h')
 
--- vimgrep navigation ft. looping quickfix navigation
-vim.cmd [[
+-- navigate vimgrep ft. looping quickfix navigation
+cmd [[
 command! Cprev try | cprev | catch | clast | catch | endtry
 command! Cnext try | cnext | catch | cfirst | catch | endtry
-
 command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 ]]
 
--- quickfix list nav remaps
-vim.keymap.set('n', '<C-p>',     ':Cnext<cr>')
-vim.keymap.set('n', '<C-o>',     ':Cprev<cr>')
-vim.keymap.set('n', '<leader>[', ':Ngrep' )
+-- navigate quickfix list
+setkeymap('n', '<C-p>',     ':Cnext<cr>')
+setkeymap('n', '<C-o>',     ':Cprev<cr>')
+setkeymap('n', '<leader>[', ':Ngrep' )
 
 -- get rid of weird location list error
-vim.keymap.set('n', '<Esc>', '<Nop>')
+setkeymap('n', '<Esc>', '<Nop>')
 
 -- I HATE ex mode
-vim.keymap.set('n', 'Q', '<Nop>')
-vim.keymap.set('n', '<silent>', '<leader>; mY:s/$/;<cr>:noh<cr>`Y')
+setkeymap('n', 'Q', '<Nop>')
 
--- places semicolon at end of current line
+-- place semicolon at end of current line
+setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
 
--- markdown
-vim.keymap.set('n', 'zl', 'zA')
-vim.keymap.set('n', 'zh', 'zC')
+-- open/close fold under cursor
+setkeymap('n', 'zl', 'zA')
+setkeymap('n', 'zh', 'zC')
 
--- coc keybinds
--- ctrl+enter dismisses completion list without completion
-vim.keymap.set('i', '<C-Enter>', '<Space>')
--- tab to go down
-vim.cmd [[inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"]]
--- shift tab to go down
-vim.cmd [[inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "<S-Tab>"]]
--- enter selects first/selected item
-vim.cmd [[inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>" ]]
--- reopens coc completion menu without typing
-vim.cmd [[inoremap <silent><expr> <c-space> coc#refresh()]]
--- snippet: insert snippet
-vim.cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
+-- coc: dismiss completion list without completion
+setkeymap('i', '<C-Enter>', '<Space>')
 
--- gitgutter shortcuts
-vim.keymap.set('n', '<leader>gn', ':GitGutterNextHunk<cr>')
-vim.keymap.set('n', '<leader>gp', ':GitGutterPrevHunk<cr>')
-vim.keymap.set('n', '<leader>gv', ':GitGutterPreviewHunk<cr>')
-vim.keymap.set('n', '<leader>gu', ':GitGutterUndoHunk<cr>')
+-- coc: tab to go down
+local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+setkeymap('i', '<TAB>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+
+-- coc: shift tab to go up
+setkeymap('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+
+-- coc: enter selects first/selected item
+-- do NOT change these double quotes to single quotes
+setkeymap('i', '<cr>', [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+
+-- coc: reopen completion menu without typing
+setkeymap('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
+
+-- coc-snippet: insert snippet
+-- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
+setkeymap('i', '<C-l>', '<Plug>(coc-snippets-expand)')
 
 -- I need the below since `config = function()` does not run
-vim.cmd [[
-let g:UltiSnipsEditSplit="horizontal"
+cmd [[
+" let g:UltiSnipsEditSplit="horizontal"
 
 " remaps
 let g:UltiSnipsExpandTrigger="<Nop>"
