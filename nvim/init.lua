@@ -50,6 +50,7 @@ packer.startup(function(use)
    use {
       'rrethy/vim-hexokinase',
       -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
+      -- and run `go build`
       ['do'] = 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase',
    }
 
