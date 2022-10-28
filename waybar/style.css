@@ -49,14 +49,6 @@ window, window#waybar.solo {
    /* min-width:  90px; */
 }
 
-#battery {
-   animation-name: blinking;
-}
-
-#battery.warning {
-   color:       #ffcc66;
-}
-
 @keyframes blinking {
    0% {opacity: 1;}
    49% {opacity: 1;}
@@ -64,8 +56,12 @@ window, window#waybar.solo {
    100% {opacity: 0;}
 }
 
+#battery.warning {
+   color:       #ffcc66;
+}
+
 #battery.critical {
-   animation-duration: 1.5s;
+   animation-duration: 1.1s;
    animation-iteration-count: infinite;
    animation-name: blinking;
    animation-timing-function: linear;

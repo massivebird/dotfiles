@@ -215,9 +215,6 @@ if vim.fn.has("termguicolors") then
    set.termguicolors = true
 end
 
--- edit init.lua
-cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
-
 -- comment styles for plugin tpope/commentary
 cmd [[
 augroup init
@@ -241,12 +238,10 @@ elseif colorscheme_option == 1 then
    vim.g['lightline'] = {['colorscheme'] = 'xoria256'}
 end
 
--- functions -------------------------------------
+-- functions, commands ---------------------------
 
-function file_exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
-end
+-- edit init.lua
+cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
 
 -- note-querying function
 -- github.com/connermcd
@@ -276,6 +271,11 @@ function LightlineReload()
    call lightline#colorscheme()
    call lightline#update()
    ]]
+end
+
+local file_exists = function(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
 end
 
 --    " identify highlight group under cursor
