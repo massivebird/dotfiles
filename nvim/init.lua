@@ -6,8 +6,6 @@ local setkeymap = vim.keymap.set
 
 -- plugin manager: vim-plug ----------------------
 
--- `config = function()` NOT RUNNING??
-
 -- for bootstrapping packer
 -- https://github.com/wbthomason/packer.nvim#bootstrapping
 
@@ -72,7 +70,8 @@ packer.startup(function(use)
    use {
       'plasticboy/vim-markdown',
       config = function()
-         set.conceallevel = 2
+         -- this is bad????
+         -- set.conceallevel = 2
          vim.g['vim_markdown_folding_disabled'] = 0
          vim.g['vim_markdown_folding_level'] = 3
       end
@@ -152,15 +151,11 @@ packer.startup(function(use)
    use {
       'sirver/ultisnips',
       config = function()
-         -- edit snippets in vertical window
-         vim.g.UltiSnipsEditSplit = 'vertical'
-         vim.g['UltiSnipsEditSplit'] = 'vertical'
-         cmd 'let g:UltiSnipsEditSplit="vertical"'
-         -- remaps
-         vim.g['UltiSnipsExpandTrigger'] = '<Nop>'
-         vim.g['UltiSnipsListSnippets'] = '<Nop>'
-         vim.g['UltiSnipsJumpForwardTrigger'] = '<Nop>'
+         vim.g['UltiSnipsEditSplit'] = 'horizontal'
+         vim.g['UltiSnipsExpandTrigger']       = '<Nop>'
          vim.g['UltiSnipsJumpBackwardTrigger'] = '<Nop>'
+         vim.g['UltiSnipsJumpForwardTrigger']  = '<Nop>'
+         vim.g['UltiSnipsListSnippets']        = '<Nop>'
       end
    }
 
@@ -339,9 +334,10 @@ setkeymap('n', '<leader>A', 'ggcG')
 setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>')
 
 -- packer commands
-setkeymap('n', '<leader>pi', ':PackerInstall<cr>')
-setkeymap('n', '<leader>pc', ':PackerClean<cr>')
-setkeymap('n', '<leader>pu', ':PackerUpdate<cr>')
+setkeymap('n', '<leader>pc', ':PackerCompile<cr>') -- regen changed plugin config
+setkeymap('n', '<leader>pi', ':PackerInstall<cr>') -- clean, install missing
+setkeymap('n', '<leader>ps', ':PackerSync<cr>')    -- update, compile
+setkeymap('n', '<leader>pu', ':PackerUpdate<cr>')  -- clean, update
 
 -- terminal mode
 setkeymap('n', '<leader>t', ':term<cr>')
