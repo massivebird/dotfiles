@@ -73,7 +73,8 @@ window, window#waybar.solo {
 }
 
 #battery.charging {
-   /* color:      #f38019; */
+   /* do not blink when critical */
+   animation: none;
 }
 
 #custom-storage.warning {
