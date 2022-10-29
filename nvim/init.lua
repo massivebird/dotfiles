@@ -23,6 +23,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 local packer = require('packer')
+-- packer.init({package_root = './plugged/'})
 packer.startup(function(use)
 
    -- packer manages packer itself,
@@ -44,14 +45,15 @@ packer.startup(function(use)
    -- status line
    use 'itchyny/lightline.vim'
 
-   -- [hex] color highlighter
-   -- top one is prob deprecated
-   use 'ap/vim-css-color'
+   -- color highlighter
    use {
       'rrethy/vim-hexokinase',
       -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
       -- and run `go build`
       ['do'] = 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase',
+      config = function()
+         vim.g.Hexokinase_highlighters = {'backgroundfull'}
+      end
    }
 
    -- colorschemes
@@ -168,7 +170,7 @@ packer.startup(function(use)
 
 end)
 
--- general settings ------------------------------
+-- general settings -------------------------------
 
 -- syntax highlighting
 cmd [[
@@ -264,8 +266,6 @@ cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 --    command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 --    command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
-cmd [[ command! LightlineReload call LightlineReload() ]]
-
 function LightlineReload()
    cmd [[
    call lightline#init()
@@ -273,6 +273,8 @@ function LightlineReload()
    call lightline#update()
    ]]
 end
+
+cmd [[ command! LightlineReload call LightlineReload() ]]
 
 local file_exists = function(name)
    local f=io.open(name,"r")
@@ -286,6 +288,14 @@ end
 --    endfun
 --    nnoremap <leader>hg :call SynGroup()<cr>
 --    ]]
+-- function SynGroup()
+--    cmd [[
+-- let l:s = synID(line('.'), col('.'), 1)
+--    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+--    ]]
+-- end
+
+cmd [[ command! SynGroup call SynGroup() ]]
 
 -- lang: python ----------------------------------
 
@@ -314,7 +324,7 @@ setkeymap('n', '<leader>c', ':close<cr>')
 setkeymap('n', '<leader>A', 'ggcG')
 
 -- source init.lua
-setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>')
+setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:PackerCompile<cr>')
 
 -- packer commands
 setkeymap('n', '<leader>pc', ':PackerCompile<cr>') -- regen changed plugin config
