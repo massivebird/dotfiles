@@ -207,6 +207,8 @@ set.splitright = true
 set.signcolumn = "yes"
 -- default updatetime is 4000ms, too slow
 set.updatetime = 300
+-- disable mouse functionality
+set.mouse =
 -- enable filetype-specific configuration files
 cmd 'filetype plugin on'
 
