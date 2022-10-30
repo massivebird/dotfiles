@@ -23,7 +23,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 local packer = require('packer')
--- packer.init({package_root = './plugged/'})
 packer.startup(function(use)
 
    -- packer manages packer itself,
@@ -248,10 +247,16 @@ end
 -- edit init.lua
 cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
 
+local file_exists = function(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
 -- note-querying function
 -- github.com/connermcd
 cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 
+-- I never got this to work
 -- fun! MyNgrep(query, ...)
 -- let query = "/".a:query."/j"
 -- let course = get(a:, 1, "")
@@ -264,40 +269,27 @@ cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 --    echom query path
 --    execute "vimgrep" query path bufname("#")
 --    endfunction
-
 --    command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 --    command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
-function LightlineReload()
-   cmd [[
+cmd [[
+function! LightlineReload()
    call lightline#init()
    call lightline#colorscheme()
    call lightline#update()
+endfunction
+command! LightlineReload call LightlineReload() 
    ]]
-end
 
-cmd [[ command! LightlineReload call LightlineReload() ]]
-
-local file_exists = function(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
-end
-
---    " identify highlight group under cursor
---    function! SynGroup()
---    let l:s = synID(line('.'), col('.'), 1)
---    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
---    endfun
---    nnoremap <leader>hg :call SynGroup()<cr>
---    ]]
--- function SynGroup()
---    cmd [[
--- let l:s = synID(line('.'), col('.'), 1)
---    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
---    ]]
--- end
-
-cmd [[ command! SynGroup call SynGroup() ]]
+-- identify highlight group under cursor
+cmd [[
+function! SynGroup()
+let l:s = synID(line('.'), col('.'), 1)
+echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfunction
+nnoremap <leader>hg :call SynGroup()<cr>
+command! SynGroup call SynGroup() 
+   ]]
 
 -- lang: python ----------------------------------
 
