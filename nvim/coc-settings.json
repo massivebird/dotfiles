@@ -4,6 +4,9 @@
    "diagnostic.checkCurrentLine": true,
    "diagnostic.refreshOnInsertMode": true,
 
+   "Lua.diagnostics.globals": ["vim"],
+   "Lua.telemetry.enable": true,
+   "Lua.workspace.preloadFileSize": 300,
    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
    "coc.source.conjure.filetypes": [ "clojure", "fennel" ],
    "html.filetypes": [ "html" ],
@@ -13,8 +16,6 @@
    "snippets.ultisnips.enable": true,
    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips",
    // "sumneko-lua.enableNvimLuaDev": true,
-   "Lua.telemetry.enable": true,
-   "Lua.diagnostics.globals": ["vim"],
 
    "languageserver": {
       "clojure-lsp": {
