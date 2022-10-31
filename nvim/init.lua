@@ -38,6 +38,11 @@ packer.startup(function(use)
    use 'tpope/vim-abolish'
    use 'tpope/vim-repeat'
 
+   -- colorschemes
+   use 'evprkr/galaxian-vim'
+   use 'massivebird/vim-framer-syntax'
+   use 'chriskempson/base16-vim'
+
    -- close buffer without closing window with :Bdelete
    use 'moll/vim-bbye'
 
@@ -54,13 +59,6 @@ packer.startup(function(use)
          vim.g.Hexokinase_highlighters = {'backgroundfull'}
       end
    }
-
-   -- colorschemes
-   use 'rafi/awesome-vim-colorschemes'
-   use 'evprkr/galaxian-vim'
-   use 'ghifarit53/tokyonight-vim'
-   use 'massivebird/vim-framer-syntax'
-   use 'neozenith/estilo-xoria256'
 
    -- autocomplete braces and scopes
    use 'jiangmiao/auto-pairs'
@@ -238,8 +236,8 @@ if colorscheme_option == 0 then
    cmd 'colorscheme framer_syntax_dark'
    vim.g['lightline'] = {['colorscheme'] = 'framer_dark'}
 elseif colorscheme_option == 1 then
-   cmd 'colorscheme xoria256'
-   vim.g['lightline'] = {['colorscheme'] = 'xoria256'}
+   cmd 'colorscheme base16-default-dark'
+   vim.g['lightline'] = {['colorscheme'] = 'base16-default-dark'}
 end
 
 -- functions, commands ---------------------------
