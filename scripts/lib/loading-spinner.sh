@@ -17,7 +17,18 @@ SPIN_OHNO="[$(tput setaf 1)!$NC]"
 SPIN_OK="[$(tput setaf 2)-$NC]"
 GRAY=$(tput setaf 15)
 
+# prevent keyboard input
+stty -echo
+
+# runs on interrupt
+function on_interrupt() {
+   tput cnorm
+   exit 2
+}
+
 loading-spinner () {
+   # init interrupt trap
+   trap "on_interrupt" SIGINT
 	# assign positional args to variables
 	MSG_LOADING="$1"
 	MSG_DONE="$2"

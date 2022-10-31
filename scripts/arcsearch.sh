@@ -30,7 +30,7 @@ flava[wbfs]=$WII
 # final message function,
 # $1: number of games found
 function say-goodbye() {
-   printf "%s games found\n%s\n" "$1" "$OUTPUT"
+   printf "%s\n%s games found\n" "$OUTPUT" "$1"
    exit 0
 }
 
