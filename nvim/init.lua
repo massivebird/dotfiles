@@ -345,9 +345,9 @@ setkeymap('n', '/', ':/\\c<Left><Left>')
 setkeymap('n', '<leader>r', ':registers<cr>')
 
 -- buffer controls
-setkeymap('n', '<leader>bn', ':bNext')
-setkeymap('n', '<leader>bp', ':bPrev')
-setkeymap('n', '<leader>bd', ':Bdelete')
+setkeymap('n', '<leader>bn', ':bNext<cr>')
+setkeymap('n', '<leader>bp', ':bPrev<cr>')
+setkeymap('n', '<leader>bd', ':Bdelete<cr>')
 
 -- because it was doing strange things >:(
 setkeymap('n', '<leader><Esc>', '<Nop>')
