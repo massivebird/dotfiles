@@ -318,7 +318,7 @@ setkeymap('n', '<leader>c', ':close<cr>')
 setkeymap('n', '<leader>A', 'ggcG')
 
 -- source init.lua
-setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:PackerCompile<cr>')
+setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>')
 
 -- packer commands
 setkeymap('n', '<leader>pc', ':PackerCompile<cr>') -- regen changed plugin config
