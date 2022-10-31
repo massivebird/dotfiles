@@ -1,4 +1,7 @@
 {
+   // dock | hide | invisible | overlay
+   "mode": "dock",
+
    "layer": "top",
    "position": "top",
 
