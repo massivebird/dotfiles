@@ -289,6 +289,12 @@ nnoremap <leader>hg :call SynGroup()<cr>
 command! SynGroup call SynGroup() 
    ]]
 
+-- coc: bind <tab>
+function _G.check_back_space()
+   local col = vim.fn.col('.') - 1
+   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+end
+
 -- lang: python ----------------------------------
 
 if file_exists('/usr/bin/python3.10') then
@@ -404,7 +410,7 @@ setkeymap('n', '<C-o>',     ':Cprev<cr>')
 setkeymap('n', '<leader>[', ':Ngrep' )
 
 -- get rid of weird location list error
-setkeymap('n', '<Esc>', '<Nop>')
+setkeymap('n', '<esc>', '<nop>')
 
 -- I HATE ex mode
 setkeymap('n', 'Q', '<Nop>')
@@ -417,14 +423,14 @@ setkeymap('n', 'zl', 'zA')
 setkeymap('n', 'zh', 'zC')
 
 -- coc: dismiss completion list without completion
-setkeymap('i', '<C-Enter>', '<Space>')
+setkeymap('i', '<c-enter>', '<space>')
 
 -- coc: tab to go down
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-setkeymap('i', '<TAB>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+setkeymap('i', '<tab>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<tab>" : coc#refresh()', opts)
 
 -- coc: shift tab to go up
-setkeymap('i', '<S-TAB>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+setkeymap('i', '<s-tab>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- coc: enter selects first/selected item
 -- do NOT change these double quotes to single quotes
