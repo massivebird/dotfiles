@@ -93,6 +93,7 @@ if status is-interactive
    # config shortcuts
    alias nc 'nvim ~/.config/nvim/init.lua'
    alias ncf 'nvim ~/.config/fish/config.fish'
+   alias nci 'nvim ~/.config/i3/config'
    alias nck 'nvim ~/.config/kitty/kitty.conf'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
