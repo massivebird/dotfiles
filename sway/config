@@ -79,6 +79,14 @@ output eDP-1 {
       scale 1.3
 }
 
+default_border pixel 4
+
+hide_edge_borders smart
+
+gaps inner 10
+gaps outer 3
+gaps top 0
+
 # hides cursor after inactivity
 seat * hide_cursor 2200
 
@@ -87,8 +95,6 @@ seat * hide_cursor 2200
 set $c_0 #3a96dd
 set $c_1 #0e0e0e
 set $c_2 #FFFFFF
-
-default_border pixel 4
 
 # class                 border  bground text    indicator	child_border
 client.focused		$c_0	$c_0	$c_2	$c_0		$c_0
@@ -146,10 +152,6 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # layout ##############################
-
-gaps inner 10
-gaps outer 3
-gaps top 0
 
 bindsym $mod+f fullscreen toggle
 
