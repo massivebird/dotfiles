@@ -4,6 +4,8 @@ alacritty
 anthy
 azuredatastudio
 bottom
+btop/btop.log
+btop/themes
 coc
 configstore
 connections.db
@@ -20,6 +22,7 @@ gnome-control-center
 gnome-initial-setup-done
 gtk-3.0
 htop
+i3/
 ibus
 libreoffice
 libvirt
@@ -33,12 +36,14 @@ nvim/plugged
 nvim/plugin
 obs-studio
 pavucontrol.ini
+picom/
 pulse
 ranger/colorschemes/__*
 scripts/smoothcolor.sh
 spotify
 sway/inactive-windows-transparency.py
 systemd
+tbsm/
 twitch-cli
 user-dirs.dirs
 user-dirs.locale
