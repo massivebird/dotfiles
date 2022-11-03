@@ -70,8 +70,7 @@ packer.startup(function(use)
    use {
       'plasticboy/vim-markdown',
       config = function()
-         -- this is bad????
-         -- set.conceallevel = 2
+         vim.opt.conceallevel = 2
          vim.g['vim_markdown_folding_disabled'] = 0
          vim.g['vim_markdown_folding_level'] = 3
       end
