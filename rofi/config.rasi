@@ -8,11 +8,11 @@
 * {
 	font: "JetBrains Mono NL 13";
 	padding-text-hor: 0 10px;
-	accent: #00BBcc;
+	accent: #333333;
 	bg: #0e0e0e;
 	bg-selected: #e0e0e0;
 
-	selected-normal-foreground:  @bg;
+	selected-normal-foreground:  #eeeeee;
 	foreground:                  rgba(248, 248, 242, 1);
 	normal-foreground:           @foreground;
 	alternate-normal-background: rgba(39, 40, 34, 0);
