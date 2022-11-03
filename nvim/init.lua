@@ -311,27 +311,27 @@ end
 vim.g.mapleader = ' '
 
 -- saving and quitting
-setkeymap('n', '<leader>w', ':w!<cr>')
-setkeymap('n', '<leader>q', ':wq<cr>')
-setkeymap('n', '<leader>Q', ':q!<cr>')
+setkeymap('n', '<leader>w', ':w!<cr>', {silent = true})
+setkeymap('n', '<leader>q', ':wq<cr>', {silent = true})
+setkeymap('n', '<leader>Q', ':q!<cr>', {silent = true})
 
 -- close window
-setkeymap('n', '<leader>c', ':close<cr>')
+setkeymap('n', '<leader>c', ':close<cr>', {silent = true})
 
 -- erase entire document
 setkeymap('n', '<leader>A', 'ggcG')
 
 -- source init.lua
-setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>')
+setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>', {silent = true})
 
 -- packer commands
-setkeymap('n', '<leader>pc', ':PackerCompile<cr>') -- regen changed plugin config
-setkeymap('n', '<leader>pi', ':PackerInstall<cr>') -- clean, install missing
-setkeymap('n', '<leader>ps', ':PackerSync<cr>')    -- update, compile
-setkeymap('n', '<leader>pu', ':PackerUpdate<cr>')  -- clean, update
+setkeymap('n', '<leader>pc', ':PackerCompile<cr>', {silent = true}) -- regen changed plugin config
+setkeymap('n', '<leader>pi', ':PackerInstall<cr>', {silent = true}) -- clean, install missing
+setkeymap('n', '<leader>ps', ':PackerSync<cr>', {silent = true})    -- update, compile
+setkeymap('n', '<leader>pu', ':PackerUpdate<cr>', {silent = true})  -- clean, update
 
 -- terminal mode
-setkeymap('n', '<leader>t', ':term<cr>')
+setkeymap('n', '<leader>t', ':term<cr>', {silent = true})
 -- escape exits terminal mode
 setkeymap('t', '<Esc>', '<C-\\><C-n>')
 
@@ -339,7 +339,7 @@ setkeymap('t', '<Esc>', '<C-\\><C-n>')
 setkeymap('n', 'U', '<C-r>')
 
 -- stop highlighting after search/substitute
-setkeymap('n', '<leader>n', ':noh<cr>')
+setkeymap('n', '<leader>n', ':noh<cr>', {silent = true})
 
 -- initiate global substitute
 setkeymap('n', '<leader>S', ':%s//g<Left><Left>')
@@ -348,12 +348,12 @@ setkeymap('n', '<leader>S', ':%s//g<Left><Left>')
 setkeymap('n', '/', ':/\\c<Left><Left>')
 
 -- view registers
-setkeymap('n', '<leader>r', ':registers<cr>')
+setkeymap('n', '<leader>r', ':registers<cr>', {silent = true})
 
 -- buffer controls
-setkeymap('n', '<leader>bn', ':bNext<cr>')
-setkeymap('n', '<leader>bp', ':bPrev<cr>')
-setkeymap('n', '<leader>bd', ':Bdelete<cr>')
+setkeymap('n', '<leader>bn', ':bNext<cr>', {silent = true})
+setkeymap('n', '<leader>bp', ':bPrev<cr>', {silent = true})
+setkeymap('n', '<leader>bd', ':Bdelete<cr>', {silent = true})
 
 -- because it was doing strange things >:(
 setkeymap('n', '<leader><Esc>', '<Nop>')
@@ -367,10 +367,10 @@ setkeymap('i', '<A-k>', '<Esc>:m .-2<CR>==gi')
 -- setkeymap('v', '<A-k>', ':m '<-2<CR>gv=gv')
 
 -- resize window
-setkeymap('n', '<Up>',    ':resize +2<cr>')
-setkeymap('n', '<Down>',  ':resize -2<cr>')
-setkeymap('n', '<Right>', ':vertical resize +2<cr>')
-setkeymap('n', '<Left>',  ':vertical resize -2<cr>')
+setkeymap('n', '<Up>',    ':resize +2<cr>', {silent = true})
+setkeymap('n', '<Down>',  ':resize -2<cr>', {silent = true})
+setkeymap('n', '<Right>', ':vertical resize +2<cr>', {silent = true})
+setkeymap('n', '<Left>',  ':vertical resize -2<cr>', {silent = true})
 
 -- create new line above or below current line
 setkeymap('n', '<leader>o', 'o<Up><Esc>')
@@ -383,10 +383,10 @@ setkeymap('n', '<F7>', 'mtgg=G`t')
 setkeymap('n', '<leader>d', ':set spell!<cr>')
 
 -- gitgutter shortcuts
-setkeymap('n', '<leader>gn', ':GitGutterNextHunk<cr>')
-setkeymap('n', '<leader>gp', ':GitGutterPrevHunk<cr>')
-setkeymap('n', '<leader>gv', ':GitGutterPreviewHunk<cr>')
-setkeymap('n', '<leader>gu', ':GitGutterUndoHunk<cr>')
+setkeymap('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
+setkeymap('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
+setkeymap('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
+setkeymap('n', '<leader>gu', ':GitGutterUndoHunk<cr>', {silent = true})
 
 
 -- conjure evaluations
@@ -405,8 +405,8 @@ command! Lprev try | lprev | catch | llast | catch | endtry
 ]]
 
 -- navigate quickfix list
-setkeymap('n', '<C-p>',     ':Cnext<cr>')
-setkeymap('n', '<C-o>',     ':Cprev<cr>')
+setkeymap('n', '<C-p>',     ':Cnext<cr>', {silent = true})
+setkeymap('n', '<C-o>',     ':Cprev<cr>', {silent = true})
 setkeymap('n', '<leader>[', ':Ngrep' )
 
 -- get rid of weird location list error
@@ -419,11 +419,11 @@ setkeymap('n', 'Q', '<Nop>')
 setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
 
 -- open/close fold under cursor
-setkeymap('n', 'zl', 'zA')
-setkeymap('n', 'zh', 'zC')
+setkeymap('n', 'zl', 'zA', {silent = true})
+setkeymap('n', 'zh', 'zC', {silent = true})
 
 -- coc: dismiss completion list without completion
-setkeymap('i', '<c-enter>', '<space>')
+setkeymap('i', '<c-c>', '<space>')
 
 -- coc: tab to go down
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
