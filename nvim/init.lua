@@ -299,10 +299,10 @@ end
 
 if file_exists('/usr/bin/python3.10') then
    -- laptop
-   cmd 'let g:python3_host_prog = \'/usr/bin/python3.10\''
+   vim.g['python3_host_prog'] = '/usr/bin/python3.10'
 else
    -- desktop
-   cmd 'let g:python3_host_prog = \'/usr/bin/python3.8\''
+   vim.g['python3_host_prog'] = '/usr/bin/python3.8'
 end
 
 -- keymaps remaps keybinds -----------------------
