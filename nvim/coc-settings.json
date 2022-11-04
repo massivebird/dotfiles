@@ -1,14 +1,14 @@
 {
+
    // general settings
    // hint/warning displayed anywhere on same line
-   "diagnostic.checkCurrentLine": true,
-   "diagnostic.refreshOnInsertMode": true,
-
    "Lua.diagnostics.globals": ["vim"],
    "Lua.telemetry.enable": true,
    "Lua.workspace.preloadFileSize": 300,
    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.1/clangd_15.0.1/bin/clangd",
    "coc.source.conjure.filetypes": [ "clojure", "fennel" ],
+   "diagnostic.checkCurrentLine": false,
+   "diagnostic.refreshOnInsertMode": true,
    "html.filetypes": [ "html" ],
    "java.completion.enabled": true,
    "java.errors.incompleteClasspath.severity": "ignore",
