@@ -1,8 +1,8 @@
 -- global variables ------------------------------
 
-local cmd = vim.cmd
-local set = vim.opt
-local setkeymap = vim.keymap.set
+cmd = vim.cmd
+set = vim.opt
+setkeymap = vim.keymap.set
 
 -- plugin manager: vim-plug ----------------------
 
@@ -29,13 +29,17 @@ packer.startup(function(use)
    -- packer is very powerful
    use 'wbthomason/packer.nvim'
 
-   -- tim pope's dark arts
-   use 'tpope/vim-commentary'
-   use 'tpope/vim-fugitive'
+   -- default options
    use 'tpope/vim-sensible'
+   -- comment stuff out
+   use 'tpope/vim-commentary'
+   -- git commands like :G and :g?
+   use 'tpope/vim-fugitive'
+   -- parentheses/tags/brackets editing
    use 'tpope/vim-surround'
-   use 'tpope/vim-obsession'
+   -- search/substitute/abbreviate words
    use 'tpope/vim-abolish'
+   -- repeat supported plugin actions with `.`
    use 'tpope/vim-repeat'
 
    -- colorschemes
@@ -189,7 +193,7 @@ set.relativenumber = true
 set.linebreak = true
 -- show mode in command area
 set.showmode = false
--- allows [inc|dec]rememnting letters
+-- allows [inc|dec]rememnting letter characters
 cmd [[ set nrformats+=alpha ]]
 -- num of spaces <tab> accounts for
 set.tabstop = 3
@@ -206,7 +210,8 @@ set.updatetime = 300
 -- disable mouse functionality
 set.mouse =
 -- enable filetype-specific configuration files
-cmd 'filetype plugin on'
+cmd 'filetype plugin indent on'
+cmd 'filetype detect'
 
 cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
 
@@ -350,8 +355,8 @@ setkeymap('n', '/', ':/\\c<Left><Left>')
 setkeymap('n', '<leader>r', ':registers<cr>', {silent = true})
 
 -- buffer controls
-setkeymap('n', '<leader>bn', ':bNext<cr>', {silent = true})
-setkeymap('n', '<leader>bp', ':bPrev<cr>', {silent = true})
+setkeymap('n', '<leader>bn', ':bn<cr>', {silent = true})
+setkeymap('n', '<leader>bp', ':bp<cr>', {silent = true})
 setkeymap('n', '<leader>bd', ':Bdelete<cr>', {silent = true})
 
 -- because it was doing strange things >:(
@@ -422,7 +427,7 @@ setkeymap('n', 'zl', 'zA', {silent = true})
 setkeymap('n', 'zh', 'zC', {silent = true})
 
 -- coc: dismiss completion list without completion
-setkeymap('i', '<c-c>', '<space>')
+setkeymap('i', '<c-cr>', 'coc#pum#cancel()')
 
 -- coc: tab to go down
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
