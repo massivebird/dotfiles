@@ -411,7 +411,7 @@ command! Lprev try | lprev | catch | llast | catch | endtry
 -- navigate quickfix list
 setkeymap('n', '<C-p>',     ':Cnext<cr>', {silent = true})
 setkeymap('n', '<C-o>',     ':Cprev<cr>', {silent = true})
-setkeymap('n', '<leader>[', ':Ngrep' )
+setkeymap('n', '<leader>[', ':Ngrep ' )
 
 -- get rid of weird location list error
 setkeymap('n', '<esc>', '<nop>')
