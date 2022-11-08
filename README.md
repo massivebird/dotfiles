@@ -1,6 +1,6 @@
 # massivebird's dotfiles
 
-![screenshot-desktop](https://i.imgur.com/A4A2p1Z.png)
+![preview-main](./res/preview-main.png)
 
 Fedora Linux btw
 
