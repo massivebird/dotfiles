@@ -322,8 +322,8 @@ setkeymap('n', '<leader>Q', ':q!<cr>', {silent = true})
 -- close window
 setkeymap('n', '<leader>c', ':close<cr>', {silent = true})
 
--- erase entire document
-setkeymap('n', '<leader>A', 'ggcG')
+-- rewrite entire document
+setkeymap('n', 'cA', 'ggcG')
 
 -- source init.lua
 setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>', {silent = true})
