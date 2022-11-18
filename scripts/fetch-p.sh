@@ -4,7 +4,7 @@
 # smol pfetch
 
 COLOR_PRI="$(tput setaf 4)$(tput bold)"
-COLOR_SEC="$(tput setaf 15)$(tput bold)"
+COLOR_SEC="$(tput setaf 7)$(tput bold)"
 COLOR_NO="$(tput sgr 0)"
 
 PATH_GENERATOR=~/p-c/ascii-paracord.run

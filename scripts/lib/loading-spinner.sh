@@ -11,11 +11,11 @@
 # optional $3: error message (requires $4)
 #          $4: error file (if non-empty, print $3)
 
+. ~/.config/scripts/lib/str-main.sh
+
 # formatted strings
-NC="$(tput sgr 0)"
-SPIN_OHNO="[$(tput setaf 1)!$NC]"
-SPIN_OK="[$(tput setaf 2)-$NC]"
-GRAY=$(tput setaf 15)
+SPIN_OHNO="[$RED!$NC]"
+SPIN_OK="[$GREEN-$NC]"
 
 # prevent keyboard input
 stty -echo
