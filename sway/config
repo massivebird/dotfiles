@@ -57,8 +57,8 @@ bindsym $win+r exec $menu
 # functional keys #####################
 
 # brightness controls
-bindsym XF86MonBrightnessUp exec light -A 1    # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 1  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 # volume controls
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
