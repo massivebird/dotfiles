@@ -51,6 +51,8 @@ bindsym ctrl+shift+n nop
 # app shortcuts
 bindsym $mod+o+1 exec firefox
 bindsym $mod+o+z exec zathura
+bindsym $mod+o+2 exec nautilus
+
 bindsym $mod+Return exec $term
 bindsym $win+r exec $menu
 
