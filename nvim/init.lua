@@ -119,10 +119,9 @@ packer.startup(function(use)
                enable = true,
             },
             highlight = {
-               enable = true,              -- false will disable the whole extension
-               disable = {"vim", "markdown", "html", "php"},  -- list of language that will be disabled
+               enable = true,
                -- true, false, or list of languages
-               -- may slow editor
+               disable = {"vim", "markdown", "html", "php", "gitcommit"},
                -- additional_vim_regex_highlighting = true,
             },
             -- rainbow parentheses/brackets
