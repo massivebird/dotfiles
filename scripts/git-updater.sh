@@ -29,7 +29,7 @@ done
 # validates internet connection
 check-connection () {
 # tests connection
-curl --max-time 1.1 -Is https://github.com 1> /dev/null
+curl --max-time 1.3 -Is https://github.com 1> /dev/null
 # if connection is good...
 if [ $? -eq 0 ]; then
    # ... and user wants verbose output...
