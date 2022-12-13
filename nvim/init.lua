@@ -351,6 +351,9 @@ setkeymap('n', '<leader>S', ':%s//g<Left><Left>')
 -- search defaults to case insensitive
 setkeymap('n', '/', ':/\\c<Left><Left>')
 
+-- searching in visual mode searches only selected area
+setkeymap('v', '/', '<Esc>:/\\%V\\c<Left><Left>')
+
 -- view registers
 setkeymap('n', '<leader>r', ':registers<cr>', {silent = true})
 
