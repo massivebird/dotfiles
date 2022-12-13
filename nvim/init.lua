@@ -1,14 +1,15 @@
+-- massivebird's neovim configuration
+
 -- global variables ------------------------------
 
-cmd = vim.cmd
-set = vim.opt
-setkeymap = vim.keymap.set
+local cmd = vim.cmd
+local set = vim.opt
+local setkeymap = vim.keymap.set
 
--- plugin manager: vim-plug ----------------------
+-- plugin manager: packer ------------------------
 
--- for bootstrapping packer
+-- bootstrapping packer
 -- https://github.com/wbthomason/packer.nvim#bootstrapping
-
 local ensure_packer = function()
    local fn = vim.fn
    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -19,9 +20,9 @@ local ensure_packer = function()
    end
    return false
 end
-
 local packer_bootstrap = ensure_packer()
 
+-- loading plugins
 local packer = require('packer')
 packer.startup(function(use)
 
@@ -42,6 +43,12 @@ packer.startup(function(use)
    -- repeat supported plugin actions with `.`
    use 'tpope/vim-repeat'
 
+   -- autocomplete braces and scopes
+   use 'jiangmiao/auto-pairs'
+
+   -- live version control feedback
+   use 'airblade/vim-gitgutter'
+
    -- colorschemes
    use 'evprkr/galaxian-vim'
    use 'massivebird/vim-framer-syntax'
@@ -53,32 +60,123 @@ packer.startup(function(use)
    -- status line
    use 'itchyny/lightline.vim'
 
-   -- color highlighter
+   -- fuzzy finder
    use {
-      'rrethy/vim-hexokinase',
-      -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
-      -- and run `go build`
-      ['do'] = 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase',
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = {
+         'nvim-lua/plenary.nvim',
+         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+         'nvim-telescope/telescope-ui-select.nvim',
+         'nvim-telescope/telescope-file-browser.nvim',
+      },
       config = function()
-         vim.g.Hexokinase_highlighters = {'backgroundfull'}
+         -- https://github.com/nvim-telescope/telescope.nvim#previewers
+         local tele = require('telescope')
+         local builtin = require('telescope.builtin')
+         local actions = require('telescope.actions')
+         local browser = tele.extensions.file_browser
+
+         local find_files_from_root = function()
+            builtin.find_files {
+               hidden = true,
+               no_ignore = true,
+               no_ignore_parent = true,
+               search_dirs = {'/home'}
+            }
+         end
+         local browse_notes = function()
+            builtin.live_grep {
+               prompt_title = "Search notes",
+               hidden = true,
+               respect_gitignore = false,
+               grep_open_files = false,
+               type_filter = "markdown",
+               -- cwd = '/home/penguino/academia/notes_all/*'
+            }
+         end
+         local grep_in_open_buffers = function()
+            builtin.live_grep {
+               prompt_title = "Grep in buffers",
+               grep_open_files = true,
+               hidden = true,
+               respect_gitignore = false,
+               path_display = {"tail"},
+               disable_coordinates = true
+            }
+         end
+
+         tele.setup {
+            defaults = {
+               file_ignore_patterns = {
+                  '%.pdf$', '%.db$', '%.opus$', '%.mp3$', '%.wav$', '%.git/', '%.git.*', '%.clj%-kondo/%.cache/', '%.lsp/', '%.cpcache/', '%target/'
+               },
+               -- prompt_title = false,
+               results_title = false,
+               -- preview_title = false,
+               prompt_prefix = '  ',
+               -- selection_caret = '  ',
+               path_display = {"truncate"},
+               layout_config = {
+                  prompt_position = 'bottom'
+               },
+               width = 0.8
+            },
+            pickers = {
+               find_files = {
+                  find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+                  results_title = false,
+                  prompt_title = false,
+                  previewer = false,
+               },
+               live_grep = {
+                  results_title = false,
+                  prompt_title = false,
+               },
+            },
+         }
+
+         tele.load_extension('fzf')
+         tele.load_extension('file_browser')
+         tele.load_extension('ui-select')
+
+         vim.keymap.set('n', '<leader>fb', builtin.buffers)
+         vim.keymap.set('n', '<leader>ff', builtin.find_files)
+         vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+         vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+         vim.keymap.set('n', '<leader>fh', builtin.highlights)
+         vim.keymap.set('n', '<leader>fj', builtin.jumplist)
+         vim.keymap.set('n', '<leader>fl', grep_in_open_buffers)
+         vim.keymap.set('n', '<leader>fn', browse_notes)
+         vim.keymap.set('n', '<leader>fo', builtin.oldfiles)
+         vim.keymap.set('n', '<leader>fr', find_files_from_root)
+         vim.keymap.set('n', '<leader>fv', builtin.vim_options)
+
       end
+      -- ^ end of config = function()
    }
 
-   -- autocomplete braces and scopes
-   use 'jiangmiao/auto-pairs'
-
-   -- live version control feedback
-   use 'airblade/vim-gitgutter'
+   -- color highlighter
+   -- use {
+   --    'rrethy/vim-hexokinase',
+   --    -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
+   --    -- and run `go build`
+   --    ['do'] = 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase',
+   --    setup = function()
+   --       vim.g.Hexokinase_highlighters = {'backgroundfull'}
+   --    end
+   -- }
 
    -- markdown: features
+   use 'godlygeek/tabular'
    use {
-      'plasticboy/vim-markdown',
+      'preservim/vim-markdown',
       config = function()
          vim.opt.conceallevel = 2
-         vim.g['vim_markdown_folding_disabled'] = 0
-         vim.g['vim_markdown_folding_level'] = 3
+         -- vim.g['vim_markdown_folding_disabled'] = 0
+         -- vim.g['vim_markdown_folding_level'] = 3
       end
    }
+
    -- markdown: preview in web browser
    use {
       'iamcco/markdown-preview.nvim',
@@ -98,11 +196,14 @@ packer.startup(function(use)
          }
       end
    }
+
+   -- clojure: misc
    use 'tpope/vim-dispatch'
    use 'tpope/vim-fireplace'
    use 'clojure-vim/vim-jack-in'
    use 'radenling/vim-dispatch-neovim'
 
+   -- rainbow parentheses
    use 'p00f/nvim-ts-rainbow'
 
    -- treesitter
@@ -137,7 +238,7 @@ packer.startup(function(use)
       end
    }
 
-   -- autocomplete, suggestions, so delicious
+   -- intellisense engine
    use {
       'neoclide/coc.nvim',
       ['branch'] = 'release',
@@ -161,8 +262,8 @@ packer.startup(function(use)
       end
    }
 
-   -- Automatically set up your configuration after cloning packer.nvim
-   -- Must be ran after all plugins are defined
+   -- automatically set up your configuration after cloning packer.nvim,
+   -- must be ran after all plugins are defined
    if packer_bootstrap then
       packer.sync()
    end
@@ -171,11 +272,20 @@ end)
 
 -- general settings -------------------------------
 
+-- color nonsense
+cmd 'let base16colorspace = 256'
+if vim.fn.has("termguicolors") then
+   set.termguicolors = true
+end
+
 -- syntax highlighting
 cmd [[
 syntax on
 syntax enable
 ]]
+
+-- disable folding [in markdown]
+set.foldenable = false;
 -- menu for command line completions
 set.wildmenu = true
 -- spellcheck languages
@@ -208,17 +318,13 @@ set.signcolumn = "yes"
 set.updatetime = 300
 -- disable mouse functionality
 set.mouse =
+
 -- enable filetype-specific configuration files
 cmd 'filetype plugin indent on'
 cmd 'filetype detect'
 
+-- disable line numbers in terminal buffers
 cmd 'autocmd TermOpen * setlocal nonumber norelativenumber'
-
--- color nonsense
-cmd 'let base16colorspace = 256'
-if vim.fn.has("termguicolors") then
-   set.termguicolors = true
-end
 
 -- comment styles for plugin tpope/commentary
 cmd [[
@@ -273,6 +379,7 @@ cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 --    command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 --    command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
+-- reload lightline colorscheme
 cmd [[
 function! LightlineReload()
    call lightline#init()
@@ -308,7 +415,7 @@ else
    vim.g['python3_host_prog'] = '/usr/bin/python3.8'
 end
 
--- keymaps remaps keybinds -----------------------
+-- keymaps, remaps, keybinds ---------------------
 
 -- space bar as leader
 vim.g.mapleader = ' '
@@ -324,7 +431,10 @@ setkeymap('n', '<leader>c', ':close<cr>', {silent = true})
 -- rewrite entire document
 setkeymap('n', 'cA', 'ggcG')
 
--- source init.lua
+-- redo
+setkeymap('n', 'U', '<C-r>')
+
+-- reload configuration files
 setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>', {silent = true})
 
 -- packer commands
@@ -333,15 +443,13 @@ setkeymap('n', '<leader>pi', ':PackerInstall<cr>', {silent = true}) -- clean, in
 setkeymap('n', '<leader>ps', ':PackerSync<cr>', {silent = true})    -- update, compile
 setkeymap('n', '<leader>pu', ':PackerUpdate<cr>', {silent = true})  -- clean, update
 
--- terminal mode
+-- initiate terminal mode
 setkeymap('n', '<leader>t', ':term<cr>', {silent = true})
--- escape exits terminal mode
+
+-- exit terminal mode
 setkeymap('t', '<Esc>', '<C-\\><C-n>')
 
--- redo
-setkeymap('n', 'U', '<C-r>')
-
--- stop highlighting after search/substitute
+-- stop highlighting text (useful after search/substitute)
 setkeymap('n', '<leader>n', ':noh<cr>', {silent = true})
 
 -- initiate global substitute
@@ -394,10 +502,9 @@ setkeymap('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
 setkeymap('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
 setkeymap('n', '<leader>gu', ':GitGutterUndoHunk<cr>', {silent = true})
 
-
--- conjure evaluations
+-- conjure: evaluations
 setkeymap('n', '<leader>e', ':%ConjureEval<cr>')
-setkeymap('n', '<leader>f', ':ConjureEvalCurrentForm<cr>')
+-- setkeymap('n', '<leader>f', ':ConjureEvalCurrentForm<cr>')
 
 -- clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 setkeymap('n', '<leader>CL', ':ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\\><C-n>:tabprevious<cr><C-w>h')
