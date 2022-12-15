@@ -1,17 +1,19 @@
+NecroDancer
 QtProject.conf
 Unknown Organization
-dleyna-server-service.conf
 alacritty
 anthy
 azuredatastudio
 bottom
 btop/btop.log
 btop/themes
+cef_user_data
 coc
 configstore
 connections.db
 dconf
 dleyna-renderer-service.conf
+dleyna-server-service.conf
 dolphin-emu/
 enchant
 eog
