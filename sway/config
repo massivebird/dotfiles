@@ -224,3 +224,4 @@ for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] float
 for_window [window_role="Open Files"] floating enable sticky
 for_window [window_role="File Operation Progress"] floating enable sticky
 for_window [window_role="Save As"] floating enable
+for_window [class="Steam" title="Friends List"] floating enable
