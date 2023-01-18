@@ -8,6 +8,8 @@
 exec --no-startup-id picom --config $HOME/.config/picom.conf --experimental-backends
 # bg color
 exec --no-startup-id xsetroot -solid "#0e0e0e"
+# enable touchpad tap-to-click
+exec --no-startup-id xinput set-prop 11 343 1
 
 # i3 config file (v4)
 #
@@ -50,7 +52,7 @@ bindsym $mod+ctrl+shift+f+d exec systemctl poweroff
 bindsym Print exec grim ~/Pictures/$(date +"%m-%d-%YT%H-%M-%S").png
 # was opening a new terminal
 bindsym ctrl+shift+n nop
-# app shortcuts
+
 bindsym $mod+o+1 exec firefox
 bindsym $mod+Return exec $term
 bindsym $win+r exec $menu
@@ -85,6 +87,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 
 # colors ##############################
 
@@ -214,7 +218,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-        font pango:JetBrains Mono NL 13
+        font pango:JetBrains Mono NL
         status_command i3status
         position top
         # mode hide
