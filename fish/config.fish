@@ -28,6 +28,8 @@ if status is-interactive
    set -x QT_QPA_PLATFORM 'wayland'
    set -x XDG_CURRENT_DESKTOP 'sway'
    set -x XDG_SESSION_TYPE 'wayland'
+   # tomcat9
+   set -x CATALINA_HOME "/usr/local/tomcat9"
 
    # variables: java #####################
 
