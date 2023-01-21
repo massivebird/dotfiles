@@ -20,6 +20,7 @@ flava[ds]=$DS
 flava[gb]=$GB
 flava[gba]=$GBA
 flava[games]=$GCN
+flava[genesis]=$GEN
 flava[n64]=$N64
 flava[ps1]=$PS1
 flava[ps2]=$PS2
@@ -50,7 +51,7 @@ OUTPUT=$(sed -E "s&\ ?\([A-Z]+.*\)&&" <<< "$OUTPUT")
 # eliminate square bracket stuff like [C][!]
 OUTPUT=$(sed -Ee "s&\[.*\]&&" <<< "$OUTPUT")
 # eliminate revisions like (Rev 1)
-OUTPUT=$(sed -E "s& \(Rev.*\)&&" <<< "$OUTPUT")
+# OUTPUT=$(sed -E "s& \(Rev.*\)&&" <<< "$OUTPUT")
 
 # for every key in the array...
 for key in ${!flava[@]}; do
