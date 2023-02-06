@@ -37,7 +37,7 @@ battery 0 {
   status_unk = "UNK"
   status_full = "FULL"
   path = "/sys/class/power_supply/BAT%d/uevent"
-  low_threshold = 10
+  low_threshold = 25
 }
 
 run_watch DHCP {
