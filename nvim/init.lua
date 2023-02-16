@@ -47,7 +47,16 @@ packer.startup(function(use)
    use 'jiangmiao/auto-pairs'
 
    -- live version control feedback
-   use 'airblade/vim-gitgutter'
+   use {
+      'airblade/vim-gitgutter',
+      config = function()
+         -- gitgutter navigation
+         vim.keymap.set('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
+         vim.keymap.set('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
+         vim.keymap.set('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
+         vim.keymap.set('n', '<leader>gu', ':GitGutterUndoHunk<cr>', {silent = true})
+      end
+   }
 
    -- colorschemes
    use 'evprkr/galaxian-vim'
@@ -73,8 +82,8 @@ packer.startup(function(use)
          -- https://github.com/nvim-telescope/telescope.nvim#previewers
          local tele = require('telescope')
          local builtin = require('telescope.builtin')
-         local actions = require('telescope.actions')
-         local browser = tele.extensions.file_browser
+         -- local actions = require('telescope.actions')
+         -- local browser = tele.extensions.file_browser
 
          local find_files_from_root = function()
             builtin.find_files {
@@ -171,7 +180,7 @@ packer.startup(function(use)
    use {
       'preservim/vim-markdown',
       config = function()
-         vim.opt.conceallevel = 2
+         vim.opt.conceallevel = 0
          -- vim.g['vim_markdown_folding_disabled'] = 0
          -- vim.g['vim_markdown_folding_level'] = 3
       end
@@ -189,6 +198,8 @@ packer.startup(function(use)
    use {
       'olical/conjure',
       config = function()
+         vim.g['conjure#filetypes'] = {"clojure"}
+         vim.g['conjure#mapping#doc-word'] = false
          vim.g.ale_linters = {
             ['*'] = {'ale_linters'},
             ['clojure'] = {'clj-kondo'},
@@ -243,10 +254,41 @@ packer.startup(function(use)
       'neoclide/coc.nvim',
       ['branch'] = 'release',
       config = function()
-         -- snippet: use <C-j> for jump to next placeholder, it's default of coc.nvim
+
+         local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+
+         -- K shows documentation in preview window
+         function _G.show_docs()
+            local cw = vim.fn.expand('<cword>')
+            if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
+               vim.api.nvim_command('h ' .. cw)
+            elseif vim.api.nvim_eval('coc#rpc#ready()') then
+               vim.fn.CocActionAsync('doHover')
+            else
+               vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
+            end
+         end
+         vim.keymap.set('n', 'K', '<cmd>lua _G.show_docs()<cr>', opts)
+
+         -- dismiss completion list without completion
+         vim.keymap.set('i', '<c-cr>', 'coc#pum#cancel()')
+         -- tab to go down
+         vim.keymap.set('i', '<tab>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<tab>" : coc#refresh()', opts)
+         -- shift tab to go up
+         vim.keymap.set('i', '<s-tab>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+         -- enter selects first/selected item,
+         -- do NOT change these double quotes to single quotes
+         vim.keymap.set('i', '<cr>', [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+         -- reopen completion menu without typing
+         vim.keymap.set('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
+         -- coc-snippet: use <C-j> for jump to next placeholder, it's default of coc.nvim
          vim.g['coc_snippet_next'] = '<c-j>'
-         -- snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
+         -- coc-snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
          vim.g['coc_snippet_prev'] = '<c-k>'
+         -- coc-snippet: insert snippet
+         -- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
+         vim.keymap.set('i', '<C-l>', '<Plug>(coc-snippets-expand)')
+
       end
    }
 
@@ -491,16 +533,10 @@ setkeymap('n', '<leader>o', 'o<Up><Esc>')
 setkeymap('n', '<leader>O', 'O<Down><Esc>')
 
 -- fix indentation of entire file
-setkeymap('n', '<F7>', 'mtgg=G`t')
+setkeymap('n', '<F7>', 'mZgg=G`Z')
 
 -- toggle spelling
 setkeymap('n', '<leader>d', ':set spell!<cr>')
-
--- gitgutter shortcuts
-setkeymap('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
-setkeymap('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
-setkeymap('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
-setkeymap('n', '<leader>gu', ':GitGutterUndoHunk<cr>', {silent = true})
 
 -- conjure: evaluations
 setkeymap('n', '<leader>e', ':%ConjureEval<cr>')
@@ -535,26 +571,11 @@ setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
 setkeymap('n', 'zl', 'zA', {silent = true})
 setkeymap('n', 'zh', 'zC', {silent = true})
 
--- coc: dismiss completion list without completion
-setkeymap('i', '<c-cr>', 'coc#pum#cancel()')
-
--- coc: tab to go down
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-setkeymap('i', '<tab>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<tab>" : coc#refresh()', opts)
-
--- coc: shift tab to go up
-setkeymap('i', '<s-tab>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-
--- coc: enter selects first/selected item
--- do NOT change these double quotes to single quotes
-setkeymap('i', '<cr>', [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-
--- coc: reopen completion menu without typing
-setkeymap('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
-
--- coc-snippet: insert snippet
--- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
-setkeymap('i', '<C-l>', '<Plug>(coc-snippets-expand)')
+-- Diagnostic keymaps
+setkeymap('n', '[d', vim.diagnostic.goto_prev)
+setkeymap('n', ']d', vim.diagnostic.goto_next)
+-- setkeymap('n', '<leader>e', vim.diagnostic.open_float)
+-- setkeymap('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- keymaps: Stel's navigation solutions ----------
 -- github.com/stelcodes/xdg-config
@@ -576,3 +597,6 @@ setkeymap('n', '<c-j>', '<C-w>j')
 setkeymap('n', '<c-k>', '<C-w>k')
 setkeymap('n', '<c-h>', '<c-w>h')
 setkeymap('n', '<c-l>', '<c-w>l')
+
+-- presentation mode
+setkeymap('n', '<c-p>', ':set signcolumn=yes:9 showmode! relativenumber! number!<cr>:GitGutterDisable<cr>:CocDisable<cr>')
