@@ -22,6 +22,7 @@ flava[gba]=$GBA
 flava[games]=$GCN
 flava[genesis]=$GEN
 flava[n64]=$N64
+flava[nes]=$NES
 flava[ps1]=$PS1
 flava[ps2]=$PS2
 flava[psp]=$PSP

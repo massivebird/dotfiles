@@ -23,6 +23,7 @@ NUM_GBA=$(ls -l $DIR_GBA | grep -cE '\.gba')
 NUM_GCN=$(ls -l $DIR_GCN | grep -cE '^d.*\[.*')
 NUM_GEN=$(ls -l $DIR_GEN | grep -cE '\.md')
 NUM_N64=$(ls -l $DIR_N64 | grep -cE '\.[nz]64|.rom')
+NUM_NES=$(ls -l $DIR_NES | grep -cE '\.nes')
 NUM_PS1=$(ls -l $DIR_PS1 | grep -vcE '^d.*(Disc [^1])|bios|total')
 NUM_PS2=$(ls -l $DIR_PS2 | grep -cE '\.iso')
 NUM_PSP=$(ls -l $DIR_PSP | grep -cE '\.iso')
@@ -43,12 +44,13 @@ SIZE_GBA=$(calcsize $DIR_GBA)
 SIZE_GCN=$(calcsize $DIR_GCN)
 SIZE_GEN=$(calcsize $DIR_GEN)
 SIZE_N64=$(calcsize $DIR_N64)
+SIZE_NES=$(calcsize $DIR_NES)
 SIZE_PS1=$(calcsize $DIR_PS1)
 SIZE_PS2=$(calcsize $DIR_PS2)
 SIZE_PSP=$(calcsize $DIR_PSP)
 SIZE_SNES=$(calcsize $DIR_SNES)
 SIZE_WII=$(calcsize $DIR_WII)
-SIZE_TOTAL=$(calcsize $DIR_WII $DIR_GCN $DIR_PS1 $DIR_PS2 $DIR_PSP $DIR_DS $DIR_DS3 $DIR_GEN $DIR_SNES $DIR_GBA $DIR_GB $DIR_N64)
+SIZE_TOTAL=$(calcsize $DIR_WII $DIR_GCN $DIR_PS1 $DIR_PS2 $DIR_PSP $DIR_DS $DIR_DS3 $DIR_GEN $DIR_SNES $DIR_GBA $DIR_GB $DIR_N64 $DIR_NES)
 
 # main output
 printf """\n\
@@ -61,6 +63,7 @@ ${GBA}\t${NUM_GBA}\t${SIZE_GBA}
 ${GCN}\t${NUM_GCN}\t${SIZE_GCN}
 ${GEN}\t${NUM_GEN}\t${SIZE_GEN}
 ${N64}\t${NUM_N64}\t${SIZE_N64}
+${NES}\t${NUM_NES}\t${SIZE_NES}
 ${PS1}\t${NUM_PS1}\t${SIZE_PS1}
 ${PS2}\t${NUM_PS2}\t${SIZE_PS2}
 ${PSP}\t${NUM_PSP}\t${SIZE_PSP}
