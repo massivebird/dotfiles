@@ -4,7 +4,7 @@
 # local game archive
 
 # path to backup directory
-DIR_BACKUP="/mnt/d/wiiback"
+DIR_BACKUP="/mnt/d/game-archive"
 # and subsequent game directories
 DIR_DS3="$DIR_BACKUP/3ds"
 DIR_DS="$DIR_BACKUP/ds"
