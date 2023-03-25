@@ -28,8 +28,11 @@ if status is-interactive
    set -x QT_QPA_PLATFORM 'wayland'
    set -x XDG_CURRENT_DESKTOP 'sway'
    set -x XDG_SESSION_TYPE 'wayland'
-   # tomcat9
-   set -x CATALINA_HOME "/usr/local/tomcat9"
+   # tomcat
+   set -x CATALINA_HOME "/usr/local/tomcat10"
+   # android studio
+   set -x _JAVA_AWT_WM_NONREPARENTING 1
+   set -x STUDIO_JDK /opt/jdk-18/bin/javac
 
    # variables: java #####################
 
@@ -127,6 +130,7 @@ if status is-interactive
    alias sf 'source ~/.config/fish/config.fish -f'
    alias sv 'source ~/.config/fish/config.fish -v'
    alias ta 'task add'
+   alias tc 'task calendar'
    alias tl 'task list'
    alias tn 'task next'
    alias tpc 'tput cnorm'
