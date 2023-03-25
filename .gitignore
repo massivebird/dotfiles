@@ -34,6 +34,7 @@ libreoffice
 libvirt
 memos.json
 menus
+mimeapps.list
 monitors.xml
 monitors.xml~
 nautilus
@@ -47,6 +48,7 @@ pavucontrol.ini
 picom/
 pulse
 ranger/colorschemes/__*
+rygel.conf
 scripts/smoothcolor.sh
 spotify
 sway/inactive-windows-transparency.py
