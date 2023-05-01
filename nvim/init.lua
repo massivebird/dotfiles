@@ -270,20 +270,13 @@ packer.startup(function(use)
          end
          vim.keymap.set('n', 'K', '<cmd>lua _G.show_docs()<cr>', opts)
 
-         -- dismiss completion list without completion
-         vim.keymap.set('i', '<c-cr>', 'coc#pum#cancel()')
-         -- tab to go down
-         vim.keymap.set('i', '<tab>', 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<tab>" : coc#refresh()', opts)
-         -- shift tab to go up
-         vim.keymap.set('i', '<s-tab>', [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-         -- enter selects first/selected item,
-         -- do NOT change these double quotes to single quotes
+         -- selects first/selected item
          vim.keymap.set('i', '<cr>', [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
          -- reopen completion menu without typing
          vim.keymap.set('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
-         -- coc-snippet: use <C-j> for jump to next placeholder, it's default of coc.nvim
+         -- coc-snippet: jump to next placeholder
          vim.g['coc_snippet_next'] = '<c-j>'
-         -- coc-snippet: use <C-k> for jump to previous placeholder, it's default of coc.nvim
+         -- coc-snippet: jump to previous placeholder
          vim.g['coc_snippet_prev'] = '<c-k>'
          -- coc-snippet: insert snippet
          -- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
