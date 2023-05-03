@@ -251,38 +251,126 @@ packer.startup(function(use)
 
    -- intellisense engine
    use {
-      'neoclide/coc.nvim',
-      ['branch'] = 'release',
+      'hrsh7th/nvim-cmp',
+      requires = {
+         'hrsh7th/cmp-nvim-lsp',
+         'hrsh7th/cmp-buffer',
+         'hrsh7th/cmp-path',
+         'hrsh7th/cmp-cmdline',
+         'L3MON4D3/LuaSnip',
+         'saadparwaiz1/cmp_luasnip',
+         'onsails/lspkind.nvim'
+      },
       config = function()
+         local lspkind = require('lspkind')
+         lspkind.init()
+         local cmp = require('cmp')
+         cmp.setup {
+            mapping = {
+               ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+               ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+               ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+               ["<C-f>"] = cmp.mapping.scroll_docs(4),
+               ["<C-e>"] = cmp.mapping.abort(),
+               ["<c-y>"] = cmp.mapping(
+                  cmp.mapping.confirm {
+                     behavior = cmp.ConfirmBehavior.Insert,
+                     select = true,
+                  },
+                  { "i", "c" }
+               ),
+               ["<c-space>"] = cmp.mapping {
+                  i = cmp.mapping.complete(),
+                  c = function(
+                     _ --[[fallback]]
+                  )
+                     if cmp.visible() then
+                        if not cmp.confirm { select = true } then
+                           return
+                        end
+                     else
+                        cmp.complete()
+                     end
+                  end,
+               },
+               ["<tab>"] = cmp.config.disable,
+               -- Testing
+               ["<c-q>"] = cmp.mapping.confirm {
+                  behavior = cmp.ConfirmBehavior.Replace,
+                  select = true,
+               },
+            },
 
-         local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
+            sources = {
+               { name = "gh_issues" },
+               { name = "nvim_lua" },
+               { name = "nvim_lsp" },
+               { name = "path" },
+               { name = "luasnip" },
+               { name = "buffer", keyword_length = 5 },
+            },
 
-         -- K shows documentation in preview window
-         function _G.show_docs()
-            local cw = vim.fn.expand('<cword>')
-            if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
-               vim.api.nvim_command('h ' .. cw)
-            elseif vim.api.nvim_eval('coc#rpc#ready()') then
-               vim.fn.CocActionAsync('doHover')
-            else
-               vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-            end
-         end
-         vim.keymap.set('n', 'K', '<cmd>lua _G.show_docs()<cr>', opts)
+            sorting = {
+               comparators = {
+                  cmp.config.compare.offset,
+                  cmp.config.compare.exact,
+                  cmp.config.compare.score,
 
-         -- selects first/selected item
-         vim.keymap.set('i', '<cr>', [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-         -- reopen completion menu without typing
-         vim.keymap.set('i', '<c-space>', 'coc#refresh()', {silent = true, expr = true})
-         -- coc-snippet: jump to next placeholder
-         vim.g['coc_snippet_next'] = '<c-j>'
-         -- coc-snippet: jump to previous placeholder
-         vim.g['coc_snippet_prev'] = '<c-k>'
-         -- coc-snippet: insert snippet
-         -- cmd [[imap <C-l> <Plug>(coc-snippets-expand)]]
-         vim.keymap.set('i', '<C-l>', '<Plug>(coc-snippets-expand)')
+                  function(entry1, entry2)
+                     local _, entry1_under = entry1.completion_item.label:find "^_+"
+                     local _, entry2_under = entry2.completion_item.label:find "^_+"
+                     entry1_under = entry1_under or 0
+                     entry2_under = entry2_under or 0
+                     if entry1_under > entry2_under then
+                        return false
+                     elseif entry1_under < entry2_under then
+                        return true
+                     end
+                  end,
 
-      end
+                  cmp.config.compare.kind,
+                  cmp.config.compare.sort_text,
+                  cmp.config.compare.length,
+                  cmp.config.compare.order,
+               },
+            },
+
+            snippet = {
+               expand = function(args)
+                  require("luasnip").lsp_expand(args.body)
+               end,
+            },
+
+            formatting = {
+               -- Youtube: How to set up nice formatting for your sources.
+               format = lspkind.cmp_format {
+                  with_text = true,
+                  menu = {
+                     buffer = "[buf]",
+                     nvim_lsp = "[LSP]",
+                     nvim_lua = "[api]",
+                     path = "[path]",
+                     luasnip = "[snip]",
+                     gh_issues = "[issues]",
+                     tn = "[TabNine]",
+                  },
+               },
+            },
+
+            experimental = {
+               -- I like the new menu better! Nice work hrsh7th
+               native_menu = false,
+
+               -- Let's play with this for a day or two
+               ghost_text = false,
+            },
+
+            window = {
+               completion = cmp.config.window.bordered(),
+               documentation = cmp.config.window.bordered(),
+            },
+         }
+      end -- of config
    }
 
    -- snippets
