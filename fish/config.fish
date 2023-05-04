@@ -86,6 +86,7 @@ if status is-interactive
    alias gca 'git commit -v -a'
    alias gcam 'git commit -a -m'
    alias gcan 'git commit -a -m "+ notes"'
+   alias gch 'git checkout'
    alias gf 'git fetch'
    alias gl 'git log --oneline --decorate short --graph'
    alias gll 'git log --graph --stat'
