@@ -218,22 +218,24 @@ packer.startup(function(use)
    -- rainbow parentheses
    use 'p00f/nvim-ts-rainbow'
 
-	use 'nvim-treesitter/nvim-treesitter-context'
-   require'treesitter-context'.setup{
-      enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-      max_lines = 2,
-      -- minimum editor window height to enable context
-      min_window_height = 0,
-      line_numbers = true,
-      -- max number of lines to collapse for a single context line
-      multiline_threshold = 20,
-      -- which context lines to discard if `max_lines` is exceeded
-      trim_scope = 'outer',
-      mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
-      -- Separator between context and content. Should be a single character string, like '-'.
-      -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-      separator = "-",
-      zindex = 20, -- The Z-index of the context window
+	use {
+      'nvim-treesitter/nvim-treesitter-context',
+      require'treesitter-context'.setup{
+         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+         max_lines = 2,
+         -- minimum editor window height to enable context
+         min_window_height = 0,
+         line_numbers = true,
+         -- max number of lines to collapse for a single context line
+         multiline_threshold = 10,
+         -- which context lines to discard if `max_lines` is exceeded
+         trim_scope = 'outer',
+         mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+         -- Separator between context and content. Should be a single character string, like '-'.
+         -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+         separator = "-",
+         zindex = 20, -- The Z-index of the context window
+      }
    }
 
    -- treesitter
