@@ -106,6 +106,14 @@ packer.startup(function(use)
             }
          end
 
+         local nvim_modules = function()
+            builtin.find_files {
+               search_dirs = {'/home/penguino/.config/nvim/lua/*'},
+               prompt_title = "Nvim modules",
+               hidden = false,
+            }
+         end
+
          tele.setup {
             defaults = {
                file_ignore_patterns = {
@@ -143,14 +151,15 @@ packer.startup(function(use)
          tele.load_extension('file_browser')
          tele.load_extension('ui-select')
 
+         vim.keymap.set('n', '<leader>fH', builtin.highlights)
          vim.keymap.set('n', '<leader>fb', builtin.buffers)
          vim.keymap.set('n', '<leader>fc', builtin.colorscheme)
          vim.keymap.set('n', '<leader>ff', builtin.find_files)
          vim.keymap.set('n', '<leader>fg', builtin.live_grep)
          vim.keymap.set('n', '<leader>fh', builtin.help_tags)
-         vim.keymap.set('n', '<leader>fH', builtin.highlights)
          vim.keymap.set('n', '<leader>fj', builtin.jumplist)
          vim.keymap.set('n', '<leader>fl', grep_in_open_buffers)
+         vim.keymap.set('n', '<leader>fm', nvim_modules)
          vim.keymap.set('n', '<leader>fn', browse_notes)
          vim.keymap.set('n', '<leader>fo', builtin.oldfiles)
          vim.keymap.set('n', '<leader>fr', find_files_from_root)
