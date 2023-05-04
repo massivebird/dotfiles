@@ -6,9 +6,10 @@ local cmd = vim.cmd
 local set = vim.opt
 local setkeymap = vim.keymap.set
 
--- general settings -------------------------------
-
+-- load lua module(s) ----------------------------
 require('plugins')
+
+-- general settings -------------------------------
 
 -- color nonsense
 cmd 'let base16colorspace = 256'
