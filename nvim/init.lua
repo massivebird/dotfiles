@@ -62,6 +62,7 @@ packer.startup(function(use)
    use 'evprkr/galaxian-vim'
    use 'massivebird/vim-framer-syntax'
    use 'chriskempson/base16-vim'
+   use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
 
    -- close buffer without closing window with :Bdelete
    use 'moll/vim-bbye'
@@ -217,11 +218,29 @@ packer.startup(function(use)
    -- rainbow parentheses
    use 'p00f/nvim-ts-rainbow'
 
+	use 'nvim-treesitter/nvim-treesitter-context'
+   require'treesitter-context'.setup{
+      enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+      max_lines = 2,
+      -- minimum editor window height to enable context
+      min_window_height = 0,
+      line_numbers = true,
+      -- max number of lines to collapse for a single context line
+      multiline_threshold = 20,
+      -- which context lines to discard if `max_lines` is exceeded
+      trim_scope = 'outer',
+      mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+      -- Separator between context and content. Should be a single character string, like '-'.
+      -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+      separator = "-",
+      zindex = 20, -- The Z-index of the context window
+   }
+
    -- treesitter
    -- exe installer: `npm install -g tree-sitter-cli`
    use {
       'nvim-treesitter/nvim-treesitter',
-      -- ['do'] = ':TSUpdate',
+      ['do'] = ':TSUpdate',
       config = function()
          require'nvim-treesitter.configs'.setup {
             ensure_installed = { "c", "php", "python", "clojure", "rust", "html", "css", "markdown", "vim", "fish", "json" },
@@ -249,16 +268,115 @@ packer.startup(function(use)
       end
    }
 
-   -- intellisense engine
+   use {
+      'neovim/nvim-lspconfig',
+      config = function()
+         -- https://github.com/neovim/nvim-lspconfig#Keybindings-and-completion
+         local lspconfig = require('lspconfig')
+
+         -- Use an on_attach function to only map the following keys
+         -- after the language server attaches to the current buffer
+         local on_attach = function()
+            vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+            vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { buffer = 0 })
+            vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = 0 })
+            vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { buffer = 0 })
+            vim.keymap.set('n', '<leader>ll', vim.diagnostic.open_float, { buffer = 0 })
+            vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, { buffer = 0 })
+            vim.keymap.set('v', '<leader>lf', function() vim.lsp.buf.range_formatting({}) end, { buffer = 0 })
+
+            -- Add borders to :LspInfo floating window
+            -- https://neovim.discourse.group/t/lspinfo-window-border/1566/2
+            require('lspconfig.ui.windows').default_options.border = 'rounded'
+
+         end
+
+         lspconfig.clojure_lsp.setup {
+            on_attach = on_attach,
+         }
+
+         -- lspconfig.lua_ls.setup {
+         --    on_attach = on_attach,
+         --    settings = {
+         --       Lua = {
+         --          diagnostics = {
+         --             globals = { 'vim' }
+         --          }
+         --       }
+         --    }
+         -- }
+
+         lspconfig.gopls.setup {
+            on_attach = on_attach,
+         }
+
+         -- pip install --user python-lsp-server
+         -- lspconfig.pylsp.setup {
+         --   on_attach = on_attach,
+         -- }
+
+         -- nix-env -iA nixpkgs.pyright
+         -- npm install -g pyright
+         lspconfig.pyright.setup {
+            on_attach = on_attach,
+         }
+
+         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
+         lspconfig.java_language_server.setup {
+            on_attach = on_attach,
+            cmd = { '/home/penguino/java-language-server/dist/lang_server_linux.sh' },
+         }
+
+         lspconfig.marksman.setup {
+            cmd = {"marksman", "server"},
+            filetypes = { "markdown" }
+         }
+
+         lspconfig.bashls.setup {
+            cmd = {"bash-language-server", "start"},
+            filetypes = { "sh" }
+         }
+
+         lspconfig.rust_analyzer.setup {
+            on_attach = on_attach,
+            settings = {
+               ["rust-analyzer"] = {
+                  assist = {
+                     importGranularity = "module",
+                     importPrefix = "by_self",
+                  },
+                  cargo = {
+                     loadOutDirsFromCheck = true
+                  },
+                  procMacro = {
+                     enable = true
+                  },
+               }
+            }
+         }
+
+         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+            vim.lsp.handlers.hover,
+            { border = "rounded" }
+         )
+         vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+            vim.lsp.handlers.signature_help,
+            { border = "rounded" }
+         )
+      end
+   }
+
+   -- autocompletion
    use {
       'hrsh7th/nvim-cmp',
       requires = {
          'hrsh7th/cmp-nvim-lsp',
+         'hrsh7th/cmp-nvim-lua',
          'hrsh7th/cmp-buffer',
          'hrsh7th/cmp-path',
          'hrsh7th/cmp-cmdline',
-         'L3MON4D3/LuaSnip',
-         'saadparwaiz1/cmp_luasnip',
+         -- 'L3MON4D3/LuaSnip',
+         -- 'saadparwaiz1/cmp_luasnip',
          'onsails/lspkind.nvim'
       },
       config = function()
@@ -301,12 +419,14 @@ packer.startup(function(use)
                },
             },
 
+            -- global sources, order = priority
             sources = {
-               { name = "gh_issues" },
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
+               { name = "treesitter" },
+               { name = "ultisnips" },
                { name = "path" },
-               { name = "luasnip" },
+               { name = "dictionary" },
                { name = "buffer", keyword_length = 5 },
             },
 
@@ -342,26 +462,23 @@ packer.startup(function(use)
             },
 
             formatting = {
-               -- Youtube: How to set up nice formatting for your sources.
                format = lspkind.cmp_format {
                   with_text = true,
                   menu = {
                      buffer = "[buf]",
-                     nvim_lsp = "[LSP]",
+                     nvim_lsp = "[lsp]",
                      nvim_lua = "[api]",
                      path = "[path]",
                      luasnip = "[snip]",
                      gh_issues = "[issues]",
-                     tn = "[TabNine]",
                   },
                },
             },
 
             experimental = {
-               -- I like the new menu better! Nice work hrsh7th
+               -- ! opt for alt popup style
                native_menu = false,
-
-               -- Let's play with this for a day or two
+               -- preview selected text inside buffer
                ghost_text = false,
             },
 
@@ -369,9 +486,35 @@ packer.startup(function(use)
                completion = cmp.config.window.bordered(),
                documentation = cmp.config.window.bordered(),
             },
-         }
-      end -- of config
+         } -- end of cmp.setup()
+
+      end -- of config function()
    }
+
+   use {
+      'ntpeters/vim-better-whitespace',
+      config = function()
+         vim.g['current_line_whitespace_disabled_hard'] = 1
+         vim.g['better_whitespace_guicolor'] = '#ff5555'
+         vim.g['better_whitespace_filetypes_blacklist'] = {
+            '', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive'
+         }
+      end
+   }
+
+   -- use {
+   --    'lukas-reineke/indent-blankline.nvim',
+   --    config = function()
+   --       vim.opt.list = true
+   --       vim.opt.listchars:append "eol:↴"
+   --       require("indent_blankline").setup {
+   --          show_end_of_line = true,
+   --          space_char_blankline = " ",
+   --          show_current_context = true,
+   --          show_current_context_start = true,
+   --       }
+   --    end
+   -- }
 
    -- snippets
    use {
@@ -407,39 +550,41 @@ syntax on
 syntax enable
 ]]
 
--- disable folding [in markdown]
+-- folding [in markdown]
 set.foldenable = false;
--- menu for command line completions
+-- menu for command completions
 set.wildmenu = true
--- spellcheck languages
+-- spellcheck language(s)
 set.spelllang = 'en_us'
 -- spellcheck
 set.spell = false
--- highlight entire line
+-- highlight entire cursor line
 set.cursorline = true
+-- minimal lines above/below cursor
+set.scrolloff = 2
 -- line numbers
 set.number = true
--- line numbers are relative to current line
+-- relative line numbers from current line
 set.relativenumber = true
 -- wrap long lines
 set.linebreak = true
 -- show mode in command area
 set.showmode = false
--- allows [inc|dec]rememnting letter characters
+-- [inc|dec]rememnting alpha characters
 cmd [[ set nrformats+=alpha ]]
--- num of spaces <tab> accounts for
+-- <tab> = # spaces
 set.tabstop = 3
--- num spaces << and >> account for (0 -> tabstop)
+-- << and >> # of spaces (0 -> tabstop)
 set.shiftwidth = 0
--- use spaces instead of tab characters
+-- default to spaces instead of tab characters
 set.expandtab = true
 -- new window appears to right of current one
 set.splitright = true
--- always show sign column, would otherwise shift text every time
+-- always show sign column w gitgutter
 set.signcolumn = "yes"
--- default updatetime is 4000ms, too slow
+-- update interval for gitgutter and stuff
 set.updatetime = 300
--- disable mouse functionality
+-- actual mouse support
 set.mouse =
 
 -- enable filetype-specific configuration files
@@ -509,7 +654,7 @@ function! LightlineReload()
    call lightline#colorscheme()
    call lightline#update()
 endfunction
-command! LightlineReload call LightlineReload() 
+command! LightlineReload call LightlineReload()
    ]]
 
 -- identify highlight group under cursor
@@ -519,7 +664,7 @@ let l:s = synID(line('.'), col('.'), 1)
 echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfunction
 nnoremap <leader>hg :call SynGroup()<cr>
-command! SynGroup call SynGroup() 
+command! SynGroup call SynGroup()
    ]]
 
 -- coc: bind <tab>
