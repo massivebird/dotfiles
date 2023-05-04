@@ -72,7 +72,8 @@ packer.startup(function(use)
 
    -- fuzzy finder
    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      'nvim-telescope/telescope.nvim',
+      tag = '0.1.0',
       requires = {
          'nvim-lua/plenary.nvim',
          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
@@ -142,6 +143,9 @@ packer.startup(function(use)
                   results_title = false,
                   prompt_title = false,
                },
+               colorscheme = {
+                  enable_preview = true,
+               }
             },
          }
 
@@ -150,6 +154,7 @@ packer.startup(function(use)
          tele.load_extension('ui-select')
 
          vim.keymap.set('n', '<leader>fb', builtin.buffers)
+         vim.keymap.set('n', '<leader>fc', builtin.colorscheme)
          vim.keymap.set('n', '<leader>ff', builtin.find_files)
          vim.keymap.set('n', '<leader>fg', builtin.live_grep)
          vim.keymap.set('n', '<leader>fh', builtin.help_tags)
@@ -162,7 +167,6 @@ packer.startup(function(use)
          vim.keymap.set('n', '<leader>fv', builtin.vim_options)
 
       end
-      -- ^ end of config = function()
    }
 
    -- color highlighter
@@ -222,7 +226,7 @@ packer.startup(function(use)
       'nvim-treesitter/nvim-treesitter-context',
       require'treesitter-context'.setup{
          enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-         max_lines = 2,
+         max_lines = 3,
          -- minimum editor window height to enable context
          min_window_height = 0,
          line_numbers = true,
@@ -256,6 +260,16 @@ packer.startup(function(use)
                -- true, false, or list of languages
                disable = {"vim", "markdown", "html", "php", "gitcommit"},
                -- additional_vim_regex_highlighting = true,
+            },
+            incremental_selection = {
+               enable = true,
+               keymaps = {
+                  -- set to `false` to disable one of the mappings
+                  init_selection = "gnn",
+                  node_incremental = "grn",
+                  scope_incremental = "grc",
+                  node_decremental = "grm",
+               },
             },
             -- rainbow parentheses/brackets
             rainbow = {
