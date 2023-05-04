@@ -22,6 +22,7 @@ enchant
 eog
 evolution
 fish/fish_variables
+fontforge/
 gedit
 ghb/
 gnome-boxes
@@ -40,6 +41,7 @@ monitors.xml~
 nautilus
 neofetch
 nnn
+nvim/lsp/
 nvim/plugged
 nvim/plugin
 nvim/to-plugins
