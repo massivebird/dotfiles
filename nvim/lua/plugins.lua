@@ -1,5 +1,3 @@
--- plugin manager: packer ------------------------
-
 -- bootstrapping packer
 -- https://github.com/wbthomason/packer.nvim#bootstrapping
 local ensure_packer = function()
@@ -18,8 +16,7 @@ local packer_bootstrap = ensure_packer()
 local packer = require('packer')
 packer.startup(function(use)
 
-   -- packer manages packer itself,
-   -- packer is very powerful
+   -- packer manages itself
    use 'wbthomason/packer.nvim'
 
    -- default options
@@ -32,7 +29,7 @@ packer.startup(function(use)
    use 'tpope/vim-surround'
    -- search/substitute/abbreviate words
    use 'tpope/vim-abolish'
-   -- repeat supported plugin actions with `.`
+   -- repeat supported plugin actions with . key
    use 'tpope/vim-repeat'
 
    -- autocomplete braces and scopes
@@ -42,7 +39,6 @@ packer.startup(function(use)
    use {
       'airblade/vim-gitgutter',
       config = function()
-         -- gitgutter navigation
          vim.keymap.set('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
          vim.keymap.set('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
          vim.keymap.set('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
@@ -87,6 +83,7 @@ packer.startup(function(use)
                search_dirs = {'/home'}
             }
          end
+
          local browse_notes = function()
             builtin.live_grep {
                prompt_title = "Search notes",
@@ -97,6 +94,7 @@ packer.startup(function(use)
                -- cwd = '/home/penguino/academia/notes_all/*'
             }
          end
+
          local grep_in_open_buffers = function()
             builtin.live_grep {
                prompt_title = "Grep in buffers",
