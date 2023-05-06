@@ -321,17 +321,11 @@ packer.startup(function(use)
          --    }
          -- }
 
-         lspconfig.gopls.setup {
-            on_attach = on_attach,
-         }
-
          -- pip install --user python-lsp-server
          -- lspconfig.pylsp.setup {
          --   on_attach = on_attach,
          -- }
 
-         -- nix-env -iA nixpkgs.pyright
-         -- npm install -g pyright
          lspconfig.pyright.setup {
             on_attach = on_attach,
          }
@@ -342,7 +336,6 @@ packer.startup(function(use)
             cmd = { '/home/penguino/java-language-server/dist/lang_server_linux.sh' },
          }
 
-         -- 
          lspconfig.clangd.setup {
             on_attach = on_attach,
             cmd = { "clangd" },
