@@ -342,13 +342,20 @@ packer.startup(function(use)
             cmd = { '/home/penguino/java-language-server/dist/lang_server_linux.sh' },
          }
 
+         -- 
+         lspconfig.clangd.setup {
+            on_attach = on_attach,
+            cmd = { "clangd" },
+            filetypes = { "c", "cpp" },
+         }
+
          lspconfig.marksman.setup {
-            cmd = {"marksman", "server"},
+            cmd = { "marksman", "server" },
             filetypes = { "markdown" }
          }
 
          lspconfig.bashls.setup {
-            cmd = {"bash-language-server", "start"},
+            cmd = { "bash-language-server", "start" },
             filetypes = { "sh" }
          }
 
