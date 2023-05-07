@@ -2,6 +2,7 @@ return {
 
    {
       'olical/conjure',
+      ft = { "clojure" },
       config = function()
          vim.g['conjure#filetypes'] = {"clojure"}
          vim.g['conjure#mapping#doc-word'] = false
@@ -13,12 +14,25 @@ return {
       end
    },
 
-   { 'tpope/vim-dispatch' },
+   {
+      'tpope/vim-dispatch',
+      ft = { "clojure" },
+   },
 
-   { 'tpope/vim-fireplace' },
+   -- repl-nvim connection
+   {
+      'tpope/vim-fireplace',
+      ft = { "clojure" },
+   },
 
-   { 'clojure-vim/vim-jack-in' },
+   {
+      'clojure-vim/vim-jack-in',
+      ft = { "clojure" },
+   },
 
-   { 'radenling/vim-dispatch-neovim' },
+   {
+      'radenling/vim-dispatch-neovim',
+      ft = { "clojure" },
+   },
 
 }

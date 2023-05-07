@@ -12,7 +12,7 @@ return {
    },
 
    -- default options
-   "tpope/vim-sensible",
+   -- "tpope/vim-sensible",
 
    -- comment stuff out
    "tpope/vim-commentary",
@@ -34,5 +34,10 @@ return {
 
    -- close buffer without closing window with :Bdelete
    "moll/vim-bbye",
+
+   -- align regions of text w :Tab[ular]
+   {
+      "godlygeek/tabular",
+   },
 
 }

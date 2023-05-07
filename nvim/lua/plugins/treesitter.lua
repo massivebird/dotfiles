@@ -5,33 +5,38 @@ return {
       event = {"BufReadPost", "BufNewFile"},
       opts = {
          ensure_installed = {
+            "bash",
             "c",
+            "clojure",
+            "cpp",
+            "css",
+            "fish",
+            "html",
+            "javascript",
+            "json",
+            "lua",
+            "luadoc",
+            "markdown",
+            "markdown_inline",
             "php",
             "python",
-            "clojure",
+            "regex",
             "rust",
-            "html",
-            "css",
-            "markdown",
             "vim",
-            "fish",
-            "json"
+            "vimdoc",
          },
          auto_install = true,
          ignore_install = {},
-         indent = {
-            enable = true,
-         },
+         indent = { enable = true },
          highlight = {
             enable = true,
-            -- true, false, or list of languages
             disable = {
                "vim",
                "html",
                "php",
                "gitcommit"
             },
-            -- additional_vim_regex_highlighting = true,
+            additional_vim_regex_highlighting = true,
          },
          incremental_selection = {
             enable = true,
