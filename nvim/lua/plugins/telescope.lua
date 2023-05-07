@@ -85,7 +85,7 @@ return {
                   enable_preview = true,
                },
                nvim_modules = {
-                  path_display = {"truncate"},
+                  path_display = {"smart"},
                }
             },
          }
