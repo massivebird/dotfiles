@@ -23,7 +23,20 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
+
+require("lazy").setup("plugins", {
+   install = {
+      -- native fallback colorscheme
+      colorscheme = { "koehler" },
+   },
+   ui = {
+      border = "rounded",
+   },
+   change_detection = {
+      enabled = true,
+      notify = false,
+   },
+})
 
 -- general settings -------------------------------
 
@@ -62,7 +75,7 @@ set.showmode = false
 -- [inc|dec]rememnting alpha characters
 cmd [[ set nrformats+=alpha ]]
 -- <tab> = # spaces
-set.tabstop = 3
+set.tabstop = 2
 -- << and >> # of spaces (0 -> tabstop)
 set.shiftwidth = 0
 -- default to spaces instead of tab characters
@@ -301,3 +314,6 @@ setkeymap('n', '<c-l>', '<c-w>l')
 
 -- presentation mode
 setkeymap('n', '<c-p>', ':set signcolumn=yes:9 showmode! relativenumber! number!<cr>:GitGutterDisable<cr>:CocDisable<cr>')
+
+-- lazy.nvim window
+setkeymap('n', '<leader>L', ':Lazy<cr>')

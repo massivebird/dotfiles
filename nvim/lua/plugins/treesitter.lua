@@ -25,7 +25,12 @@ return {
          highlight = {
             enable = true,
             -- true, false, or list of languages
-            disable = {"vim", "markdown", "html", "php", "gitcommit"},
+            disable = {
+               "vim",
+               "html",
+               "php",
+               "gitcommit"
+            },
             -- additional_vim_regex_highlighting = true,
          },
          incremental_selection = {

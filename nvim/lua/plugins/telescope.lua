@@ -4,7 +4,7 @@ return {
       version = '0.1.0',
       dependencies = {
          { 'nvim-lua/plenary.nvim' },
-         { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+         { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
          { 'nvim-telescope/telescope-ui-select.nvim' },
          { 'nvim-telescope/telescope-file-browser.nvim' },
       },
