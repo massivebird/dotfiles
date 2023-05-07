@@ -25,17 +25,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
-   install = {
-      -- native fallback colorscheme
-      colorscheme = { "koehler" },
-   },
-   ui = {
-      border = "rounded",
-   },
-   change_detection = {
-      enabled = true,
-      notify = false,
-   },
+  install = {
+    -- native fallback colorscheme
+    colorscheme = { "koehler" },
+  },
+  ui = {
+    border = "rounded",
+  },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
 })
 
 -- general settings -------------------------------
@@ -43,7 +43,7 @@ require("lazy").setup("plugins", {
 -- color nonsense
 cmd 'let base16colorspace = 256'
 if vim.fn.has("termguicolors") then
-   set.termguicolors = true
+  set.termguicolors = true
 end
 
 -- syntax highlighting
@@ -75,7 +75,7 @@ set.showmode = false
 -- [inc|dec]rememnting alpha characters
 cmd [[ set nrformats+=alpha ]]
 -- <tab> = # spaces
-set.tabstop = 2
+set.tabstop = 3
 -- << and >> # of spaces (0 -> tabstop)
 set.shiftwidth = 0
 -- default to spaces instead of tab characters
@@ -112,9 +112,9 @@ augroup end
 local colorscheme_option = 0
 
 if colorscheme_option == 0 then
-   cmd 'colorscheme framer_syntax_dark'
+  cmd 'colorscheme framer_syntax_dark'
 elseif colorscheme_option == 1 then
-   cmd 'colorscheme slate'
+  cmd 'colorscheme slate'
 end
 
 -- functions, commands ---------------------------
@@ -123,8 +123,8 @@ end
 cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
 
 local file_exists = function(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+  local f=io.open(name,"r")
+  if f~=nil then io.close(f) return true else return false end
 end
 
 -- note-querying function
@@ -156,22 +156,22 @@ echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
 endfunction
 nnoremap <leader>hg :call SynGroup()<cr>
 command! SynGroup call SynGroup()
-   ]]
+]]
 
 -- coc: bind <tab>
 function _G.check_back_space()
-   local col = vim.fn.col('.') - 1
-   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
+  local col = vim.fn.col('.') - 1
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
 end
 
 -- lang: python ----------------------------------
 
 if file_exists('/usr/bin/python3.10') then
-   -- laptop
-   vim.g['python3_host_prog'] = '/usr/bin/python3.10'
+  -- laptop
+  vim.g['python3_host_prog'] = '/usr/bin/python3.10'
 else
-   -- desktop
-   vim.g['python3_host_prog'] = '/usr/bin/python3.8'
+  -- desktop
+  vim.g['python3_host_prog'] = '/usr/bin/python3.8'
 end
 
 -- keymaps, remaps, keybinds ---------------------

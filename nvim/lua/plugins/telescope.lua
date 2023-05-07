@@ -3,10 +3,10 @@ return {
       'nvim-telescope/telescope.nvim',
       version = '0.1.0',
       dependencies = {
-         { 'nvim-lua/plenary.nvim' },
+         'nvim-lua/plenary.nvim',
+         'nvim-telescope/telescope-ui-select.nvim',
+         'nvim-telescope/telescope-file-browser.nvim',
          { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-         { 'nvim-telescope/telescope-ui-select.nvim' },
-         { 'nvim-telescope/telescope-file-browser.nvim' },
       },
       config = function()
          -- https://github.com/nvim-telescope/telescope.nvim#previewers

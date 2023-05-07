@@ -12,27 +12,27 @@ return {
    },
 
    -- default options
-   { "tpope/vim-sensible" },
+   "tpope/vim-sensible",
 
    -- comment stuff out
-   { "tpope/vim-commentary" },
+   "tpope/vim-commentary",
 
    -- git commands like :G and :g?
-   { "tpope/vim-fugitive" },
+   "tpope/vim-fugitive",
 
    -- parentheses/tags/brackets editing
-   { "tpope/vim-surround" },
+   "tpope/vim-surround",
 
    -- search/substitute/abbreviate words
-   { "tpope/vim-abolish" },
+   "tpope/vim-abolish",
 
    -- repeat supported plugin actions with . key
-   { "tpope/vim-repeat" },
+   "tpope/vim-repeat",
 
    -- autocomplete braces and scopes
-   { "jiangmiao/auto-pairs" },
+   "jiangmiao/auto-pairs",
 
    -- close buffer without closing window with :Bdelete
-   { "moll/vim-bbye" },
+   "moll/vim-bbye",
 
 }
