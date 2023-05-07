@@ -6,8 +6,24 @@ local cmd = vim.cmd
 local set = vim.opt
 local setkeymap = vim.keymap.set
 
--- load lua module(s) ----------------------------
-require('plugins')
+-- space bar as leader
+vim.g.mapleader = ' '
+
+-- package manager: folke/lazy.nvim --------------
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
 
 -- general settings -------------------------------
 
@@ -84,10 +100,8 @@ local colorscheme_option = 0
 
 if colorscheme_option == 0 then
    cmd 'colorscheme framer_syntax_dark'
-   vim.g['lightline'] = {['colorscheme'] = 'framer_dark'}
 elseif colorscheme_option == 1 then
-   cmd 'colorscheme base16-default-dark'
-   vim.g['lightline'] = {['colorscheme'] = 'base16-default-dark'}
+   cmd 'colorscheme slate'
 end
 
 -- functions, commands ---------------------------
@@ -120,15 +134,6 @@ cmd [[command! -nargs=1 Ngrep vimgrep "<args>\c" $NOTES_DIR/*/*/*.md]]
 --    command! -nargs=+ Ngrepg call MyNgrep(<f-args>)
 --    command! -nargs=* Ngrepa vimgrep "<args>\c" $NOTES_DIR/*/*/*.md
 
--- reload lightline colorscheme
-cmd [[
-function! LightlineReload()
-   call lightline#init()
-   call lightline#colorscheme()
-   call lightline#update()
-endfunction
-command! LightlineReload call LightlineReload()
-   ]]
 
 -- identify highlight group under cursor
 cmd [[
@@ -158,9 +163,6 @@ end
 
 -- keymaps, remaps, keybinds ---------------------
 
--- space bar as leader
-vim.g.mapleader = ' '
-
 -- saving and quitting
 setkeymap('n', '<leader>w', ':w!<cr>', {silent = true})
 setkeymap('n', '<leader>q', ':wq<cr>', {silent = true})
@@ -175,14 +177,14 @@ setkeymap('n', 'cA', 'ggcG')
 -- redo
 setkeymap('n', 'U', '<C-r>')
 
--- reload configuration files
-setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>:LightlineReload<cr>:PackerCompile<cr>', {silent = true})
+-- reload configuration file(s)
+setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>', {silent = true})
 
 -- packer commands
-setkeymap('n', '<leader>pc', ':PackerCompile<cr>', {silent = true}) -- regen changed plugin config
-setkeymap('n', '<leader>pi', ':PackerInstall<cr>', {silent = true}) -- clean, install missing
-setkeymap('n', '<leader>ps', ':PackerSync<cr>', {silent = true})    -- update, compile
-setkeymap('n', '<leader>pu', ':PackerUpdate<cr>', {silent = true})  -- clean, update
+-- setkeymap('n', '<leader>pc', ':PackerCompile<cr>', {silent = true}) -- regen changed plugin config
+-- setkeymap('n', '<leader>pi', ':PackerInstall<cr>', {silent = true}) -- clean, install missing
+-- setkeymap('n', '<leader>ps', ':PackerSync<cr>', {silent = true})    -- update, compile
+-- setkeymap('n', '<leader>pu', ':PackerUpdate<cr>', {silent = true})  -- clean, update
 
 -- initiate terminal mode
 setkeymap('n', '<leader>t', ':term<cr>', {silent = true})

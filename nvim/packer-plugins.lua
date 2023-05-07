@@ -39,8 +39,8 @@ packer.startup(function(use)
    use {
       'airblade/vim-gitgutter',
       config = function()
-         vim.keymap.set('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
          vim.keymap.set('n', '<leader>gp', ':GitGutterPrevHunk<cr>', {silent = true})
+         vim.keymap.set('n', '<leader>gn', ':GitGutterNextHunk<cr>', {silent = true})
          vim.keymap.set('n', '<leader>gv', ':GitGutterPreviewHunk<cr>', {silent = true})
          vim.keymap.set('n', '<leader>gu', ':GitGutterUndoHunk<cr>', {silent = true})
       end
@@ -50,7 +50,7 @@ packer.startup(function(use)
    use 'evprkr/galaxian-vim'
    use 'massivebird/vim-framer-syntax'
    use 'chriskempson/base16-vim'
-   use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
+   use ({ 'projekt0n/github-nvim-theme', version = 'v0.0.7' })
 
    -- close buffer without closing window with :Bdelete
    use 'moll/vim-bbye'
@@ -61,8 +61,8 @@ packer.startup(function(use)
    -- fuzzy finder
    use {
       'nvim-telescope/telescope.nvim',
-      tag = '0.1.0',
-      requires = {
+      version = '0.1.0',
+      dependencies = {
          'nvim-lua/plenary.nvim',
          { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
          'nvim-telescope/telescope-ui-select.nvim',
@@ -114,7 +114,7 @@ packer.startup(function(use)
             }
          end
 
-         tele.setup {
+         tele.init {
             defaults = {
                file_ignore_patterns = {
                   '%.pdf$', '%.db$', '%.opus$', '%.mp3$', '%.wav$', '%.git/', '%.git.*', '%.clj%-kondo/%.cache/', '%.lsp/', '%.cpcache/', '%target/'
@@ -174,7 +174,7 @@ packer.startup(function(use)
    --    -- go to ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase/hexokinase
    --    -- and run `go build`
    --    ['do'] = 'make hexokinase && cp ./hexokinase/hexokinase /usr/bin/hexokinase',
-   --    setup = function()
+   --    init = function()
    --       vim.g.Hexokinase_highlighters = {'backgroundfull'}
    --    end
    -- }
@@ -194,7 +194,7 @@ packer.startup(function(use)
    use {
       'iamcco/markdown-preview.nvim',
       run = 'cd app && npm install',
-      setup = function() vim.g.mkdp_filetypes = { 'markdown' } end,
+      init = function() vim.g.mkdp_filetypes = { 'markdown' } end,
       ft = { 'markdown' }
    }
 
@@ -223,7 +223,7 @@ packer.startup(function(use)
 
 	use {
       'nvim-treesitter/nvim-treesitter-context',
-      require'treesitter-context'.setup{
+      require'treesitter-context'.init{
          enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
          max_lines = 3,
          -- minimum editor window height to enable context
@@ -247,7 +247,7 @@ packer.startup(function(use)
       'nvim-treesitter/nvim-treesitter',
       ['do'] = ':TSUpdate',
       config = function()
-         require'nvim-treesitter.configs'.setup {
+         require'nvim-treesitter.configs'.init {
             ensure_installed = { "c", "php", "python", "clojure", "rust", "html", "css", "markdown", "vim", "fish", "json" },
             ignore_install = {},
             auto_install = true,
@@ -314,11 +314,11 @@ packer.startup(function(use)
 
          end
 
-         lspconfig.clojure_lsp.setup {
+         lspconfig.clojure_lsp.init {
             on_attach = on_attach,
          }
 
-         -- lspconfig.lua_ls.setup {
+         -- lspconfig.lua_ls.init {
          --    on_attach = on_attach,
          --    settings = {
          --       Lua = {
@@ -330,37 +330,37 @@ packer.startup(function(use)
          -- }
 
          -- pip install --user python-lsp-server
-         -- lspconfig.pylsp.setup {
+         -- lspconfig.pylsp.init {
          --   on_attach = on_attach,
          -- }
 
-         lspconfig.pyright.setup {
+         lspconfig.pyright.init {
             on_attach = on_attach,
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
-         lspconfig.java_language_server.setup {
+         lspconfig.java_language_server.init {
             on_attach = on_attach,
             cmd = { '/home/penguino/java-language-server/dist/lang_server_linux.sh' },
          }
 
-         lspconfig.clangd.setup {
+         lspconfig.clangd.init {
             on_attach = on_attach,
             cmd = { "clangd" },
             filetypes = { "c", "cpp" },
          }
 
-         lspconfig.marksman.setup {
+         lspconfig.marksman.init {
             cmd = { "marksman", "server" },
             filetypes = { "markdown" }
          }
 
-         lspconfig.bashls.setup {
+         lspconfig.bashls.init {
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh" }
          }
 
-         lspconfig.rust_analyzer.setup {
+         lspconfig.rust_analyzer.init {
             on_attach = on_attach,
             settings = {
                ["rust-analyzer"] = {
@@ -392,7 +392,7 @@ packer.startup(function(use)
    -- autocompletion
    use {
       'hrsh7th/nvim-cmp',
-      requires = {
+      dependencies = {
          'hrsh7th/cmp-nvim-lsp',
          'hrsh7th/cmp-nvim-lua',
          'hrsh7th/cmp-buffer',
@@ -406,7 +406,7 @@ packer.startup(function(use)
          local lspkind = require('lspkind')
          lspkind.init()
          local cmp = require('cmp')
-         cmp.setup {
+         cmp.init {
             mapping = {
                ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
                ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
@@ -509,7 +509,7 @@ packer.startup(function(use)
                completion = cmp.config.window.bordered(),
                documentation = cmp.config.window.bordered(),
             },
-         } -- end of cmp.setup()
+         } -- end of cmp.init()
 
       end -- of config function()
    }
@@ -530,7 +530,7 @@ packer.startup(function(use)
    --    config = function()
    --       vim.opt.list = true
    --       vim.opt.listchars:append "eol:↴"
-   --       require("indent_blankline").setup {
+   --       require("indent_blankline").init {
    --          show_end_of_line = true,
    --          space_char_blankline = " ",
    --          show_current_context = true,
