@@ -55,7 +55,7 @@ return {
 
          {
             'nvim-treesitter/nvim-treesitter-context',
-            require'treesitter-context'.setup {
+            opts = {
                enable = true,
                max_lines = 3,
                -- minimum editor window height to enable context
