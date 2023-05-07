@@ -48,7 +48,7 @@ return {
 
          local nvim_modules = function()
             builtin.find_files {
-               search_dirs = {'/home/penguino/.config/nvim/lua/*'},
+               search_dirs = {'/home/penguino/.config/nvim/lua/'},
                prompt_title = "Nvim modules",
                hidden = false,
             }
@@ -83,6 +83,9 @@ return {
                },
                colorscheme = {
                   enable_preview = true,
+               },
+               nvim_modules = {
+                  path_display = {"truncate"},
                }
             },
          }
