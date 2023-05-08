@@ -1,15 +1,15 @@
 return {
 
-   {
-      'ntpeters/vim-better-whitespace',
-      config = function()
-         vim.g['current_line_whitespace_disabled_hard'] = 1
-         vim.g['better_whitespace_guicolor'] = '#ff5555'
-         vim.g['better_whitespace_filetypes_blacklist'] = {
-            '', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive'
-         }
-      end
-   },
+   -- {
+   --    'ntpeters/vim-better-whitespace',
+   --    config = function()
+   --       vim.g['current_line_whitespace_disabled_hard'] = 1
+   --       vim.g['better_whitespace_guicolor'] = '#ff5555'
+   --       vim.g['better_whitespace_filetypes_blacklist'] = {
+   --          '', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive'
+   --       }
+   --    end
+   -- },
 
    -- default options
    -- "tpope/vim-sensible",

@@ -1,4 +1,5 @@
 return {
+
    {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
@@ -12,6 +13,7 @@ return {
             "css",
             "fish",
             "html",
+            "java",
             "javascript",
             "json",
             "lua",
@@ -61,7 +63,7 @@ return {
       dependencies = {
 
          -- color-coded parentheses and stuff
-         { 'p00f/nvim-ts-rainbow' },
+         'p00f/nvim-ts-rainbow',
 
          {
             'nvim-treesitter/nvim-treesitter-context',
@@ -83,6 +85,21 @@ return {
             }
          },
 
-      }
+      },
+      config = function(_, opts)
+         if type(opts.ensure_installed) == "table" then
+            ---@type table<string, boolean>
+            local added = {}
+            opts.ensure_installed = vim.tbl_filter(function(lang)
+               if added[lang] then
+                  return false
+               end
+               added[lang] = true
+               return true
+            end, opts.ensure_installed)
+         end
+         require("nvim-treesitter.configs").setup(opts)
+      end,
    }
+
 }

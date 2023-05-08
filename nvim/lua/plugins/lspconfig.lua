@@ -2,6 +2,7 @@ return {
 
    {
       'neovim/nvim-lspconfig',
+      lazy = false,
       config = function()
          -- https://github.com/neovim/nvim-lspconfig#Keybindings-and-completion
          local lspconfig = require('lspconfig')
@@ -59,7 +60,10 @@ return {
          lspconfig.java_language_server.setup {
             on_attach = on_attach,
             filetypes = { "java" },
-            cmd = { 'java-language-server' },
+         -- produces error on new buffer:
+         -- Error executing vim.schedule lua callback [...]
+         -- bad argument #1 to 'ipairs' (table expected, got nil)
+            cmd = { "/home/penguino/lsp/java-language-server/dist/lang_server_linux.sh" },
          }
 
          lspconfig.clangd.setup {
