@@ -57,7 +57,6 @@ return {
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
                { name = "treesitter" },
-               { name = "ultisnips" },
                { name = "path" },
                { name = "dictionary" },
                { name = "buffer", keyword_length = 5 },

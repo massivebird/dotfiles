@@ -58,7 +58,8 @@ return {
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
          lspconfig.java_language_server.setup {
             on_attach = on_attach,
-            cmd = { '/home/penguino/java-language-server/dist/lang_server_linux.sh' },
+            filetypes = { "java" },
+            cmd = { 'java-language-server' },
          }
 
          lspconfig.clangd.setup {
@@ -79,6 +80,8 @@ return {
 
          lspconfig.rust_analyzer.setup {
             on_attach = on_attach,
+            filetypes = { "rust" },
+            cmd = { "rust-analyzer" },
             settings = {
                ["rust-analyzer"] = {
                   assist = {
