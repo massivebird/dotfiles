@@ -31,7 +31,6 @@ gnome-initial-setup-done
 gtk-3.0
 htop
 ibus
-nvim/lazy-lock.json
 libreoffice
 libvirt
 memos.json
@@ -42,6 +41,7 @@ monitors.xml~
 nautilus
 neofetch
 nnn
+nvim/lazy-lock.json
 nvim/lsp/
 nvim/plugged
 nvim/plugin

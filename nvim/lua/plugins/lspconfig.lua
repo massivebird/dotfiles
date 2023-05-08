@@ -35,16 +35,16 @@ return {
             on_attach = on_attach,
          }
 
-         -- lspconfig.lua_ls.setup {
-         --    on_attach = on_attach,
-         --    settings = {
-         --       Lua = {
-         --          diagnostics = {
-         --             globals = { 'vim' }
-         --          }
-         --       }
-         --    }
-         -- }
+         lspconfig.lua_ls.setup {
+            on_attach = on_attach,
+            settings = {
+               Lua = {
+                  diagnostics = {
+                     globals = { 'vim' }
+                  }
+               }
+            }
+         }
 
          -- pip install --user python-lsp-server
          -- lspconfig.pylsp.setup {
