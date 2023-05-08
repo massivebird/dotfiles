@@ -81,9 +81,9 @@ return {
                   results_title = false,
                   prompt_title = false,
                },
-               colorscheme = {
-                  enable_preview = true,
-               },
+               -- colorscheme = {
+               --    enable_preview = true,
+               -- },
                nvim_modules = {
                   path_display = {"smart"},
                }

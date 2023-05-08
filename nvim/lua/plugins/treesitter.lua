@@ -54,23 +54,21 @@ return {
          -- rainbow parentheses/brackets
          rainbow = {
             enable = true,
-            disable = { "jsx", "cpp", "html", "php"}, -- list of languages you want to disable the plugin for
-            extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-            max_file_lines = nil, -- Do not enable for files with more than n lines, int
-            -- colors = {}, -- table of hex strings
-            -- termcolors = {} -- table of colour name strings
+            disable = { "jsx", "cpp", "html", "php"},
+            query = "rainbow-parens",
+            -- strategy = require("ts-rainbow").strategy.global,
          },
       },
       dependencies = {
 
          -- color-coded parentheses and stuff
-         'p00f/nvim-ts-rainbow',
+         'hiphish/nvim-ts-rainbow2',
 
          {
             'nvim-treesitter/nvim-treesitter-context',
             opts = {
                enable = true,
-               max_lines = 3,
+               max_lines = 1,
                -- minimum editor window height to enable context
                min_window_height = 0,
                line_numbers = true,
