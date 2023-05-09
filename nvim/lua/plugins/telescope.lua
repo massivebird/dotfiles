@@ -101,12 +101,15 @@ return {
          vim.keymap.set('n', '<leader>fg', builtin.live_grep)
          vim.keymap.set('n', '<leader>fh', builtin.help_tags)
          vim.keymap.set('n', '<leader>fj', builtin.jumplist)
+         vim.keymap.set('n', '<leader>fk', builtin.keymaps)
          vim.keymap.set('n', '<leader>fl', grep_in_open_buffers)
          vim.keymap.set('n', '<leader>fm', nvim_modules)
          vim.keymap.set('n', '<leader>fn', browse_notes)
          vim.keymap.set('n', '<leader>fo', builtin.oldfiles)
          vim.keymap.set('n', '<leader>fr', find_files_from_root)
          vim.keymap.set('n', '<leader>fv', builtin.vim_options)
+
+         vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
       end,
    }

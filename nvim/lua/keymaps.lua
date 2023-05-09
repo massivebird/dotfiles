@@ -18,19 +18,13 @@ setkeymap('n', 'U', '<C-r>')
 -- reload configuration file(s)
 setkeymap('n', '<leader>s', ':source ~/.config/nvim/init.lua<cr>', {silent = true})
 
--- packer commands
--- setkeymap('n', '<leader>pc', ':PackerCompile<cr>', {silent = true}) -- regen changed plugin config
--- setkeymap('n', '<leader>pi', ':PackerInstall<cr>', {silent = true}) -- clean, install missing
--- setkeymap('n', '<leader>ps', ':PackerSync<cr>', {silent = true})    -- update, compile
--- setkeymap('n', '<leader>pu', ':PackerUpdate<cr>', {silent = true})  -- clean, update
-
--- initiate terminal mode
+-- start terminal mode
 setkeymap('n', '<leader>t', ':term<cr>', {silent = true})
 
 -- exit terminal mode
 setkeymap('t', '<Esc>', '<C-\\><C-n>')
 
--- stop highlighting text (useful after search/substitute)
+-- stop highlighting text [after search/substitute]
 setkeymap('n', '<leader>n', ':noh<cr>', {silent = true})
 
 -- initiate global substitute
@@ -102,7 +96,7 @@ setkeymap('n', '<esc>', '<nop>')
 
 -- I HATE ex mode
 setkeymap('n', 'Q', '<Nop>')
-setkeymap('n', 'q:', ':')
+-- setkeymap('n', 'q:', ':')
 
 -- place semicolon at end of current line
 setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
