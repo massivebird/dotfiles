@@ -34,10 +34,11 @@ return {
          highlight = {
             enable = true,
             disable = {
-               "vim",
+               "gitcommit",
                "html",
+               "markdown",
                "php",
-               "gitcommit"
+               "vim",
             },
             additional_vim_regex_highlighting = true,
          },
