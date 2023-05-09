@@ -102,6 +102,10 @@ if status is-interactive
    alias nci 'nvim ~/.config/i3/config'
    alias ncis 'nvim ~/.config/i3status/config'
    alias nck 'nvim ~/.config/kitty/kitty.conf'
+   alias ncm 'nvim -c ":Telescope find_files \
+   search_dirs={\'/home/penguino/.config/nvim/lua\'} \
+   hidden=false path_display={'smart'} \
+   prompt_title='Modules'"'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
