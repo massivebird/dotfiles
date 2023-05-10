@@ -8,7 +8,12 @@ return {
          'hrsh7th/cmp-buffer',
          'hrsh7th/cmp-path',
          'hrsh7th/cmp-cmdline',
-         'L3MON4D3/LuaSnip',
+         {
+            "L3MON4D3/LuaSnip",
+            -- follow latest release
+            version = "1.*",
+            build = "make install_jsregexp"
+         },
          'saadparwaiz1/cmp_luasnip',
          'onsails/lspkind.nvim'
       },
@@ -57,6 +62,7 @@ return {
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
                { name = "treesitter" },
+               { name = "luasnip" },
                { name = "path" },
                { name = "dictionary" },
                { name = "buffer", keyword_length = 5 },
