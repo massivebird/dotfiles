@@ -89,6 +89,7 @@ if status is-interactive
    alias gch 'git checkout'
    alias gf 'git fetch'
    alias gl 'git log --oneline --decorate short --graph'
+   alias glap 'git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all'
    alias gll 'git log --graph --stat'
    alias glop 'git log --graph -p'
    alias grs 'git restore'
