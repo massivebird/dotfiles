@@ -10,7 +10,7 @@ return {
          'hrsh7th/cmp-cmdline',
          {
             "L3MON4D3/LuaSnip",
-            dependencies = { "rafamadriz/friendly-snippets" },
+            dependencies = { "massivebird/friendly-snippets" },
             version = "v1.*",
             -- build = "make install_jsregexp",
             config = function()
