@@ -26,9 +26,6 @@ return {
                require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
                require("luasnip.loaders.from_vscode").lazy_load()
 
-               vim.keymap.set("i", "<Tab>",   "luasnip#expand_or_jumpable() ? 'luasnip-expand-or-jump' : '<Tab>'", {silent = true})
-               vim.keymap.set("i", "<S-Tab>", ":lua require'luasnip'.jump(-1)")
-
             end
          },
          'saadparwaiz1/cmp_luasnip',
@@ -44,6 +41,13 @@ return {
             local line, col = unpack(vim.api.nvim_win_get_cursor(0))
             return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
          end
+
+         -- choice cycling in INSERT and VISUAL modes
+         vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
+         vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
+         vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
+         vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
+
          cmp.setup {
             mapping = {
                ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
