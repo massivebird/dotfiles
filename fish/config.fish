@@ -13,9 +13,6 @@ if set -q XDG_CURRENT_DESKTOP
 end
 
 if status is-interactive
-   # Commands to run in interactive sessions can go here
-
-   # variables ###########################
 
    fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
 
@@ -34,8 +31,6 @@ if status is-interactive
    set -x _JAVA_AWT_WM_NONREPARENTING 1
    set -x STUDIO_JDK /opt/jdk-18/bin/javac
 
-   # variables: java #####################
-
    if test -d /opt/jdk-18
       set -x JAVA_HOME /opt/jdk-18
    else
@@ -48,14 +43,9 @@ if status is-interactive
 
    fish_vi_key_bindings insert
 
-   set fish_cursor_default block
-   set fish_cursor_insert line
+   set fish_cursor_default     block
+   set fish_cursor_insert      line
    set fish_cursor_replace_one underscore
-
-   # format vi mode indicator in prompt
-   function fish_mode_prompt
-      # printf "$fish_bind_mode"
-   end
 
    # keybinds ############################
    # use fish_key_reader!
@@ -72,21 +62,21 @@ if status is-interactive
    function .....; '../../../..'; end
    function ......; '../../../../..'; end
 
-   alias conf 'cd ~/.config'
-   alias docc 'cd ~/docs'
+   alias conf  'cd ~/.config'
+   alias docc  'cd ~/docs'
    alias schoo 'cd ~/academia'
 
-   # git
    alias g 'git'
    alias ga 'git add'
    alias gaa 'git add --all'
    alias gb 'git branch'
-   alias gc! 'git commit -v --amend'
+   alias gbr 'git branch'
    alias gc 'git commit -v'
+   alias gc! 'git commit -v --amend'
    alias gca 'git commit -v -a'
    alias gcam 'git commit -a -m'
    alias gcan 'git commit -a -m "+ notes"'
-   alias gch 'git checkout'
+   alias gco 'git checkout'
    alias gf 'git fetch'
    alias gl 'git log --oneline --decorate short --graph'
    alias glap 'git log --graph --abbrev-commit --decorate --format=format:\'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)\' --all'
@@ -94,6 +84,7 @@ if status is-interactive
    alias glop 'git log --graph -p'
    alias grs 'git restore'
    alias gst 'git status'
+
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
 
@@ -112,7 +103,6 @@ if status is-interactive
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
    alias ncz 'nvim ~/.config/zathura/zathurarc'
 
-   # misc
    alias c 'cd'
    alias clj 'clj/'
    alias diff 'diff --color=always'
@@ -122,7 +112,7 @@ if status is-interactive
    alias l 'ls -1AshX --color=always --group-directories-first'
    alias less 'less -r'
    alias ll 'ls -1Alh --color=always --group-directories-first'
-   # alias lll 'k -Ah --group-directories-first'
+   alias lll 'ls -l -Ah --group-directories-first'
    alias lo 'gnome-session-save --force-logout'
    alias n 'nvim'
    alias nn 'ranger $NOTES_DIR'
@@ -145,10 +135,6 @@ if status is-interactive
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
    alias ytd 'yt-dlp'
    alias ytdy 'yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat'
-   alias zpc 'zplug clean'
-   alias zpi 'zplug install'
-   alias zpl 'zplug list'
-   alias zpu 'zplug update'
 
    # prompt ##############################
 
@@ -236,7 +222,6 @@ if status is-interactive
    # bg of history search matches, selected pager items
    set fish_color_search_match default
 
-   # bash scripts
    bash ~/.config/scripts/fetch-p.sh
    bash ~/.config/scripts/git-updater.sh $argv
 end
