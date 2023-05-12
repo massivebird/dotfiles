@@ -50,23 +50,23 @@ return {
 
          cmp.setup {
             mapping = {
-               ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-               ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-               ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-               ["<C-f>"] = cmp.mapping.scroll_docs(4),
-               ["<C-e>"] = cmp.mapping.abort(),
+               ["<c-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+               ["<c-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+               ["<c-d>"] = cmp.mapping.scroll_docs(-4),
+               ["<c-f>"] = cmp.mapping.scroll_docs(4),
+               ["<c-e>"] = cmp.mapping.abort(),
                ["<c-y>"] = cmp.mapping(
-               cmp.mapping.confirm {
-                  behavior = cmp.ConfirmBehavior.Insert,
-                  select = true,
-               },
-               { "i", "c" }
+                  cmp.mapping.confirm {
+                     behavior = cmp.ConfirmBehavior.Insert,
+                     select = true,
+                  },
+                  { "i", "c" }
                ),
                ["<c-space>"] = cmp.mapping {
                   i = cmp.mapping.complete(),
                   c = function(
                      _ --[[fallback]]
-                     )
+                  )
                      if cmp.visible() then
                         if not cmp.confirm { select = true } then
                            return
@@ -76,22 +76,20 @@ return {
                      end
                   end,
                },
-               ["<tab>"] = cmp.config.disable,
-               -- Testing
                ["<c-q>"] = cmp.mapping.confirm {
                   behavior = cmp.ConfirmBehavior.Replace,
                   select = true,
                },
-               ["<Tab>"] = cmp.mapping(function(fallback)
-                  if luasnip.expand_or_jumpable() then
-                     luasnip.expand_or_jump()
+               ["<tab>"] = cmp.mapping(function(fallback)
+                  if luasnip.jumpable(1) then
+                     luasnip.jump(1)
                   elseif has_words_before() then
                      cmp.complete()
                   else
                      fallback()
                   end
                end, { "i", "s" }),
-               ["<S-Tab>"] = cmp.mapping(function(fallback)
+               ["<s-tab>"] = cmp.mapping(function(fallback)
                   if luasnip.jumpable(-1) then
                      luasnip.jump(-1)
                   else
