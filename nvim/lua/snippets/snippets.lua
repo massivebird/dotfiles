@@ -56,7 +56,7 @@ ls.add_snippets("lua", {
    s("keymap", fmt('{func}("{arg1}", "{arg2}", "{arg3}")', {
       func = c(1, {
          t("vim.keymap.set"),
-         t("keymap")
+         t("setkeymap")
       }),
       arg1 = i(2, "mode"),
       arg2 = i(3, "trigger"),
