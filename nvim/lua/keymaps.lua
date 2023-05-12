@@ -111,6 +111,12 @@ setkeymap('n', ']d', vim.diagnostic.goto_next)
 -- setkeymap('n', '<leader>e', vim.diagnostic.open_float)
 -- setkeymap('n', '<leader>q', vim.diagnostic.setloclist)
 
+-- presentation mode
+setkeymap('n', '<c-p>', ':set signcolumn=yes:9 showmode! relativenumber! number!<cr>:GitGutterDisable<cr>:CocDisable<cr>')
+
+-- lazy.nvim window
+setkeymap('n', '<leader>L', ':Lazy<cr>')
+
 -- keymaps: Stel's navigation solutions ----------
 -- github.com/stelcodes/xdg-config
 
@@ -131,9 +137,3 @@ setkeymap('n', '<c-j>', '<C-w>j')
 setkeymap('n', '<c-k>', '<C-w>k')
 setkeymap('n', '<c-h>', '<c-w>h')
 setkeymap('n', '<c-l>', '<c-w>l')
-
--- presentation mode
-setkeymap('n', '<c-p>', ':set signcolumn=yes:9 showmode! relativenumber! number!<cr>:GitGutterDisable<cr>:CocDisable<cr>')
-
--- lazy.nvim window
-setkeymap('n', '<leader>L', ':Lazy<cr>')

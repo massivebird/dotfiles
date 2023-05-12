@@ -8,33 +8,65 @@ return {
          'hrsh7th/cmp-buffer',
          'hrsh7th/cmp-path',
          'hrsh7th/cmp-cmdline',
-         -- 'L3MON4D3/LuaSnip',
-         -- 'saadparwaiz1/cmp_luasnip',
+         {
+            "L3MON4D3/LuaSnip",
+            dependencies = { "massivebird/friendly-snippets" },
+            version = "v1.*",
+            -- build = "make install_jsregexp",
+            config = function()
+
+               local ls   = require("luasnip")
+
+               -- https://evesdropper.dev/files/luasnip/ultisnips-to-luasnip/
+               ls.config.set_config({
+                  history = true, -- keep around last snippet local to jump back
+                  enable_autosnippets = true,
+               })
+
+               require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
+               require("luasnip.loaders.from_vscode").lazy_load()
+
+            end
+         },
+         'saadparwaiz1/cmp_luasnip',
          'onsails/lspkind.nvim'
       },
       config = function()
          local lspkind = require('lspkind')
          lspkind.init()
          local cmp = require('cmp')
+         local luasnip = require("luasnip")
+         local has_words_before = function()
+            unpack = unpack or table.unpack
+            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+         end
+
+         -- choice cycling in INSERT and VISUAL modes
+         vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
+         vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
+         vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
+         vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
+
          cmp.setup {
             mapping = {
-               ["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-               ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-               ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-               ["<C-f>"] = cmp.mapping.scroll_docs(4),
-               ["<C-e>"] = cmp.mapping.abort(),
+               ["<c-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+               ["<c-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+               ["<c-d>"] = cmp.mapping.scroll_docs(-4),
+               ["<c-f>"] = cmp.mapping.scroll_docs(4),
+               ["<c-e>"] = cmp.mapping.abort(),
                ["<c-y>"] = cmp.mapping(
-               cmp.mapping.confirm {
-                  behavior = cmp.ConfirmBehavior.Insert,
-                  select = true,
-               },
-               { "i", "c" }
+                  cmp.mapping.confirm {
+                     behavior = cmp.ConfirmBehavior.Insert,
+                     select = true,
+                  },
+                  { "i", "c" }
                ),
                ["<c-space>"] = cmp.mapping {
                   i = cmp.mapping.complete(),
                   c = function(
                      _ --[[fallback]]
-                     )
+                  )
                      if cmp.visible() then
                         if not cmp.confirm { select = true } then
                            return
@@ -44,12 +76,26 @@ return {
                      end
                   end,
                },
-               ["<tab>"] = cmp.config.disable,
-               -- Testing
                ["<c-q>"] = cmp.mapping.confirm {
                   behavior = cmp.ConfirmBehavior.Replace,
                   select = true,
                },
+               ["<tab>"] = cmp.mapping(function(fallback)
+                  if luasnip.jumpable(1) then
+                     luasnip.jump(1)
+                  elseif has_words_before() then
+                     cmp.complete()
+                  else
+                     fallback()
+                  end
+               end, { "i", "s" }),
+               ["<s-tab>"] = cmp.mapping(function(fallback)
+                  if luasnip.jumpable(-1) then
+                     luasnip.jump(-1)
+                  else
+                     fallback()
+                  end
+               end, { "i", "s" }),
             },
 
             -- global sources, order = priority
@@ -57,6 +103,7 @@ return {
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
                { name = "treesitter" },
+               { name = "luasnip" },
                { name = "path" },
                { name = "dictionary" },
                { name = "buffer", keyword_length = 5 },

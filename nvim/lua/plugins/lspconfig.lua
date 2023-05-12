@@ -29,11 +29,17 @@ return {
             -- Add borders to :LspInfo floating window
             -- https://neovim.discourse.group/t/lspinfo-window-border/1566/2
             require('lspconfig.ui.windows').default_options.border = 'rounded'
-
          end
+
+         local capabilities = vim.lsp.protocol.make_client_capabilities()
 
          lspconfig.clojure_lsp.setup {
             on_attach = on_attach,
+         }
+
+         -- npm i -g vscode-langservers-extracted
+         lspconfig.html.setup {
+            capabilities = capabilities,
          }
 
          lspconfig.lua_ls.setup {
