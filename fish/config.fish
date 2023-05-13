@@ -91,6 +91,7 @@ if status is-interactive
    alias grb 'git rebase'
    alias grbi 'git rebase --interactive'
    alias grs 'git restore'
+   alias gsh 'git show --oneline'
    alias gst 'git status'
 
    function ggpull; command git pull origin $(git branch --show-current); end
