@@ -73,6 +73,8 @@ if status is-interactive
    alias g 'git'
    alias ga 'git add'
    alias gaa 'git add --all'
+   alias gai 'git add --interactive'
+   alias gap 'git add --patch'
    alias gb 'git branch'
    alias gbr 'git branch'
    alias gc 'git commit -v'
