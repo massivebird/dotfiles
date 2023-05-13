@@ -88,6 +88,8 @@ if status is-interactive
    alias glap 'git log --graph --abbrev-commit --decorate --format=format:\'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)\' --all'
    alias gll 'git log --graph --stat'
    alias glop 'git log --graph -p'
+   alias grb 'git rebase'
+   alias grbi 'git rebase --interactive'
    alias grs 'git restore'
    alias gst 'git status'
 
