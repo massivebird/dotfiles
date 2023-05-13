@@ -47,6 +47,10 @@ if status is-interactive
    set fish_cursor_insert      line
    set fish_cursor_replace_one underscore
 
+   function fish_mode_prompt
+      # no body -> do not display vi mode
+   end
+
    # keybinds ############################
    # use fish_key_reader!
 
