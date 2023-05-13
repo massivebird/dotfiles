@@ -1,12 +1,6 @@
 local cmd = vim.cmd
 local set = vim.opt
 
--- color nonsense
-cmd 'let base16colorspace = 256'
-if vim.fn.has("termguicolors") then
-   set.termguicolors = true
-end
-
 -- syntax highlighting
 cmd [[
 syntax on
