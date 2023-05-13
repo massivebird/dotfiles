@@ -36,5 +36,6 @@ require("lazy").setup("plugins", {
 })
 
 require("general")
+require("bird/disable_builtin")
 require("logic")
 require("keymaps")
