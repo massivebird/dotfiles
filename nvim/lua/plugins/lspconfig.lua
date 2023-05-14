@@ -35,6 +35,7 @@ return {
 
          lspconfig.clojure_lsp.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
          }
 
          -- npm i -g vscode-langservers-extracted
@@ -45,6 +46,7 @@ return {
 
          lspconfig.lua_ls.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             settings = {
                Lua = {
                   diagnostics = {
@@ -61,11 +63,13 @@ return {
 
          lspconfig.pyright.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
          lspconfig.java_language_server.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             filetypes = { "java" },
             -- produces error on new buffer:
             -- Error executing vim.schedule lua callback [...]
@@ -75,23 +79,27 @@ return {
 
          lspconfig.clangd.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = { "clangd" },
             filetypes = { "c", "cpp" },
          }
 
          lspconfig.marksman.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             filetypes = { "markdown" }
          }
 
          lspconfig.bashls.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh" }
          }
 
          lspconfig.rust_analyzer.setup {
             on_attach = on_attach,
+            capabilities = capabilities,
             filetypes = { "rust" },
             cmd = { "rust-analyzer" },
             settings = {
