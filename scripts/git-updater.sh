@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-## GIT-UPDATER.SH
-# updates git repositories, customizable
-# via update-all() function
+# updates git repositories,
+# customizable via run() function
 
 ## OPTIONAL ARGUMENTS
 # -v
-# 	"Verbose"
-# 	More detailed output
+# 	 "Verbose"
+# 	 More detailed output
 #
 # -f
-#	"Fast"
-#	Skips entire script, used for quick shell reloads
+# 	 "Fast"
+# 	 Immediately exists script, useful for quick shell reloads
 
 while getopts "vf" arg; do
    case "${arg}" in
@@ -54,6 +53,7 @@ update-repo()
 
    REPO_PATH=$1
    REPO_LABEL=$2
+
    if ! [ -d $REPO_PATH ]
    then
       # if repo path does not exist, inform user
@@ -61,11 +61,14 @@ update-repo()
       return
    fi
 
-   # fetch latest remote commits
    REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
+
+   # fetch latest remote commits
    git -C $REPO_PATH fetch -q origin $REPO_BRANCH 2>/dev/null
+
    # compile commits in remote that are ahead of local
    DIFF_DUMP=$(git -C $REPO_PATH log HEAD..origin/$REPO_BRANCH)
+
    # if such commits exist
    if [ -n "$DIFF_DUMP" ]; then
       printf "\r$STATUS_CONS Updating $REPO_LABEL...                 \n"
@@ -86,17 +89,17 @@ update-repo()
 
 }
 
-# contains all function calls
-update-all()
+run()
 {
    check-connection
-   update-repo "$HOME/.config" "Configuration"
-   update-repo "$HOME/docs" "Documents"
-   update-repo "$HOME/academia" "Academia"
-   update-repo "$HOME/.task" "Tasks"
+   update-repo "$HOME/.config" "Configuration" &
+   update-repo "$HOME/docs" "Documents" &
+   update-repo "$HOME/academia" "Academia" &
+   update-repo "$HOME/.task" "Tasks" &
+   wait
 }
 
-update-all &
+run &
 loading-spinner \
    "Updating Git repositories..." \
    "Git repositories up to date" \
