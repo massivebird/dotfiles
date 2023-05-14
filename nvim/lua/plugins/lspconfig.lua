@@ -39,6 +39,7 @@ return {
 
          -- npm i -g vscode-langservers-extracted
          lspconfig.html.setup {
+            on_attach = on_attach,
             capabilities = capabilities,
          }
 
@@ -66,9 +67,9 @@ return {
          lspconfig.java_language_server.setup {
             on_attach = on_attach,
             filetypes = { "java" },
-         -- produces error on new buffer:
-         -- Error executing vim.schedule lua callback [...]
-         -- bad argument #1 to 'ipairs' (table expected, got nil)
+            -- produces error on new buffer:
+            -- Error executing vim.schedule lua callback [...]
+            -- bad argument #1 to 'ipairs' (table expected, got nil)
             cmd = { "/home/penguino/lsp/java-language-server/dist/lang_server_linux.sh" },
          }
 
@@ -79,11 +80,12 @@ return {
          }
 
          lspconfig.marksman.setup {
-            cmd = { "marksman", "server" },
+            on_attach = on_attach,
             filetypes = { "markdown" }
          }
 
          lspconfig.bashls.setup {
+            on_attach = on_attach,
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh" }
          }
@@ -109,12 +111,12 @@ return {
          }
 
          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-         vim.lsp.handlers.hover,
-         { border = "rounded" }
+            vim.lsp.handlers.hover,
+            { border = "rounded" }
          )
          vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-         vim.lsp.handlers.signature_help,
-         { border = "rounded" }
+            vim.lsp.handlers.signature_help,
+            { border = "rounded" }
          )
       end
    }

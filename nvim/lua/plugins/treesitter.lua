@@ -59,8 +59,14 @@ return {
             query = "rainbow-parens",
             -- strategy = require("ts-rainbow").strategy.global,
          },
+         autotag = {
+            enable = true,
+         },
       },
       dependencies = {
+
+         -- auto[close|rename] html tags
+         'windwp/nvim-ts-autotag',
 
          -- color-coded parentheses and stuff
          'hiphish/nvim-ts-rainbow2',

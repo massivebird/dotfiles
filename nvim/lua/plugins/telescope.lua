@@ -81,18 +81,17 @@ return {
                   results_title = false,
                   prompt_title = false,
                },
-               -- colorscheme = {
-               --    enable_preview = true,
-               -- },
                nvim_modules = {
                   path_display = {"smart"},
-               }
+               },
             },
          }
 
          -- tele.load_extension('fzf')
          tele.load_extension('file_browser')
          tele.load_extension('ui-select')
+
+         vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
          vim.keymap.set('n', '<leader>fH', builtin.highlights)
          vim.keymap.set('n', '<leader>fb', builtin.buffers)
@@ -107,9 +106,8 @@ return {
          vim.keymap.set('n', '<leader>fn', browse_notes)
          vim.keymap.set('n', '<leader>fo', builtin.oldfiles)
          vim.keymap.set('n', '<leader>fr', find_files_from_root)
+         vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
          vim.keymap.set('n', '<leader>fv', builtin.vim_options)
-
-         vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
       end,
    }

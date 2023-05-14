@@ -47,6 +47,10 @@ if status is-interactive
    set fish_cursor_insert      line
    set fish_cursor_replace_one underscore
 
+   function fish_mode_prompt
+      # no body -> do not display vi mode
+   end
+
    # keybinds ############################
    # use fish_key_reader!
 
@@ -69,6 +73,8 @@ if status is-interactive
    alias g 'git'
    alias ga 'git add'
    alias gaa 'git add --all'
+   alias gai 'git add --interactive'
+   alias gap 'git add --patch'
    alias gb 'git branch'
    alias gbr 'git branch'
    alias gc 'git commit -v'
@@ -78,11 +84,13 @@ if status is-interactive
    alias gcan 'git commit -a -m "+ notes"'
    alias gco 'git checkout'
    alias gf 'git fetch'
-   alias gl 'git log --oneline --decorate short --graph'
-   alias glap 'git log --graph --abbrev-commit --decorate --format=format:\'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)\' --all'
-   alias gll 'git log --graph --stat'
+   alias gl 'git log --graph --abbrev-commit --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
+   alias gll 'git log --graph -p'
    alias glop 'git log --graph -p'
+   alias grb 'git rebase'
+   alias grbi 'git rebase --interactive'
    alias grs 'git restore'
+   alias gsh 'git show --oneline'
    alias gst 'git status'
 
    function ggpull; command git pull origin $(git branch --show-current); end
