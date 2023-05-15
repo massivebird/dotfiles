@@ -78,7 +78,7 @@ update-repo()
    ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
    if [ -n "$ERROR_DUMP" ]; then
-      printf "\r$STATUS_OHNO $REPO_LABEL failed to pull\n"
+      printf "\r$STATUS_OHNO $REPO_LABEL failed to pull. $RED$REPO_BRANCH$NC\n"
       printf $ERROR_DUMP"\n"
       return
    fi
