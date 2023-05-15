@@ -69,12 +69,11 @@ update-repo()
    # compile commits in remote that are ahead of local
    DIFF_DUMP=$(git -C $REPO_PATH log HEAD..origin/$REPO_BRANCH)
 
-   # if such commits exist
-   if [ -n "$DIFF_DUMP" ]; then
-      printf "\r$STATUS_CONS Updating $REPO_LABEL...                 \n"
+   if [ -z "$DIFF_DUMP" ] && [ -n "$FLAG_VERBOSE" ]; then
+      printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC     \n"
    fi
 
-   # try to pull, storing errors if any
+   # pull and store errors
    ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
    if [ -n "$ERROR_DUMP" ]; then
@@ -83,8 +82,9 @@ update-repo()
       return
    fi
 
-   if [ -n "$FLAG_VERBOSE" ]; then
-      printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC        \n"
+   if [ -n "$DIFF_DUMP" ]; then
+      printf "\r$STATUS_COOL $REPO_LABEL has been updated! $GREEN$REPO_BRANCH$NC        \n"
+      return
    fi
 
 }
