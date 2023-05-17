@@ -37,7 +37,7 @@ function say-goodbye() {
 }
 
 # generates list of matching games based on query
-OUTPUT=$(find $DIR_BACKUP -iregex "${DIR_BACKUP//\//\\/}/\w*\/[^\[]*$@.*\/?.*" -type f ! -path "*/projectm/*" ! -path "*/config/*" ! -path "*/apps/*" ! -path "*/codes/*" ! -path "*.cue" ! -path "*/bios/*" 2> /dev/null)
+OUTPUT=$(find $DIR_BACKUP -iregex "${DIR_BACKUP//\//\\/}/\w*\/[^\[]*$@.*\/?.*" -type f ! -path "*/projectm/*" ! -path "*/config/*" ! -path "*/apps/*" ! -path "*/codes/*" ! -path "*.cue" ! -path "*/!bios/*" 2> /dev/null)
 
 # if find does not find anything...
 if [ $(wc -c <<< "$OUTPUT") -eq 1 ]; then
