@@ -27,20 +27,22 @@ done
 . ~/.config/scripts/lib/loading-spinner.sh
 . ~/.config/scripts/lib/str-main.sh
 
-SCRIPT_ERROR_FILE="/tmp/gitupd_errors"
+SCRIPT_PID=$$
+# loading-spinner.sh reads this to determine msg at the end of execution
+SCRIPT_ERROR_FILE="/tmp/gitupd${SCRIPT_PID}errors"
 
 check-connection()
 {
    curl --max-time 1.3 -Is https://github.com 1> /dev/null
 
    if [ $? -eq 0 ]; then
-      if [ -n "$FLAG_VERBOSE" ]; then
+      if [[ $FLAG_VERBOSE -eq 1 ]]; then
          printf "\r$STATUS_COOL Internet connection established. \n"
       fi
       return
    fi
 
-   if [ -n "$FLAG_VERBOSE" ]; then
+   if [[ $FLAG_VERBOSE -eq 1 ]]; then
       printf "\r$STATUS_OHNO Internet connection bad.   \n"
    fi
 
@@ -55,11 +57,10 @@ update-repo()
 
    REPO_PATH=$1
    REPO_LABEL=$2
-   REPO_ERROR_FILE="/tmp/$(md5sum <<< $REPO_PATH)"
+   REPO_REMOTE=$(git -C $REPO_PATH remote show -n)
 
    if [ ! -d $REPO_PATH ]
    then
-      # if repo path does not exist, inform user
       printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee $SCRIPT_ERROR_FILE
       return
    fi
@@ -67,21 +68,21 @@ update-repo()
    REPO_BRANCH="$(git -C $REPO_PATH branch --show-current)"
 
    # fetch latest remote commits
-   git -C $REPO_PATH fetch -q origin $REPO_BRANCH 2>/dev/null
+   git -C $REPO_PATH fetch -q $REPO_REMOTE $REPO_BRANCH &> /dev/null
 
    # compile commits in remote that are ahead of local
-   DIFF_DUMP=$(git -C $REPO_PATH log HEAD..origin/$REPO_BRANCH)
+   DIFF_DUMP=$(git -C $REPO_PATH log --numstat --format=format:'' HEAD..$REPO_REMOTE/$REPO_BRANCH)
 
-   if [ -z "$DIFF_DUMP" ] && [ -n "$FLAG_VERBOSE" ]; then
+   if [ -z "$DIFF_DUMP" ] && [[ $FLAG_VERBOSE -eq 1 ]]; then
       printf "\r$STATUS_COOL $REPO_LABEL up to date! $GREEN$REPO_BRANCH$NC     \n"
    fi
 
    # pull and store errors
-   REPO_ERROR_FILE=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
+   git -C $REPO_PATH pull -q origin $REPO_BRANCH &> /dev/null
 
-   if [ -n "$REPO_ERROR_FILE" ]; then
+   if [ $? -ne 0 ]; then
       printf "\r$STATUS_OHNO $REPO_LABEL failed to pull. $RED$REPO_BRANCH$NC\n"
-      printf $REPO_ERROR_FILE"\n"
+      echo "L" > "$SCRIPT_ERROR_FILE"
       return
    fi
 
