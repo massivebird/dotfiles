@@ -27,6 +27,8 @@ done
 . ~/.config/scripts/lib/loading-spinner.sh
 . ~/.config/scripts/lib/str-main.sh
 
+SCRIPT_ERROR_FILE="/tmp/gitupd_errors"
+
 check-connection()
 {
    curl --max-time 1.3 -Is https://github.com 1> /dev/null
@@ -43,7 +45,7 @@ check-connection()
    fi
 
    # make sure error file is populated
-   printf "L" > /tmp/gitup.txt
+   printf "L" > $SCRIPT_ERROR_FILE
    exit 1
 
 }
@@ -53,11 +55,12 @@ update-repo()
 
    REPO_PATH=$1
    REPO_LABEL=$2
+   REPO_ERROR_FILE="/tmp/$(md5sum <<< $REPO_PATH)"
 
-   if ! [ -d $REPO_PATH ]
+   if [ ! -d $REPO_PATH ]
    then
       # if repo path does not exist, inform user
-      printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee /tmp/gitup.txt
+      printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee $SCRIPT_ERROR_FILE
       return
    fi
 
@@ -74,11 +77,11 @@ update-repo()
    fi
 
    # pull and store errors
-   ERROR_DUMP=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
+   REPO_ERROR_FILE=$(git -C $REPO_PATH pull -q origin $REPO_BRANCH 2>&1)
 
-   if [ -n "$ERROR_DUMP" ]; then
+   if [ -n "$REPO_ERROR_FILE" ]; then
       printf "\r$STATUS_OHNO $REPO_LABEL failed to pull. $RED$REPO_BRANCH$NC\n"
-      printf $ERROR_DUMP"\n"
+      printf $REPO_ERROR_FILE"\n"
       return
    fi
 
@@ -104,7 +107,7 @@ loading-spinner \
    "Updating Git repositories..." \
    "Git repositories up to date" \
    "Git repository update(s) failed :(" \
-   "/tmp/gitup.txt"
+   "$SCRIPT_ERROR_FILE"
 
 # clears contents of error dump file
-: > "/tmp/gitup.txt"
+: > "$SCRIPT_ERROR_FILE"
