@@ -70,7 +70,7 @@ else
    GCN_IS_GOOD=1
 fi
 
-if [ $WII_IS_GOOD -eq 1 ] && [ $GCN_IS_GOOD -eq 1 ]; then
+if [[ $WII_IS_GOOD -eq 1 ]] && [[ $GCN_IS_GOOD -eq 1 ]]; then
    printf "$STATUS_COOL $NUM_GAMES_TOTAL games in $SIZE_TOTAL! Cool!\n"
 fi
 
