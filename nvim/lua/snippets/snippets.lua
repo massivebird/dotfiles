@@ -64,3 +64,15 @@ ls.add_snippets("lua", {
    }))
 
 })
+
+ls.add_snippets("rust", {
+   s("impl-display", {
+      t("impl std::fmt::Display for "),
+      i(1, "Struct"),
+      t({" {", ""}),
+      t({"\tfn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {", ""}),
+      t('\t\twrite!(f, "{'),
+      i(2),
+      t({'}")', "\t}", "}"}),
+   })
+})
