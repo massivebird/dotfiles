@@ -18,7 +18,7 @@ if status is-interactive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
-   set -x PAGER "less -r"
+   set -x PAGER "less -r --jump-target=3"
    # neovim notes querying
    set -x NOTES_DIR $HOME/academia/notes_all/
    # OBS wants these
@@ -118,7 +118,7 @@ if status is-interactive
    alias exp 'explorer.exe'
    alias foxdie "systemctl poweroff"
    alias l 'ls -1AshX --color=always --group-directories-first'
-   alias less 'less -r'
+   alias less 'less -r --jump-target=3'
    alias ll 'ls -1Alh --color=always --group-directories-first'
    alias lll 'ls -l -Ah --group-directories-first'
    alias lo 'gnome-session-save --force-logout'
