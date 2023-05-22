@@ -7,7 +7,6 @@
 . ~/.config/scripts/lib/str-main.sh
 . ~/.config/scripts/lib/str-games.sh
 
-# verifies backup directory existence
 if [ -d "$DIR_BACKUP" ]; then
 	printf "$STATUS_OK Archive detected\n"
 else
@@ -31,12 +30,10 @@ NUM_SNES=$(ls -l $DIR_SNES | grep -cE '\.sfc')
 NUM_WII=$(ls -l $DIR_WII | grep -cE '^d.*\[.*')
 NUM_TOTAL=$[ NUM_DS + NUM_DS3 + NUM_GB + NUM_GBA + NUM_GCN + NUM_N64 + NUM_PS2 + NUM_SNES + NUM_WII + NUM_PS1 ]
 
-# calculates total drive usage of all directory arguments
 calcsize () {
 	du -chs $* | tail -n 1 | grep -oE '(^\w.+)[GM]'
 }
 
-# use function above to record drive usages
 SIZE_DS=$(calcsize $DIR_DS)
 SIZE_DS3=$(calcsize $DIR_DS3)
 SIZE_GB=$(calcsize $DIR_GB)
@@ -52,7 +49,6 @@ SIZE_SNES=$(calcsize $DIR_SNES)
 SIZE_WII=$(calcsize $DIR_WII)
 SIZE_TOTAL=$(calcsize $DIR_WII $DIR_GCN $DIR_PS1 $DIR_PS2 $DIR_PSP $DIR_DS $DIR_DS3 $DIR_GEN $DIR_SNES $DIR_GBA $DIR_GB $DIR_N64 $DIR_NES)
 
-# main output
 printf """\n\
 $(tput setaf 246)System\tGames\tSize
 ────────────────────${NC}

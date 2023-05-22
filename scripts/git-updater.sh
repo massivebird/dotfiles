@@ -3,7 +3,7 @@
 # updates git repositories,
 # customizable via run() function
 
-## OPTIONAL ARGUMENTS
+# optional arguments
 # -v
 # 	 "Verbose"
 # 	 More detailed output
@@ -28,13 +28,14 @@ done
 . ~/.config/scripts/lib/str-main.sh
 
 SCRIPT_PID=$$
-# loading-spinner.sh reads this to determine msg at the end of execution
+# loading-spinner.sh reads this to determine msg at the end,
+# such as "success" or "failure"
 SCRIPT_ERROR_FILE="/tmp/gitupd${SCRIPT_PID}errors"
 
 check-connection()
 {
-   curl --max-time 1.3 -Is https://github.com 1> /dev/null
 
+   curl --max-time 1.3 -Is https://github.com 1> /dev/null
    if [ $? -eq 0 ]; then
       if [[ $FLAG_VERBOSE -eq 1 ]]; then
          printf "\r$STATUS_COOL Internet connection established. \n"
@@ -61,7 +62,8 @@ update-repo()
 
    if [ ! -d $REPO_PATH ]
    then
-      printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" | tee $SCRIPT_ERROR_FILE
+      printf "\r$STATUS_OHNO $REPO_LABEL repo path not found.       \n" \
+         | tee $SCRIPT_ERROR_FILE
       return
    fi
 

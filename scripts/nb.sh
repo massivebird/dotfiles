@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-## NB.SH
-# "neovim bin," opens a binary
-# in neovim
+# "neovim bin," opens a script in neovim
 
 if [ -z "$1" ]; then
 	printf "$0: missing operand\n"

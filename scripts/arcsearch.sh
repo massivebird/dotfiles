@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-## arcsearch.sh
-# performs searches in my video game archive
-# with colorful formatted output
+# queries video game archive
+# with colorful formatted output :3
 
-## arguments
-# $1: string: the query
-#     example: "lord of"
+# arguments
+# $1: query as string
 
 # load dependencies
 . ~/.config/scripts/lib/dir-games.sh
@@ -36,8 +34,6 @@ flava[psp]=$PSP
 flava[snes]=$SNES
 flava[wbfs]=$WII
 
-# final message function,
-# $1: number of games found
 function say-goodbye() {
    printf "%s\n%s games found\n" "$OUTPUT" "$1"
    exit 0
@@ -46,9 +42,8 @@ function say-goodbye() {
 # generates list of matching games based on query
 OUTPUT=$(find $DIR_BACKUP -iregex "${DIR_BACKUP//\//\\/}/\w*\/[^\[]*$@.*\/?.*" -type f ! -path "*/projectm/*" ! -path "*/config/*" ! -path "*/apps/*" ! -path "*/codes/*" ! -path "*.cue" ! -path "*/!bios/*" 2> /dev/null)
 
-# if find does not find anything...
+# if no games matched the query
 if [ $(wc -c <<< "$OUTPUT") -eq 1 ]; then
-   # ... exit with zero games found
    say-goodbye 0
 fi
 
@@ -61,18 +56,14 @@ OUTPUT=$(sed -Ee "s&\[.*\]&&" <<< "$OUTPUT")
 # eliminate revisions like (Rev 1)
 # OUTPUT=$(sed -E "s& \(Rev.*\)&&" <<< "$OUTPUT")
 
-# for every key in the array...
 for key in ${!flava[@]}; do
-   # ... replace every instance of the string $DIR_BACKUP/$key
-   # with the value associated with $key,
-   # AKA the colorized string inside brackets ie. [ SNES ]
+   # colorize system names
    OUTPUT=$(sed "s&$DIR_BACKUP\/$key\/&[ ${flava[$key]} ] &" <<< "$OUTPUT")
 done
 
-# condense multiple disks
+# one entry per game with multiple disks
 OUTPUT=$(uniq <<< "$OUTPUT")
 # eliminate remaining paths
 OUTPUT=$(sed -E "s& ?\/.*$&&" <<< "$OUTPUT")
 
-# exit with number of games
 say-goodbye $(wc -l <<< "$OUTPUT")
