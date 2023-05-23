@@ -11,9 +11,7 @@
 . ~/.config/scripts/lib/str-main.sh
 . ~/.config/scripts/lib/str-games.sh
 
-if [ -d "$DIR_BACKUP" ]; then
-	printf "$STATUS_OK Archive detected\n"
-else
+if [ ! -d "$DIR_BACKUP" ]; then
 	printf "$STATUS_OHNO No archive directory detected\n"
 	exit 1
 fi
