@@ -3,9 +3,13 @@
 # contains directories relevant to
 # local game archive
 
-# path to backup directory
-DIR_BACKUP="/mnt/d/game-archive"
-# and subsequent game directories
+# archive root
+if [ -d "$HOME/game-archive" ]; then
+   DIR_BACKUP="$HOME/game-archive"
+else
+   DIR_BACKUP="/mnt/d/game-archive"
+fi
+
 DIR_DS3="$DIR_BACKUP/3ds"
 DIR_DS="$DIR_BACKUP/ds"
 DIR_GB="$DIR_BACKUP/gb"
