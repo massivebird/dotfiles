@@ -7,7 +7,7 @@
 . ~/.config/scripts/lib/str-main.sh
 . ~/.config/scripts/lib/str-games.sh
 
-if [ -d "$DIR_BACKUP" ]; then
+if [ -d "$VG_ARCHIVE" ]; then
 	printf "$STATUS_OK Archive detected\n"
 else
 	printf "$STATUS_OHNO No archive directory detected\n"

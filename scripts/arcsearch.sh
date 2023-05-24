@@ -11,7 +11,7 @@
 . ~/.config/scripts/lib/str-main.sh
 . ~/.config/scripts/lib/str-games.sh
 
-if [ ! -d "$DIR_BACKUP" ]; then
+if [ ! -d "$VG_ARCHIVE" ]; then
 	printf "$STATUS_OHNO No archive directory detected\n"
 	exit 1
 fi
@@ -38,7 +38,7 @@ function say-goodbye() {
 }
 
 # generates list of matching games based on query
-OUTPUT=$(find $DIR_BACKUP -iregex "${DIR_BACKUP//\//\\/}/\w*\/[^\[]*$@.*\/?.*" -type f ! -path "*/projectm/*" ! -path "*/config/*" ! -path "*/apps/*" ! -path "*/codes/*" ! -path "*.cue" ! -path "*/!bios/*" 2> /dev/null)
+OUTPUT=$(find -L $VG_ARCHIVE -iregex "${VG_ARCHIVE//\//\\/}/\w*\/[^\[]*$@.*\/?.*" -type f ! -path "*/projectm/*" ! -path "*/config/*" ! -path "*/apps/*" ! -path "*/codes/*" ! -path "*.cue" ! -path "*/!bios/*" 2> /dev/null)
 
 # if no games matched the query
 if [ $(wc -c <<< "$OUTPUT") -eq 1 ]; then
@@ -56,7 +56,7 @@ OUTPUT=$(sed -Ee "s&\[.*\]&&" <<< "$OUTPUT")
 
 for key in ${!flava[@]}; do
    # colorize system names
-   OUTPUT=$(sed "s&$DIR_BACKUP\/$key\/&[ ${flava[$key]} ] &" <<< "$OUTPUT")
+   OUTPUT=$(sed "s&$VG_ARCHIVE\/$key\/&[ ${flava[$key]} ] &" <<< "$OUTPUT")
 done
 
 # one entry per game with multiple disks

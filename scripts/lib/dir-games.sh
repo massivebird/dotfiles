@@ -3,23 +3,16 @@
 # contains directories relevant to
 # local game archive
 
-# archive root
-if [ -d "$HOME/game-archive" ]; then
-   DIR_BACKUP="$HOME/game-archive"
-else
-   DIR_BACKUP="/mnt/d/game-archive"
-fi
-
-DIR_DS3="$DIR_BACKUP/3ds"
-DIR_DS="$DIR_BACKUP/ds"
-DIR_GB="$DIR_BACKUP/gb"
-DIR_GBA="$DIR_BACKUP/gba"
-DIR_GCN="$DIR_BACKUP/games"
-DIR_GEN="$DIR_BACKUP/genesis"
-DIR_N64="$DIR_BACKUP/n64"
-DIR_NES="$DIR_BACKUP/nes"
-DIR_PS1="$DIR_BACKUP/ps1"
-DIR_PS2="$DIR_BACKUP/ps2"
-DIR_PSP="$DIR_BACKUP/psp"
-DIR_SNES="$DIR_BACKUP/snes"
-DIR_WII="$DIR_BACKUP/wbfs"
+DIR_DS3="$VG_ARCHIVE/3ds"
+DIR_DS="$VG_ARCHIVE/ds"
+DIR_GB="$VG_ARCHIVE/gb"
+DIR_GBA="$VG_ARCHIVE/gba"
+DIR_GCN="$VG_ARCHIVE/games"
+DIR_GEN="$VG_ARCHIVE/genesis"
+DIR_N64="$VG_ARCHIVE/n64"
+DIR_NES="$VG_ARCHIVE/nes"
+DIR_PS1="$VG_ARCHIVE/ps1"
+DIR_PS2="$VG_ARCHIVE/ps2"
+DIR_PSP="$VG_ARCHIVE/psp"
+DIR_SNES="$VG_ARCHIVE/snes"
+DIR_WII="$VG_ARCHIVE/wbfs"

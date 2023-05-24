@@ -23,11 +23,11 @@ assign-directories()
 {
 
    # no path provided -> use defaults
-   if [ -z "$1" ] && [ -d "$DIR_BACKUP/games" ] && [ -d "$DIR_BACKUP/wbfs" ]
+   if [ -z "$1" ] && [ -d "$VG_ARCHIVE/games" ] && [ -d "$VG_ARCHIVE/wbfs" ]
    then
-      DIR_WII="$DIR_BACKUP/wbfs"
-      DIR_GCN="$DIR_BACKUP/games"
-      printf "$STATUS_OK Analyzing archive at $DIR_BACKUP\n"
+      DIR_WII="$VG_ARCHIVE/wbfs"
+      DIR_GCN="$VG_ARCHIVE/games"
+      printf "$STATUS_OK Analyzing archive at $VG_ARCHIVE\n"
       return
    fi
 
