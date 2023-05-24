@@ -16,6 +16,8 @@ if status is-interactive
 
    fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
 
+   set -x VG_ARCHIVE $HOME/game-archive
+
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
    set -x PAGER "less -r --jump-target=3"
