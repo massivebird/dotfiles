@@ -28,7 +28,21 @@ NUM_PS2=$(ls -l $DIR_PS2 | grep -cE '\.(iso|bin)')
 NUM_PSP=$(ls -l $DIR_PSP | grep -cE '\.iso')
 NUM_SNES=$(ls -l $DIR_SNES | grep -cE '\.sfc')
 NUM_WII=$(ls -l $DIR_WII | grep -cE '^d.*\[.*')
-NUM_TOTAL=$[ NUM_DS + NUM_DS3 + NUM_GB + NUM_GBA + NUM_GCN + NUM_N64 + NUM_PS2 + NUM_SNES + NUM_WII + NUM_PS1 ]
+NUM_TOTAL=$[ \
+   NUM_DS + \
+   NUM_DS3 + \
+   NUM_GB + \
+   NUM_GBA + \
+   NUM_GCN + \
+   NUM_GEN + \
+   NUM_N64 + \
+   NUM_NES + \
+   NUM_PS1 + \
+   NUM_PS2 + \
+   NUM_PSP + \
+   NUM_SNES + \
+   NUM_WII + \
+   0 ]
 
 calcsize () {
 	du -chs $* | tail -n 1 | grep -oE '(^\w.+)[GM]'
