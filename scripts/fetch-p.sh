@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-## FETCH-P.SH
 # smol pfetch
+# inspired by pfetch
 
 COLOR_PRI="$(tput setaf 4)$(tput bold)"
 COLOR_SEC="$(tput setaf 7)$(tput bold)"
 COLOR_NO="$(tput sgr 0)"
 
-PATH_GENERATOR=~/p-c/ascii-paracord.run
+ART_GENERATOR_PATH="$1"
 
 # use ascii generator
 FLAG_USEGEN=1
 
-# ascii art
-if [ $FLAG_USEGEN -eq 1 ] && [ -x $PATH_GENERATOR ]; then
-   COLUMN_LEFT="$( "$PATH_GENERATOR" | sed 's_\\_\\\\_g' | sed 's/^/'$COLOR_SEC'/' | sed 's/$/ /' )"
+# the [procedural] art
+if [ $FLAG_USEGEN -eq 1 ] && [ -x $ART_GENERATOR_PATH ]; then
+   COLUMN_LEFT="$( "$ART_GENERATOR_PATH" | sed 's_\\_\\\\_g' | sed 's/^/'$COLOR_SEC'/' | sed 's/$/ /' )"
 else
    COLUMN_LEFT=$(sed 's/^/'$COLOR_SEC'/' <<< \
 '''\/~/=\\"\  
