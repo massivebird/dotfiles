@@ -104,6 +104,7 @@ if status is-interactive
    alias cgt 'cargo test'
    alias cgtr 'cargo tree'
    alias cgu 'cargo update'
+   alias cgw 'cargo watch --clear'
 
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
