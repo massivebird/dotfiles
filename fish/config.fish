@@ -95,6 +95,16 @@ if status is-interactive
    alias gsh 'git show --oneline'
    alias gst 'git status'
 
+   # cargo
+   alias cg 'cargo'
+   alias cgbr 'cargo build --release'
+   alias cgcl 'cargo clippy'
+   alias cgi 'cargo init'
+   alias cgr 'cargo run'
+   alias cgt 'cargo test'
+   alias cgtr 'cargo tree'
+   alias cgu 'cargo update'
+
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
 
