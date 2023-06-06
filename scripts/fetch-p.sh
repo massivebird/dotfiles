@@ -7,14 +7,14 @@ COLOR_PRI="$(tput setaf 4)$(tput bold)"
 COLOR_SEC="$(tput setaf 7)$(tput bold)"
 COLOR_NO="$(tput sgr 0)"
 
-ART_GENERATOR_PATH="$1"
+ART_GENERATOR_PATH=$1
 
 # use ascii generator
 FLAG_USEGEN=1
 
 # the [procedural] art
 if [ $FLAG_USEGEN -eq 1 ] && [ -x $ART_GENERATOR_PATH ]; then
-   COLUMN_LEFT="$( "$ART_GENERATOR_PATH" | sed 's_\\_\\\\_g' | sed 's/^/'$COLOR_SEC'/' | sed 's/$/ /' )"
+   COLUMN_LEFT="$( $@ | sed 's_\\_\\\\_g' | sed 's/^/'$COLOR_SEC'/' | sed 's/$/ /' )"
 else
    COLUMN_LEFT=$(sed 's/^/'$COLOR_SEC'/' <<< \
 '''\/~/=\\"\  

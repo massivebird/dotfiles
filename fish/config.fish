@@ -243,6 +243,6 @@ if status is-interactive
    # bg of history search matches, selected pager items
    set fish_color_search_match default
 
-   bash ~/.config/scripts/fetch-p.sh "$HOME/p-rs/art_boxes/target/release/art_boxes"
+   bash ~/.config/scripts/fetch-p.sh "$HOME/p-rs/art_boxes/target/release/art_boxes" 8 4
    bash ~/.config/scripts/git-updater.sh $argv
 end
