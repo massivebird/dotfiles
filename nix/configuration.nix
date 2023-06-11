@@ -98,6 +98,9 @@
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       binutils # tree-sitter dep
       cargo
+      pamixer # pulseaudio control
+      playerctl # audio controls like play, skip
+      brightnessctl
       firefox
       fish
       git
