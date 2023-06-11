@@ -1,24 +1,18 @@
 # key remaps
-
 map <Space> scroll 0
-
-map <C-=> zoom in
-map <C--> zoom out
-
+map < C-= > zoom in
+map < C-- > zoom out
 map <C-s> toggle_statusbar
 
 # font
-
-set font "JetBrains Mono 13"
+set font "JetBrainsMono Nerd Font 13"
 
 # behavior
-
 set page-padding 10
 set guioptions "s"
 set selection-clipboard clipboard
 
 # color
-
 set recolor true
 
 set default-fg "#eeeeee"
