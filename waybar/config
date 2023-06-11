@@ -64,9 +64,9 @@
       // "format-alt": "{ipaddr}/{cidr} {icon}",
       // "format-alt-click": "click-right",
       "format-icons": {
-         "wifi": ["", "" ,""],
-         "ethernet": [""],
-         "disconnected": [""]
+         "wifi": ["󰤟", "󰤢" ,"󰤨"],
+         "ethernet": ["󰈀"],
+         "disconnected": ["󰤮"]
       },
       // https://github.com/ericmurphyxyz/rofi-wifi-menu
       "on-click": "~/bin/rofi-wifi-menu",
@@ -77,13 +77,13 @@
       "format": "{icon}",
       "format-alt": "{volume} {icon}",
       "format-alt-click": "click-right",
-      "format-muted": "",
+      "format-muted": "󰝟",
       "format-icons": {
          "phone": [" ", " ", " ", " "],
-         "default": ["", "", "", ""]
+         "default": ["󰕿", "󰖀", "󰕾", "󰕾"]
       },
       "scroll-step": 10,
-      "on-click": "pavucontrol",
+      "on-click": "pulseaudio",
       "tooltip": false
    },
    "custom/spotify": {
