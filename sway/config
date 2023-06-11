@@ -36,19 +36,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+shift+n exec makoctl reload && bash ~/.config/scripts/mako-test.sh
 # close focused window
 bindsym $mod+Shift+q kill
-# sleep mode
+# sleep
 bindsym $mod+shift+s exec systemctl suspend -i
 # log out
 bindsym $mod+ctrl+shift+e exit 
-# restart
-bindsym $mod+ctrl+shift+r exec systemctl reboot 
-# shut down
-bindsym $mod+ctrl+shift+f+d exec systemctl poweroff 
+bindsym $mod+ctrl+shift+f+r exec systemctl reboot 
+bindsym $mod+ctrl+shift+f+d exec shutdown
 # quick desktop screenshot
 bindsym Print exec grim ~/Pictures/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
-# was opening a new terminal
+# disable opening a new terminal
 bindsym ctrl+shift+n nop
-# app shortcuts
 bindsym $mod+o+1 exec firefox
 bindsym $mod+o+z exec zathura
 bindsym $mod+o+2 exec nautilus
@@ -106,7 +103,7 @@ client.unfocused        $c_1    $c_1    $c_2    $c_0       $c_1
 
 # font ################################
 
-font pango:JetBrainsMono Nerd Font Mono 11
+font pango:JetBrainsMono Nerd Font 8
 
 # bar #################################
 
