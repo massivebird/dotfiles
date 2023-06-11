@@ -121,7 +121,7 @@ if status is-interactive
    search_dirs={\'/home/penguino/.config/nvim/lua\'} \
    hidden=false path_display={'smart'} \
    prompt_title='Modules'"'
-   alias ncn 'nvim /etc/nixos/configuration.nix'
+   alias ncn 'nvim ~/.config/nix/configuration.nix'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
