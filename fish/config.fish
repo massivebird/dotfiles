@@ -106,6 +106,8 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
+   alias nor 'sudo nixos-rebuild switch'
+
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
 
@@ -119,6 +121,7 @@ if status is-interactive
    search_dirs={\'/home/penguino/.config/nvim/lua\'} \
    hidden=false path_display={'smart'} \
    prompt_title='Modules'"'
+   alias ncn 'nvim /etc/nixos/configuration.nix'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
