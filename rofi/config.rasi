@@ -6,7 +6,7 @@
 
 
 * {
-	font: "JetBrains Mono NL 13";
+	font: "JetBrainsMono Nerd Font 13";
 	padding-text-hor: 0 10px;
 	accent: #333333;
 	bg: #0e0e0e;
