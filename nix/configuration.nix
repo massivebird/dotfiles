@@ -94,7 +94,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       binutils # tree-sitter dep
       brightnessctl
       cargo
@@ -120,7 +119,23 @@
       wget
       yt-dlp
       zathura
-  ];
+      ];
+
+  fonts = {
+     enableDefaultFonts = true;
+     fonts = with pkgs; [ 
+        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        noto-fonts-cjk-sans
+     ];
+
+     fontconfig = {
+        defaultFonts = {
+           serif = [ "Noto Sans Mono" "JetBrainsMono" ];
+           sansSerif = [ "Noto Sans Mono" "JetBrainsMono" ];
+           monospace = [ "JetBrainsMono" ];
+        };
+     };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions
