@@ -87,8 +87,8 @@
 
   users.users.penguino = {
     isNormalUser = true;
-    # description = "his whole body is a weapon";
     extraGroups = [ "networkmanager" "wheel" ];
+    # description = "his whole body is a weapon";
   };
 
   # List packages installed in system profile. To search, run:
@@ -110,6 +110,7 @@
       pamixer # pulseaudio control
       playerctl # audio controls like play, skip
       python311
+      ranger
       ripgrep # nvim-telescope dep
       rofi
       rustc
@@ -117,6 +118,7 @@
       tree-sitter # the executable
       waybar
       wget
+      yt-dlp
       zathura
   ];
 
