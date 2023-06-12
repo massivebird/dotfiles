@@ -5,17 +5,17 @@
 { config, pkgs, ... }:
 
 {
-   nix = {
-   package = pkgs.nixFlakes;
-   extraOptions = ''
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
       experimental-features = nix-command flakes
-   '';
-   };
+    '';
+  };
 
-  imports =
-    [ # Include the results of the hardware scan
-      /etc/nixos/hardware-configuration.nix
-    ];
+  imports = [
+    /etc/nixos/hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # fixes unresponsive keyboard on wakeup
   boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
@@ -101,52 +101,54 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      binutils # tree-sitter dep
-      brightnessctl
-      cargo
-      croc
-      firefox
-      fish
-      git
-      gnat13 # GNU C++ compiler collection
-      java-language-server
-      kitty
-      libgccjit # GNU C compiler collection
-      lua-language-server
-      mpv
-      neovim
-      nodejs_20
-      pamixer # pulseaudio control
-      playerctl # audio controls like play, skip
-      python311
-      ranger
-      ripgrep # nvim-telescope dep
-      rofi
-      rust-analyzer
-      rustc
-      rustup
-      tree-sitter # the executable
-      vlc
-      waybar
-      wget
-      yt-dlp
-      zathura
-      ];
+    binutils # tree-sitter dep
+    brightnessctl
+    rnix-lsp # nix lsp
+    cargo
+    tldr
+    croc
+    firefox
+    fish
+    git
+    gnat13 # GNU C++ compiler collection
+    java-language-server
+    kitty
+    libgccjit # GNU C compiler collection
+    lua-language-server
+    mpv
+    neovim
+    nodejs_20
+    pamixer # pulseaudio control
+    playerctl # audio controls like play, skip
+    python311
+    ranger
+    ripgrep # nvim-telescope dep
+    rofi
+    rust-analyzer
+    rustc
+    rustup
+    tree-sitter # the executable
+    vlc
+    waybar
+    wget
+    yt-dlp
+    zathura
+  ];
 
   fonts = {
-     enableDefaultFonts = true;
-     fonts = with pkgs; [ 
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        noto-fonts-cjk-sans
-     ];
+    enableDefaultFonts = true;
+    fonts = with pkgs; [ 
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      noto-fonts-cjk-sans
+    ];
 
-     fontconfig = {
-        defaultFonts = {
-           serif = [ "Noto Sans Mono" "JetBrainsMono" ];
-           sansSerif = [ "Noto Sans Mono" "JetBrainsMono" ];
-           monospace = [ "JetBrainsMono" ];
-        };
-     };
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Sans Mono" "JetBrainsMono" ];
+        sansSerif = [ "Noto Sans Mono" "JetBrainsMono" ];
+        monospace = [ "JetBrainsMono" ];
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -175,5 +177,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html)
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
