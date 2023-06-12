@@ -103,9 +103,7 @@
   environment.systemPackages = with pkgs; [
     binutils # tree-sitter dep
     brightnessctl
-    rnix-lsp # nix lsp
     cargo
-    tldr
     croc
     firefox
     fish
@@ -123,10 +121,13 @@
     python311
     ranger
     ripgrep # nvim-telescope dep
+    rnix-lsp # nix lsp
     rofi
     rust-analyzer
     rustc
     rustup
+    tldr
+    tree
     tree-sitter # the executable
     vlc
     waybar
