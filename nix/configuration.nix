@@ -96,11 +96,9 @@
   environment.systemPackages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       binutils # tree-sitter dep
-      ripgrep # nvim-telescope dep
-      cargo
-      pamixer # pulseaudio control
-      playerctl # audio controls like play, skip
       brightnessctl
+      cargo
+      croc
       firefox
       fish
       git
@@ -109,7 +107,10 @@
       libgccjit # GNU C compiler collection
       neovim
       nodejs_20
+      pamixer # pulseaudio control
+      playerctl # audio controls like play, skip
       python311
+      ripgrep # nvim-telescope dep
       rofi
       rustc
       rustup
