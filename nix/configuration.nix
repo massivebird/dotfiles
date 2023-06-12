@@ -96,6 +96,9 @@
   environment.systemPackages = with pkgs; [
       binutils # tree-sitter dep
       brightnessctl
+      rust-analyzer
+      java-language-server
+      lua-language-server
       cargo
       croc
       firefox
