@@ -13,6 +13,7 @@
   # fixes unresponsive keyboard on wakeup
   boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
 
+  # supposed to fix slow app startup (it didn't)
   powerManagement.cpuFreqGovernor = "performance";
 
   boot.loader.systemd-boot.enable = true;
@@ -79,16 +80,14 @@
     #media-session.enable = true;
   };
 
-  # enables fish as default shell
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
   programs.sway.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’
   users.users.penguino = {
     isNormalUser = true;
-    description = "his whole body is a weapon";
+    # description = "his whole body is a weapon";
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
@@ -97,6 +96,7 @@
   environment.systemPackages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       binutils # tree-sitter dep
+      ripgrep # nvim-telescope dep
       cargo
       pamixer # pulseaudio control
       playerctl # audio controls like play, skip
