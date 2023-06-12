@@ -5,6 +5,13 @@
 { config, pkgs, ... }:
 
 {
+   nix = {
+   package = pkgs.nixFlakes;
+   extraOptions = ''
+      experimental-features = nix-command flakes
+   '';
+   };
+
   imports =
     [ # Include the results of the hardware scan
       /etc/nixos/hardware-configuration.nix
@@ -96,17 +103,17 @@
   environment.systemPackages = with pkgs; [
       binutils # tree-sitter dep
       brightnessctl
-      rust-analyzer
-      java-language-server
-      lua-language-server
       cargo
       croc
       firefox
       fish
       git
       gnat13 # GNU C++ compiler collection
+      java-language-server
       kitty
       libgccjit # GNU C compiler collection
+      lua-language-server
+      mpv
       neovim
       nodejs_20
       pamixer # pulseaudio control
@@ -115,9 +122,11 @@
       ranger
       ripgrep # nvim-telescope dep
       rofi
+      rust-analyzer
       rustc
       rustup
       tree-sitter # the executable
+      vlc
       waybar
       wget
       yt-dlp
