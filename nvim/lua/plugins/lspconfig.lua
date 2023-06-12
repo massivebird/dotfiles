@@ -33,6 +33,8 @@ return {
 
          local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+         lspconfig.rnix.setup {}
+
          lspconfig.clojure_lsp.setup {
             on_attach = on_attach,
             capabilities = capabilities,
