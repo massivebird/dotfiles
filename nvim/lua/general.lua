@@ -57,7 +57,7 @@ augroup init
 " remove all autocmds to prevent duplicates
 autocmd!
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-" commentstring keeps terminating at # character
-" autocmd FileType fish          setlocal commentstring=#\ %s
+autocmd FileType fish          setlocal commentstring=#\ %s
+autocmd FileType nix             setlocal commentstring=#\ %s
 augroup end
 ]]
