@@ -15,7 +15,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- var set prior to loading plugins that depend on it
+-- some plugins/modules use this variable
 vim.cmd 'let base16colorspace = 256'
 if vim.fn.has("termguicolors") then
    vim.opt.termguicolors = true
