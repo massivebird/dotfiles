@@ -99,7 +99,6 @@
   environment.systemPackages = with pkgs; [
     binutils # tree-sitter dep
     brightnessctl
-    marksman # markdown language server
     cargo
     croc
     firefox
@@ -110,9 +109,11 @@
     kitty
     libgccjit # GNU C compiler collection
     lua-language-server
+    marksman # markdown language server
     mpv
     neovim
     nodejs_20
+    nsxiv # image viewer
     pamixer # pulseaudio control
     playerctl # audio controls like play, skip
     python311
