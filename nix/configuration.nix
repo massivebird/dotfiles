@@ -26,15 +26,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ishmael";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone
   time.timeZone = "America/Detroit";
@@ -103,6 +99,7 @@
   environment.systemPackages = with pkgs; [
     binutils # tree-sitter dep
     brightnessctl
+    marksman # markdown language server
     cargo
     croc
     firefox
@@ -162,14 +159,25 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # openFirewall = true; # auto-open specific ports
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = true;
+      X11Forwarding = true;
+    };
+  };
 
-  # Open ports in the firewall
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether
-  # networking.firewall.enable = false;
+  networking.hostName = "ishmael";
+  networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.useDHCP = false;
+  # these add 1m30s to startup
+  # networking.interfaces.enp1s0.useDHCP = true;
+  # networking.interfaces.wlp2s0.useDHCP = true;
+
+  networking.hosts."172.29.0.191" = [ "clint" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
