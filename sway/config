@@ -41,7 +41,7 @@ bindsym $mod+shift+s exec systemctl suspend -i
 # log out
 bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+ctrl+shift+f+r exec systemctl reboot 
-bindsym $mod+ctrl+shift+f+d exec shutdown
+bindsym $mod+ctrl+shift+f+d exec systemctl poweroff
 # quick desktop screenshot
 bindsym Print exec grim ~/Pictures/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
 # disable opening a new terminal
