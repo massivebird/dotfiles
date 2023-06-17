@@ -4,12 +4,15 @@
 # + figure out how to change window app
 # + fix dedicated kitty window launching with bourne shell
 
+# fixes slow GTK app startup in nixos
+exec systemctl --user mask xdg-desktop-portal-gnome.service
+
 # OBS services
 # https://github.com/stelcodes/xdg-config/blob/main/sway/config
 # https://github.com/emersion/xdg-desktop-portal-wlr
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 # Need to restart because xdg-desktop-portal is not starting automatically
-exec systemctl --user restart xdg-desktop-portal-wlr
+# exec systemctl --user restart xdg-desktop-portal-wlr
 
 # notification daemon
 exec systemctl --user start mako
@@ -18,10 +21,6 @@ exec systemctl --user start mako
 set $term kitty
 set $menu rofi -show drun
 set $browser ranger ~
-
-# obs things
-# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-# exec systemctl --user restart xdg-desktop-portal-wlr
 
 # keybinds ############################
 

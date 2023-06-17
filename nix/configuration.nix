@@ -6,6 +6,7 @@
 
 {
   nix = {
+    # pkgs version compatible with flakes
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -16,6 +17,9 @@
     /etc/nixos/hardware-configuration.nix
     <home-manager/nixos>
   ];
+
+  # fixes slow gnome app startup
+  services.dbus.enable = true;
 
   # fixes unresponsive keyboard on wakeup
   boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
@@ -92,6 +96,7 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     # description = "his whole body is a weapon";
+    initialPassword = "password";
   };
 
   # List packages installed in system profile. To search, run:
@@ -109,6 +114,7 @@
     kitty
     libgccjit # GNU C compiler collection
     lua-language-server
+    mako
     marksman # markdown language server
     mpv
     neovim
