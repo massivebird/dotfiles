@@ -175,9 +175,9 @@
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 22 ];
   networking.useDHCP = false;
-  # these add 1m30s to startup
-  networking.interfaces.enp1s0.useDHCP = false;
-  networking.interfaces.wlp2s0.useDHCP = false;
+  # these add 1m30s to startup even when set to false??
+  # networking.interfaces.enp1s0.useDHCP = false;
+  # networking.interfaces.wlp2s0.useDHCP = false;
   networking.hosts."172.29.0.191" = [ "clint" ];
 
   # This value determines the NixOS release from which the default
