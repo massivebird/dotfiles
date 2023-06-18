@@ -105,7 +105,9 @@
     binutils # tree-sitter dep
     brightnessctl
     cargo
+    cmatrix
     croc
+    dmidecode
     firefox
     fish
     git
@@ -130,6 +132,7 @@
     rust-analyzer
     rustc
     rustup
+    taskwarrior
     tldr
     tree
     tree-sitter # the executable
