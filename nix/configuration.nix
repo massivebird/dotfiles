@@ -18,30 +18,22 @@
     <home-manager/nixos>
   ];
 
-  # fixes slow gnome app startup
+  # fixes slow startup for GNOME/GTK apps
   services.dbus.enable = true;
 
   # fixes unresponsive keyboard on wakeup
   boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
-
-  # supposed to fix slow app startup (it didn't)
-  powerManagement.cpuFreqGovernor = "performance";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Set your time zone
   time.timeZone = "America/Detroit";
 
-  # Select internationalisation properties
+  # internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -54,14 +46,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system
+  # enable X11 windowing system
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment
+  # enable the GNOME desktop environment
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
+  # configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -184,9 +176,8 @@
   networking.firewall.allowedTCPPorts = [ 22 ];
   networking.useDHCP = false;
   # these add 1m30s to startup
-  # networking.interfaces.enp1s0.useDHCP = true;
-  # networking.interfaces.wlp2s0.useDHCP = true;
-
+  networking.interfaces.enp1s0.useDHCP = false;
+  networking.interfaces.wlp2s0.useDHCP = false;
   networking.hosts."172.29.0.191" = [ "clint" ];
 
   # This value determines the NixOS release from which the default
