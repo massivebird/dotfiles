@@ -112,6 +112,7 @@
     marksman # markdown language server
     mpv
     neovim
+    nodePackages_latest.bash-language-server
     nodejs_20
     nsxiv # image viewer
     pamixer # pulseaudio control
@@ -131,6 +132,7 @@
     vlc
     waybar
     wget
+    wl-clipboard # neovim clipboard integration
     yt-dlp
     zathura
   ];
