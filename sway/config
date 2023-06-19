@@ -55,7 +55,7 @@ bindsym $win+r exec $menu
 # functional keys #####################
 
 # brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set +1%
+bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
 # volume controls
 bindsym XF86AudioMute exec pamixer --toggle-mute
