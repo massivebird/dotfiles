@@ -13,6 +13,14 @@
     '';
   };
 
+  # tty settings (ctrl + alt + f<1-12>)
+  console = {
+    # set virtual console options as early as possible
+    earlySetup = true;
+    packages = with pkgs; [ terminus_font ];
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v32b.psf.gz";
+  };
+
   # fixes slow gnome app startup
   services.dbus.enable = true;
 
@@ -25,18 +33,16 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant
+  # enables wireless support via wpa_supplicant
+  # networking.wireless.enable = true;
 
-  # Configure network proxy if necessary
+  # configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Set your time zone
   time.timeZone = "America/Detroit";
 
-  # Select internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -49,23 +55,23 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system
+  # enable the X11 windowing system
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment
+  # enable the GNOME desktop environment
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
+  # configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
 
-  # Enable CUPS to print documents
+  # enable CUPS to print documents
   services.printing.enable = true;
 
-  # Enable sound with pipewire
+  # enable sound with pipewire
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -74,7 +80,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
+    # if you want to use JACK applications, uncomment this
     #jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
@@ -87,7 +93,7 @@
 
   programs.sway.enable = true;
 
-  # List packages installed in system profile. To search, run:
+  # list packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     binutils # tree-sitter dep
@@ -95,7 +101,7 @@
     cargo
     cmatrix
     croc
-    dmidecode
+    dmidecode # get hardware info
     firefox
     fish
     git
@@ -104,7 +110,7 @@
     kitty
     libgccjit # GNU C compiler collection
     lua-language-server
-    mako
+    mako # wayland notification daemon
     marksman # markdown language server
     mpv
     neovim
@@ -130,7 +136,7 @@
     wget
     wl-clipboard # neovim clipboard integration
     yt-dlp
-    zathura
+    zathura # pdf viewer
   ];
 
   fonts = {
@@ -149,15 +155,13 @@
     };
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # some programs need SUID wrappers, can be configured further or are
   # started in user sessions
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   services.openssh = {
     enable = true;
@@ -169,11 +173,11 @@
     };
   };
 
-  # This value determines the NixOS release from which the default
+  # this value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system
-  # Before changing this value read the documentation for this option
+  # before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html)
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.05"; # did you read the comment?
 }
