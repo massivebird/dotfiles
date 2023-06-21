@@ -15,9 +15,10 @@
 
   # tty settings (ctrl + alt + f<1-12>)
   console = {
-    # set virtual console options as early as possible
+    # set console options as early as possible
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
+    # [some] fonts in /etc/kbd/consolefonts/
     font = "${pkgs.terminus_font}/share/consolefonts/ter-v32b.psf.gz";
   };
 
