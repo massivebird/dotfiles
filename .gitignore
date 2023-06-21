@@ -1,3 +1,5 @@
+nix/result
+*.qcow2
 .gsd*
 .luarc.json
 Google

@@ -1,10 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’)
+{ userName, hostName, pkgs, inputs, ... }: {
 
-{ config, pkgs, ... }:
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/common
+  ];
 
-{
   nix = {
     # pkgs version compatible with flakes
     package = pkgs.nixFlakes;
@@ -13,27 +13,30 @@
     '';
   };
 
-  imports = [
-    /etc/nixos/hardware-configuration.nix
-    <home-manager/nixos>
-  ];
-
-  # fixes slow startup for GNOME/GTK apps
+  # fixes slow gnome app startup
   services.dbus.enable = true;
 
   # fixes unresponsive keyboard on wakeup
   boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
+
+  # supposed to fix slow app startup (it didn't)
+  powerManagement.cpuFreqGovernor = "performance";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   # Set your time zone
   time.timeZone = "America/Detroit";
 
-  # internationalisation properties
+  # Select internationalisation properties
   i18n.defaultLocale = "en_US.UTF-8";
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -46,14 +49,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # enable X11 windowing system
+  # Enable the X11 windowing system
   services.xserver.enable = true;
 
-  # enable the GNOME desktop environment
+  # Enable the GNOME Desktop Environment
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # configure keymap in X11
+  # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
@@ -83,13 +86,6 @@
   users.defaultUserShell = pkgs.fish;
 
   programs.sway.enable = true;
-
-  users.users.penguino = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-    # description = "his whole body is a weapon";
-    initialPassword = "password";
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -172,15 +168,6 @@
       X11Forwarding = true;
     };
   };
-
-  networking.hostName = "ishmael";
-  networking.networkmanager.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.useDHCP = false;
-  # these add 1m30s to startup even when set to false??
-  # networking.interfaces.enp1s0.useDHCP = false;
-  # networking.interfaces.wlp2s0.useDHCP = false;
-  networking.hosts."172.29.0.191" = [ "clint" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
