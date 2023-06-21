@@ -19,7 +19,7 @@
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
     # [some] fonts in /etc/kbd/consolefonts/
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-v32b.psf.gz";
+    font = "latarcyrheb-sun32";
   };
 
   # fixes slow gnome app startup
