@@ -100,6 +100,7 @@
     binutils # tree-sitter dep
     brightnessctl
     cargo
+    clippy # rust linting
     cmatrix
     croc
     dmidecode # get hardware info
