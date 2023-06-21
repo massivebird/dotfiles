@@ -1,5 +1,5 @@
 {
-  description = "please work please";
+  description = "massivebird's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.05";
@@ -13,9 +13,9 @@
   let
     userName = "penguino";
     system = "x86_64-linux";
-  in
-  {
+  in {
     nixosConfigurations = {
+
       # hp laptop
       ray = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -27,6 +27,7 @@
           ./hosts/ray
         ];
       };
+
     };
   };
 }
