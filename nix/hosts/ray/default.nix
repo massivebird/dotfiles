@@ -94,20 +94,23 @@
 
   programs.sway.enable = true;
 
-  # list packages installed in system profile. To search, run:
-  # $ nix search wget
+  # packages for all users
   environment.systemPackages = with pkgs; [
+    bacon # background rust code checker
     binutils # tree-sitter dep
-    brightnessctl
+    brightnessctl # keyboard brightness controls
     cargo
     clippy # rust linting
     cmatrix
+    coreutils
     croc
     dmidecode # get hardware info
+    exa # modern alternative to `ls` written in rust
     firefox
     fish
     git
     gnat13 # GNU C++ compiler collection
+    grim # screenshots in wayland
     java-language-server
     kitty
     libgccjit # GNU C compiler collection
@@ -115,15 +118,16 @@
     mako # wayland notification daemon
     marksman # markdown language server
     mpv
+    ncspot # ncurses spotify client written in rust
     neovim
     nodePackages_latest.bash-language-server
     nodejs_20
     nsxiv # image viewer
     pamixer # pulseaudio control
-    playerctl # audio controls like play, skip
+    playerctl # keyboard audio controls
     python311
     ranger
-    ripgrep # nvim-telescope dep
+    ripgrep # real fast grep written in rust
     rnix-lsp # nix lsp
     rofi
     rust-analyzer
@@ -136,6 +140,7 @@
     vlc
     waybar
     wget
+    wiki-tui
     wl-clipboard # neovim clipboard integration
     yt-dlp
     zathura # pdf viewer
