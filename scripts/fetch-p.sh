@@ -29,7 +29,7 @@ STRING_NAMES="$COLOR_PRI$USER$COLOR_NO@$COLOR_PRI$HOSTNAME$COLOR_NO"
 TABLE_INFO="""\
    ${COLOR_SEC}os$COLOR_NO $(grep -Po '(?<=PRETTY_NAME=")\w*' < /etc/os-release)
    ${COLOR_SEC}kernel$COLOR_NO $(uname -r | grep -Po '^[^-]*')
-   ${COLOR_SEC}uptime$COLOR_NO $(uptime -p | grep -Po '\d+..' | sed 's/\ //' | tr -d '[:space:]')\
+
       """
 
 # inserts table below login@hostname
