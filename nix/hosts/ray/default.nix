@@ -34,13 +34,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # enables wireless support via wpa_supplicant
-  # networking.wireless.enable = true;
-
-  # configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   time.timeZone = "America/Detroit";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -83,10 +76,6 @@
     pulse.enable = true;
     # if you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   programs.fish.enable = true;
@@ -94,63 +83,11 @@
 
   programs.sway.enable = true;
 
-  # packages for all users
-  environment.systemPackages = with pkgs; [
-    bacon # background rust code checker
-    binutils # tree-sitter dep
-    brightnessctl # keyboard brightness controls
-    cargo
-    clippy # rust linting
-    cmatrix
-    coreutils
-    croc
-    dmidecode # get hardware info
-    exa # modern alternative to `ls` written in rust
-    firefox
-    fish
-    git
-    gnat13 # GNU C++ compiler collection
-    grim # screenshots in wayland
-    java-language-server
-    kitty
-    libgccjit # GNU C compiler collection
-    lua-language-server
-    mako # wayland notification daemon
-    marksman # markdown language server
-    mpv
-    ncspot # ncurses spotify client written in rust
-    neovim
-    nodePackages_latest.bash-language-server
-    nodejs_20
-    nsxiv # image viewer
-    pamixer # pulseaudio control
-    playerctl # keyboard audio controls
-    python311
-    ranger
-    ripgrep # real fast grep written in rust
-    rnix-lsp # nix lsp
-    rofi
-    rust-analyzer
-    rustc
-    rustup
-    taskwarrior
-    tldr
-    tree
-    tree-sitter # the executable
-    vlc
-    waybar
-    wget
-    wiki-tui
-    wl-clipboard # neovim clipboard integration
-    yt-dlp
-    zathura # pdf viewer
-  ];
-
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [ 
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      noto-fonts-cjk-sans
+      noto-fonts-cjk-sans # japanese chars
     ];
 
     fontconfig = {
@@ -161,14 +98,6 @@
       };
     };
   };
-
-  # some programs need SUID wrappers, can be configured further or are
-  # started in user sessions
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   services.openssh = {
     enable = true;
