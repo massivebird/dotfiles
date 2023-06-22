@@ -2,7 +2,7 @@
 
 ![preview-main](./res/preview-main.png)
 
-Fedora Linux btw
+[`nixOS`](https://nixos.org/) is really cool and you should check it out 🐧
 
 ## programs
 
@@ -19,45 +19,25 @@ Fedora Linux btw
 
 This repo is intended to be cloned into/as the system's `~/.config` directory.
 
-Here is an inefficient example of such:
+I usually do something gross like this:
 
-```bash
+```cmd
+cd ~
 git clone https://github.com/massivebird/dotfiles
-mv dotfiles/* ~/.config
-rm -rf dotfiles
+mv .config/* .config/.* dotfiles
+rm -rf .config
+mv dotfiles .config
 ```
 
-I'll make a better way later I promise
+### loading the nixOS flake
 
-## my favorite ./scripts
+The `nix` directory contains my configuration flake for nixOS.
 
-### arcstat.sh
+After following the above instructions, run:
 
-Displays statistics about my local game archive.
-
-![arcstat-preview](https://i.imgur.com/wV42FWx.png)
-
-### fetch-p.sh
-
-A pfetch-inspired splash message.
-
-Executed by shell on start-up alongside `git-updater.sh` (see below).
-
-![shell-splash-preview](https://i.imgur.com/W0EWRO1.png)
-
-### git-updater.sh
-
-Updates local git repositories (very cool!)
-
-![git-updater-preview](https://i.imgur.com/ulG5AnG.gif)
-
-> Utilizes `./scripts/lib/loading-spinner.sh` to create a loading animation
-
-### wiicheck.sh
-
-Validates file system conventions for USB Loader GX, a Wii Homebrew app.
-
-![wiicheck-preview](https://i.imgur.com/DaCQKue.png)
+```cmd
+sudo nixos-rebuild switch --flake ~/.config/nix#<hostName>
+```
 
 ## misc
 
