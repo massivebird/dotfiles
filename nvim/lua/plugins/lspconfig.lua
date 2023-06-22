@@ -19,11 +19,13 @@ return {
          -- after the language server attaches to the current buffer
          local on_attach = function()
             vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-            vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { buffer = 0 })
+            vim.keymap.set('n', '<leader>lD', vim.lsp.buf.declaration, { buffer = 0 })
             vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = 0 })
-            vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { buffer = 0 })
-            vim.keymap.set('n', '<leader>ll', vim.diagnostic.open_float, { buffer = 0 })
+            vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, { buffer = 0 })
             vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, { buffer = 0 })
+            vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { buffer = 0 })
+            vim.keymap.set('n', '<leader>ll', vim.diagnostic.open_float, { buffer = 0 })
+            vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { buffer = 0 })
             vim.keymap.set('v', '<leader>lf', function() vim.lsp.buf.range_formatting({}) end, { buffer = 0 })
 
             -- Add borders to :LspInfo floating window
