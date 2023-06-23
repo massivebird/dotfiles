@@ -25,6 +25,13 @@
         };
         modules = [
           ./hosts/ray
+          inputs.home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true; # default.nix pkgs
+            home-manager.userUserPackages = true; # home.nix pkgs
+            home-manager.users.${userName} = {
+              imports = [ ./hosts/ray/home.nix ];
+            };
+          }
         ];
       };
 
