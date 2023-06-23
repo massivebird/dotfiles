@@ -12,6 +12,7 @@
 
     environment.systemPackages = with pkgs; [
       bacon # background rust code checker
+      bat # `less` clone
       binutils # tree-sitter dep
       brightnessctl # keyboard brightness controls
       cargo
