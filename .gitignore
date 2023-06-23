@@ -1,4 +1,4 @@
-nix/result
+*.d
 *.qcow2
 .gsd*
 .luarc.json
@@ -25,6 +25,7 @@ enchant
 eog
 evolution
 fish/fish_variables
+fontconfig
 fontforge/
 gedit
 ghb/
@@ -43,6 +44,7 @@ monitors.xml
 monitors.xml~
 nautilus
 neofetch
+nix/result
 nnn
 nvim/lazy-lock.json
 nvim/lsp/
