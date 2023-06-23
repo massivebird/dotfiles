@@ -12,22 +12,24 @@
   outputs = inputs:
   let
     userName = "penguino";
-    system = "x86_64-linux";
   in {
     nixosConfigurations = {
 
       # hp laptop
       ray = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
         specialArgs = {
-          inherit inputs userName;
           hostName = "ray";
+          system = "x86_64-linux";
+          inherit inputs userName;
         };
         modules = [
           ./hosts/ray
           inputs.home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true; # default.nix pkgs
-            home-manager.userUserPackages = true; # home.nix pkgs
+            home-manager.useGlobalPkgs = true;   # default.nix pkgs
+            home-manager.useUserPackages = true; # home.nix pkgs
+            home-manager.extraSpecialArgs = {
+              inherit userName;
+            };
             home-manager.users.${userName} = {
               imports = [ ./hosts/ray/home.nix ];
             };
