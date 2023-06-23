@@ -3,6 +3,9 @@
   # start requested services, stop others
   systemd.user.startServices = true;
 
+  # allow home-manager to manage itself
+  programs.home-manager.enable = true;
+
   home = {
     stateVersion = "23.05";
 

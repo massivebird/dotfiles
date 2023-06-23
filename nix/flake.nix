@@ -38,5 +38,14 @@
       };
 
     };
+
+    homeConfigurations = {
+      rex = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit userName;
+        pkgs= inputs.nixpkgs;
+        modules = [ "./modules/common/home.nix" ];
+      };
+    };
+
   };
 }
