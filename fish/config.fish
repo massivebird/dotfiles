@@ -98,7 +98,10 @@ if status is-interactive
    # cargo
    alias cg 'cargo'
    alias cgbr 'cargo build --release'
-   alias cgcl 'cargo clippy'
+   alias cgcl 'cargo clippy -- \
+   -W clippy::pedantic \
+   -W clippy::nursery \
+   -W clippy::pedantic'
    alias cgi 'cargo init'
    alias cgr 'cargo run'
    alias cgt 'cargo test'
