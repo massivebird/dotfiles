@@ -22,7 +22,7 @@ return {
             vim.keymap.set('n', '<leader>lD', vim.lsp.buf.declaration, { buffer = 0 })
             vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, { buffer = 0 })
             vim.keymap.set('n', '<leader>ld', vim.lsp.buf.definition, { buffer = 0 })
-            vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, { buffer = 0 })
+            vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { buffer = 0 })
             vim.keymap.set('n', '<leader>lh', vim.lsp.buf.hover, { buffer = 0 })
             vim.keymap.set('n', '<leader>ll', vim.diagnostic.open_float, { buffer = 0 })
             vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, { buffer = 0 })
