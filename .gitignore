@@ -59,6 +59,8 @@ ranger/colorschemes/__*
 rygel.conf
 scripts/smoothcolor.sh
 spotify
+spotify-tui/.spotify_token_cache.json
+spotify-tui/client.yml
 sway/inactive-windows-transparency.py
 systemd
 tbsm/
