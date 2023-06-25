@@ -1,9 +1,3 @@
-## TO-DO:
-# + get a spotify alternative
-# + fix opening folder from Firefox
-# + figure out how to change window app
-# + fix dedicated kitty window launching with bourne shell
-
 # fixes slow GTK app startup in nixos
 exec systemctl --user mask xdg-desktop-portal-gnome.service
 
@@ -11,11 +5,11 @@ exec systemctl --user mask xdg-desktop-portal-gnome.service
 # https://github.com/stelcodes/xdg-config/blob/main/sway/config
 # https://github.com/emersion/xdg-desktop-portal-wlr
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-# Need to restart because xdg-desktop-portal is not starting automatically
-# exec systemctl --user restart xdg-desktop-portal-wlr
 
 # notification daemon
 exec systemctl --user start mako
+# spotify daemon
+exec spotifyd
 
 # default applications
 set $term kitty
