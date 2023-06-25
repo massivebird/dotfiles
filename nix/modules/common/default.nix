@@ -49,6 +49,8 @@
       rust-analyzer
       rustc
       rustup
+      spotify-tui
+      spotifyd # lightweight spotify daemon
       taskwarrior
       tldr
       tree
