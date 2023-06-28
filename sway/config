@@ -85,7 +85,7 @@ seat * hide_cursor 2200
 
 # colors ##############################
 
-set $c_0 #333333
+set $c_0 #222222
 set $c_1 #0e0e0e
 set $c_2 #FFFFFF
 
