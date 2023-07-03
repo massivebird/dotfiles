@@ -16,6 +16,9 @@ return {
       "iamcco/markdown-preview.nvim",
       ft = { "markdown" },
       build = "cd app && npm install",
+      -- ^^ yeah this never worked for me lmao
+      -- run `npm install` in the plugin directory
+      -- then in neovim do `:call mkdp#util#install()`
       init = function()
          vim.g.mkdp_filetypes = { "markdown" }
       end,
