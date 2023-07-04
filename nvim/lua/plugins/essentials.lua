@@ -51,6 +51,9 @@ return {
             show_end_of_line = false,
          }
       end
-   }
+   },
+
+   -- transforming between single- and multi-line statements
+   "andrewradev/splitjoin.vim",
 
 }
