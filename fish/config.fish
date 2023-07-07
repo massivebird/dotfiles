@@ -252,5 +252,5 @@ if status is-interactive
    set fish_color_search_match default
 
    bash ~/.config/scripts/fetch-p.sh "$HOME/p-rs/art_boxes/target/release/art_boxes" 8 4
-   bash ~/.config/scripts/git-updater.sh $argv
+   ~/bin/git_updater $argv
 end
