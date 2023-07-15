@@ -15,9 +15,11 @@
 
     environment.systemPackages = with pkgs; [
       bacon # background rust code checker
+      obsidian # markdown note taking app
       bat # `less` clone
       binutils # tree-sitter dep
       brightnessctl # keyboard brightness controls
+      btop # cool task manager
       cargo
       clippy # rust linting
       cmatrix
