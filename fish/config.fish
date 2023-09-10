@@ -86,7 +86,7 @@ if status is-interactive
    alias gcan 'git commit -a -m "+ notes"'
    alias gco 'git checkout'
    alias gf 'git fetch'
-   alias gl 'git log --graph --abbrev-commit --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
+   alias gl 'git log --graph --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
    alias gll 'git log --graph -p'
    alias glop 'git log --graph -p'
    alias grb 'git rebase'
