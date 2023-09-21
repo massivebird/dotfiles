@@ -18,6 +18,7 @@ coc
 configstore
 connections.db
 dconf
+discord
 dleyna-renderer-service.conf
 dleyna-server-service.conf
 dolphin-emu/
@@ -52,6 +53,7 @@ nvim/plugged
 nvim/plugin
 nvim/to-plugins
 obs-studio
+obsidian
 pavucontrol.ini
 picom/
 pulse
