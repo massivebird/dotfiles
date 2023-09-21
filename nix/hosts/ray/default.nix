@@ -24,7 +24,7 @@
 
   services.openssh = {
     enable = true;
-    # openFirewall = true; # auto-open specific ports
+    openFirewall = true; # auto-open specific ports
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = true;

@@ -13,18 +13,22 @@
       initialPassword = "password";
     };
 
+    # allow proprietary packages
+    nixpkgs.config.allowUnfree = true;
+
     environment.systemPackages = with pkgs; [
       bacon # background rust code checker
-      obsidian # markdown note taking app
       bat # `less` clone
-      binutils # tree-sitter dep
+      binutils # nvim tree-sitter dep
       brightnessctl # keyboard brightness controls
-      btop # cool task manager
+      btop # command line process manager
       cargo
       clippy # rust linting
+      cmake
       cmatrix
       coreutils
       croc
+      discord
       dmidecode # get hardware info
       exa # modern alternative to `ls` written in rust
       firefox
@@ -33,7 +37,9 @@
       gnat13 # GNU C++ compiler collection
       grim # screenshots in wayland
       java-language-server
-      kitty
+      jdk17 # java
+      kitty # terminal emulator
+      libGL
       libgccjit # GNU C compiler collection
       lua-language-server
       mako # wayland notification daemon
@@ -44,13 +50,14 @@
       nodePackages_latest.bash-language-server
       nodejs_20
       nsxiv # image viewer
+      obsidian # markdown note taking app
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
       python311
       ranger
       ripgrep # real fast grep written in rust
       rnix-lsp # nix lsp
-      rofi
+      rofi # "start menu" pop-up
       rust-analyzer
       rustc
       rustup
@@ -77,11 +84,12 @@
 
     services.xserver = {
       layout = "us";
+      autorun = false; # runs TTY login prompt instead of graphical
       displayManager.startx.enable = true;
       displayManager.lightdm.enable = false;
       # keybinds
       xkbVariant = "";
-      xkbOptions = pkgs.lib.mkDefault "caps:swapescape";
+      xkbOptions = pkgs.lib.mkDefault "caps:swapescape"; # caps lock is second escape
     };
 
     time.timeZone = "America/Detroit";
