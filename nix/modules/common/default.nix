@@ -49,6 +49,7 @@
       ncspot # ncurses spotify client written in rust
       neovim
       nodePackages_latest.bash-language-server
+      nodePackages_latest.typescript-language-server
       nodejs_20
       nsxiv # image viewer
       obsidian # markdown note taking app
@@ -69,6 +70,7 @@
       tree
       tree-sitter # the executable
       vlc
+      vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers
       waybar
       wget
       wiki-tui
