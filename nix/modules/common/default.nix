@@ -22,6 +22,7 @@
       binutils # nvim tree-sitter dep
       brightnessctl # keyboard brightness controls
       btop # command line process manager
+      bun # JavaScript runtime/package manager/bunder/etc.
       cargo
       clippy # rust linting
       cmake
