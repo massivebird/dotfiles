@@ -17,6 +17,7 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+      apache-httpd
       bacon # background rust code checker
       bat # `less` clone
       binutils # nvim tree-sitter dep
@@ -47,6 +48,7 @@
       mako # wayland notification daemon
       marksman # markdown language server
       mpv
+      mysql
       ncspot # ncurses spotify client written in rust
       neovim
       nodePackages_latest.bash-language-server
@@ -55,6 +57,7 @@
       nsxiv # image viewer
       obsidian # markdown note taking app
       pamixer # pulseaudio control
+      php
       playerctl # keyboard audio controls
       python311
       ranger
