@@ -17,7 +17,7 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-      apache-httpd
+      apacheHttpd
       bacon # background rust code checker
       bat # `less` clone
       binutils # nvim tree-sitter dep
