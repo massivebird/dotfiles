@@ -37,6 +37,7 @@
       git
       gnat13 # GNU C++ compiler collection
       grim # screenshots in wayland
+      helvetica-neue-lt-std
       java-language-server
       jdk17 # java
       kitty # terminal emulator
