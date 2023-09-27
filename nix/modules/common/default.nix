@@ -96,10 +96,32 @@
       xkbOptions = pkgs.lib.mkDefault "caps:swapescape"; # caps lock is second escape
     };
 
-    time.timeZone = "America/Detroit";
+    # TTY login prompt aka /etc/issue
+    # https://www.linuxfromscratch.org/blfs/view/svn/postlfs/logon.html
+    # current ASCII style: Cyberlarge
+    services.getty.greetingLine = ''
+      \e[1;33m++++++++++++++++++++++++++++++++++++++++++++++++++
+      +  _______  ______    /  ______ _______ __   __  +
+      +  |  |  | |  ____   /  |_____/ |_____|   \\_/    +
+      +  |  |  | |_____|  /   |    \\_ |     |    |     +
+      +                  /                             +
+      ++++++++++++++++++++++++++++++++++++++++++++++++++\e[1;32m
+      MODEL: A6M2 ZERO
+      ARMOR: CERAMIC-TITANIUM ALLOY: OK
+      ENGIN: FGS-EO55Sx4             ONLINE
+      WEAPN: ANTI-TANK MISSILE:      ONLINE
+             ANTI-SHIP MISSILE:      ONLINE
+             \e[1;31mWATER JET CUTTER:       OFFLINE
+             \e[1;32mCLUSTER MISSILES:       ONLINE
 
-    i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocaleSettings = {
+      \e[1;32mPILOT: \e[1;31mUNKNOWN
+
+      \e[1;33m>>> \e[1;31mENTER PILOT CREDENTIALS \e[1;33m<<<'';
+
+      time.timeZone = "America/Detroit";
+
+      i18n.defaultLocale = "en_US.UTF-8";
+      i18n.extraLocaleSettings = {
       LC_ADDRESS = "en_US.UTF-8";
       LC_IDENTIFICATION = "en_US.UTF-8";
       LC_MEASUREMENT = "en_US.UTF-8";
