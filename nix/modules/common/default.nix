@@ -100,7 +100,7 @@
     # https://www.linuxfromscratch.org/blfs/view/svn/postlfs/logon.html
     # current ASCII style: Cyberlarge
     services.getty.greetingLine = ''
-      \e[1;33m++++++++++++++++++++++++++++++++++++++++++++++++++
+      \e[1;34m++++++++++++++++++++++++++++++++++++++++++++++++++
       +  _______  ______    /  ______ _______ __   __  +
       +  |  |  | |  ____   /  |_____/ |_____|   \\_/    +
       +  |  |  | |_____|  /   |    \\_ |     |    |     +
