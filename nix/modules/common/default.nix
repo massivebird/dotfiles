@@ -36,6 +36,7 @@
       fish
       git
       gnat13 # GNU C++ compiler collection
+      gnumake42 # `make` command
       grim # screenshots in wayland
       helvetica-neue-lt-std
       java-language-server
