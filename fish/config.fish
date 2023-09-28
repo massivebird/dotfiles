@@ -85,6 +85,7 @@ if status is-interactive
    alias gcam 'git commit -a -m'
    alias gcan 'git commit -a -m "+ notes"'
    alias gco 'git checkout'
+   alias gd 'git diff'
    alias gf 'git fetch'
    alias gl 'git log --graph --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
    alias gll 'git log --graph -p'
