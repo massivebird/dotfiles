@@ -34,6 +34,7 @@
       exa # modern alternative to `ls` written in rust
       firefox
       fish
+      gh # github cli
       git
       gnat13 # GNU C++ compiler collection
       gnumake42 # `make` command
