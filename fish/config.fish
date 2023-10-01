@@ -96,6 +96,10 @@ if status is-interactive
    alias gsh 'git show --oneline'
    alias gst 'git status'
 
+   alias ghi 'gh issue'
+   alias ghil 'gh issue list'
+   alias ghiv 'gh issue view'
+
    # cargo
    alias cg 'cargo'
    alias cgbr 'cargo build --release'
@@ -110,7 +114,9 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
-   alias nor 'sudo nixos-rebuild switch --flake ~/.config/nix#'
+   alias ncg 'sudo nix-collect-garbage --delete-old'
+   alias nlg 'nix-env --list-generations' 
+   alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
