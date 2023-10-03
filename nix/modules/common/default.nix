@@ -35,8 +35,10 @@
       exa # modern alternative to `ls` written in rust
       firefox
       fish
+      gh # github cli
       git
       gnat13 # GNU C++ compiler collection
+      gnumake42 # `make` command
       grim # screenshots in wayland
       helvetica-neue-lt-std
       java-language-server
@@ -83,59 +85,80 @@
       zathura # pdf viewer
     ];
 
-    networking.hostName = hostName;
-    networking.networkmanager.enable = true;
-    networking.firewall.allowedTCPPorts = [ 22 ];
-    networking.useDHCP = false;
-    networking.hosts."172.29.0.191" = [ "clint" ];
-
-    services.xserver = {
-      layout = "us";
-      autorun = false; # runs TTY login prompt instead of graphical
-      displayManager.startx.enable = true;
-      displayManager.lightdm.enable = false;
-      # keybinds
-      xkbVariant = "";
-      xkbOptions = pkgs.lib.mkDefault "caps:swapescape"; # caps lock is second escape
+    networking = {
+      hostName = hostName;
+      networkmanager.enable = true;
+      firewall.allowedTCPPorts = [ 22 ];
+      useDHCP = false;
+      hosts."172.29.0.191" = [ "clint" ];
     };
+
+    # TTY login prompt aka /etc/issue
+    # https://www.linuxfromscratch.org/blfs/view/svn/postlfs/logon.html
+    # current ASCII style: Cyberlarge
+    services.getty.greetingLine = ''
+      \e[1;34m++++++++++++++++++++++++++++++++++++++++++++++++++
+      +  _______  ______    /  ______ _______ __   __  +
+      +  |  |  | |  ____   /  |_____/ |_____|   \\_/    +
+      +  |  |  | |_____|  /   |    \\_ |     |    |     +
+      +                  /                             +
+      ++++++++++++++++++++++++++++++++++++++++++++++++++\e[1;32m
+      MODEL: A6M2 ZERO
+      ARMOR: CERAMIC-TITANIUM ALLOY: OK
+      ENGIN: FGS-EO55Sx4             ONLINE
+      WEAPN: ANTI-TANK MISSILE:      ONLINE
+             ANTI-SHIP MISSILE:      ONLINE
+             \e[1;31mWATER JET CUTTER:       OFFLINE
+             \e[1;32mCLUSTER MISSILES:       ONLINE
+
+      \e[1;32mPILOT: \e[1;31mUNKNOWN
+
+      \e[1;33m>>> \e[1;31mENTER PILOT CREDENTIALS \e[1;33m<<<
+    '';
 
     time.timeZone = "America/Detroit";
 
-    i18n.defaultLocale = "en_US.UTF-8";
-    i18n.extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
+    i18n = {
+      defaultLocale = "en_US.UTF-8";
+      extraLocaleSettings = {
+        LC_ADDRESS = "en_US.UTF-8";
+        LC_IDENTIFICATION = "en_US.UTF-8";
+        LC_MEASUREMENT = "en_US.UTF-8";
+        LC_MONETARY = "en_US.UTF-8";
+        LC_NAME = "en_US.UTF-8";
+        LC_NUMERIC = "en_US.UTF-8";
+        LC_PAPER = "en_US.UTF-8";
+        LC_TELEPHONE = "en_US.UTF-8";
+        LC_TIME = "en_US.UTF-8";
+      };
     };
-
-    # enable X11 windowing system
-    services.xserver.enable = true;
-
-    # enable the GNOME desktop environment
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
-
-    # enable CUPS to print documents
-    services.printing.enable = true;
 
     # enable sound with pipewire
     sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # if you want to use JACK applications, uncomment this
-      #jack.enable = true;
+
+    services = {
+      printing.enable = true; # enable CUPS to print documents
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+      xserver = {
+        enable = true;
+        layout = "us";
+        autorun = false; # false runs TTY login prompt instead of graphical
+        xkbOptions = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
+        displayManager.startx.enable = true;
+        displayManager.lightdm.enable = false;
+        displayManager.gdm.enable = true; # GNOME display manager
+        desktopManager.gnome.enable = true; # GNOME desktop manager
+      };
     };
+
+    console.useXkbConfig = true; # apply keybinds to TTY
 
     fonts = {
       enableDefaultFonts = true;
@@ -153,8 +176,7 @@
     };
 
     nix = {
-      # pkgs version compatible with flakes
-      package = pkgs.nixFlakes;
+      package = pkgs.nixFlakes; # pkgs version compatible with flakes
       extraOptions = ''
         experimental-features = nix-command flakes
       '';

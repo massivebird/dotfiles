@@ -85,6 +85,7 @@ if status is-interactive
    alias gcam 'git commit -a -m'
    alias gcan 'git commit -a -m "+ notes"'
    alias gco 'git checkout'
+   alias gd 'git diff'
    alias gf 'git fetch'
    alias gl 'git log --graph --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
    alias gll 'git log --graph -p'
@@ -94,6 +95,10 @@ if status is-interactive
    alias grs 'git restore'
    alias gsh 'git show --oneline'
    alias gst 'git status'
+
+   alias ghi 'gh issue'
+   alias ghil 'gh issue list'
+   alias ghiv 'gh issue view'
 
    # cargo
    alias cg 'cargo'
@@ -109,7 +114,9 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
-   alias nor 'sudo nixos-rebuild switch --flake ~/.config/nix#'
+   alias ncg 'sudo nix-collect-garbage --delete-old'
+   alias nlg 'nix-env --list-generations' 
+   alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
