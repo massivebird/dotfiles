@@ -50,7 +50,7 @@
       mako # wayland notification daemon
       marksman # markdown language server
       mpv
-      mysql
+      mysql80
       ncspot # ncurses spotify client written in rust
       neovim
       nodePackages_latest.bash-language-server
