@@ -140,6 +140,10 @@
 
     services = {
       printing.enable = true; # enable CUPS to print documents
+      mysql = {
+        enable = true;
+        package = pkgs.mariadb;
+      };
       pipewire = {
         enable = true;
         alsa.enable = true;
