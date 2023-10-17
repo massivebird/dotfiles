@@ -60,6 +60,7 @@
       obsidian # markdown note taking app
       pamixer # pulseaudio control
       php
+      phpactor # PHP language server
       playerctl # keyboard audio controls
       python311
       ranger
