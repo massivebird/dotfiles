@@ -2,9 +2,9 @@
 
 ![preview-main](./res/preview-main.png)
 
-[`nixOS`](https://nixos.org/) is really cool and you should check it out 🐧
+## What I use
 
-## Programs
+[`nixOS`](https://nixos.org/) is really cool and you should check it out 🐧
 
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
 + [`neovim`](https://github.com/neovim/neovim) text editor
