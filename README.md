@@ -4,7 +4,7 @@
 
 [`nixOS`](https://nixos.org/) is really cool and you should check it out 🐧
 
-## programs
+## Programs
 
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
 + [`neovim`](https://github.com/neovim/neovim) text editor
@@ -15,7 +15,7 @@
 + [`fish`](https://github.com/fish-shell/fish-shell) shell
 + [`zathura`](https://pwmt.org/projects/zathura/) pdf viewer
 
-## installation
+## Installation
 
 This repo is intended to be cloned into/as the system's `~/.config` directory.
 
@@ -29,7 +29,7 @@ rm -rf .config
 mv dotfiles .config
 ```
 
-### loading the nixOS flake
+### Loading the nixOS flake
 
 The `nix` directory contains my configuration flake for nixOS.
 
@@ -39,6 +39,6 @@ After following the above instructions, run:
 sudo nixos-rebuild switch --flake ~/.config/nix#<hostName>
 ```
 
-## misc
+## Miscellaneous
 
 [previous wallpaper](https://unsplash.com/photos/VWEFQ7q9GFw)
