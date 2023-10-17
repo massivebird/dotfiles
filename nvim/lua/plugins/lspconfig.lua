@@ -44,6 +44,11 @@ return {
             capabilities = capabilities,
          }
 
+         lspconfig.phpactor.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+         }
+
          -- npm i -g vscode-langservers-extracted
          lspconfig.html.setup {
             on_attach = on_attach,
