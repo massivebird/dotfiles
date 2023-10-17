@@ -61,6 +61,7 @@
       pamixer # pulseaudio control
       php
       phpactor # PHP language server
+      php82Extensions.mysqlnd # PHP MySQL extension
       playerctl # keyboard audio controls
       python311
       ranger
