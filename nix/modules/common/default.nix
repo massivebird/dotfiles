@@ -57,6 +57,7 @@
       nsxiv # image viewer
       obsidian # markdown note taking app
       pamixer # pulseaudio control
+      php82Extensions.mysqlnd # PHP MySQL extension
       playerctl # keyboard audio controls
       python311
       ranger
