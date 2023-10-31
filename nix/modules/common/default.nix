@@ -87,6 +87,10 @@
       zathura # pdf viewer
     ];
 
+    environment.sessionVariables = rec {
+      CHOWCHOOSER_P = "password";
+    };
+
     networking = {
       hostName = hostName;
       networkmanager.enable = true;
@@ -145,6 +149,9 @@
       mysql = {
         enable = true;
         package = pkgs.mariadb;
+        replication.masterHost = "ray";
+        replication.masterUser = "username";
+        replication.masterPassword = "password";
       };
       pipewire = {
         enable = true;
