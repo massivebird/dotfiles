@@ -73,6 +73,7 @@
       tldr
       tree
       tree-sitter # the executable
+      unzip
       vlc
       vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers
       waybar
@@ -81,6 +82,7 @@
       wl-clipboard # neovim clipboard integration
       yt-dlp
       zathura # pdf viewer
+      zip
     ];
 
     networking = {
