@@ -144,6 +144,7 @@ if status is-interactive
    alias diff 'diff --color=always'
    alias dirl 'dirs -v'
    alias exp 'explorer.exe'
+   alias foxalive "systemctl reboot"
    alias foxdie "systemctl poweroff"
    alias l 'ls -1AshX --color=always --group-directories-first'
    alias less 'less -r --jump-target=3'
