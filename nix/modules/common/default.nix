@@ -32,7 +32,7 @@
       croc
       discord
       dmidecode # get hardware info
-      exa # modern alternative to `ls` written in rust
+      eza # modern alternative to `ls` written in rust
       firefox
       fish
       gh # github cli
@@ -61,6 +61,7 @@
       pamixer # pulseaudio control
       php
       php82Extensions.mysqlnd # PHP MySQL extension
+      php82Extensions.mysqlnd # PHP MySQL extension
       phpactor # PHP language server
       playerctl # keyboard audio controls
       python311
@@ -77,6 +78,7 @@
       tldr
       tree
       tree-sitter # the executable
+      unzip
       vlc
       vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers
       waybar
@@ -85,6 +87,7 @@
       wl-clipboard # neovim clipboard integration
       yt-dlp
       zathura # pdf viewer
+      zip
     ];
 
     environment.sessionVariables = rec {
@@ -174,8 +177,8 @@
     console.useXkbConfig = true; # apply keybinds to TTY
 
     fonts = {
-      enableDefaultFonts = true;
-      fonts = with pkgs; [ 
+      enableDefaultPackages = true;
+      packages = with pkgs; [ 
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         noto-fonts-cjk-sans # japanese chars
       ];
