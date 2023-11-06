@@ -31,7 +31,7 @@
       croc
       discord
       dmidecode # get hardware info
-      exa # modern alternative to `ls` written in rust
+      eza # modern alternative to `ls` written in rust
       firefox
       fish
       gh # github cli
@@ -161,8 +161,8 @@
     console.useXkbConfig = true; # apply keybinds to TTY
 
     fonts = {
-      enableDefaultFonts = true;
-      fonts = with pkgs; [ 
+      enableDefaultPackages = true;
+      packages = with pkgs; [ 
         (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         noto-fonts-cjk-sans # japanese chars
       ];
