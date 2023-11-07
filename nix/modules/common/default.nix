@@ -33,6 +33,7 @@
       discord
       dmidecode # get hardware info
       eza # modern alternative to `ls` written in rust
+      fd # telescope dep: alternative to `find`
       firefox
       fish
       gh # github cli
