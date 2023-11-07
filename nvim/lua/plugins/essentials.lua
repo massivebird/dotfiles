@@ -45,13 +45,11 @@ return {
       "lukas-reineke/indent-blankline.nvim",
       main = "ibl",
       config = function ()
-         require("ibl").setup { -- hot-reloads
-            enabled = false,
+         require("ibl").setup {
+            enabled = true,
             scope = {
                enabled = false,
             },
-            -- highlight group not found??
-            indent = { highlight = "IndentBlanklineChar" },
          }
       end
    },
