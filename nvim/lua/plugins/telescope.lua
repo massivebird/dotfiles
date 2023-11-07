@@ -1,7 +1,7 @@
 return {
    {
       'nvim-telescope/telescope.nvim',
-      version = '0.1.0',
+      branch = '0.1.x',
       dependencies = {
          'nvim-lua/plenary.nvim',
          'nvim-telescope/telescope-ui-select.nvim',
