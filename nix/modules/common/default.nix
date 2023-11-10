@@ -58,6 +58,7 @@
       nodePackages_latest.typescript-language-server
       nodejs_20
       nsxiv # image viewer
+      obs-studio
       obsidian # markdown note taking app
       pamixer # pulseaudio control
       php
@@ -93,6 +94,10 @@
 
     environment.sessionVariables = rec {
       CHOWCHOOSER_P = "password";
+    };
+
+    environment.variables = {
+      HOSTNAME = hostName;
     };
 
     networking = {
