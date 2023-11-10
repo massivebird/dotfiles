@@ -63,6 +63,15 @@ if status is-interactive
 
    # aliases #############################
 
+   if type -q eza
+      alias l  'exa --all --long --git --sort type --no-user --no-permissions --no-time'
+      alias ll 'exa --all --long --git --sort type'
+   else
+      alias l  'ls -1AshX --color=always --group-directories-first'
+      alias ll 'ls -1Alh  --color=always --group-directories-first'
+   end
+
+
    function ...; '../..'; end
    function ....; '../../..'; end
    function .....; '../../../..'; end
@@ -146,10 +155,7 @@ if status is-interactive
    alias exp 'explorer.exe'
    alias foxalive "systemctl reboot"
    alias foxdie "systemctl poweroff"
-   alias l 'ls -1AshX --color=always --group-directories-first'
    alias less 'less -r --jump-target=3'
-   alias ll 'ls -1Alh --color=always --group-directories-first'
-   alias lll 'ls -l -Ah --group-directories-first'
    alias lo 'gnome-session-save --force-logout'
    alias n 'nvim'
    alias nn 'ranger $NOTES_DIR'
