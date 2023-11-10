@@ -104,6 +104,11 @@ if status is-interactive
    alias grs 'git restore'
    alias gsh 'git show --oneline'
    alias gst 'git status'
+   alias gsta 'git stash'
+   alias gstad 'git stash drop'
+   alias gstal 'git stash list'
+   alias gstap 'git stash pop'
+   alias gstas 'git stash show'
 
    alias ghi 'gh issue'
    alias ghil 'gh issue list'
