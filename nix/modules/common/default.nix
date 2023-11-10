@@ -87,6 +87,10 @@
       zip
     ];
 
+    environment.variables = {
+      HOSTNAME = hostName;
+    };
+
     networking = {
       hostName = hostName;
       networkmanager.enable = true;
