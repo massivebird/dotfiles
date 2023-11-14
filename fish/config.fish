@@ -20,7 +20,8 @@ if status is-interactive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
-   set -x PAGER "less -r --jump-target=3"
+   # `plain` style has no line numbers, they break manpages
+   set -x PAGER "bat --color always --style plain"
    # neovim notes querying
    set -x NOTES_DIR $HOME/academia/notes_all/
    # OBS wants these
