@@ -20,7 +20,8 @@ if status is-interactive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
-   set -x PAGER "less -r --jump-target=3"
+   # `plain` style has no line numbers, they break manpages
+   set -x PAGER "bat --color always --style plain"
    # neovim notes querying
    set -x NOTES_DIR $HOME/academia/notes_all/
    # OBS wants these
@@ -93,12 +94,14 @@ if status is-interactive
    alias gca 'git commit -v -a'
    alias gcam 'git commit -a -m'
    alias gcan 'git commit -a -m "+ notes"'
+   alias gcl 'git clone'
    alias gco 'git checkout'
    alias gd 'git diff'
    alias gf 'git fetch'
    alias gl 'git log --graph --all --decorate --oneline --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
    alias gll 'git log --graph -p'
    alias glop 'git log --graph -p'
+   alias gm 'git merge'
    alias grb 'git rebase'
    alias grbi 'git rebase --interactive'
    alias grs 'git restore'
@@ -271,7 +274,7 @@ if status is-interactive
    set fish_color_search_match default
 
    # run custom splash program
-   my_fetch
+   minifetch
    # run custom git repo updater program
    git_updater $argv
 end
