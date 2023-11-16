@@ -115,6 +115,7 @@ if status is-interactive
 
    alias ghi 'gh issue'
    alias ghil 'gh issue list'
+   alias ghilm 'gh issue list --assignee "@me"'
    alias ghiv 'gh issue view'
 
    # cargo
