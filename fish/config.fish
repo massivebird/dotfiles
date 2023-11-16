@@ -65,8 +65,8 @@ if status is-interactive
    # aliases #############################
 
    if type -q eza
-      alias l  'exa --all --long --git --sort type --no-user --no-permissions --no-time'
-      alias ll 'exa --all --long --git --sort type'
+      alias l  'eza --all --long --git --sort type --no-user --no-permissions --no-time'
+      alias ll 'eza --all --long --git --sort type'
    else
       alias l  'ls -1AshX --color=always --group-directories-first'
       alias ll 'ls -1Alh  --color=always --group-directories-first'
