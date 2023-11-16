@@ -274,7 +274,7 @@ if status is-interactive
    set fish_color_search_match default
 
    # run custom splash program
-   my_fetch
+   minifetch
    # run custom git repo updater program
    git_updater $argv
 end
