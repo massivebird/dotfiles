@@ -120,6 +120,7 @@ if status is-interactive
 
    # cargo
    alias cg 'cargo'
+   alias cgb 'cargo build'
    alias cgbr 'cargo build --release'
    alias cgcl 'cargo clippy -- \
    -W clippy::pedantic \
