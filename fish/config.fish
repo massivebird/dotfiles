@@ -72,6 +72,9 @@ if status is-interactive
       alias ll 'ls -1Alh  --color=always --group-directories-first'
    end
 
+   function man
+      command man $argv | bat --style plain --language man
+   end
 
    function ...; '../..'; end
    function ....; '../../..'; end
