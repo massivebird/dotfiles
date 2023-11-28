@@ -96,7 +96,7 @@ if status is-interactive
    alias gc! 'git commit -v --amend'
    alias gca 'git commit -v -a'
    alias gcam 'git commit -a -m'
-   alias gcan 'git commit -a -m "+ notes"'
+   alias gcan 'git commit -a -m "adds: notes"'
    alias gcl 'git clone'
    alias gco 'git checkout'
    alias gd 'git diff'
