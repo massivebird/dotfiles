@@ -136,10 +136,11 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
-   alias ncg 'sudo nix-collect-garbage --delete-old'
+   alias ncg   'sudo nix-collect-garbage --delete-old'
+   alias nfu   "nix flake update --commit-lock-file ~/.config/nix/#"
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
-   alias nlg 'nix-env --list-generations' 
-   alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
+   alias nlg   'nix-env --list-generations' 
+   alias nor   "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
