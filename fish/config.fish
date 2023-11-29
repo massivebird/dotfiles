@@ -137,6 +137,7 @@ if status is-interactive
    alias cgw 'cargo watch --clear'
 
    alias ncg 'sudo nix-collect-garbage --delete-old'
+   alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
    alias nlg 'nix-env --list-generations' 
    alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
