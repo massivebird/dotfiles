@@ -175,7 +175,7 @@ if status is-interactive
    alias n 'nvim'
    alias nn 'ranger $NOTES_DIR'
    alias nr 'nvim -R'
-   alias pingg 'ping google.com'
+   alias pingg 'ping github.com'
    alias r 'ranger'
    alias rename 'prename'
    alias shx 'chmod +x *.sh'
