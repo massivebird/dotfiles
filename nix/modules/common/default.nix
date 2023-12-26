@@ -44,6 +44,7 @@
       java-language-server
       jdk17 # java
       kitty # terminal emulator
+      lc3tools # LC-3 toolchain and emulator
       libGL
       libgccjit # GNU C compiler collection
       lua-language-server
