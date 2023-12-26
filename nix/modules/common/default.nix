@@ -13,8 +13,12 @@
       initialPassword = "password";
     };
 
-    # allow proprietary packages
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config = {
+      allowUnfree = true; # allow proprietary packages
+      permittedInsecurePackages = [
+        "electron-25.9.0" # updated apps may use EOL dep
+      ];
+    };
 
     environment.systemPackages = with pkgs; [
       bacon # background rust code checker
