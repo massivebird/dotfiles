@@ -1,22 +1,44 @@
-# key remaps
-map <Space> scroll 0
-map < C-= > zoom in
-map < C-- > zoom out
+# see `man zathurarc`
+
+## keys ###############################
+map J feedkeys 5j
+map K feedkeys 5k
+
+map f navigate next
+map b navigate previous
+
+map =     zoom in
+map -     zoom out
+map _     zoom out
+map <C--> zoom out
+
+map <C-=> adjust_window best-fit
 map <C-s> toggle_statusbar
 
-# font
+unmap <Space>
+
+## font ###############################
 set font "JetBrainsMono Nerd Font 13"
 
-# behavior
-set page-padding 10
+## behavior ###########################
+set adjust-open "width"
 set guioptions "s"
+set page-padding 10
+set scroll-step 25
 set selection-clipboard clipboard
+set show-recent 5
 
-# color
+## color ##############################
 set recolor true
+set recolor-keephue true
+set recolor-reverse-video true
 
 set default-fg "#eeeeee"
 set default-bg "#0e0e0e"
+
+# highlighting text
+set highlight-color "#aaddff"
+set highlight-active-color "#00bbff"
 
 set statusbar-fg "#eeeeee"
 set statusbar-bg "#0e0e0e"
@@ -26,15 +48,15 @@ set inputbar-bg "#0e0e0e"
 
 set notification-fg "#eeeeee"
 set notification-bg "#0e0e0e"
-
-set notification-warning-fg "#0e0e0e"
-set notification-warning-bg "#ff8867"
-
+set notification-warning-fg "#ff8867"
+set notification-warning-bg "#0e0e0e"
 set notification-error-fg "#fb5599"
 set notification-error-bg "#0e0e0e"
 
-set highlight-color "#aaddff"
-set highlight-active-color "#00bbff"
+set index-fg "#eeeeee"
+set index-bg "#0e0e0e"
+set index-active-fg "#0e0e0e"
+set index-active-bg "#00bbff"
 
 set completion-fg "#eeeeee"
 set completion-bg "#0e0e0e"
