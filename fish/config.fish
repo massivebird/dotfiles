@@ -72,9 +72,8 @@ if status is-interactive
       alias ll 'ls -1Alh  --color=always --group-directories-first'
    end
 
-   function man
-      command man $argv | bat --style plain --language man
-   end
+   set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+   set -x MANROFFOPT "-c"
 
    function ...; '../..'; end
    function ....; '../../..'; end
