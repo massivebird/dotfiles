@@ -170,6 +170,9 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # move workspace to other display
 bindsym $mod+m move workspace to output down
 
+bindsym $mod+minus move scratchpad
+bindsym $mod+shift+minus scratchpad show
+
 # layout ##############################
 
 bindsym $mod+f fullscreen toggle
