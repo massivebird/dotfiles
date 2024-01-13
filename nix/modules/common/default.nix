@@ -47,6 +47,7 @@
       helvetica-neue-lt-std
       java-language-server
       jdk17 # java
+      jetbrains.idea-ultimate
       kitty # terminal emulator
       lc3tools # LC-3 toolchain and emulator
       libGL
@@ -90,6 +91,7 @@
       yt-dlp
       zathura # pdf viewer
       zip
+      zoom-us
     ];
 
     environment.variables = {
