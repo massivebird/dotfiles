@@ -1,22 +1,42 @@
-max-visible=3
-ignore-timeout=1
-default-timeout=7000
-font=JetBrains Mono NL 11
+# mako configuration
+# see `man 5 mako` for details
+
+## general ############################
 
 width=230
-background-color=#262628
+padding=6
+
+default-timeout=7000
+# prohibit apps from defining timeout length
+ignore-timeout=1
+
+# simultaneous visible notifs, -1 is unlimited
+max-visible=-1
+
+font=JetBrains Mono NL 11
+
 text-color=#eeeeee
-border-color=#00bbff
+anchor=bottom-right
+
+background-color=#0e0e0e
+
+border-color=#eeeeee
 border-size=2
 border-radius=3
-anchor=bottom-right
-# padding=0,0,0,0
+
+# use images
+icons=0
+
+## urgency overrides ##################
 
 [urgency=low]
 border-color=#656565
 
 [urgency=normal]
-border-color=#00bbff
+border-color=#eeeeee
 
 [urgency=high]
 border-color=#fb5599
+default-timeout=0
+
+# vim: set filetype=fish

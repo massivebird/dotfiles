@@ -52,6 +52,7 @@
       lc3tools # LC-3 toolchain and emulator
       libGL
       libgccjit # GNU C compiler collection
+      libnotify # notify-send and other notification utils
       lua-language-server
       mako # wayland notification daemon
       marksman # markdown language server
