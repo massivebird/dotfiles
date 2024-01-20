@@ -191,11 +191,19 @@
       };
     };
 
+    boot.loader.systemd-boot.configurationLimit = 10;
+
     nix = {
       package = pkgs.nixFlakes; # pkgs version compatible with flakes
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
+      extraOptions = "experimental-features = nix-command flakes";
+      # garbage collector
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 1w";
+      };
+      # uses single copy for identical store files
+      settings.auto-optimise-store = true;
     };
   };
 }
