@@ -112,24 +112,22 @@
     # TTY login prompt aka /etc/issue
     # https://www.linuxfromscratch.org/blfs/view/svn/postlfs/logon.html
     # current ASCII style: Cyberlarge
-    services.getty.greetingLine = ''
-      \e[1;34m++++++++++++++++++++++++++++++++++++++++++++++++++
-      +  _______  ______    /  ______ _______ __   __  +
-      +  |  |  | |  ____   /  |_____/ |_____|   \\_/    +
-      +  |  |  | |_____|  /   |    \\_ |     |    |     +
-      +                  /                             +
-      ++++++++++++++++++++++++++++++++++++++++++++++++++\e[1;32m
-      MODEL: A6M2 ZERO
-      ARMOR: CERAMIC-TITANIUM ALLOY: OK
-      ENGIN: FGS-EO55Sx4             ONLINE
-      WEAPN: ANTI-TANK MISSILE:      ONLINE
-             ANTI-SHIP MISSILE:      ONLINE
-             \e[1;31mWATER JET CUTTER:       OFFLINE
-             \e[1;32mCLUSTER MISSILES:       ONLINE
+    services.getty.greetingLine = ''\e[1;33m
+   __  ________________   __      ____________   ___     ___  _____  __
+  /  |/  / __/_  __/ _ | / /     / ___/ __/ _ | / _ \\   / _ \\/ _ \\ \\/ /
+ / /|_/ / _/  / / / __ |/ /__   / (_ / _// __ |/ , _/  / , _/ __ |\\  / 
+/_/  /_/___/ /_/ /_/ |_/____/   \\___/___/_/ |_/_/|_|  /_/|_/_/ |_|/_/  
+\e[1;33m
+MODEL: A6M2 ZERO
+KRNEL: \r
+ARMOR: CERAMIC-TITANIUM ALLOY: OK
+ENGIN: FGS-EO55Sx4             ONLINE
+WEAPN: ANTI-TANK MISSILE:      ONLINE
+       ANTI-SHIP MISSILE:      ONLINE
+       \e[1;31mWATER JET CUTTER:       OFFLINE
+       \e[1;33mCLUSTER MISSILES:       ONLINE
 
-      \e[1;32mPILOT: \e[1;31mUNKNOWN
-
-      \e[1;33m>>> \e[1;31mENTER PILOT CREDENTIALS \e[1;33m<<<
+\e[1;33m>>> \e[1;33mENTER PILOT CREDENTIALS \e[1;33m<<<
     '';
 
     # suppress nixos-help message on boot
