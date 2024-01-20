@@ -35,6 +35,8 @@
       croc
       discord
       dmidecode # get hardware info
+      duf # disk usage util, better than `df`
+      exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       fd # telescope dep: alternative to `find`
       firefox
