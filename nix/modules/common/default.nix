@@ -132,6 +132,9 @@
       \e[1;33m>>> \e[1;31mENTER PILOT CREDENTIALS \e[1;33m<<<
     '';
 
+    # suppress nixos-help message on boot
+    documentation.nixos.enable = false;
+
     time.timeZone = "America/Detroit";
 
     i18n = {
