@@ -1,3 +1,6 @@
 [[keymaps]]
-command = "None"
+command = "FocusNextWindow"
 key_sequence = "l"
+[[keymaps]]
+command = "FocusPreviousWindow"
+key_sequence = "h"
