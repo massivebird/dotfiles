@@ -1,6 +1,0 @@
-# backend_device = "dalaptop"
-library_tabs = ["artists"]
-
-[keybindings]
-"h" = "back"
-"l" = "open selected"

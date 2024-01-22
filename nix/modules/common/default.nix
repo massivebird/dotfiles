@@ -59,7 +59,6 @@
       mako # wayland notification daemon
       marksman # markdown language server
       mpv
-      ncspot # ncurses spotify client written in rust
       neovim
       nodePackages_latest.bash-language-server
       nodePackages_latest.typescript-language-server
@@ -78,7 +77,7 @@
       rust-analyzer
       rustc
       rustup
-      spotify-tui
+      spotify-player
       spotifyd # lightweight spotify daemon
       taskwarrior
       tldr
