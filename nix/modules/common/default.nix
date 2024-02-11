@@ -165,13 +165,15 @@ WEAPN: ANTI-TANK MISSILE:      ONLINE
       };
       xserver = {
         enable = true;
-        layout = "us";
         autorun = false; # false runs TTY login prompt instead of graphical
-        xkbOptions = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
         displayManager.startx.enable = true;
         displayManager.lightdm.enable = false;
         displayManager.gdm.enable = true; # GNOME display manager
         desktopManager.gnome.enable = true; # GNOME desktop manager
+        xkb = {
+          layout = "us";
+          options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
+        };
       };
     };
 
