@@ -16,20 +16,17 @@ if status is-interactive
 
    fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
 
+   # used by massivebird/arcsearch, massivebird/arcstat
    set -x VG_ARCHIVE $HOME/game-archive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
    # `plain` style has no line numbers, they break manpages
    set -x PAGER "bat --color always --style plain"
-   # neovim notes querying
-   set -x NOTES_DIR $HOME/academia/notes_all/
    # OBS wants these
    set -x QT_QPA_PLATFORM 'wayland'
    set -x XDG_CURRENT_DESKTOP 'sway'
    set -x XDG_SESSION_TYPE 'wayland'
-   # tomcat
-   set -x CATALINA_HOME "/usr/local/tomcat10"
    # android studio
    set -x _JAVA_AWT_WM_NONREPARENTING 1
    set -x STUDIO_JDK /opt/jdk-18/bin/javac
@@ -198,36 +195,30 @@ if status is-interactive
    function fish_prompt
       # check user privileges
       if fish_is_root_user
-         set -f STR_ROOT '# '
+         set -f USER_ICON '# '
       else
-         set -f STR_ROOT '$ '
+         set -f USER_ICON '$ '
       end
-      # if cwd is git controlled...
+      # if cwd is git-controlled
       if fish_git_prompt > /dev/null
-         # ... then prepare git string
-         set -f STR_GIT (set_color $fish_color_user)\[(git branch --show-current)\]
-         # and if cwd is dirty...
-         set -l DIRTY_TEST (git status --porcelain)
-         if test -n "$DIRTY_TEST"
-            # ... then prepare dirty indicator
-            set -f STR_DIRTY (set_color $fish_color_error)\*
+         set -f GIT_BRANCH (set_color $fish_color_user)\[(git branch --show-current)\]
+         set -l REPO_IS_DIRTY (git status --porcelain)
+         if test -n "$REPO_IS_DIRTY"
+            set -f DIRTY_ICON (set_color $fish_color_error)\*
          else
-            # or empty if clean
-            set -f STR_DIRTY ''
+            set -f DIRTY_ICON ''
          end
-         # if cwd is not git controlled...
-      else
-         # ... make git strings empty
-         set -f STR_GIT ''
-         set -f STR_DIRTY ''
+      else # cwd is not git-controlled
+         set -f GIT_BRANCH ''
+         set -f DIRTY_ICON ''
       end
       # print prompt from left to right
-      printf $STR_DIRTY
-      printf $STR_GIT
+      printf $DIRTY_ICON
+      printf $GIT_BRANCH
       set_color $fish_color_cwd
       printf [(prompt_pwd)]
       set_color --bold $fish_color_normal
-      printf $STR_ROOT
+      printf $USER_ICON
       set_color normal
    end
 
