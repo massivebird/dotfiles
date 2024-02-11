@@ -6,7 +6,8 @@ return {
    --       vim.g['current_line_whitespace_disabled_hard'] = 1
    --       vim.g['better_whitespace_guicolor'] = '#ff5555'
    --       vim.g['better_whitespace_filetypes_blacklist'] = {
-   --          '', 'diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive'
+   --          '', 'diff', 'git', 'gitcommit', 'unite',
+   --          'qf', 'help', 'fugitive'
    --       }
    --    end
    -- },
@@ -57,17 +58,24 @@ return {
    -- transforming between single- and multi-line statements
    "andrewradev/splitjoin.vim",
 
-   -- colorcolumn customization
+   -- -- colorcolumn customization, conflicts with smartcolumn
+   -- {
+   --    "lukas-reineke/virt-column.nvim",
+   --    config = function ()
+   --       require("virt-column").setup {
+   --          enabled = false,
+   --          highlight = "StatusLineNC",
+   --          exclude = { filetypes = { "txt" } },
+   --          virtcolumn = "80",
+   --       }
+   --    end
+   -- },
+
    {
-      "lukas-reineke/virt-column.nvim",
-      config = function ()
-         require("virt-column").setup {
-            enabled = true,
-            highlight = "StatusLineNC",
-            exclude = { filetypes = { "txt" } },
-            virtcolumn = "80",
-         }
-      end
-   }
+      "m4xshen/smartcolumn.nvim",
+      opts = {
+         colorcolumn = "80",
+      },
+   },
 
 }
