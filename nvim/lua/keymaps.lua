@@ -89,7 +89,7 @@ command! Lprev try | lprev | catch | llast | catch | endtry
 -- navigate quickfix list
 setkeymap('n', '<C-p>',     ':Cnext<cr>', {silent = true})
 setkeymap('n', '<C-o>',     ':Cprev<cr>', {silent = true})
-setkeymap('n', '<leader>[', ':Ngrep ' )
+setkeymap('n', '<leader>[', ':Ngrep ')
 
 -- get rid of weird location list error
 setkeymap('n', '<esc>', '<nop>')
@@ -105,7 +105,7 @@ setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
 setkeymap('n', 'zl', 'zA', {silent = true})
 setkeymap('n', 'zh', 'zC', {silent = true})
 
--- Diagnostic keymaps
+-- diagnostic keymaps
 setkeymap('n', '[d', vim.diagnostic.goto_prev)
 setkeymap('n', ']d', vim.diagnostic.goto_next)
 -- setkeymap('n', '<leader>e', vim.diagnostic.open_float)

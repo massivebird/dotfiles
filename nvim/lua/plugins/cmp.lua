@@ -1,6 +1,7 @@
 return {
 
    {
+      -- https://github.com/hrsh7th/nvim-cmp
       'hrsh7th/nvim-cmp',
       dependencies = {
          'hrsh7th/cmp-nvim-lsp',
@@ -14,8 +15,7 @@ return {
             version = "v1.*",
             -- build = "make install_jsregexp",
             config = function()
-
-               local ls   = require("luasnip")
+               local ls = require("luasnip")
 
                -- https://evesdropper.dev/files/luasnip/ultisnips-to-luasnip/
                ls.config.set_config({
@@ -23,7 +23,9 @@ return {
                   enable_autosnippets = true,
                })
 
-               require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets/" })
+               require("luasnip.loaders.from_lua").load({
+                  paths = "~/.config/nvim/lua/snippets/",
+               })
                require("luasnip.loaders.from_vscode").lazy_load()
 
             end
@@ -50,8 +52,12 @@ return {
 
          cmp.setup {
             mapping = {
-               ["<c-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-               ["<c-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+               ["<c-n>"] = cmp.mapping.select_next_item {
+                  behavior = cmp.SelectBehavior.Insert,
+               },
+               ["<c-p>"] = cmp.mapping.select_prev_item {
+                  behavior = cmp.SelectBehavior.Insert,
+               },
                ["<c-d>"] = cmp.mapping.scroll_docs(-4),
                ["<c-f>"] = cmp.mapping.scroll_docs(4),
                ["<c-e>"] = cmp.mapping.abort(),
@@ -98,7 +104,8 @@ return {
                end, { "i", "s" }),
             },
 
-            -- global sources, order = priority
+            -- global sources in descending priority
+            -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
             sources = {
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
