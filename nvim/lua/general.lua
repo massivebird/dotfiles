@@ -7,8 +7,6 @@ syntax on
 syntax enable
 ]]
 
--- column guide
-set.colorcolumn = "80"
 -- folding [in markdown]
 set.foldenable = false
 -- menu for command completions

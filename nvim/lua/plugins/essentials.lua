@@ -57,4 +57,17 @@ return {
    -- transforming between single- and multi-line statements
    "andrewradev/splitjoin.vim",
 
+   -- colorcolumn customization
+   {
+      "lukas-reineke/virt-column.nvim",
+      config = function ()
+         require("virt-column").setup {
+            enabled = true,
+            highlight = "StatusLineNC",
+            exclude = { filetypes = { "txt" } },
+            virtcolumn = "80",
+         }
+      end
+   }
+
 }
