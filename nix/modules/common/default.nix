@@ -106,7 +106,7 @@
       networkmanager.enable = true;
       firewall.allowedTCPPorts = [ 22 ];
       useDHCP = false;
-      hosts."172.29.0.191" = [ "clint" ];
+      hosts."192.168.1.152" = [ "clint" ];
     };
 
     # TTY login prompt aka /etc/issue
