@@ -77,14 +77,13 @@ return {
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
+         -- You can ignore the ipairs error when opening a java file
+         -- (would love to get rid of it later!)
          lspconfig.java_language_server.setup {
             on_attach = on_attach,
             capabilities = capabilities,
             filetypes = { "java" },
-            -- produces error on new buffer:
-            -- Error executing vim.schedule lua callback [...]
-            -- bad argument #1 to 'ipairs' (table expected, got nil)
-            cmd = { "/home/penguino/lsp/java-language-server/dist/lang_server_linux.sh" },
+            cmd = { "java-language-server" },
          }
 
          lspconfig.clangd.setup {
