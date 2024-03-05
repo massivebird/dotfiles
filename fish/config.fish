@@ -123,8 +123,7 @@ if status is-interactive
    alias cgbr 'cargo build --release'
    alias cgcl 'cargo clippy -- \
    -W clippy::pedantic \
-   -W clippy::nursery \
-   -W clippy::pedantic'
+   -W clippy::nursery'
    alias cgi 'cargo init'
    alias cgr 'cargo run'
    alias cgt 'cargo test'
