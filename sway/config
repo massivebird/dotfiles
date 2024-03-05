@@ -233,7 +233,7 @@ focus_follows_mouse no
 
 # auto ################################
 
-# yeah I have no idea what these do lmao
+# `swaymsg -rt get_tree` is useful here!
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
