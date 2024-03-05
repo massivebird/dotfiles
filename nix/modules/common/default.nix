@@ -36,6 +36,7 @@
       discord
       dmidecode # get hardware info
       duf # disk usage util, better than `df`
+      dust # `du` alternative written in rust
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       fd # telescope dep: alternative to `find`
