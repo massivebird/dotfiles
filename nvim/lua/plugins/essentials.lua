@@ -58,24 +58,4 @@ return {
    -- transforming between single- and multi-line statements
    "andrewradev/splitjoin.vim",
 
-   -- -- colorcolumn customization, conflicts with smartcolumn
-   -- {
-   --    "lukas-reineke/virt-column.nvim",
-   --    config = function ()
-   --       require("virt-column").setup {
-   --          enabled = false,
-   --          highlight = "StatusLineNC",
-   --          exclude = { filetypes = { "txt" } },
-   --          virtcolumn = "80",
-   --       }
-   --    end
-   -- },
-
-   {
-      "m4xshen/smartcolumn.nvim",
-      opts = {
-         colorcolumn = "80",
-      },
-   },
-
 }
