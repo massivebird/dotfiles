@@ -117,13 +117,11 @@ if status is-interactive
    alias ghilm 'gh issue list --assignee "@me"'
    alias ghiv 'gh issue view'
 
-   # cargo
    alias cg 'cargo'
    alias cgb 'cargo build'
    alias cgbr 'cargo build --release'
-   alias cgcl 'cargo clippy -- \
-   -W clippy::pedantic \
-   -W clippy::nursery'
+   alias cgcl 'cargo clippy -- -W clippy::pedantic -W clippy::nursery'
+   alias cgf 'cargo fmt'
    alias cgi 'cargo init'
    alias cgr 'cargo run'
    alias cgt 'cargo test'
@@ -140,19 +138,13 @@ if status is-interactive
    function ggpull; command git pull origin $(git branch --show-current); end
    function ggpush; command git push origin $(git branch --show-current); end
 
-   # config shortcuts
    alias nc 'nvim ~/.config/nvim/init.lua'
    alias ncf 'nvim ~/.config/fish/config.fish'
    alias nci 'nvim ~/.config/i3/config'
    alias ncis 'nvim ~/.config/i3status/config'
    alias nck 'nvim ~/.config/kitty/kitty.conf'
-   alias ncm 'nvim -c ":Telescope find_files \
-   search_dirs={\'$HOME/.config/nvim/lua\'} \
-   hidden=false path_display={'smart'} \
-   prompt_title='Modules'"'
-   alias ncn 'nvim ~/.config/nix/flake.nix -c ":Neotree \
-   action=show \
-   dir=~/.config/nix"'
+   alias ncm 'nvim -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/lua\'} hidden=false path_display={'smart'} prompt_title='Modules'"'
+   alias ncn 'nvim ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
    alias ncr 'nvim ~/.config/ranger/rc.conf'
    alias ncs 'nvim ~/.config/sway/config'
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
