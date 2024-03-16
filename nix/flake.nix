@@ -11,10 +11,16 @@
 
   outputs = inputs: {
 
-    # nixpkgs.lib.nixosSystem handles packages + settings.
-    # It guarantees that the result produces a valid operating system.
+    # `nixosConfigurations.<hostname>` is the output schema used by
+    # `nixos-rebuild switch --flake .#<hostname>`.
+    # Each attribute can be assigned the attribute set produced
+    # by `nixpkgs.lib.nixosSystem`. (see below)
+
+    # `nixpkgs.lib.nixosSystem` handles packages + settings,
+    # and guarantees that the result produces a valid operating system.
 
     # nixosMachine flow courtesy of Stel @ stelcodes! :3
+    # This is a parameterized wrapper around `nixpkgs.lib.nixosSystem`.
 
     nixosConfigurations =
       let
