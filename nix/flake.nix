@@ -9,25 +9,35 @@
     };
   };
 
-  outputs = inputs:
-  let
-    userName = "penguino";
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations = {
+  outputs = inputs: {
 
-      # hp laptop
-      ray = inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs userName;
+    # nixpkgs.lib.nixosSystem handles packages + settings.
+    # It guarantees that the result produces a valid operating system.
+
+    # nixosMachine flow courtesy of Stel @ stelcodes! :3
+
+    nixosConfigurations =
+      let
+        nixosMachine = { system, hostName, userName, ... }:
+          inputs.nixpkgs.lib.nixosSystem {
+            inherit system;
+            # inputs relayed to each module
+            specialArgs = { inherit inputs userName hostName; };
+            # files containing actual OS configuration
+            modules = [
+              ./modules/common
+              ./hosts/${hostName}
+            ];
+          };
+      in
+      {
+        # hp laptop
+        ray = nixosMachine {
           hostName = "ray";
+          userName = "penguino";
+          system = "x86_64-linux";
         };
-        modules = [
-          ./hosts/ray
-        ];
       };
 
-    };
   };
 }
