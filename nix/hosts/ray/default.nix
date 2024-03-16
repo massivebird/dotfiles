@@ -2,7 +2,6 @@
 
   imports = [
     ./hardware-configuration.nix
-    ../../modules/common
   ];
 
   # tty settings (ctrl + alt + f<1-12>)
