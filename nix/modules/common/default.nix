@@ -17,6 +17,7 @@
       allowUnfree = true; # allow proprietary packages
       permittedInsecurePackages = [
         "electron-25.9.0" # updated apps may use EOL dep
+        "nix-2.16.2"
       ];
     };
 
@@ -75,12 +76,10 @@
       python311
       ranger
       ripgrep # real fast grep written in rust
-      rnix-lsp # nix lsp
       rofi # "start menu" pop-up
       rust-analyzer
       rustc
       rustup
-      spotify-tui
       spotifyd # lightweight spotify daemon
       taskwarrior
       tldr
