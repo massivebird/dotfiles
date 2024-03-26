@@ -37,8 +37,6 @@ return {
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
-         lspconfig.rnix.setup {}
-
          lspconfig.clojure_lsp.setup {
             on_attach = on_attach,
             capabilities = capabilities,
