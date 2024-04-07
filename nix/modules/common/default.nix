@@ -41,6 +41,7 @@
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       fd # telescope dep: alternative to `find`
+      ffmpeg
       firefox
       fish
       gh # github cli
