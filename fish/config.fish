@@ -135,8 +135,8 @@ if status is-interactive
    alias nlg   'nix-env --list-generations' 
    alias nor   "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
-   function ggpull; command git pull origin $(git branch --show-current); end
-   function ggpush; command git push origin $(git branch --show-current); end
+   function ggpull; command git pull origin (git branch --show-current); end
+   function ggpush; command git push origin (git branch --show-current); end
 
    alias nc 'nvim ~/.config/nvim/init.lua'
    alias ncf 'nvim ~/.config/fish/config.fish'
