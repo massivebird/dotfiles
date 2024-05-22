@@ -261,8 +261,16 @@ if status is-interactive
    # bg of history search matches, selected pager items
    set fish_color_search_match default
 
-   # run custom splash program
-   minifetch
-   # run custom git repo updater program
-   git_updater $argv
+   function try_running
+      if type -q $argv
+         command $argv
+      else
+         echo "[ INFO ] Command not found: " $argv
+      end
+   end
+
+   # custom splash program
+   try_running minifetch
+   # custom git repo updater program
+   try_running git_updater
 end
