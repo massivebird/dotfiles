@@ -265,7 +265,7 @@ if status is-interactive
       if type -q $argv
          command $argv
       else
-         echo "[ INFO ] Command not found: " $argv
+         echo "[ INFO ] Command not found:" $argv
       end
    end
 
