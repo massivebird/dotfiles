@@ -153,7 +153,7 @@
         pulse.enable = true;
       };
       xserver = {
-        enable = true;
+        enable = false;
         autorun = false; # false runs TTY login prompt instead of graphical
         displayManager.startx.enable = true;
         displayManager.lightdm.enable = false;
