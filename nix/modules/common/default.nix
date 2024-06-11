@@ -106,7 +106,7 @@
     networking = {
       hostName = hostName;
       networkmanager.enable = true;
-      firewall.allowedTCPPorts = [ 22 ];
+      firewall.allowedTCPPorts = [ 22 7878 7879 ];
       useDHCP = false;
       hosts."192.168.1.152" = [ "clint" ];
     };
