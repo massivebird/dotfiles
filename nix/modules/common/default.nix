@@ -65,7 +65,7 @@
       ncspot # ncurses spotify client written in rust
       neovim
       nixd # Nix language server
-      nodePackages_latest.bash-language-server
+      bash-language-server
       nodePackages_latest.typescript-language-server
       nodejs_20
       nsxiv # image viewer
