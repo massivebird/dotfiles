@@ -21,8 +21,14 @@ if status is-interactive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
-   # `plain` style has no line numbers, they break manpages
-   set -x PAGER "bat --color always --style plain"
+
+   if type -q bat
+      # `plain` style has no line numbers, they break manpages
+      set -x PAGER "bat --color always --style plain"
+   else
+      set -x PAGER "less"
+   end
+
    # OBS wants these
    set -x QT_QPA_PLATFORM 'wayland'
    set -x XDG_CURRENT_DESKTOP 'sway'
