@@ -25,9 +25,12 @@ if status is-interactive
    if type -q bat
       # `plain` style has no line numbers, they break manpages
       set -x PAGER "bat --color always --style plain"
+      set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
    else
+      set -x MANPAGER "less"
       set -x PAGER "less"
    end
+   set -x MANROFFOPT "-c"
 
    # OBS wants these
    set -x QT_QPA_PLATFORM 'wayland'
@@ -74,9 +77,6 @@ if status is-interactive
       alias l  'ls -1AshX --color=always --group-directories-first'
       alias ll 'ls -1Alh  --color=always --group-directories-first'
    end
-
-   set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-   set -x MANROFFOPT "-c"
 
    function ...; '../..'; end
    function ....; '../../..'; end
