@@ -69,7 +69,7 @@ return {
          'windwp/nvim-ts-autotag',
 
          -- color-coded parentheses and stuff
-         'hiphish/nvim-ts-rainbow2',
+         'hiphish/rainbow-delimiters.nvim',
 
          {
             'nvim-treesitter/nvim-treesitter-context',
