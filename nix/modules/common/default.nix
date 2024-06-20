@@ -192,7 +192,7 @@
       gc = {
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 1w";
+        options = "--delete-older-than 12d";
       };
       # uses single copy for identical store files
       settings.auto-optimise-store = true;
