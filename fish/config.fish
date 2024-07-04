@@ -185,7 +185,7 @@ if status is-interactive
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
    alias ytd 'yt-dlp'
-   alias ytdy 'yt-dlp -f 22 --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat'
+   alias ytda 'ytd -o --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]"' # "archive mode"
 
    # prompt ##############################
 
