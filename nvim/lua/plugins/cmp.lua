@@ -27,7 +27,6 @@ return {
                   paths = "~/.config/nvim/lua/snippets/",
                })
                require("luasnip.loaders.from_vscode").lazy_load()
-
             end
          },
          'saadparwaiz1/cmp_luasnip',
@@ -71,7 +70,7 @@ return {
                ["<c-space>"] = cmp.mapping {
                   i = cmp.mapping.complete(),
                   c = function(
-                     _ --[[fallback]]
+                      _ --[[fallback]]
                   )
                      if cmp.visible() then
                         if not cmp.confirm { select = true } then
@@ -113,7 +112,7 @@ return {
                { name = "luasnip" },
                { name = "path" },
                { name = "dictionary" },
-               { name = "buffer", keyword_length = 5 },
+               { name = "buffer",    keyword_length = 5 },
             },
 
             sorting = {
@@ -173,7 +172,6 @@ return {
                documentation = cmp.config.window.bordered(),
             },
          }
-
       end
    }
 
