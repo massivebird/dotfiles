@@ -51,7 +51,7 @@
       gnumake42 # `make` command
       grim # screenshots in wayland
       helvetica-neue-lt-std
-      hyperfine
+      hyperfine # benchmarking tool written in rust
       java-language-server
       jdk17 # java
       jetbrains.idea-ultimate
