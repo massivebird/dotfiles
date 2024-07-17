@@ -23,6 +23,7 @@
 
     environment.systemPackages = with pkgs; [
       bacon # background rust code checker
+      bash-language-server
       bat # `less` clone
       binutils # nvim tree-sitter dep
       brightnessctl # keyboard brightness controls
@@ -50,6 +51,7 @@
       gnumake42 # `make` command
       grim # screenshots in wayland
       helvetica-neue-lt-std
+      hyperfine
       java-language-server
       jdk17 # java
       jetbrains.idea-ultimate
@@ -65,7 +67,6 @@
       ncspot # ncurses spotify client written in rust
       neovim
       nixd # Nix language server
-      bash-language-server
       nodePackages_latest.typescript-language-server
       nodejs_20
       nsxiv # image viewer
@@ -140,7 +141,6 @@
     };
 
     # enable sound with pipewire
-    sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
 
