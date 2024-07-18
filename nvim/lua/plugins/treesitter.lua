@@ -68,9 +68,6 @@ return {
          -- auto[close|rename] html tags
          'windwp/nvim-ts-autotag',
 
-         -- color-coded parentheses and stuff
-         'hiphish/rainbow-delimiters.nvim',
-
          {
             'nvim-treesitter/nvim-treesitter-context',
             opts = {

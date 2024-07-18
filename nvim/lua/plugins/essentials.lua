@@ -45,7 +45,7 @@ return {
    {
       "lukas-reineke/indent-blankline.nvim",
       main = "ibl",
-      config = function ()
+      config = function()
          require("ibl").setup {
             enabled = true,
             scope = {
@@ -58,4 +58,6 @@ return {
    -- transforming between single- and multi-line statements
    "andrewradev/splitjoin.vim",
 
+   -- color-coded parentheses and stuff
+   'hiphish/rainbow-delimiters.nvim',
 }
