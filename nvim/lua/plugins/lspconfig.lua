@@ -105,6 +105,7 @@ return {
             filetypes = { "sh" }
          }
 
+         -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
          lspconfig.rust_analyzer.setup {
             on_attach = on_attach,
             capabilities = capabilities,
@@ -112,6 +113,20 @@ return {
             cmd = { "rust-analyzer" },
             settings = {
                ["rust-analyzer"] = {
+                  -- Add clippy lints for Rust.
+                  checkOnSave = {
+                     allFeatures = true,
+                     command = "clippy",
+                     extraArgs = {
+                        "--",
+                        "--no-deps",
+                        "-Dclippy::correctness",
+                        "-Dclippy::complexity",
+                        "-Wclippy::perf",
+                        "-Wclippy::nursery",
+                        "-Aclippy::pedantic",
+                     },
+                  },
                   assist = {
                      importGranularity = "module",
                      importPrefix = "by_self",
@@ -121,6 +136,9 @@ return {
                   },
                   procMacro = {
                      enable = true
+                  },
+                  diagnostics = {
+                     styleLints = true
                   },
                }
             }
