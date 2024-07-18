@@ -3,7 +3,7 @@ return {
    {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
-      event = {"BufReadPost", "BufNewFile"},
+      event = { "BufReadPost", "BufNewFile" },
       opts = {
          ensure_installed = {
             "bash",
@@ -52,23 +52,20 @@ return {
                node_decremental = "grm",
             },
          },
-         -- rainbow parentheses/brackets
-         rainbow = {
-            enable = true,
-            disable = { "jsx", "cpp", "html", "php"},
-            query = "rainbow-parens",
-            -- strategy = require("ts-rainbow").strategy.global,
-         },
-         autotag = {
-            enable = true,
-         },
       },
       dependencies = {
 
-         -- auto[close|rename] html tags
-         'windwp/nvim-ts-autotag',
+         {
+            -- auto[close|rename] html tags
+            'windwp/nvim-ts-autotag',
+            ft = "html",
+            config = function()
+               require('nvim-ts-autotag').setup {}
+            end
+         },
 
          {
+            -- pin contextual lines at the top of the buffer
             'nvim-treesitter/nvim-treesitter-context',
             opts = {
                enable = true,
@@ -80,7 +77,7 @@ return {
                multiline_threshold = 10,
                -- which context lines to discard if `max_lines` is exceeded
                trim_scope = 'outer',
-               mode = 'cursor',  -- Line used to calculate context. Choices: 'cursor', 'topline'
+               mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
                -- Separator between context and content. Should be a single character string, like '-'.
                -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
                separator = "-",
