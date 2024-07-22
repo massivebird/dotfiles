@@ -278,5 +278,5 @@ if status is-interactive
    # custom splash program
    try_running minifetch
    # custom git repo updater program
-   try_running git_updater
+   try_running git_updater $argv
 end
