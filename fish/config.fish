@@ -277,6 +277,11 @@ if status is-interactive
 
    # custom splash program
    try_running minifetch
-   # custom git repo updater program
-   try_running git_updater $argv
+
+   # custom git repo updater program,
+   # does not run if user opts out
+   argparse 'f/fast' -- $argv
+   if not set -q _flag_fast
+      try_running git_updater $argv
+   end
 end
