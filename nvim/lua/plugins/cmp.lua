@@ -108,11 +108,9 @@ return {
             sources = {
                { name = "nvim_lua" },
                { name = "nvim_lsp" },
-               { name = "treesitter" },
                { name = "luasnip" },
                { name = "path" },
-               { name = "dictionary" },
-               { name = "buffer",    keyword_length = 5 },
+               { name = "buffer", keyword_length = 5 },
             },
 
             sorting = {
