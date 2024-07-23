@@ -102,7 +102,10 @@
 
     environment.variables = {
       HOSTNAME = hostName;
+      # I think this helps nvim-cmp generate stdlib completions
+      RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     };
+
 
     networking = {
       hostName = hostName;
