@@ -58,6 +58,19 @@ return {
    -- transforming between single- and multi-line statements
    "andrewradev/splitjoin.vim",
 
-   -- color-coded parentheses and stuff
-   'hiphish/rainbow-delimiters.nvim',
+   {
+      -- color-coded parentheses and stuff
+      'hiphish/rainbow-delimiters.nvim',
+      ft = {
+         "c",
+         "clojure",
+         "cpp",
+         "javascript",
+         "json",
+         "lua",
+         "python",
+         "rust",
+         "typescript",
+      }
+   }
 }
