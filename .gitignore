@@ -65,6 +65,7 @@ scripts/smoothcolor.sh
 spotify
 spotify-tui/.spotify_token_cache.json
 spotify-tui/client.yml
+subterfuge/
 sway/inactive-windows-transparency.py
 systemd
 tbsm/
