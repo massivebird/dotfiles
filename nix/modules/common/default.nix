@@ -22,6 +22,8 @@
     };
 
     environment.systemPackages = with pkgs; [
+      # jetbrains.idea-ultimate
+      # zoom-us
       bacon # background rust code checker
       bash-language-server
       bat # `less` clone
@@ -54,7 +56,6 @@
       hyperfine # benchmarking tool written in rust
       java-language-server
       jdk17 # java
-      jetbrains.idea-ultimate
       kitty # terminal emulator
       lc3tools # LC-3 toolchain and emulator
       libGL
@@ -97,7 +98,6 @@
       yt-dlp
       zathura # pdf viewer
       zip
-      zoom-us
     ];
 
     environment.variables = {
