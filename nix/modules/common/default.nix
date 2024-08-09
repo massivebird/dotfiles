@@ -65,7 +65,6 @@
       mako # wayland notification daemon
       marksman # markdown language server
       mpv
-      ncspot # ncurses spotify client written in rust
       neovim
       nixd # Nix language server
       nodePackages_latest.typescript-language-server
@@ -83,7 +82,6 @@
       rust-analyzer
       rustc
       rustup
-      spotifyd # lightweight spotify daemon
       taskwarrior
       tldr
       tree
