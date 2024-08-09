@@ -49,6 +49,7 @@
       fish
       gh # github cli
       git
+      glfw # temp solution for kitty GLFW launch error
       gnat13 # GNU C++ compiler collection
       gnumake42 # `make` command
       grim # screenshots in wayland
