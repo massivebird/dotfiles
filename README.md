@@ -4,9 +4,13 @@
 <br>
 ![preview-1](./res/preview-1.png)
 
-## What I use
+## Layout and philosophy
 
-[`nixOS`](https://nixos.org/) is really cool and you should check it out 🐧
+[`NixOS`](https://nixos.org/) is really cool and you should check it out 🐧
+
+This repository is an XDG-compliant, OS-agnostic, drop-in replacement for `$HOME/.config`. Here, you'll find application-specific configurations in addition to my NixOS system configuration. I like this layout as opposed to a Nix Home Manager-driven setup that melts app configs into `.nix` files.
+
+## My programs
 
 + [`fish`](https://github.com/fish-shell/fish-shell) shell
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
@@ -29,11 +33,11 @@ rm -rf .config
 git clone https://github.com/massivebird/dotfiles .config
 ```
 
-### Loading the nixOS flake
+### Loading the NixOS flake
 
 The `nix` directory contains my NixOS system config flake.
 
-After running the above commands, run:
+After [installation](#installation), substitute `<hostname>` and run the following:
 
 ```bash
 sudo nixos-rebuild switch --flake ~/.config/nix#<hostname>
