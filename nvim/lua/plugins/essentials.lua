@@ -72,5 +72,14 @@ return {
          "rust",
          "typescript",
       }
-   }
+   },
+
+   {
+      -- help doc decorations
+      "OXY2DEV/helpview.nvim",
+      lazy = false, -- false is recommended
+      dependencies = {
+         "nvim-treesitter/nvim-treesitter"
+      }
+   },
 }
