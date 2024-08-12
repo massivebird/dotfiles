@@ -9,7 +9,10 @@
     };
   };
 
-  outputs = inputs: {
+  outputs = {self} @ inputs:
+    let
+      inherit (self) outputs;
+    in {
 
     # `nixosConfigurations.<hostname>` is the output schema used by
     # `nixos-rebuild switch --flake .#<hostname>`.
@@ -42,6 +45,17 @@
           hostName = "ray";
           userName = "penguino";
           system = "x86_64-linux";
+        };
+      };
+
+    homeConfigurations = {
+        "penguino@clint" = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home-manager/home.nix
+          ];
         };
       };
 
