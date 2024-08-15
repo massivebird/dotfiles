@@ -55,8 +55,8 @@
       grim # screenshots in wayland
       helvetica-neue-lt-std
       hyperfine # benchmarking tool written in rust
-      java-language-server
-      jdk17 # java
+      jdk22 # java
+      jdt-language-server # java language server
       kitty # terminal emulator
       lc3tools # LC-3 toolchain and emulator
       libGL

@@ -78,10 +78,10 @@ return {
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
          -- You can ignore the ipairs error when opening a java file
          -- (would love to get rid of it later!)
-         lspconfig.java_language_server.setup {
+         lspconfig.jdtls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            cmd = { "java-language-server" },
+            cmd = { "jdtls" },
          }
 
          lspconfig.clangd.setup {
