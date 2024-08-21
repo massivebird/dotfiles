@@ -83,13 +83,12 @@
       rust-analyzer
       rustc
       rustup
-      taskwarrior
+      taskwarrior3
       tldr
       tree
       tree-sitter # the executable
       unzip
       vlc
-      vscode-langservers-extracted # HTML/CSS/JSON/ESLint language servers
       waybar
       wget
       wiki-tui
