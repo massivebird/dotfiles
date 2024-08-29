@@ -62,6 +62,7 @@
       libGL
       libgccjit # GNU C compiler collection
       libnotify # notify-send and other notification utils
+      logisim # logic circuit design and simulation
       lua-language-server
       mako # wayland notification daemon
       marksman # markdown language server
