@@ -64,8 +64,12 @@ if status is-interactive
    # use fish_key_reader!
 
    for mode in insert default visual
-      bind -M $mode \cP 'up-or-search'
-      bind -M $mode \cN 'down-or-search'
+      # \c: ctrl
+
+      bind -M $mode \cp 'up-or-search'
+      bind -M $mode \cn 'down-or-search'
+      bind -M $mode \ck 'accept-autosuggestion'
+      bind -M $mode \cl 'forward-word'
    end
 
    # aliases #############################
