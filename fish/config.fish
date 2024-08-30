@@ -69,7 +69,6 @@ if status is-interactive
       bind -M $mode \cp 'up-or-search'
       bind -M $mode \cn 'down-or-search'
       bind -M $mode \ck 'accept-autosuggestion'
-      bind -M $mode \cl 'forward-word'
    end
 
    # aliases #############################
