@@ -65,11 +65,7 @@ return {
             capabilities = capabilities,
          }
 
-         -- pip install --user python-lsp-server
-         -- lspconfig.pylsp.setup {
-         --   on_attach = on_attach,
-         -- }
-
+         -- static type checker for python
          lspconfig.pyright.setup {
             on_attach = on_attach,
             capabilities = capabilities,
