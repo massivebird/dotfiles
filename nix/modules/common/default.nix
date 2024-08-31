@@ -77,6 +77,7 @@
       pamixer # pulseaudio control
       php82Extensions.mysqlnd # PHP MySQL extension
       playerctl # keyboard audio controls
+      pyright
       python311
       ranger
       ripgrep # real fast grep written in rust
