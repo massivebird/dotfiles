@@ -40,11 +40,13 @@ bindsym $mod+ctrl+shift+s+e exec sway exit
 bindsym Print exec grim ~/Pictures/screenshots/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
 # disable opening a new terminal
 bindsym ctrl+shift+n nop
-bindsym $mod+o+1 exec firefox
-bindsym $mod+o+z exec zathura
-bindsym $mod+o+2 exec nautilus
 
+# app shortcuts
 bindsym $mod+Return exec $term
+bindsym $mod+o+1 exec firefox
+bindsym $mod+o+2 exec nautilus
+bindsym $mod+o+d exec discord
+bindsym $mod+o+z exec zathura
 bindsym $win+r exec $menu
 
 # functional keys #####################
