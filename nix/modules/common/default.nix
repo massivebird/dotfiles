@@ -104,6 +104,8 @@
       HOSTNAME = hostName;
       # I think this helps nvim-cmp generate stdlib completions
       RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+      # Theme for Nautilus, Disks, etc.
+      GTK_THEME = "Adwaita:dark";
     };
 
     networking = {
