@@ -42,7 +42,7 @@ set.signcolumn = "yes"
 -- update interval for gitgutter and stuff
 set.updatetime = 300
 -- actual mouse support
-set.mouse =
+set.mouse = "n"
 
 -- enable filetype-specific configuration files
 cmd 'filetype plugin indent on'
