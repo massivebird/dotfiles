@@ -60,10 +60,10 @@ return {
             }
          }
 
-         lspconfig.tsserver.setup {
-            on_attach = on_attach,
-            capabilities = capabilities,
-         }
+         -- lspconfig.ts_ls.setup {
+         --    on_attach = on_attach,
+         --    capabilities = capabilities,
+         -- }
 
          -- static type checker for python
          lspconfig.pyright.setup {
