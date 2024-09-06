@@ -2,6 +2,7 @@
 *.qcow2
 .gsd*
 .luarc.json
+Code/
 Google
 JetBrains
 NecroDancer
