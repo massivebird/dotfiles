@@ -69,7 +69,6 @@
       mpv
       neovim
       nixd # Nix language server
-      nodePackages_latest.typescript-language-server
       nodejs_20
       nsxiv # image viewer
       obs-studio
