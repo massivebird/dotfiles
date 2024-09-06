@@ -1,3 +1,8 @@
+" This is massivebird's vimrc!
+"
+" Neovim isn't always an option, but vim usually is!
+" This is a plugin-free config with my fav options and keymaps.
+
 "== Settings ===========================
 
 " minimal num lines to keep above/below cursor
