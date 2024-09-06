@@ -84,7 +84,6 @@
       rofi # "start menu" pop-up
       rust-analyzer
       rustc
-      rustup
       taskwarrior3
       tldr
       tree
