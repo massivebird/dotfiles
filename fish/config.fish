@@ -167,6 +167,7 @@ if status is-interactive
    alias exp 'explorer.exe'
    alias foxalive "systemctl reboot"
    alias foxdie "systemctl poweroff"
+   alias greep 'grep' # ben
    alias less 'less -r --jump-target=3'
    alias lo 'gnome-session-save --force-logout'
    alias n 'nvim'
@@ -175,10 +176,11 @@ if status is-interactive
    alias pingg 'ping github.com'
    alias r 'ranger'
    alias rename 'prename'
-   alias shx 'chmod +x *.sh'
    alias s 'source ~/.config/fish/config.fish'
    alias sc 'clear && source ~/.config/fish/config.fish -f'
    alias sf 'source ~/.config/fish/config.fish -f'
+   alias shx 'chmod +x *.sh'
+   alias ssh 'kitty +kitten ssh' # solves SSH kitty issues, kovidgoyal/kitty#713
    alias sv 'source ~/.config/fish/config.fish -v'
    alias ta 'task add'
    alias tc 'task calendar'
