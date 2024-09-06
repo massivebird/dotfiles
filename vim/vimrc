@@ -1,0 +1,52 @@
+"== Settings ===========================
+
+" minimal num lines to keep above/below cursor
+set scrolloff=5
+
+syntax on
+
+" Incremental search shows matches in real time
+set incsearch
+
+set relativenumber
+set nonumber
+
+"== Keymaps ============================
+
+let mapleader=" "
+
+" Don't use Ex mode, use Q for formatting.
+nnoremap Q gq
+
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :wq<cr>
+nnoremap <leader>Q :q!<cr>
+
+nnoremap <Tab> 10j
+nnoremap <S-Tab> 10k
+
+" sensible undo
+nnoremap U <C-r>
+
+nnoremap / :/\c<Left><Left>
+
+"== IdeaVim plugin =====================
+
+" set surround
+" set commentary
+
+" Highlight copied text
+" Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+" Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
