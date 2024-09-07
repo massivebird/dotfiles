@@ -47,7 +47,7 @@ return {
       main = "ibl",
       config = function()
          require("ibl").setup {
-            enabled = true,
+            enabled = os.getenv("DISPLAY") ~= nil, -- disabled for TTY
             scope = {
                enabled = false,
             },
