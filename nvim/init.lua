@@ -17,7 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- some plugins/modules use this variable
 vim.cmd 'let base16colorspace = 256'
-if vim.fn.has("termguicolors") then
+
+-- disable GUI colors for TTY
+if os.getenv("DISPLAY") == nil then
+   vim.opt.termguicolors = false
+else
    vim.opt.termguicolors = true
 end
 
