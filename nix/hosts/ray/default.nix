@@ -10,7 +10,7 @@
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
     # [some] fonts in /etc/kbd/consolefonts/
-    font = "latarcyrheb-sun32";
+    font = "ter-h32b";
   };
 
   # fixes unresponsive keyboard on wakeup
