@@ -169,7 +169,7 @@
       };
     };
 
-    console.useXkbConfig = true; # apply keybinds to TTY
+    console.useXkbConfig = true; # apply xkb keybinds to TTY
 
     fonts = {
       enableDefaultPackages = true;
