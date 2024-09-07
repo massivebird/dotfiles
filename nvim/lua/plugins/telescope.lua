@@ -20,7 +20,7 @@ return {
                hidden = true,
                no_ignore = true,
                no_ignore_parent = true,
-               search_dirs = {'/home'}
+               search_dirs = { '/home' }
             }
          end
 
@@ -41,14 +41,14 @@ return {
                grep_open_files = true,
                hidden = true,
                respect_gitignore = false,
-               path_display = {"tail"},
+               path_display = { "tail" },
                disable_coordinates = true
             }
          end
 
          local nvim_modules = function()
             builtin.find_files {
-               search_dirs = {'/home/penguino/.config/nvim/lua/'},
+               search_dirs = { '/home/penguino/.config/nvim/lua/' },
                prompt_title = "Nvim modules",
                hidden = false,
             }
@@ -64,7 +64,7 @@ return {
                -- preview_title = false,
                prompt_prefix = '  ',
                -- selection_caret = '  ',
-               path_display = {"truncate"},
+               path_display = { "truncate" },
                layout_config = {
                   prompt_position = 'bottom'
                },
@@ -78,11 +78,12 @@ return {
                   previewer = false,
                },
                live_grep = {
+                  path_display = "hidden",
+                  prompt_title = "Search",
                   results_title = false,
-                  prompt_title = false,
                },
                nvim_modules = {
-                  path_display = {"smart"},
+                  path_display = { "smart" },
                },
             },
          }
@@ -93,11 +94,11 @@ return {
 
          vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
+         vim.keymap.set('n', '<leader>f/', builtin.live_grep)
          vim.keymap.set('n', '<leader>fH', builtin.highlights)
          vim.keymap.set('n', '<leader>fb', builtin.buffers)
          vim.keymap.set('n', '<leader>fc', builtin.colorscheme)
          vim.keymap.set('n', '<leader>ff', builtin.find_files)
-         vim.keymap.set('n', '<leader>fg', builtin.live_grep)
          vim.keymap.set('n', '<leader>fh', builtin.help_tags)
          vim.keymap.set('n', '<leader>fj', builtin.jumplist)
          vim.keymap.set('n', '<leader>fk', builtin.keymaps)
@@ -108,7 +109,6 @@ return {
          vim.keymap.set('n', '<leader>fr', find_files_from_root)
          vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols)
          vim.keymap.set('n', '<leader>fv', builtin.vim_options)
-
       end,
    }
 }
