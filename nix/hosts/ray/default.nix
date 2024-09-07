@@ -9,7 +9,7 @@
     # set console options as early as possible
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
-    # [some] fonts in /etc/kbd/consolefonts/
+    # Find fonts in `/etc/kbd/consolefonts/`. 32 is the comfiest size!
     font = "ter-h32b";
   };
 
