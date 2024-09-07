@@ -1,12 +1,6 @@
 local cmd = vim.cmd
 
--- colorscheme switcher
-local colorscheme_option = 0
-if colorscheme_option == 0 then
-   cmd 'colorscheme framer_syntax_dark'
-elseif colorscheme_option == 1 then
-   cmd 'colorscheme slate'
-end
+cmd 'colorscheme framer_syntax_dark'
 
 -- quick edit init.lua
 cmd [[ command! Nc :e ~/.config/nvim/init.lua ]]
