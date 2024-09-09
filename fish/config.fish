@@ -180,7 +180,6 @@ if status is-interactive
    alias sc 'clear && source ~/.config/fish/config.fish -f'
    alias sf 'source ~/.config/fish/config.fish -f'
    alias shx 'chmod +x *.sh'
-   alias ssh 'kitty +kitten ssh' # solves SSH kitty issues, kovidgoyal/kitty#713
    alias sv 'source ~/.config/fish/config.fish -v'
    alias ta 'task add'
    alias tc 'task calendar'
@@ -192,6 +191,10 @@ if status is-interactive
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
    alias ytd 'yt-dlp'
    alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]"' # "archive mode"
+
+   if test "$TERM" = "xterm-kitty"
+      alias ssh 'kitty +kitten ssh' # solves SSH kitty issues [kovidgoyal/kitty#713]
+   end
 
    # prompt ##############################
 
