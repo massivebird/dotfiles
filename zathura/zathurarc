@@ -1,6 +1,10 @@
 # see `man zathurarc`
 
 ## keys ###############################
+
+map <C-e> feedkeys j
+map <C-y> feedkeys k
+
 map J feedkeys 5j
 map K feedkeys 5k
 
