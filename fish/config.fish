@@ -106,8 +106,8 @@ if status is-interactive
    alias gco 'git checkout'
    alias gd 'git diff'
    alias gf 'git fetch'
-   alias gl 'git log --graph --all --decorate --oneline --color=always --pretty=format:\'%C(bold yellow)%h%C(reset) %s %C(auto)%d%C(reset)\''
-   alias gll 'git log --graph -p --color=always'
+   alias gl 'git log --graph --all --oneline --color=always'
+   alias gll 'git log --graph --all --oneline --color=always --stat'
    alias glop 'git log --graph -p --color=always'
    alias gm 'git merge'
    alias grb 'git rebase'
@@ -286,11 +286,4 @@ if status is-interactive
 
    # custom splash program
    try_running minifetch
-
-   # custom git repo updater program,
-   # does not run if user opts out
-   argparse 'f/fast' -- $argv
-   if not set -q _flag_fast
-      try_running git_updater $argv
-   end
 end
