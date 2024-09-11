@@ -1,0 +1,41 @@
+live_config_reload = true
+
+[shell]
+program = "/run/current-system/sw/bin/fish"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font" }
+size = 15
+
+[colors.primary]
+background = "#0e0e0e"
+foreground = "#eeeeee"
+
+[colors.normal]
+blue = "#00bbff"
+cyan = "#23ccdd"
+green = "#0cb890"
+magenta = "#bb89ff"
+red = "#ea3377"
+white = "#777777"
+yellow = "#ffcc66"
+
+[colors.bright]
+black = "#333333"
+blue = "#aaddff"
+cyan = "#61d6d6"
+green = "#61e294"
+magenta = "#eeaaff"
+red = "#fb5599"
+white = "#eeeeee"
+yellow = "#ff8876"
+
+[selection]
+# automatically copy selections
+save_to_clipboard = true
+
+[cursor]
+thickness = 0.2
+
+[mouse]
+hide_when_typing = true
