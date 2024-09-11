@@ -280,7 +280,7 @@ if status is-interactive
       if type -q $argv
          command $argv
       else
-         echo "[ INFO ] Command not found:" $argv
+         echo "config.fish: command not found:" $argv
       end
    end
 
