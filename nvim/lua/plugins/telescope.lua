@@ -46,9 +46,11 @@ return {
             }
          end
 
+         -- Custom telescope mode that presents a list of nvim
+         -- configuration files.
          local nvim_modules = function()
             builtin.find_files {
-               search_dirs = { '/home/penguino/.config/nvim/lua/' },
+               search_dirs = { '/home/penguino/.config/nvim/' },
                prompt_title = "Nvim modules",
                hidden = false,
             }
@@ -77,11 +79,6 @@ return {
                   prompt_title = false,
                   previewer = false,
                },
-               live_grep = {
-                  path_display = "hidden",
-                  prompt_title = "Search",
-                  results_title = false,
-               },
                nvim_modules = {
                   path_display = { "smart" },
                },
@@ -94,7 +91,7 @@ return {
 
          vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
-         vim.keymap.set('n', '<leader>f/', builtin.live_grep)
+         vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find)
          vim.keymap.set('n', '<leader>fH', builtin.highlights)
          vim.keymap.set('n', '<leader>fb', builtin.buffers)
          vim.keymap.set('n', '<leader>fc', builtin.colorscheme)
@@ -104,6 +101,7 @@ return {
          vim.keymap.set('n', '<leader>fk', builtin.keymaps)
          vim.keymap.set('n', '<leader>fl', grep_in_open_buffers)
          vim.keymap.set('n', '<leader>fm', nvim_modules)
+         vim.keymap.set('n', '<leader>ft', builtin.treesitter) -- various symbols
          vim.keymap.set('n', '<leader>fn', browse_notes)
          vim.keymap.set('n', '<leader>fo', builtin.oldfiles)
          vim.keymap.set('n', '<leader>fr', find_files_from_root)
