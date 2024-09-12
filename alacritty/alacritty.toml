@@ -12,14 +12,25 @@ thickness = 0.2
 vi_mode_style = { shape = "Block", blinking = "Never" }
 
 [selection]
-# automatically copy selections
+# Automatically copy selections
 save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
 
-[window]
-blur = true
+[[hints.enabled]]
+command = "xdg-open"
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+# Detect OSC 8 escape sequence hyperlinks
+hyperlinks = true
+# Additional hint detection rules (?)
+post_processing = true
+# Remain in "hint mode" after selecting one
+persist = false
+# Enable hint interaction with the mouse, conditionally with mods
+mouse = { enabled = true, mods = "Shift" }
+# Keybinding for entering "hint mode"
+binding = { key = "e", mods = "Control|Shift" }
 
 [colors.cursor]
 text = "#0e0e0e"
