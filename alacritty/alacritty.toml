@@ -7,6 +7,24 @@ program = "/run/current-system/sw/bin/fish"
 normal = { family = "JetBrainsMono Nerd Font" }
 size = 15
 
+[cursor]
+thickness = 0.2
+vi_mode_style = { shape = "Block", blinking = "Never" }
+
+[selection]
+# automatically copy selections
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[window]
+blur = true
+
+[colors.cursor]
+text = "#0e0e0e"
+cursor = "#eeeeee"
+
 [colors.primary]
 background = "#0e0e0e"
 foreground = "#eeeeee"
@@ -29,13 +47,3 @@ magenta = "#eeaaff"
 red = "#fb5599"
 white = "#eeeeee"
 yellow = "#ff8876"
-
-[selection]
-# automatically copy selections
-save_to_clipboard = true
-
-[cursor]
-thickness = 0.2
-
-[mouse]
-hide_when_typing = true
