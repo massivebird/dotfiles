@@ -24,6 +24,7 @@
     environment.systemPackages = with pkgs; [
       # jetbrains.idea-ultimate
       # zoom-us
+      alacritty # terminal emulator
       bacon # background rust code checker
       bash-language-server
       bat # `less` clone
