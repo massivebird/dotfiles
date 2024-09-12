@@ -90,6 +90,7 @@
       tree-sitter # the executable
       unzip
       vlc
+      vscode
       waybar
       wget
       wiki-tui
@@ -143,17 +144,18 @@
       };
     };
 
-    # enable sound with pipewire
-    hardware.pulseaudio.enable = false;
-    security.rtkit.enable = true;
+    # Fixes audio not working on startup
+    hardware.alsa.enablePersistence = true;
 
     services = {
-      printing.enable = true; # enable CUPS to print documents
+      printing.enable = true; # enable CUPS for printing documents
       pipewire = {
         enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
+        alsa.enable = true; # ALSA support
+        alsa.support32Bit = true; # 32-bit ALSA support on 64-bit arch
+        audio.enable = true; # pipewire as primary sound server
+        jack.enable = true; # JACK audio emulation
+        pulse.enable = true; # PulseAudio server emulation
       };
       xserver = {
         enable = false;
