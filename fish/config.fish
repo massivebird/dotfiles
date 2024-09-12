@@ -16,14 +16,14 @@ if status is-interactive
 
    fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
 
-   # used by massivebird/arcsearch, massivebird/arcstat
+   # for massivebird/arcsearch, massivebird/arcstat
    set -x VG_ARCHIVE $HOME/game-archive
 
    set -x BROWSER "firefox"
    set -x EDITOR "nvim"
 
    if type -q bat
-      # `plain` style has no line numbers, they break manpages
+      # bat's `plain` style has no line numbers to avoid breaking manpages
       set -x PAGER "bat --color always --style plain"
       set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
    else
@@ -81,6 +81,14 @@ if status is-interactive
       alias ll 'ls -1Alh  --color=always --group-directories-first'
    end
 
+   if test "$TERM" = "xterm-kitty"
+      alias ssh 'kitty +kitten ssh' # solves SSH kitty issues [kovidgoyal/kitty#713]
+   end
+
+   if not type -q rename
+      alias rename 'prename'
+   end
+
    function ...; '../..'; end
    function ....; '../../..'; end
    function .....; '../../../..'; end
@@ -121,6 +129,9 @@ if status is-interactive
    alias gstap 'git stash pop'
    alias gstas 'git stash show'
 
+   function ggpull; command git pull origin (git branch --show-current); end
+   function ggpush; command git push origin (git branch --show-current); end
+
    alias ghi 'gh issue'
    alias ghil 'gh issue list'
    alias ghilm 'gh issue list --assignee "@me"'
@@ -138,15 +149,12 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
-   alias ncg   'sudo nix-collect-garbage --delete-old'
-   alias nde   'nix develop'
-   alias nfu   "nix flake update --commit-lock-file ~/.config/nix/#"
+   alias ncg 'sudo nix-collect-garbage --delete-old'
+   alias nde 'nix develop'
+   alias nfu "nix flake update --commit-lock-file ~/.config/nix/#"
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
-   alias nlg   'nix-env --list-generations' 
-   alias nor   "sudo nixos-rebuild switch --flake ~/.config/nix#"
-
-   function ggpull; command git pull origin (git branch --show-current); end
-   function ggpush; command git push origin (git branch --show-current); end
+   alias nlg 'nix-env --list-generations' 
+   alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
 
    alias nc 'nvim ~/.config/nvim/init.lua'
    alias ncf 'nvim ~/.config/fish/config.fish'
@@ -164,18 +172,16 @@ if status is-interactive
    alias clj 'clj/'
    alias diff 'diff --color=always'
    alias dirl 'dirs -v'
-   alias exp 'explorer.exe'
+   alias exp 'explorer.exe' # WSL: open cwd in Windows File Explorer
    alias foxalive "systemctl reboot"
    alias foxdie "systemctl poweroff"
    alias greep 'grep' # ben
    alias less 'less -r --jump-target=3'
-   alias lo 'gnome-session-save --force-logout'
    alias n 'nvim'
    alias nn 'ranger $NOTES_DIR'
    alias nr 'nvim -R'
    alias pingg 'ping github.com'
    alias r 'ranger'
-   alias rename 'prename'
    alias s 'source ~/.config/fish/config.fish'
    alias sc 'clear && source ~/.config/fish/config.fish -f'
    alias sf 'source ~/.config/fish/config.fish -f'
@@ -192,39 +198,42 @@ if status is-interactive
    alias ytd 'yt-dlp'
    alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]"' # "archive mode"
 
-   if test "$TERM" = "xterm-kitty"
-      alias ssh 'kitty +kitten ssh' # solves SSH kitty issues [kovidgoyal/kitty#713]
-   end
-
    # prompt ##############################
 
+   # Command prompt is controlled by stdout of fish_prompt fn.
    function fish_prompt
-      # check user privileges
       if fish_is_root_user
          set -f USER_ICON '# '
       else
          set -f USER_ICON '$ '
       end
-      # if cwd is git-controlled
+
+      # If inside a Git repo, display active branch.
       if fish_git_prompt > /dev/null
-         set -f GIT_BRANCH (set_color $fish_color_user)\[(git branch --show-current)\]
-         set -l REPO_IS_DIRTY (git status --porcelain)
-         if test -n "$REPO_IS_DIRTY"
-            set -f DIRTY_ICON (set_color $fish_color_error)\*
+         set -f GIT_BRANCH \[(git branch --show-current)\]
+         if test -n "$(git status --porcelain)"
+            set -f GIT_DIRTY_ICON '*'
          else
-            set -f DIRTY_ICON ''
+            set -f GIT_DIRTY_ICON ''
          end
-      else # cwd is not git-controlled
+      else # Not inside a Git repo
          set -f GIT_BRANCH ''
-         set -f DIRTY_ICON ''
+         set -f GIT_DIRTY_ICON ''
       end
-      # print prompt from left to right
-      printf $DIRTY_ICON
+
+      # Print prompt elements from left to right
+      set_color $fish_color_error
+      printf $GIT_DIRTY_ICON
+
+      set_color $fish_color_user
       printf $GIT_BRANCH
+
       set_color $fish_color_cwd
       printf [(prompt_pwd)]
+
       set_color --bold $fish_color_normal
       printf $USER_ICON
+
       set_color normal
    end
 
