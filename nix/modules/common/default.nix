@@ -160,8 +160,6 @@
         pulse.enable = true; # PulseAudio server emulation
       };
       xserver = {
-        enable = false;
-        autorun = false; # false => runs TTY login prompt
         # Fixes cursor issues in Sway/Wayland. Why? How? idk
         desktopManager.gnome.enable = true;
         xkb = {
