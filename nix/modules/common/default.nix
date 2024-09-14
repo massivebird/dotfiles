@@ -1,10 +1,11 @@
 # configuration applied to all hosts
 { pkgs, userName, hostName, ... }: {
   config = {
-    programs.fish.enable = true;
-    users.defaultUserShell = pkgs.fish;
-
     programs.sway.enable = true;
+    # Configures fish as an interactive shell
+    programs.fish.enable = true;
+
+    users.defaultUserShell = pkgs.fish;
 
     users.mutableUsers = true;
     users.users.${userName} = {
@@ -117,13 +118,13 @@
       hosts."192.168.1.152" = [ "clint" ];
     };
 
-    # TTY login prompt aka /etc/issue
-    # https://www.linuxfromscratch.org/blfs/view/svn/postlfs/logon.html
-    # current ASCII style: Cyberlarge
-    services.getty.greetingLine = ''
+    # TTY login prompt, sets contents of /etc/issue
+    services.getty = {
+      greetingLine = ''
     Logging onto \n (\l)
-    Today is \d \t
-    '';
+    Today is \d \t'';
+      extraArgs = [ "--nonewline" ];
+    };
 
     # Display nixos-help message on boot
     documentation.nixos.enable = false;
