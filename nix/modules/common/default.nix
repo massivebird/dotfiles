@@ -1,5 +1,5 @@
 # configuration applied to all hosts
-{ pkgs, lib, config, inputs, userName, hostName, ... }: {
+{ pkgs, userName, hostName, ... }: {
   config = {
     programs.fish.enable = true;
     users.defaultUserShell = pkgs.fish;
@@ -14,7 +14,7 @@
     };
 
     nixpkgs.config = {
-      allowUnfree = true; # allow proprietary packages
+      allowUnfree = true; # Allow proprietary packages
       permittedInsecurePackages = [
         "electron-25.9.0" # updated apps may use EOL dep
         "nix-2.16.2"
@@ -125,7 +125,7 @@
     Today is \d \t
     '';
 
-    # suppress nixos-help message on boot
+    # Display nixos-help message on boot
     documentation.nixos.enable = false;
 
     time.timeZone = "America/Detroit";
@@ -161,10 +161,6 @@
       xserver = {
         enable = false;
         autorun = false; # false runs TTY login prompt instead of graphical
-        displayManager.startx.enable = true;
-        displayManager.lightdm.enable = false;
-        displayManager.gdm.enable = true; # GNOME display manager
-        desktopManager.gnome.enable = true; # GNOME desktop manager
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
