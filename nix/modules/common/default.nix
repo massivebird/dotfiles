@@ -161,7 +161,9 @@
       };
       xserver = {
         enable = false;
-        autorun = false; # false runs TTY login prompt instead of graphical
+        autorun = false; # false => runs TTY login prompt
+        # Fixes cursor issues in Sway/Wayland. Why? How? idk
+        desktopManager.gnome.enable = true;
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
