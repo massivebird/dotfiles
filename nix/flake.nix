@@ -24,7 +24,7 @@
 
     nixosConfigurations =
       let
-        nixosMachine = { system, hostName, userName, ... }:
+        nixosMachine = { system, hostName, userName }:
           inputs.nixpkgs.lib.nixosSystem {
             inherit system;
             # inputs relayed to each module
@@ -37,12 +37,14 @@
           };
       in
       {
+
         # hp laptop
         ray = nixosMachine {
           hostName = "ray";
           userName = "penguino";
           system = "x86_64-linux";
         };
+
       };
 
   };
