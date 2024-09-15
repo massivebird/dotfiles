@@ -86,6 +86,7 @@
       rofi # "start menu" pop-up
       rust-analyzer
       rustc
+      rustfmt # Rust source code formatter
       taskwarrior3
       tldr
       tree
