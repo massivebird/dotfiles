@@ -31,7 +31,7 @@
             specialArgs = { inherit inputs userName hostName; };
             # files containing actual OS configuration
             modules = [
-              ./modules/common
+              ./modules/common.nix
               ./hosts/${hostName}
             ];
           };
