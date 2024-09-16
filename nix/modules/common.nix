@@ -98,6 +98,7 @@
       wget
       wiki-tui
       wl-clipboard # neovim clipboard integration
+      wlsunset
       yt-dlp
       zathura # pdf viewer
       zip
