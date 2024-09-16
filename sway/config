@@ -1,5 +1,7 @@
 # fixes slow GTK app startup in nixos
 exec systemctl --user mask xdg-desktop-portal-gnome.service
+# Day/night gamma adjustments
+exec wlsunset -l 42.33282278735832 -L -83.05300566614319
 
 # OBS services
 # https://github.com/stelcodes/xdg-config/blob/main/sway/config
