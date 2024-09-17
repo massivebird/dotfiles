@@ -106,10 +106,17 @@
 
     environment.variables = {
       HOSTNAME = hostName;
+
       # I think this helps nvim-cmp generate stdlib completions
       RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+
       # Theme for Nautilus, Disks, etc.
       GTK_THEME = "Adwaita:dark";
+
+      # For OBS
+      QT_QPA_PLATFORM = "wayland";
+      XDG_CURRENT_DESKTOP = "sway";
+      XDG_SESSION_TYPE = "wayland";
     };
 
     networking = {

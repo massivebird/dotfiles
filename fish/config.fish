@@ -32,10 +32,6 @@ if status is-interactive
    end
    set -x MANROFFOPT "-c"
 
-   # OBS wants these
-   set -x QT_QPA_PLATFORM 'wayland'
-   set -x XDG_CURRENT_DESKTOP 'sway'
-   set -x XDG_SESSION_TYPE 'wayland'
    # android studio
    set -x _JAVA_AWT_WM_NONREPARENTING 1
    set -x STUDIO_JDK /opt/jdk-18/bin/javac
