@@ -107,11 +107,17 @@
     environment.variables = {
       HOSTNAME = hostName;
 
+      # Application defaults
+      BROWSER = "firefox";
+
       # I think this helps nvim-cmp generate stdlib completions
       RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
       # Theme for Nautilus, Disks, etc.
       GTK_THEME = "Adwaita:dark";
+
+      # For massivebird/arcsearch, massivebird/arcstat
+      VG_ARCHIVE = "/home/${userName}/game-archive";
 
       # For OBS
       QT_QPA_PLATFORM = "wayland";

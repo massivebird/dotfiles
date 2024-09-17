@@ -14,13 +14,16 @@ end
 
 if status is-interactive
 
-   fish_add_path /bin /usr/bin /usr/local/bin {$PATH} $HOME/bin $HOME/.cargo/bin $JAVA_HOME/bin
+   # environment variables ###############
 
-   # for massivebird/arcsearch, massivebird/arcstat
-   set -x VG_ARCHIVE $HOME/game-archive
+   # Defined here in case I install fish + these tools on a non-NixOS distro.
+   # Most env vars are otherwise defined in my Nix flake.
 
-   set -x BROWSER "firefox"
-   set -x EDITOR "nvim"
+   if type -q nvim
+      set -x EDITOR "nvim"
+   else
+      set -x EDITOR "vim"
+   end
 
    if type -q bat
       # bat's `plain` style has no line numbers to avoid breaking manpages
@@ -31,18 +34,6 @@ if status is-interactive
       set -x PAGER "less"
    end
    set -x MANROFFOPT "-c"
-
-   # android studio
-   set -x _JAVA_AWT_WM_NONREPARENTING 1
-   set -x STUDIO_JDK /opt/jdk-18/bin/javac
-
-   if test -d /opt/jdk-18
-      set -x JAVA_HOME /opt/jdk-18
-   else
-      set -x JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64
-   end
-
-   set -x CLASSPATH ".:./classes:../classes:"
 
    # vi mode #############################
 
