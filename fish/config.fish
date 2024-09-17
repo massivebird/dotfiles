@@ -198,6 +198,8 @@ if status is-interactive
    alias ytd 'yt-dlp'
    alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]"' # "archive mode"
 
+   abbr -a dn /dev/null
+
    # prompt ##############################
 
    # Command prompt is controlled by stdout of fish_prompt fn.
