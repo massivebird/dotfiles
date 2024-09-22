@@ -8,40 +8,32 @@ exec wlsunset -l 42.33282278735832 -L -83.05300566614319
 # https://github.com/emersion/xdg-desktop-portal-wlr
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
-# notification daemon
-exec systemctl --user start mako
-# spotify daemon
-exec spotifyd
+## daemon initialization ###############
 
-# default applications
+# notification popups
+exec systemctl --user start mako
+
+## default apps ########################
+
 set $term kitty
 set $menu rofi -show drun
 set $browser ranger ~
 
-# keybinds ############################
+## keybinds ############################
 
 # alt as mod
 set $mod Mod1
-# windows key
+# bind Windows key to human readable variable
 set $win Mod4
 
-# reload sway
+# sway controls
 bindsym $mod+Shift+c reload
-# reload mako
-bindsym $mod+shift+n exec makoctl reload && bash ~/.config/scripts/mako-test.sh
-# close focused window
-bindsym $mod+Shift+q kill
-# sleep
+bindsym $mod+ctrl+shift+s+e exec sway exit
+
+# power controls
 bindsym $mod+shift+s exec systemctl suspend -i
-# log out
-bindsym $mod+ctrl+shift+e exit 
 bindsym $mod+ctrl+shift+f+r exec systemctl reboot 
 bindsym $mod+ctrl+shift+f+d exec systemctl poweroff
-bindsym $mod+ctrl+shift+s+e exec sway exit
-# quick desktop screenshot
-bindsym Print exec grim ~/Pictures/screenshots/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
-# disable opening a new terminal
-bindsym ctrl+shift+n nop
 
 # app shortcuts
 bindsym $mod+Return exec $term
@@ -51,23 +43,36 @@ bindsym $mod+o+d exec discord
 bindsym $mod+o+z exec zathura
 bindsym $win+r exec $menu
 
-# functional keys #####################
+# reload mako
+bindsym $mod+shift+n exec makoctl reload && bash ~/.config/scripts/mako-test.sh
+
+# close focused window
+bindsym $mod+Shift+q kill
+
+# sleep
+bindsym $mod+ctrl+shift+e exit 
+
+# quick desktop screenshot
+bindsym Print exec grim ~/Pictures/screenshots/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
 
 # brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 1%-
+
 # volume controls
 bindsym XF86AudioMute exec pamixer --toggle-mute
 bindsym XF86AudioRaiseVolume exec pamixer --increase 2
 bindsym XF86AudioLowerVolume exec pamixer --decrease 2
+
 # media controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# applications ########################
+# disable "open new terminal" default
+bindsym ctrl+shift+n nop
 
-# display #############################
+## display #############################
 
 output eDP-1 {
 # (1) PATH fill
@@ -111,7 +116,7 @@ gaps top 0
 # hides cursor after inactivity
 seat * hide_cursor 2200
 
-# colors ##############################
+## colors ##############################
 
 set $c_0 #222222
 set $c_1 #0e0e0e
@@ -122,17 +127,17 @@ client.focused          $c_0    $c_0    $c_2    $c_0       $c_0
 client.focused_inactive $c_1    $c_1    $c_2    $c_1       $c_1
 client.unfocused        $c_1    $c_1    $c_2    $c_0       $c_1
 
-# font ################################
+## font ################################
 
 font pango:JetBrainsMono Nerd Font 8
 
-# bar #################################
+## bar #################################
 
 bar {
    swaybar_command waybar
 }
 
-# window focus and organization #######
+## window management ###################
 
 focus_wrapping no
 workspace_layout default
@@ -178,7 +183,7 @@ bindsym $mod+m move workspace to output down
 bindsym $mod+minus move scratchpad
 bindsym $mod+shift+minus scratchpad show
 
-# layout ##############################
+## layout ##############################
 
 bindsym $mod+f fullscreen toggle
 
@@ -186,16 +191,16 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle current focus as tiling/floating
+# toggle focused window as tiling/floating
 bindsym $mod+Shift+space floating toggle
 
-# swap focus between the twdiling area and the floating area
+# toggle tiling/floating focus
 bindsym $mod+space focus mode_toggle
 
-# move focus to the parent container
+# focus parent container
 bindsym $mod+a focus parent
 
-# resizing and moving ##################
+## resizing and moving #################
 
 mode "resize" {
    bindsym h resize shrink width 10px
@@ -219,7 +224,7 @@ bindsym $mod+r mode "resize"
 # }
 # bindsym $mod+m mode "move"
 
-# input ###############################
+## input ###############################
 
 input "type:keyboard" {
    xkb_layout us
@@ -235,7 +240,7 @@ input "type:touchpad" {
 mouse_warping none
 focus_follows_mouse no
 
-# auto ################################
+## auto ################################
 
 # `swaymsg -rt get_tree` is useful here!
 
