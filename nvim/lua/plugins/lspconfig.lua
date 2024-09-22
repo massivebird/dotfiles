@@ -75,8 +75,10 @@ return {
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
-         -- You can ignore the ipairs error when opening a java file
-         -- (would love to get rid of it later!)
+         --
+         -- jdtls requires one of the following project files to return diagnostics.
+         -- Just touch an empty one or something?
+         -- https://github.com/neovim/nvim-lspconfig/blob/3fe1e8de80b98c7a6b16f730711b5eafe84212e1/lua/lspconfig/server_configurations/jdtls.lua#L79
          lspconfig.jdtls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
