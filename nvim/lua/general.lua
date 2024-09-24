@@ -41,6 +41,10 @@ set.splitright = true
 set.signcolumn = "yes"
 -- update interval for gitgutter and stuff
 set.updatetime = 300
+-- substitution: global as default
+set.gdefault = true
+-- substitution: ignore case as default
+set.ignorecase = true
 -- actual mouse support
 set.mouse = "n"
 

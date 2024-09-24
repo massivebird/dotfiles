@@ -28,10 +28,7 @@ setkeymap('t', '<Esc>', '<C-\\><C-n>')
 setkeymap('n', '<leader>n', ':noh<cr>', {silent = true})
 
 -- initiate global substitute
-setkeymap('n', '<leader>S', ':%s//g<Left><Left>')
-
--- search defaults to case insensitive
-setkeymap('n', '/', ':/\\c<Left><Left>')
+setkeymap('n', '<leader>S', ':%s/')
 
 -- searching in visual mode searches only selected area
 setkeymap('v', '/', '<Esc>:/\\%V\\c<Left><Left>')
