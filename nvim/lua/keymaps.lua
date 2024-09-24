@@ -78,14 +78,6 @@ setkeymap('n', '<leader>e', ':%ConjureEval<cr>')
 -- clojure: (1) Creates conjure log in right-hand window (2) launches REPL in new tab
 setkeymap('n', '<leader>CL', ':ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>ibash ~/.clojure/startserver.sh<Enter><C-\\><C-n>:tabprevious<cr><C-w>h')
 
--- navigate vimgrep ft. looping quickfix navigation
-cmd [[
-command! Cprev try | cprev | catch | clast | catch | endtry
-command! Cnext try | cnext | catch | cfirst | catch | endtry
-command! Lnext try | lnext | catch | lfirst | catch | endtry
-command! Lprev try | lprev | catch | llast | catch | endtry
-]]
-
 -- get rid of weird location list error
 setkeymap('n', '<esc>', '<nop>')
 
