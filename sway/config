@@ -75,8 +75,6 @@ bindsym ctrl+shift+n nop
 ## display #############################
 
 output eDP-1 {
-# (1) PATH fill
-# (2) HEX solid_color
    background #0e0e0e solid_color
       resolution 1600x900
       scale 1.3
