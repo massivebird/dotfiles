@@ -31,9 +31,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+ctrl+shift+s+e exec sway exit
 
 # power controls
-bindsym $mod+shift+s exec systemctl suspend -i
-bindsym $mod+ctrl+shift+f+r exec systemctl reboot 
 bindsym $mod+ctrl+shift+f+d exec systemctl poweroff
+bindsym $mod+ctrl+shift+f+r exec systemctl reboot 
+bindsym $mod+ctrl+shift+h exec systemctl hibernate
+bindsym $mod+shift+s exec systemctl suspend -i
 
 # app shortcuts
 bindsym $mod+Return exec $term
