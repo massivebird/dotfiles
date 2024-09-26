@@ -54,6 +54,7 @@
       glfw # temp solution for kitty GLFW launch error
       gnat13 # GNU C++ compiler collection
       gnumake42 # `make` command
+      gnupg
       grim # screenshots in wayland
       helvetica-neue-lt-std
       hyperfine # benchmarking tool written in rust

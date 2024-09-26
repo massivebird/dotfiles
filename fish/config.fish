@@ -59,7 +59,7 @@ if status is-interactive
       bind -M $mode \ck 'accept-autosuggestion'
    end
 
-   # aliases #############################
+   # aliases, abbreviations ##############
 
    if type -q eza
       alias l  'eza --all --long --git --sort type --no-user --no-permissions --no-time'
