@@ -48,7 +48,8 @@ if status is-interactive
    end
 
    # keybinds ############################
-   # use fish_key_reader!
+
+   # fish_key_reader reports key codes, helpful for adding keymaps.
 
    for mode in insert default visual
       # \c: ctrl
