@@ -97,7 +97,7 @@ if status is-interactive
    alias gc! 'git commit -v --amend'
    alias gca 'git commit -v -a'
    alias gcam 'git commit -a -m'
-   alias gcan 'git commit -a -m "adds: notes"'
+   alias gcan 'git commit -a -m "added: notes"'
    alias gcl 'git clone'
    alias gco 'git checkout'
    alias gd 'git diff'
@@ -211,7 +211,8 @@ if status is-interactive
          set -f GIT_DIRTY_ICON ''
       end
 
-      # Print prompt elements from left to right
+      # Print prompt from left to right.
+
       set_color $fish_color_error
       printf $GIT_DIRTY_ICON
 
