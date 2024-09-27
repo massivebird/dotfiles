@@ -35,6 +35,7 @@ ghb/
 gnome-boxes
 gnome-control-center
 gnome-initial-setup-done
+gtk*
 gtk-3.0
 htop
 ibus
@@ -73,6 +74,7 @@ totem
 twitch-cli
 user-dirs.dirs
 user-dirs.locale
+vimb/
 vlc
 wslu
 yelp
