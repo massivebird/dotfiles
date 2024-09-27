@@ -1,7 +1,9 @@
-# fixes slow GTK app startup in nixos
+# Fixes slow GTK app startup in NixOS.
 exec systemctl --user mask xdg-desktop-portal-gnome.service
-# Day/night gamma adjustments
+# Day/night gamma adjustments.
 exec wlsunset -l 42.33282278735832 -L -83.05300566614319
+# Set background dynamically (image or fallback color)
+exec_always --no-startup-id /home/penguino/.config/sway/set-background.sh
 
 # OBS services
 # https://github.com/stelcodes/xdg-config/blob/main/sway/config
@@ -76,8 +78,7 @@ bindsym ctrl+shift+n nop
 ## display #############################
 
 output eDP-1 {
-   background /home/penguino/Pictures/art/hasui-sakurada-gate-cropped.jpg fill "#0e0e0e"
-      resolution 1600x900
+   resolution 1600x900
       scale 1.3
       pos 0 0
 }
