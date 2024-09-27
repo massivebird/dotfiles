@@ -76,7 +76,7 @@ bindsym ctrl+shift+n nop
 ## display #############################
 
 output eDP-1 {
-   background #0e0e0e solid_color
+   background /home/penguino/Pictures/art/hasui-sakurada-gate-cropped.jpg fill "#0e0e0e"
       resolution 1600x900
       scale 1.3
       pos 0 0
