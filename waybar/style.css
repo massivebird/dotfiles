@@ -17,7 +17,7 @@ window#waybar, .modules-center {
    margin: 5px 10px 0 10px;
 }
 
-/** workspace buttons ****************/
+/** left module items ****************/
 
 #workspaces button, #workspaces button.visible {
    padding: 0 5px;
