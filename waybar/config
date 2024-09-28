@@ -51,7 +51,7 @@
       "format": "{icon}",
       "format-icons": ["", "", "", "", ""],
       "format-charging": "",
-      "interval": 30,
+      "interval": 5,
       "states": {
          "warning": 25,
          "critical": 10
@@ -71,11 +71,11 @@
       // https://github.com/ericmurphyxyz/rofi-wifi-menu
       "on-click": "~/bin/rofi-wifi-menu",
       "tooltip": true,
-      "tooltip-format": "{}"
+      "tooltip-format": "{}" // displays network name
    },
    "pulseaudio": {
       "format": "{icon}",
-      "format-alt": "{volume} {icon}",
+      "format-alt": "{icon} {volume}",
       "format-alt-click": "click-right",
       "format-muted": "󰝟",
       "format-icons": {
