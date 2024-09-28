@@ -45,8 +45,6 @@ set.updatetime = 300
 set.gdefault = true
 -- substitution: ignore case as default
 set.ignorecase = true
--- actual mouse support
-set.mouse = "n"
 
 -- enable filetype-specific configuration files
 cmd 'filetype plugin indent on'
