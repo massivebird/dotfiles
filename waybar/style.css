@@ -47,6 +47,11 @@ window#waybar, .modules-center {
    margin-left: 10px;
 }
 
+/* styling all tray items except leftmost */
+#tray > :not(:first-child) > :first-child {
+   padding-left: 10px;
+}
+
 #pulseaudio.muted {
    color: #656565;
 }
