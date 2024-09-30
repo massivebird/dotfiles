@@ -7,7 +7,7 @@
 
    "margin-top": 0,
    // width is one pixel off for some reason
-   "margin-right": -1,
+   "margin-right": 0,
    "margin-bottom": 0,
    "margin-left": 0,
 

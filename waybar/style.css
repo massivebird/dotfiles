@@ -10,11 +10,10 @@ window#waybar, .modules-center {
 }
 
 .modules-left, .modules-right {
-   opacity: 100;
    color: #eeeeee;
    background: #0e0e0e;
    border-radius: 10px;
-   margin: 5px 10px 0 10px;
+   margin: 6px 10px 0 10px;
 }
 
 /** left module items ****************/
