@@ -202,16 +202,24 @@ bindsym $mod+a focus parent
 
 ## resizing and moving #################
 
+bindsym $mod+r mode "resize"
+
 mode "resize" {
    bindsym h resize shrink width 10px
+      bindsym shift+h resize shrink width 50px
+
       bindsym j resize grow height 10px
+      bindsym shift+j resize grow height 50px
+
       bindsym k resize shrink height 10px
+      bindsym shift+k resize shrink height 50px
+
       bindsym l resize grow width 10px
+      bindsym shift+l resize grow width 50px
 
       bindsym Return mode "default"
       bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
 
 # mode "move" {
 #    bindsym h move left 20px
