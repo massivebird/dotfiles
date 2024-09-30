@@ -34,9 +34,15 @@ window#waybar, .modules-center {
    color: #fb5599;
 }
 
+/* "resize", etc */
+#mode {
+   margin-left: 20px;
+   margin-right: 7px;
+}
+
 /** right module items ***************/
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate, #tray {
+#battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail, #custom-jpdate, #tray {
    margin-right: 25px;
    min-width: 25px;
 }
