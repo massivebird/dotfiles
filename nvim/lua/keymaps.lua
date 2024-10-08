@@ -78,9 +78,8 @@ setkeymap('n', '<leader>CL', ':ConjureLogVSplit<cr><C-w>L:tabnew<cr>:term<cr>iba
 -- get rid of weird location list error
 setkeymap('n', '<esc>', '<nop>')
 
--- I HATE ex mode
+-- 'Q' is some macro playback key. I don't use this.
 setkeymap('n', 'Q', '<Nop>')
--- setkeymap('n', 'q:', ':')
 
 -- place semicolon at end of current line
 setkeymap('n', '<leader>;', 'mY:s/$/;<cr>:noh<cr>`Y', {silent = true})
