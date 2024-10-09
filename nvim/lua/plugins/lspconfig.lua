@@ -29,7 +29,7 @@ return {
             vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, { buffer = 0 })
 
             -- Levels by name: "TRACE" (0), "DEBUG", "INFO", "WARN", "ERROR", "OFF" (5)
-            vim.lsp.set_log_level(1)
+            vim.lsp.set_log_level(4)
 
             -- Add borders to :LspInfo floating window
             -- https://neovim.discourse.group/t/lspinfo-window-border/1566/2
