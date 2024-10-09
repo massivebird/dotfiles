@@ -87,6 +87,7 @@
       rust-analyzer
       rustc
       rustfmt # Rust source code formatter
+      slurp # display region selector for Wayland
       taskwarrior3
       tldr
       tree
