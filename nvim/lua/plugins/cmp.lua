@@ -1,176 +1,117 @@
 return {
 
    {
-      -- https://github.com/hrsh7th/nvim-cmp
-      'hrsh7th/nvim-cmp',
-      dependencies = {
-         'hrsh7th/cmp-nvim-lsp',
-         'hrsh7th/cmp-nvim-lua',
-         'hrsh7th/cmp-buffer',
-         'hrsh7th/cmp-path',
-         'hrsh7th/cmp-cmdline',
-         {
-            "L3MON4D3/LuaSnip",
-            dependencies = { "rafamadriz/friendly-snippets" },
-            version = "v1.*",
-            -- build = "make install_jsregexp",
-            config = function()
-               local ls = require("luasnip")
+      'saghen/blink.cmp',
+      lazy = false, -- lazy loading handled internally
+      -- optional: provides snippets for the snippet source
+      dependencies = 'rafamadriz/friendly-snippets',
 
-               -- https://evesdropper.dev/files/luasnip/ultisnips-to-luasnip/
-               ls.config.set_config({
-                  history = true, -- keep around last snippet local to jump back
-                  enable_autosnippets = true,
-               })
+      -- use a release tag to download pre-built binaries
+      version = 'v0.*',
+      -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+      -- build = 'cargo build --release',
 
-               require("luasnip.loaders.from_lua").load({
-                  paths = "~/.config/nvim/lua/snippets/",
-               })
-               require("luasnip.loaders.from_vscode").lazy_load()
-            end
+      opts = {
+         -- for keymap, all values may be string | string[]
+         -- use an empty table to disable a keymap
+         keymap = {
+            show = '<C-space>',
+            hide = '<C-e>',
+            accept = '<Tab>',
+            select_prev = { '<Up>', '<C-k>' },
+            select_next = { '<Down>', '<C-j>' },
+
+            show_documentation = {},
+            hide_documentation = {},
+            scroll_documentation_up = '<C-b>',
+            scroll_documentation_down = '<C-f>',
+
+            snippet_forward = '<Tab>',
+            snippet_backward = '<S-Tab>',
          },
-         'saadparwaiz1/cmp_luasnip',
-         'onsails/lspkind.nvim'
-      },
-      config = function()
-         local lspkind = require('lspkind')
-         lspkind.init()
-         local cmp = require('cmp')
-         local luasnip = require("luasnip")
-         local has_words_before = function()
-            unpack = unpack or table.unpack
-            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-         end
 
-         -- choice cycling in INSERT and VISUAL modes
-         vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
-         vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
-         vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
-         vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
+         highlight = {
+            -- sets the fallback highlight groups to nvim-cmp's highlight groups
+            -- useful for when your theme doesn't support blink.cmp
+            -- will be removed in a future release, assuming themes add support
+            use_nvim_cmp_as_default = true,
+         },
+         -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+         -- adjusts spacing to ensure icons are aligned
+         nerd_font_variant = 'normal',
 
-         cmp.setup {
-            mapping = {
-               ["<c-n>"] = cmp.mapping.select_next_item {
-                  behavior = cmp.SelectBehavior.Insert,
+         -- experimental auto-brackets support
+         accept = { auto_brackets = { enabled = true } },
+
+         -- experimental signature help support
+         trigger = { signature_help = { enabled = true } },
+
+         sources = {
+            -- similar to nvim-cmp's sources, but we point directly to the source's lua module
+            -- multiple groups can be provided, where it'll fallback to the next group if the previous
+            -- returns no completion items
+            -- WARN: This API will have breaking changes during the beta
+            providers = {
+               {
+                  { 'blink.cmp.sources.lsp' },
+                  { 'blink.cmp.sources.path' },
+                  { 'blink.cmp.sources.snippets', score_offset = -3 },
                },
-               ["<c-p>"] = cmp.mapping.select_prev_item {
-                  behavior = cmp.SelectBehavior.Insert,
-               },
-               ["<c-d>"] = cmp.mapping.scroll_docs(-4),
-               ["<c-f>"] = cmp.mapping.scroll_docs(4),
-               ["<c-e>"] = cmp.mapping.abort(),
-               ["<c-y>"] = cmp.mapping(
-                  cmp.mapping.confirm {
-                     behavior = cmp.ConfirmBehavior.Insert,
-                     select = true,
-                  },
-                  { "i", "c" }
-               ),
-               ["<c-space>"] = cmp.mapping {
-                  i = cmp.mapping.complete(),
-                  c = function(
-                      _ --[[fallback]]
-                  )
-                     if cmp.visible() then
-                        if not cmp.confirm { select = true } then
-                           return
-                        end
-                     else
-                        cmp.complete()
-                     end
-                  end,
-               },
-               ["<c-q>"] = cmp.mapping.confirm {
-                  behavior = cmp.ConfirmBehavior.Replace,
-                  select = true,
-               },
-               ["<tab>"] = cmp.mapping(function(fallback)
-                  if luasnip.jumpable(1) then
-                     luasnip.jump(1)
-                  elseif has_words_before() then
-                     cmp.complete()
-                  else
-                     fallback()
-                  end
-               end, { "i", "s" }),
-               ["<s-tab>"] = cmp.mapping(function(fallback)
-                  if luasnip.jumpable(-1) then
-                     luasnip.jump(-1)
-                  else
-                     fallback()
-                  end
-               end, { "i", "s" }),
+               { { 'blink.cmp.sources.buffer' } },
             },
+         },
 
-            -- global sources in descending priority
-            -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
-            sources = {
-               { name = "nvim_lua" },
-               { name = "nvim_lsp" },
-               { name = "luasnip" },
-               { name = "path" },
-               { name = "buffer", keyword_length = 5 },
-            },
-
-            sorting = {
-               comparators = {
-                  cmp.config.compare.offset,
-                  cmp.config.compare.exact,
-                  cmp.config.compare.score,
-
-                  function(entry1, entry2)
-                     local _, entry1_under = entry1.completion_item.label:find "^_+"
-                     local _, entry2_under = entry2.completion_item.label:find "^_+"
-                     entry1_under = entry1_under or 0
-                     entry2_under = entry2_under or 0
-                     if entry1_under > entry2_under then
-                        return false
-                     elseif entry1_under < entry2_under then
-                        return true
-                     end
-                  end,
-
-                  cmp.config.compare.kind,
-                  cmp.config.compare.sort_text,
-                  cmp.config.compare.length,
-                  cmp.config.compare.order,
+         windows = {
+            autocomplete = {
+               min_width = 30,
+               max_width = 60,
+               max_height = 10,
+               border = 'rounded',
+               -- keep the cursor X lines away from the top/bottom of the window
+               scrolloff = 2,
+               -- which directions to show the window,
+               -- falling back to the next direction when there's not enough space
+               direction_priority = { 's', 'n' },
+               -- Controls how the completion items are rendered on the popup window
+               -- 'simple' will render the item's kind icon the left alongside the label
+               -- 'reversed' will render the label on the left and the kind icon + name on the right
+               -- 'function(blink.cmp.CompletionRenderContext): blink.cmp.Component[]' for custom rendering
+               draw = 'simple',
+               -- Controls the cycling behavior when reaching the beginning or end of the completion list.
+               cycle = {
+                  -- When `true`, calling `select_next` at the *bottom* of the completion list will select the *first* completion item.
+                  from_bottom = true,
+                  -- When `true`, calling `select_prev` at the *top* of the completion list will select the *last* completion item.
+                  from_top = true
                },
             },
-
-            snippet = {
-               expand = function(args)
-                  require("luasnip").lsp_expand(args.body)
-               end,
-            },
-
-            formatting = {
-               format = lspkind.cmp_format {
-                  with_text = true,
-                  menu = {
-                     buffer = "[buf]",
-                     nvim_lsp = "[lsp]",
-                     nvim_lua = "[api]",
-                     path = "[path]",
-                     luasnip = "[snip]",
-                     gh_issues = "[issues]",
-                  },
+            documentation = {
+               min_width = 10,
+               max_width = 60,
+               max_height = 20,
+               border = 'rounded',
+               winhighlight =
+               'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+               -- which directions to show the documentation window,
+               -- for each of the possible autocomplete window directions,
+               -- falling back to the next direction when there's not enough space
+               direction_priority = {
+                  autocomplete_north = { 'e', 'w', 'n', 's' },
+                  autocomplete_south = { 'e', 'w', 's', 'n' },
                },
+               auto_show = true,
+               auto_show_delay_ms = 200,
+               update_delay_ms = 100,
             },
+            signature_help = {
+               min_width = 1,
+               max_width = 100,
+               max_height = 10,
+               border = 'rounded',
+               winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+            },
+         },
+      }
 
-            experimental = {
-               -- ! opt for alt popup style
-               native_menu = false,
-               -- preview selected text inside buffer
-               ghost_text = false,
-            },
-
-            window = {
-               completion = cmp.config.window.bordered(),
-               documentation = cmp.config.window.bordered(),
-            },
-         }
-      end
    }
-
 }
