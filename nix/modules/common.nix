@@ -11,7 +11,7 @@
     users.users.${userName} = {
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
-      initialPassword = "password";
+      initialPassword = "password"; # change with `passwd`
     };
 
     nixpkgs.config = {
