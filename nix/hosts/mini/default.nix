@@ -12,11 +12,8 @@
     earlySetup = true;
     packages = with pkgs; [ terminus_font ];
     # Find fonts in `/etc/kbd/consolefonts/`. 32 is the comfiest size!
-    font = "ter-h32b";
+    font = "ter-h20b";
   };
-
-  # fixes unresponsive keyboard on wakeup
-  boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
 
   powerManagement.cpuFreqGovernor = "powersave";
 

@@ -113,9 +113,6 @@
       };
     };
 
-    # Fixes audio not working on startup
-    hardware.alsa.enablePersistence = true;
-
     services = {
       printing.enable = true; # enable CUPS for printing documents
       pipewire = {
