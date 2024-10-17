@@ -25,83 +25,34 @@
     environment.systemPackages = with pkgs; [
       # jetbrains.idea-ultimate
       # zoom-us
-      alacritty # terminal emulator
-      bacon # background rust code checker
-      bash-language-server
       bat # `less` clone
-      binutils # nvim tree-sitter dep
       brightnessctl # keyboard brightness controls
       btop # command line process manager
-      bun # JavaScript runtime/package manager/bunder/etc.
-      cargo
-      clippy # rust linting
       cmake
       cmatrix
       coreutils
       croc
-      discord
       dmidecode # get hardware info
       duf # disk usage util, better than `df`
       dust # `du` alternative written in rust
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
-      fd # telescope dep: alternative to `find`
       ffmpeg
-      firefox
       fish
-      gh # github cli
       git
-      glfw # temp solution for kitty GLFW launch error
-      gnat13 # GNU C++ compiler collection
       gnumake42 # `make` command
-      grim # screenshots in wayland
       helvetica-neue-lt-std
-      hyperfine # benchmarking tool written in rust
       jdk22 # java
-      jdt-language-server # java language server
-      kitty # terminal emulator
-      lc3tools # LC-3 toolchain and emulator
-      libGL
-      libgccjit # GNU C compiler collection
       libnotify # notify-send and other notification utils
-      lldb_16 # C/C++/Rust debugger
-      logisim # logic circuit design and simulation
-      lua-language-server
-      mako # wayland notification daemon
-      marksman # markdown language server
-      mpv
-      neovim
-      nixd # Nix language server
-      nodejs_20
-      nsxiv # image viewer
-      obs-studio
-      obsidian # markdown note taking app
       pamixer # pulseaudio control
-      php82Extensions.mysqlnd # PHP MySQL extension
       playerctl # keyboard audio controls
-      pyright
       python311
       ranger
       ripgrep # real fast grep written in rust
-      rofi # "start menu" pop-up
-      rust-analyzer
-      rustc
-      rustfmt # Rust source code formatter
-      slurp # display region selector for Wayland
-      taskwarrior3
       tldr
       tree
-      tree-sitter # the executable
       unzip
-      vlc
-      vscode
-      waybar
       wget
-      wiki-tui
-      wl-clipboard # neovim clipboard integration
-      wlsunset
-      yt-dlp
-      zathura # pdf viewer
       zip
     ];
 

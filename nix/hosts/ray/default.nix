@@ -1,6 +1,11 @@
 { pkgs, ... }: {
 
   imports = [
+    ../../modules/common.nix
+    ../../modules/extra-clis.nix
+    ../../modules/graphical.nix
+    ../../modules/neovim.nix
+    ../../modules/rust.nix
     ./hardware-configuration.nix
   ];
 
