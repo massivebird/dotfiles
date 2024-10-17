@@ -3,7 +3,7 @@
   imports = [
     ../../modules/common.nix
     ../../modules/neovim.nix
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
   ];
 
   # tty settings (ctrl + alt + f<1-12>)
