@@ -69,9 +69,15 @@ return {
          -- }
 
          -- static type checker for python
-         lspconfig.pyright.setup {
+         lspconfig.ruff_lsp.setup {
             on_attach = on_attach,
             capabilities = capabilities,
+            init_options = {
+               settings = {
+                  -- Any extra CLI arguments for `ruff` go here.
+                  args = {},
+               }
+            }
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
