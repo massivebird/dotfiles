@@ -63,11 +63,17 @@ return {
                -- which directions to show the window,
                -- falling back to the next direction when there's not enough space
                direction_priority = { 's', 'n' },
+               -- Controls how the completion items are selected
+               -- 'preselect' will automatically select the first item in the completion list
+               -- 'manual' will not select any item by default
+               -- 'auto_insert' will not select any item by default, and insert the completion items automatically when selecting them
+               selection = 'auto_insert',
                -- Controls how the completion items are rendered on the popup window
                -- 'simple' will render the item's kind icon the left alongside the label
                -- 'reversed' will render the label on the left and the kind icon + name on the right
+               -- 'minimal' will render the label on the left and the kind name on the right
                -- 'function(blink.cmp.CompletionRenderContext): blink.cmp.Component[]' for custom rendering
-               draw = 'simple',
+               draw = 'reversed',
                -- Controls the cycling behavior when reaching the beginning or end of the completion list.
                cycle = {
                   -- When `true`, calling `select_next` at the *bottom* of the completion list will select the *first* completion item.
