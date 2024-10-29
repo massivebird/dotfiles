@@ -47,17 +47,8 @@ return {
          trigger = { signature_help = { enabled = true } },
 
          sources = {
-            -- similar to nvim-cmp's sources, but we point directly to the source's lua module
-            -- multiple groups can be provided, where it'll fallback to the next group if the previous
-            -- returns no completion items
-            -- WARN: This API will have breaking changes during the beta
-            providers = {
-               {
-                  { 'blink.cmp.sources.lsp' },
-                  { 'blink.cmp.sources.path' },
-                  { 'blink.cmp.sources.snippets', score_offset = -3 },
-               },
-               { { 'blink.cmp.sources.buffer' } },
+            completion = {
+               enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
             },
          },
 
