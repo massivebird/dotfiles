@@ -45,6 +45,12 @@
           system = "x86_64-linux";
         };
 
+        mini = nixosMachine {
+          hostName = "mini";
+          userName = "mini";
+          system = "x86_64-linux";
+        };
+
       };
 
   };

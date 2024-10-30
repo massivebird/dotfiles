@@ -137,9 +137,10 @@ if status is-interactive
    alias cgu 'cargo update'
    alias cgw 'cargo watch --clear'
 
+   alias nbu "nix build"
    alias ncg 'sudo nix-collect-garbage --delete-old'
    alias nde 'nix develop'
-   alias nfu "nix flake update --commit-lock-file ~/.config/nix/#"
+   alias nfu "nix flake update --commit-lock-file --flake ~/.config/nix/#"
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
    alias nlg 'nix-env --list-generations' 
    alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
