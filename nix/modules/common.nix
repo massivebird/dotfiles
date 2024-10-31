@@ -1,17 +1,17 @@
-# configuration applied to all hosts
+# Common configuration applied to all hosts
 { pkgs, userName, hostName, ... }: {
   config = {
     programs.sway.enable = true;
+
     # Configures fish as an interactive shell
     programs.fish.enable = true;
-
-    users.defaultUserShell = pkgs.fish;
 
     users.mutableUsers = true;
     users.users.${userName} = {
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ];
       initialPassword = "password"; # change with `passwd`
+      shell = pkgs.fish;
     };
 
     nixpkgs.config = {
@@ -38,7 +38,6 @@
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       ffmpeg
-      fish
       git
       gnumake42 # `make` command
       helvetica-neue-lt-std
@@ -55,6 +54,9 @@
       wget
       zip
     ];
+
+    # Add ~/bin/ to PATH.
+    environment.homeBinInPath = true;
 
     environment.variables = {
       HOSTNAME = hostName;
@@ -153,7 +155,7 @@
     boot.loader.systemd-boot.configurationLimit = 10;
 
     nix = {
-      package = pkgs.nixVersions.stable; # pkgs version compatible with flakes
+      package = pkgs.nixVersions.latest; # pkgs version compatible with flakes
       extraOptions = "experimental-features = nix-command flakes";
       # garbage collector
       gc = {
