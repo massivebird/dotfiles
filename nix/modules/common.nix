@@ -41,7 +41,7 @@
       git
       gnumake42 # `make` command
       helvetica-neue-lt-std
-      jdk22 # java
+      jdk # java
       libnotify # notify-send and other notification utils
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
