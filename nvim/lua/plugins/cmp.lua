@@ -26,7 +26,7 @@ return {
          },
          -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
          -- adjusts spacing to ensure icons are aligned
-         nerd_font_variant = 'normal',
+         nerd_font_variant = 'mono',
 
          -- experimental auto-brackets support
          accept = { auto_brackets = { enabled = true } },
