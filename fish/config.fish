@@ -35,6 +35,9 @@ if status is-interactive
    end
    set -x MANROFFOPT "-c"
 
+   # For massivebird/arcsearch, massivebird/arcstat
+   VG_ARCHIVE = "$HOME/game-archive";
+
    # vi mode #############################
 
    fish_vi_key_bindings insert

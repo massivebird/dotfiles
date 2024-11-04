@@ -70,9 +70,6 @@
       # Theme for Nautilus, Disks, etc.
       GTK_THEME = "Adwaita:dark";
 
-      # For massivebird/arcsearch, massivebird/arcstat
-      VG_ARCHIVE = "/home/${userName}/game-archive";
-
       # For OBS
       QT_QPA_PLATFORM = "wayland";
       XDG_CURRENT_DESKTOP = "sway";
