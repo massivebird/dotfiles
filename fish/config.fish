@@ -36,7 +36,7 @@ if status is-interactive
    set -x MANROFFOPT "-c"
 
    # For massivebird/arcsearch, massivebird/arcstat
-   VG_ARCHIVE = "$HOME/game-archive";
+   set -x VG_ARCHIVE "$HOME/game-archive"
 
    # vi mode #############################
 
