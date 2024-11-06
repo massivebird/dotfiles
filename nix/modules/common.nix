@@ -1,5 +1,5 @@
 # Common configuration applied to all hosts
-{ pkgs, userName, hostName, ... }: {
+{ inputs, pkgs, userName, hostName, ... }: {
   config = {
     programs.sway.enable = true;
 
@@ -41,6 +41,7 @@
       git
       gnumake42 # `make` command
       helvetica-neue-lt-std
+      inputs.minifetch.packages.${pkgs.system}.default
       jdk # java
       libnotify # notify-send and other notification utils
       pamixer # pulseaudio control
