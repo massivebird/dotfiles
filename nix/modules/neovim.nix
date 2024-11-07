@@ -15,7 +15,7 @@
       nixd # Nix language server
       nodejs_20
       php82Extensions.mysqlnd # PHP MySQL extension
-      ruff-lsp # Python language server
+      ruff # Python language server
       tree-sitter # the executable
       wl-clipboard # neovim clipboard integration
     ];

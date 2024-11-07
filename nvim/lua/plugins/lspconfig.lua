@@ -69,7 +69,7 @@ return {
          -- }
 
          -- static type checker for python
-         lspconfig.ruff_lsp.setup {
+         lspconfig.ruff.setup {
             on_attach = on_attach,
             capabilities = capabilities,
             init_options = {
