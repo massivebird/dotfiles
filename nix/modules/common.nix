@@ -3,19 +3,20 @@
   config = {
     programs.sway.enable = true;
 
-    # Configures fish as an interactive shell
+    # Configure fish as an interactive shell.
     programs.fish.enable = true;
 
-    users.mutableUsers = true;
     users.users.${userName} = {
       isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" ];
       initialPassword = "password"; # change with `passwd`
       shell = pkgs.fish;
+      extraGroups = [ "networkmanager" "wheel" ];
     };
 
     nixpkgs.config = {
-      allowUnfree = true; # Allow proprietary packages
+      # Allow proprietary packages.
+      allowUnfree = true;
+
       permittedInsecurePackages = [
         "electron-25.9.0" # updated apps may use EOL dep
         "nix-2.16.2"
@@ -68,10 +69,10 @@
       # I think this helps nvim-cmp generate stdlib completions
       RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
 
-      # Theme for Nautilus, Disks, etc.
+      # GUI theme for Nautilus, Disks, etc.
       GTK_THEME = "Adwaita:dark";
 
-      # For OBS
+      # OBS settings.
       QT_QPA_PLATFORM = "wayland";
       XDG_CURRENT_DESKTOP = "sway";
       XDG_SESSION_TYPE = "wayland";
@@ -85,15 +86,17 @@
       hosts."192.168.1.152" = [ "clint" ];
     };
 
-    # TTY login prompt, sets contents of /etc/issue
     services.getty = {
+      # TTY login prompt.
       greetingLine = ''
     Logging onto \n (\l)
     Today is \d \t'';
+
+      # Additional args passed to getty.
       extraArgs = [ "--nonewline" ];
     };
 
-    # Display nixos-help message on boot
+    # Display nixos-help message on boot.
     documentation.nixos.enable = false;
 
     time.timeZone = "America/Detroit";
@@ -133,7 +136,8 @@
       };
     };
 
-    console.useXkbConfig = true; # apply xkb keybinds to TTY
+    # Apply xserver mappings to virtual console config.
+    console.useXkbConfig = true;
 
     fonts = {
       enableDefaultPackages = true;
@@ -150,18 +154,26 @@
       };
     };
 
+    # Maximum number of latest generations in the boot menu.
     boot.loader.systemd-boot.configurationLimit = 10;
 
     nix = {
-      package = pkgs.nixVersions.latest; # pkgs version compatible with flakes
+      # Nix package instance to use throughout the system.
+      package = pkgs.nixVersions.latest;
+
+      # Additional text appended to `nix.conf`.
       extraOptions = "experimental-features = nix-command flakes";
-      # garbage collector
+
+      # Garbage collector.
       gc = {
+        # Automatically remove unused nix store entries.
         automatic = true;
         dates = "weekly";
         options = "--delete-older-than 12d";
       };
-      # uses single copy for identical store files
+
+      # https://nixos.wiki/wiki/Storage_optimization
+      # Optimize nix store during every build.
       settings.auto-optimise-store = true;
     };
   };
