@@ -28,6 +28,7 @@ set font "JetBrainsMono Nerd Font 13"
 set adjust-open "width"
 set guioptions "s"
 set page-padding 10
+set pages-per-row 1
 set scroll-step 25
 set selection-clipboard clipboard
 set show-recent 5
