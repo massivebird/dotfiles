@@ -48,12 +48,12 @@
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
       python311
-      ranger
       ripgrep # real fast grep written in rust
       tldr
       tree
       unzip
       wget
+      yazi # terminal file manager
       zip
     ];
 
