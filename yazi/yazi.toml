@@ -1,0 +1,25 @@
+[manager]
+sort_dir_first = true
+show_hidden = true
+
+# Sort case-sensitively.
+sort_sensitive = false
+
+# Transliterate filenames for sorting (i.e. replaces Â as A)
+sort_translit = true
+
+# Info displayed per file in file list row.
+linemode = "size"
+
+# Show paths that symlinks point to.
+show_symlink = true
+
+# Number files to keep above/below cursor.
+scrolloff = 3
+
+[preview]
+tab_size = 2
+image_delay = 100
+image_filter = "nearest"
+image_quality = 50
+sixel_fraction = 20
