@@ -106,7 +106,7 @@ if status is-interactive
    alias gd 'git diff'
    alias gf 'git fetch'
    alias gl 'git log --graph --all --oneline --color=always'
-   alias gll 'git log --graph --all --oneline --color=always --stat'
+   alias gll 'git log --graph --oneline --color=always --stat'
    alias glop 'git log --graph -p --color=always'
    alias gm 'git merge'
    alias grb 'git rebase'
