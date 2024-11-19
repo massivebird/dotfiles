@@ -173,8 +173,8 @@
       };
 
       # https://nixos.wiki/wiki/Storage_optimization
-      # Optimize nix store during every build.
-      settings.auto-optimise-store = true;
+      # Optimize nix store during every build. May slow down builds.
+      settings.auto-optimise-store = false;
     };
   };
 }
