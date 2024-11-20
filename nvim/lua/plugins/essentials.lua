@@ -18,9 +18,6 @@ return {
    -- comment stuff out
    "tpope/vim-commentary",
 
-   -- git commands like :G and :g?
-   "tpope/vim-fugitive",
-
    -- parentheses/tags/brackets editing
    "tpope/vim-surround",
 
