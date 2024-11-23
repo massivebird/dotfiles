@@ -49,8 +49,11 @@
    },
    "battery": {
       "format": "{icon}",
-      "format-icons": ["", "", "", "", ""],
-      "format-charging": "",
+      "format-icons": {
+         // Distinguishes full+charging from full+discharging.
+         "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+         "default": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      },
       "interval": 5,
       "states": {
          "warning": 25,
