@@ -6,7 +6,6 @@
    "position": "top",
 
    "margin-top": 0,
-   // width is one pixel off for some reason
    "margin-right": 0,
    "margin-bottom": 0,
    "margin-left": 0,
@@ -14,9 +13,11 @@
    "modules-left": ["sway/workspaces", "sway/mode"],
    // "modules-center": ["sway/window"],
    "modules-right": ["tray", "pulseaudio", "network", "battery", "custom/jpdate", "clock"],
+
    "sway/mode": {
       "format": " {}"
    },
+
    "sway/workspaces": {
       "format": "{icon}",
       "disable-scroll": true,
@@ -33,20 +34,24 @@
          "10": "十"
       }
    },
+
    "sway/window": {
       "max-length": 80,
       "tooltip": false
    },
+
    "custom/jpdate": {
       "format": "{}",
       "exec": "~/.config/scripts/jpdate.sh",
       "interval": 60,
       "tooltip": false
    },
+
    "clock": {
       "format": "{:%H:%M}",
       "tooltip": false
    },
+
    "battery": {
       "format": "{icon}",
       "format-icons": {
@@ -62,6 +67,7 @@
       "tooltip": true,
       "tooltip-format": "{capacity}%"
    },
+
    "network": {
       "format": "{icon}",
       // "format-alt": "{ipaddr}/{cidr} {icon}",
@@ -69,26 +75,31 @@
       "format-icons": {
          "wifi": ["󰤟", "󰤢" ,"󰤨"],
          "ethernet": ["󰈀"],
-         "disconnected": ["󰤮"]
+         "disconnected": ["󰤮"],
+         // For disappearing icon issues
+         "default": "󰤮",
       },
       // https://github.com/ericmurphyxyz/rofi-wifi-menu
       "on-click": "~/bin/rofi-wifi-menu",
       "tooltip": true,
-      "tooltip-format": "{}" // displays network name
+      "tooltip-format": "{}" // Shows network name
    },
+
    "pulseaudio": {
       "format": "{icon}",
       "format-alt": "{icon} {volume}",
       "format-alt-click": "click-right",
-      "format-muted": "󰝟",
       "format-icons": {
-         "phone": [" ", " ", " ", " "],
-         "default": ["󰕿", "󰖀", "󰕾", "󰕾"]
+         "headphone": [" 󰋋 ", " 󰋋 ", "󰋋 ", " 󰋋 "],
+         "headphone-muted": " 󰋋 ",
+         "default": ["", "", "", ""],
+         "default-muted": "",
       },
-      "scroll-step": 10,
+      "scroll-step": 1,
       "on-click": "pulseaudio",
       "tooltip": false
    },
+
    "custom/spotify": {
       "interval": 5,
       "return-type": "json",
@@ -96,6 +107,7 @@
       "exec-if": "pgrep spotify",
       "escape": true
    },
+
    "custom/storage": {
       "format": "{} ",
       "format-alt": "{percentage}% ",
@@ -104,6 +116,7 @@
       "interval": 60,
       "exec": "~/.config/waybar/modules/storage.sh"
    },
+
    "backlight": {
       "format": "{icon}",
       "format-alt": "{percent}% {icon}",
@@ -112,6 +125,7 @@
       "on-scroll-down": "light -A 1",
       "on-scroll-up": "light -U 1"
    },
+
    "custom/weather": {
       "format": "{}",
       "format-alt": "{alt}: {}",
@@ -121,6 +135,7 @@
       "exec": "~/.config/waybar/modules/weather.sh",
       "exec-if": "ping wttr.in -c1"
    },
+
    "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
@@ -129,6 +144,7 @@
       },
       "tooltip": false
    },
+
    "custom/mail": {
       "format": "",
       "format-alt": "{alt} ",
@@ -138,6 +154,7 @@
       "exec": "~/.config/waybar/modules/mail.py",
       "tooltip": false
    },
+
    "tray": {
       "icon-size": 18
    }
