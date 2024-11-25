@@ -61,7 +61,9 @@ return {
                -- 'reversed' will render the label on the left and the kind icon + name on the right
                -- 'minimal' will render the label on the left and the kind name on the right
                -- 'function(blink.cmp.CompletionRenderContext): blink.cmp.Component[]' for custom rendering
-               draw = 'reversed',
+               draw = {
+                  columns = { { 'kind_icon' }, { 'label', 'label_description', gap = 1 }, },
+               },
                -- Controls the cycling behavior when reaching the beginning or end of the completion list.
                cycle = {
                   -- When `true`, calling `select_next` at the *bottom* of the completion list will select the *first* completion item.
@@ -76,7 +78,7 @@ return {
                max_height = 20,
                border = 'rounded',
                winhighlight =
-               'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+                  'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
                -- which directions to show the documentation window,
                -- for each of the possible autocomplete window directions,
                -- falling back to the next direction when there's not enough space
