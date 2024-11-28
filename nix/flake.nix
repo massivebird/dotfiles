@@ -11,6 +11,14 @@
       url = "github:massivebird/minifetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    subterfuge = {
+      url = "github:massivebird/subterfuge";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lanturn = {
+      url = "github:massivebird/lanturn";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {

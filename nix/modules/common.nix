@@ -1,5 +1,9 @@
 # Common configuration applied to all hosts
-{ inputs, pkgs, userName, hostName, ... }: {
+{ inputs, pkgs, userName, hostName, ... }:
+let
+    my_pkg = name: inputs.${name}.packages.${pkgs.system}.default;
+in
+{
   config = {
     programs.sway.enable = true;
 
@@ -26,6 +30,9 @@
     environment.systemPackages = with pkgs; [
       # jetbrains.idea-ultimate
       # zoom-us
+      (my_pkg "lanturn")
+      (my_pkg "minifetch")
+      (my_pkg "subterfuge")
       bat # `less` clone
       brightnessctl # keyboard brightness controls
       btop # command line process manager
@@ -42,7 +49,6 @@
       git
       gnumake42 # `make` command
       helvetica-neue-lt-std
-      inputs.minifetch.packages.${pkgs.system}.default
       jdk # java
       libnotify # notify-send and other notification utils
       pamixer # pulseaudio control
