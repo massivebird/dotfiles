@@ -13,8 +13,9 @@
         "type": "github"
       },
       "original": {
-        "id": "flake-utils",
-        "type": "indirect"
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
     "flake-utils_2": {
@@ -77,16 +78,17 @@
     "lanturn": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "naersk": "naersk",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1732822233,
-        "narHash": "sha256-76aUUGYocxkh8u3sDgEOi3Ck+qEivMvpTzQF93VQf9M=",
+        "lastModified": 1732823970,
+        "narHash": "sha256-rsDwKpl5w0gTZSESPu9Xw3xthA7s23tbw7p3edAIz3s=",
         "owner": "massivebird",
         "repo": "lanturn",
-        "rev": "4b0d2eafda84624b018770972d8c284ebd192936",
+        "rev": "22905cc264721f63af0cfe35b9fa44d250d0d5e3",
         "type": "github"
       },
       "original": {
@@ -98,7 +100,7 @@
     "minifetch": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "naersk": "naersk",
+        "naersk": "naersk_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -118,6 +120,28 @@
       }
     },
     "naersk": {
+      "inputs": {
+        "nixpkgs": [
+          "lanturn",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721727458,
+        "narHash": "sha256-r/xppY958gmZ4oTfLiHN0ZGuQ+RSTijDblVgVLFi1mw=",
+        "owner": "nix-community",
+        "repo": "naersk",
+        "rev": "3fb418eaf352498f6b6c30592e3beb63df42ef11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "naersk",
+        "type": "github"
+      }
+    },
+    "naersk_2": {
       "inputs": {
         "nixpkgs": [
           "minifetch",
