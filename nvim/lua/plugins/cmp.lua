@@ -12,11 +12,9 @@ return {
       -- build = 'cargo build --release',
 
       opts = {
-         -- 'default' for mappings similar to built-in completion
-         -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-         -- see the "default configuration" section below for full documentation on how to define
-         -- your own keymap. when defining your own, no keybinds will
-         keymap = 'default',
+         keymap = {
+            preset = "default",
+         },
 
          highlight = {
             -- sets the fallback highlight groups to nvim-cmp's highlight groups
