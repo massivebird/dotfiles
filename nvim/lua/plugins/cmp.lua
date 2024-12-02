@@ -11,6 +11,8 @@ return {
       -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
       -- build = 'cargo build --release',
 
+      ---@module 'blink.cmp'
+      ---@type blink.cmp.Config
       opts = {
          keymap = {
             preset = "default",
@@ -26,24 +28,21 @@ return {
          -- adjusts spacing to ensure icons are aligned
          nerd_font_variant = 'mono',
 
-         -- experimental auto-brackets support
-         accept = { auto_brackets = { enabled = true } },
-
-         -- experimental signature help support
-         trigger = { signature_help = { enabled = true } },
 
          sources = {
             completion = {
                enabled_providers = { 'lsp', 'path', 'snippets', 'buffer' },
             },
+            providers = {},
          },
 
-         windows = {
-            autocomplete = {
-               min_width = 30,
-               max_width = 60,
-               max_height = 10,
+         completion = {
+            menu = {
+               enabled = true,
                border = 'rounded',
+               min_width = 30,
+               max_width = 50,
+               max_height = 10,
                -- keep the cursor X lines away from the top/bottom of the window
                scrolloff = 2,
                -- which directions to show the window,
@@ -69,33 +68,51 @@ return {
                   -- When `true`, calling `select_prev` at the *top* of the completion list will select the *last* completion item.
                   from_top = true
                },
+               signature_help = {
+                  min_width = 1,
+                  max_width = 100,
+                  max_height = 10,
+                  border = 'rounded',
+                  winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+               },
             },
             documentation = {
-               min_width = 10,
-               max_width = 60,
-               max_height = 20,
-               border = 'rounded',
-               winhighlight =
-                  'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
-               -- which directions to show the documentation window,
-               -- for each of the possible autocomplete window directions,
-               -- falling back to the next direction when there's not enough space
-               direction_priority = {
-                  autocomplete_north = { 'e', 'w', 'n', 's' },
-                  autocomplete_south = { 'e', 'w', 's', 'n' },
-               },
                auto_show = true,
                auto_show_delay_ms = 200,
                update_delay_ms = 100,
+               treesitter_highlighting = true,
+               -- which directions to show the documentation window,
+               -- for each of the possible autocomplete window directions,
+               -- falling back to the next direction when there's not enough space
+               window = {
+                  min_width = 10,
+                  max_width = 60,
+                  max_height = 20,
+                  scrollbar = true,
+                  border = 'rounded',
+                  winhighlight =
+                  'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None',
+                  direction_priority = {
+                     autocomplete_north = { 'e', 'w', 'n', 's' },
+                     autocomplete_south = { 'e', 'w', 's', 'n' },
+                  },
+               },
             },
-            signature_help = {
-               min_width = 1,
-               max_width = 100,
-               max_height = 10,
-               border = 'rounded',
-               winhighlight = 'Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder',
+            accept = {
+               create_undo_point = true,
+               auto_brackets = {
+                  enabled = true,
+               },
             },
+
          },
+
+         signature = {
+            enabled = true,
+            window = {
+               border = "rounded",
+            }
+         }
       }
 
    }
