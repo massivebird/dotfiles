@@ -18,7 +18,6 @@
       slurp # display region selector for Wayland
       vlc
       vscode
-      vscode
       waybar
       wlsunset
       zathura # pdf viewer
