@@ -136,7 +136,7 @@ return {
                         "-Dclippy::complexity",
                         "-Wclippy::perf",
                         "-Wclippy::nursery",
-                        "-Aclippy::pedantic",
+                        "-Wclippy::pedantic",
                      },
                   },
                   inlayHints = {
