@@ -42,7 +42,8 @@ return {
             require('lspconfig.ui.windows').default_options.border = 'rounded'
          end
 
-         local capabilities = vim.lsp.protocol.make_client_capabilities()
+         -- Adds a TON of features such as auto-imports
+         local capabilities = require('blink.cmp').get_lsp_capabilities()
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
