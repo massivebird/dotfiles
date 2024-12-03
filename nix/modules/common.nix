@@ -148,8 +148,8 @@ in
     fonts = {
       enableDefaultPackages = true;
       packages = with pkgs; [ 
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         noto-fonts-cjk-sans # japanese chars
+        nerd-fonts.jetbrains-mono
       ];
       fontconfig = {
         defaultFonts = {
