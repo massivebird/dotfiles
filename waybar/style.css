@@ -13,20 +13,18 @@ window#waybar, .modules-center {
    color: #eeeeee;
    background: #0e0e0e;
    border-radius: 10px;
+   padding: 3px 0;
    margin: 6px 10px 0 10px;
 }
 
 /** left module items ****************/
 
-#workspaces button, #workspaces button.visible {
+#workspaces button {
    padding: 0 5px;
    color: #656565;
 }
 
 #workspaces button.focused {
-   border-radius: 0.2em;
-   border-top: 3px solid rgba(217,217,217,0.0);
-   border-bottom: 3px solid rgba(0, 0, 0, 0);
    color: #eeeeee;
 }
 
