@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   config = {
     environment.systemPackages = with pkgs; [
+      basedpyright # Python language server
       bash-language-server
       binutils # nvim tree-sitter dep
       fd # telescope dep: alternative to `find`
@@ -15,7 +16,6 @@
       nixd # Nix language server
       nodejs_20
       php82Extensions.mysqlnd # PHP MySQL extension
-      ruff # Python language server
       tree-sitter # the executable
       vscode-langservers-extracted # lsp for html/css/json/eslint
       wl-clipboard # neovim clipboard integration
