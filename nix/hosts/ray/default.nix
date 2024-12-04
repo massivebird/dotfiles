@@ -18,9 +18,6 @@
     font = "ter-h32b";
   };
 
-  # fixes unresponsive keyboard on wakeup
-  boot.kernelParams = [ "i8042.dumbkbd=1" "i8042.reset=1" "i8042.direct=1" ];
-
   # Fixes audio not working on startup
   hardware.alsa.enablePersistence = true;
 
