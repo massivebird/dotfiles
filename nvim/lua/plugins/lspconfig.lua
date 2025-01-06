@@ -75,10 +75,30 @@ return {
          --    capabilities = capabilities,
          -- }
 
-         -- static type checker for python
+         -- Python (static analysis)
          lspconfig.basedpyright.setup {
             on_attach = on_attach,
             capabilities = capabilities,
+         }
+
+         -- Python (code formatting)
+         lspconfig.ruff.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+
+            settings = {
+               pyright = {
+                  -- Using Ruff's import organizer
+                  disableOrganizeImports = true,
+               },
+               python = {
+                  analysis = {
+                     -- Ignore all files for analysis to exclusively use Ruff for linting
+                     ignore = { '*' },
+                  },
+               },
+            },
+
          }
 
          -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
@@ -158,6 +178,11 @@ return {
          }
 
          lspconfig.nixd.setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+         }
+
+         lspconfig.ts_ls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
          }
