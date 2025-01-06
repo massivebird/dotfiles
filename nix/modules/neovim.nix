@@ -4,6 +4,7 @@
       basedpyright # Python language server
       bash-language-server
       binutils # nvim tree-sitter dep
+      typescript-language-server
       fd # telescope dep: alternative to `find`
       gnat13 # GNU C++ compiler collection
       jdt-language-server # Java language server
@@ -16,7 +17,9 @@
       nixd # Nix language server
       nodejs_20
       php82Extensions.mysqlnd # PHP MySQL extension
+      ruff
       tree-sitter # the executable
+      typescript
       vscode-langservers-extracted # lsp for html/css/json/eslint
       wl-clipboard # neovim clipboard integration
     ];
