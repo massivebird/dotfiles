@@ -50,7 +50,10 @@ return {
                   from_bottom = true,
                   from_top = true
                },
-               selection = 'auto_insert',
+               selection = {
+                  auto_insert = true,
+                  preselect = true,
+               },
             },
 
             documentation = {
