@@ -1,0 +1,9 @@
+[[manager.prepend_keymap]]
+on   = [ "g", "a" ]
+run  = "cd ~/academia/"
+desc = "Goto ~/academia"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "/" ]
+run  = "cd /"
+desc = "Goto root"
