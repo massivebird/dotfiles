@@ -15,9 +15,9 @@ vim.g.loaded_matchparen = 1
 vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrwSettings = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrwSettings = 1
 
 -- disables tpope/vim-markdown tabstop assignment,
 -- WHY IS IT THAT PLUGIN EVEN HERE? I AM NOT USING IT,
