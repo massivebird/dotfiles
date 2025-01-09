@@ -1,0 +1,7 @@
+[mode]
+normal_alt = { fg = "blue", bg = "darkgray" }
+
+select_main = { fg = "white", bg = "magenta" }
+select_alt = { fg = "blue", bg = "darkgray" }
+
+unset_alt = { fg = "blue", bg = "darkgray" }
