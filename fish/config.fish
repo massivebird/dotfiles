@@ -187,6 +187,7 @@ if status is-interactive
    alias tree 'tree -RC --dirsfirst'
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+   alias y 'yazi'
    alias ytd 'yt-dlp'
    alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "archive mode"
    alias ytdt 'ytd --embed-thumbnail --embed-subs -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "twitter mode"
