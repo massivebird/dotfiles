@@ -18,9 +18,6 @@
     font = "ter-h32b";
   };
 
-  # Fixes audio not working on startup
-  hardware.alsa.enablePersistence = true;
-
   powerManagement.cpuFreqGovernor = "powersave";
 
   boot.loader.systemd-boot.enable = true;
