@@ -39,7 +39,7 @@ if status is-interactive
    set -x VG_ARCHIVE "$HOME/game-archive"
 
    if "$HOSTNAME" != "ray"
-      set --append $PATH "$HOME/bin"
+      set --append PATH "$HOME/bin"
    end
 
    # vi mode #############################
