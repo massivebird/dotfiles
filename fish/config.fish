@@ -38,7 +38,7 @@ if status is-interactive
    # For massivebird/arcsearch, massivebird/arcstat
    set -x VG_ARCHIVE "$HOME/game-archive"
 
-   if "$HOSTNAME" != "ray"
+   if test "$HOSTNAME" != "ray"
       set --append PATH "$HOME/bin"
    end
 
