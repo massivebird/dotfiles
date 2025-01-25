@@ -38,6 +38,10 @@ if status is-interactive
    # For massivebird/arcsearch, massivebird/arcstat
    set -x VG_ARCHIVE "$HOME/game-archive"
 
+   if "$HOSTNAME" != "ray"
+      set --append $PATH "$HOME/bin"
+   end
+
    # vi mode #############################
 
    fish_vi_key_bindings insert
@@ -160,6 +164,7 @@ if status is-interactive
    alias ncw 'nvim -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
    alias ncz 'nvim ~/.config/zathura/zathurarc'
 
+   alias battery "cat /sys/class/power_supply/BAT0/capacity"
    alias c 'cd'
    alias clj 'clj/'
    alias diff 'diff --color=always'
@@ -167,6 +172,7 @@ if status is-interactive
    alias exp 'explorer.exe' # WSL: open cwd in Windows File Explorer
    alias foxalive "systemctl reboot"
    alias foxdie "systemctl poweroff"
+   alias foxz "systemctl sleep -i"
    alias greep 'grep' # ben
    alias less 'less -r --jump-target=3'
    alias n 'nvim'
