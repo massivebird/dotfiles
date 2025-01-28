@@ -70,14 +70,4 @@ return {
          "typescript",
       }
    },
-
-   {
-      -- help doc decorations
-      "OXY2DEV/helpview.nvim",
-      lazy = false, -- false is recommended
-      enabled = false, -- broken (for me) (for now) ;_;
-      dependencies = {
-         "nvim-treesitter/nvim-treesitter"
-      },
-   },
 }
