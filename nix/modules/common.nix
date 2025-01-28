@@ -47,6 +47,7 @@ in
       eza # modern alternative to `ls` written in rust
       ffmpeg
       git
+      glib
       gnumake42 # `make` command
       helvetica-neue-lt-std
       jdk # java
