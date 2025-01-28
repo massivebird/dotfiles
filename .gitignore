@@ -3,12 +3,15 @@
 .gsd*
 .luarc.json
 Code/
+Electron/
 Google
 JetBrains
+KeepOrDelete/
 NecroDancer
 QtProject.conf
 Unknown Organization
 anthy
+autostart/
 azuredatastudio
 bottom
 btop/btop.conf
@@ -43,6 +46,7 @@ jgit/
 lanturn/
 libreoffice
 libvirt
+matlab/
 memos.json
 menus
 mimeapps.list
