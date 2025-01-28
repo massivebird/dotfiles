@@ -4,10 +4,11 @@
       basedpyright # Python language server
       bash-language-server
       binutils # nvim tree-sitter dep
+      clang
       typescript-language-server
       fd # telescope dep: alternative to `find`
       gnat13 # GNU C++ compiler collection
-      jdt-language-server # Java language server
+      java-language-server # Java language server
       lldb_16 # C/C++/Rust debugger
       lua-language-server
       lua51Packages.lua # lazy.nvim requires Lua 5.1
