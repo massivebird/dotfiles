@@ -4,6 +4,7 @@
       # jetbrains.idea-ultimate
       # zoom-us
       discord
+      electron
       firefox
       glfw # temp solution for kitty GLFW launch error
       grim # screenshots in wayland
@@ -19,6 +20,7 @@
       vlc
       vscode
       waybar
+      wl-mirror # sway output mirror solution
       wlsunset
       zathura # pdf viewer
     ];
