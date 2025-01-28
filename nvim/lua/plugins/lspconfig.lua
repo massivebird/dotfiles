@@ -101,15 +101,15 @@ return {
 
          }
 
-         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#java_language_server
+         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jdtls
          --
          -- jdtls requires one of the following project files to return diagnostics.
          -- Just touch an empty one or something?
          -- https://github.com/neovim/nvim-lspconfig/blob/3fe1e8de80b98c7a6b16f730711b5eafe84212e1/lua/lspconfig/server_configurations/jdtls.lua#L79
-         lspconfig.jdtls.setup {
+         lspconfig.java_language_server.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            cmd = { "jdtls" },
+            cmd = { "java-language-server" },
          }
 
          lspconfig.clangd.setup {
@@ -186,6 +186,16 @@ return {
             on_attach = on_attach,
             capabilities = capabilities,
          }
+
+         lspconfig.eslint.setup({
+            capabilities = capabilities;
+            on_attach = function(client, bufnr)
+               vim.api.nvim_create_autocmd("BufWritePre", {
+                  buffer = bufnr,
+                  command = "EslintFixAll",
+               })
+            end,
+         })
 
          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
             vim.lsp.handlers.hover,
