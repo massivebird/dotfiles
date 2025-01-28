@@ -3,6 +3,12 @@ return {
    {
       'neovim/nvim-lspconfig',
       lazy = false,
+      dependencies = {
+         {
+            "mfussenegger/nvim-jdtls",
+            ft = { "java" },
+         },
+      },
       config = function()
          -- https://github.com/neovim/nvim-lspconfig#Keybindings-and-completion
          local lspconfig = require('lspconfig')
@@ -106,17 +112,20 @@ return {
          -- jdtls requires one of the following project files to return diagnostics.
          -- Just touch an empty one or something?
          -- https://github.com/neovim/nvim-lspconfig/blob/3fe1e8de80b98c7a6b16f730711b5eafe84212e1/lua/lspconfig/server_configurations/jdtls.lua#L79
-         lspconfig.java_language_server.setup {
+         lspconfig.jdtls.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            cmd = { "java-language-server" },
+            cmd = { "jdtls" },
          }
 
          lspconfig.clangd.setup {
             on_attach = on_attach,
             capabilities = capabilities,
-            cmd = { "clangd" },
-            filetypes = { "c", "cpp" },
+            cmd = {
+               "clangd",
+               -- https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+               "--fallback-style=webkit"
+            }
          }
 
          lspconfig.marksman.setup {
@@ -188,7 +197,7 @@ return {
          }
 
          lspconfig.eslint.setup({
-            capabilities = capabilities;
+            capabilities = capabilities,
             on_attach = function(client, bufnr)
                vim.api.nvim_create_autocmd("BufWritePre", {
                   buffer = bufnr,
