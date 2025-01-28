@@ -8,6 +8,7 @@
       firefox
       glfw # temp solution for kitty GLFW launch error
       grim # screenshots in wayland
+      jetbrains.idea-ultimate
       kitty # terminal emulator
       logisim # logic circuit design and simulation
       mako # wayland notification daemon
@@ -18,7 +19,6 @@
       rofi # "start menu" pop-up
       slurp # display region selector for Wayland
       vlc
-      vscode
       waybar
       wl-mirror # sway output mirror solution
       wlsunset
