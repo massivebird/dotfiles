@@ -28,8 +28,6 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      # jetbrains.idea-ultimate
-      # zoom-us
       (my_pkg "lanturn")
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
