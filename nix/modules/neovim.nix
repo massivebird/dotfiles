@@ -5,10 +5,9 @@
       bash-language-server
       binutils # nvim tree-sitter dep
       clang
-      typescript-language-server
       fd # telescope dep: alternative to `find`
       gnat13 # GNU C++ compiler collection
-      java-language-server # Java language server
+      jdt-language-server # Java language server
       lldb_16 # C/C++/Rust debugger
       lua-language-server
       lua51Packages.lua # lazy.nvim requires Lua 5.1
@@ -21,6 +20,7 @@
       ruff
       tree-sitter # the executable
       typescript
+      typescript-language-server
       vscode-langservers-extracted # lsp for html/css/json/eslint
       wl-clipboard # neovim clipboard integration
     ];
