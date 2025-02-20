@@ -174,7 +174,7 @@ in
         # Automatically remove unused nix store entries.
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 12d";
+        options = "--delete-older-than 7d";
       };
 
       # https://nixos.wiki/wiki/Storage_optimization
