@@ -15,7 +15,7 @@
       marksman # markdown language server
       neovim
       nixd # Nix language server
-      nodejs_20
+      nodejs
       php82Extensions.mysqlnd # PHP MySQL extension
       ruff
       tree-sitter # the executable
