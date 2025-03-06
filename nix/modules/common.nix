@@ -44,6 +44,7 @@ in
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       ffmpeg
+      file # file metadata
       git
       glib
       gnumake42 # `make` command
