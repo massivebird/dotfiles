@@ -56,8 +56,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+ctrl+shift+e exit 
 
 # quick desktop screenshot
-bindsym Print exec grim ~/Pictures/screenshots/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
-bindsym shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/$(date +"%m-%d-%YT%H-%M-%S").png && notify-send "Screenshot taken saved: $(date +"%m-%d-%YT%H-%M-%S").png"
+bindsym Print exec bash "$HOME/.config/sway/screenshot-all.sh"
+bindsym shift+Print exec bash "$HOME/.config/sway/screenshot-region.sh"
 
 # brightness controls
 bindsym XF86MonBrightnessUp exec brightnessctl set 1%+
