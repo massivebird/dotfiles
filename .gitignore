@@ -44,6 +44,7 @@ htop
 ibus
 jgit/
 lanturn/
+lazygit/
 libreoffice
 libvirt
 matlab/
@@ -56,6 +57,7 @@ nautilus
 neofetch
 nix/result
 nnn
+nushell/
 nvim/lazy-lock.json
 nvim/lsp/
 nvim/plugged
