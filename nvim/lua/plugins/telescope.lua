@@ -50,7 +50,8 @@ return {
          -- configuration files.
          local nvim_modules = function()
             builtin.find_files {
-               search_dirs = { '/home/penguino/.config/nvim/' },
+               search_dirs = { '$HOME/.config/nvim/' },
+               path_display = { "smart" },
                prompt_title = "Nvim modules",
                hidden = false,
             }
@@ -79,17 +80,12 @@ return {
                   prompt_title = false,
                   previewer = false,
                },
-               nvim_modules = {
-                  path_display = { "smart" },
-               },
             },
          }
 
          -- tele.load_extension('fzf')
          tele.load_extension('file_browser')
          tele.load_extension('ui-select')
-
-         vim.cmd [[command! TelescopeModules :Telescope nvim_modules]]
 
          vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find)
          vim.keymap.set('n', '<leader>fH', builtin.highlights)
