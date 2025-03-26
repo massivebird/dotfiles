@@ -80,6 +80,17 @@ if status is-interactive
       alias rename 'prename'
    end
 
+   # https://yazi-rs.github.io/docs/quick-start/#shell-wrapper
+   # Exit Yazi with `q` to cd. Exit with `Q` to exit without cd.
+   function y
+      set tmp (mktemp -t "yazi-cwd.XXXXXX")
+      yazi $argv --cwd-file="$tmp"
+      if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+         builtin cd -- "$cwd"
+      end
+      rm -f -- "$tmp"
+   end
+
    function ...; '../..'; end
    function ....; '../../..'; end
    function .....; '../../../..'; end
@@ -153,7 +164,7 @@ if status is-interactive
    alias nci '$EDITOR ~/.config/i3/config'
    alias ncis '$EDITOR ~/.config/i3status/config'
    alias nck '$EDITOR ~/.config/kitty/kitty.conf'
-   alias ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/lua\'} hidden=false path_display={'smart'} prompt_title='Modules'"'
+   alias ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/\'} hidden=false path_display={\'smart\'} prompt_title='Modules'"'
    alias ncn '$EDITOR ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
    alias ncr '$EDITOR ~/.config/ranger/rc.conf'
    alias ncs '$EDITOR ~/.config/sway/config'
@@ -187,7 +198,6 @@ if status is-interactive
    alias tree 'tree -RC --dirsfirst'
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
-   alias y 'yazi'
    alias ytd 'yt-dlp'
    alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "archive mode"
    alias ytdt 'ytd --embed-thumbnail --embed-subs -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "twitter mode"
