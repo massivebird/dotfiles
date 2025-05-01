@@ -145,14 +145,15 @@ return {
             settings = {
                ["rust-analyzer"] = {
                   -- Add clippy lints for Rust.
-                  checkOnSave = {
+                  checkOnSave = true,
+                  check = {
                      allFeatures = true,
                      command = "clippy",
                      extraArgs = {
                         "--",
                         "--no-deps",
-                        "-Dclippy::correctness",
-                        "-Dclippy::complexity",
+                        "-Wclippy::correctness",
+                        "-Wclippy::complexity",
                         "-Wclippy::perf",
                         "-Wclippy::nursery",
                         "-Wclippy::pedantic",
@@ -193,12 +194,12 @@ return {
 
          lspconfig.eslint.setup({
             capabilities = capabilities,
-            on_attach = function(client, bufnr)
-               vim.api.nvim_create_autocmd("BufWritePre", {
-                  buffer = bufnr,
-                  command = "EslintFixAll",
-               })
-            end,
+            on_attach = on_attach(),
+         })
+
+         lspconfig.csharp_ls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
          })
 
          vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
