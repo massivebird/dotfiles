@@ -40,6 +40,7 @@ gnome-initial-setup-done
 gthumb/
 gtk*
 gtk-3.0
+heaptrack_gui
 htop
 ibus
 jgit/
