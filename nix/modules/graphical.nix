@@ -8,9 +8,7 @@
       firefox
       glfw # temp solution for kitty GLFW launch error
       grim # screenshots in wayland
-      jetbrains.idea-ultimate
       kitty # terminal emulator
-      logisim # logic circuit design and simulation
       mako # wayland notification daemon
       mpv
       nsxiv # image viewer

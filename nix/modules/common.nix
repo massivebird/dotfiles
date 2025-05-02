@@ -28,6 +28,9 @@ in
     };
 
     environment.systemPackages = with pkgs; [
+      (my_pkg "arcsearch")
+      (my_pkg "arcstat")
+      (my_pkg "died")
       (my_pkg "lanturn")
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
@@ -175,7 +178,7 @@ in
         # Automatically remove unused nix store entries.
         automatic = true;
         dates = "weekly";
-        options = "--delete-older-than 7d";
+        options = "--delete-older-than 14d";
       };
 
       # https://nixos.wiki/wiki/Storage_optimization

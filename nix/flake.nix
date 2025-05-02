@@ -7,16 +7,28 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    arcsearch = {
+      url = "github:massivebird/arcsearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    arcstat = {
+      url = "github:massivebird/arcstat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    died = {
+      url = "github:massivebird/died";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lanturn = {
+      url = "github:massivebird/lanturn";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     minifetch = {
       url = "github:massivebird/minifetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     subterfuge = {
       url = "github:massivebird/subterfuge";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lanturn = {
-      url = "github:massivebird/lanturn";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
