@@ -76,7 +76,7 @@ update-repo()
    DIFF_DUMP=$(git -C $REPO_PATH log --numstat --format=format:'' HEAD..$REPO_REMOTE/$REPO_BRANCH)
 
    if [ -z "$DIFF_DUMP" ] && [[ $FLAG_VERBOSE -eq 1 ]]; then
-      printf "\r$STATUS_OK $REPO_LABEL already up to date! $GREEN$REPO_BRANCH$NC     \n"
+      printf "\r$STATUS_OK $REPO_LABEL already up to date! $GRAY $REPO_BRANCH$NC     \n"
    fi
 
    git -C $REPO_PATH pull -q origin $REPO_BRANCH &> /dev/null
