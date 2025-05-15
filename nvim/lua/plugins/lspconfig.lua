@@ -6,7 +6,8 @@ return {
       dependencies = {
          {
             "mfussenegger/nvim-jdtls",
-            ft = { "java" },
+            lazy = true,
+            ft = "java",
          },
       },
       config = function()

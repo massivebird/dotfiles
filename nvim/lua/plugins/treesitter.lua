@@ -7,30 +7,30 @@ return {
       opts = {
          ensure_installed = {
             "bash",
-            "c",
-            "clojure",
-            "cpp",
             "css",
-            "fish",
             "html",
-            "java",
             "javascript",
             "json",
-            "kotlin",
             "lua",
             "luadoc",
             "markdown",
             "markdown_inline",
-            "php",
-            "python",
             "regex",
             "rust",
             "vim",
             "vimdoc",
          },
+
+         -- Install missing parsers when entering a buffer.
          auto_install = true,
+
+         -- Do not install these parsers.
          ignore_install = {},
+
+         -- Indent with `=`.
          indent = { enable = true },
+
+         -- Syntax highlighting.
          highlight = {
             enable = true,
             disable = {
@@ -40,8 +40,10 @@ return {
                "php",
                "vim",
             },
-            additional_vim_regex_highlighting = true,
+            additional_vim_regex_highlighting = false,
          },
+
+         -- Selection based on grammar nodes.
          incremental_selection = {
             enable = true,
             keymaps = {
@@ -53,15 +55,14 @@ return {
             },
          },
       },
-      dependencies = {
 
+      dependencies = {
          {
-            -- auto[close|rename] html tags
+            -- auto-[close|rename] html tags
             'windwp/nvim-ts-autotag',
+            lazy = true,
             ft = "html",
-            config = function()
-               require('nvim-ts-autotag').setup {}
-            end
+            opts = {},
          },
 
          {
@@ -84,8 +85,8 @@ return {
                zindex = 20, -- The Z-index of the context window
             }
          },
-
       },
+
       config = function(_, opts)
          if type(opts.ensure_installed) == "table" then
             ---@type table<string, boolean>
