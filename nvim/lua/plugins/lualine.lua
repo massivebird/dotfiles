@@ -3,12 +3,9 @@ return {
    {
       "nvim-lualine/lualine.nvim",
 
-      -- This rev refreshes often. I'd like to work around this eventually
-      -- https://github.com/nvim-lualine/lualine.nvim/issues/792
-      -- commit = '788805771c1ca7fe2c6652c38523cf208908934c',
-      -- lock = true,
-
       init = function()
+         -- Refresh statusline when the cursor moves. Fixed some lag in newer versions.
+         -- See: #792
          vim.api.nvim_create_autocmd('CursorMoved', { callback = require('lualine').refresh })
       end,
 
