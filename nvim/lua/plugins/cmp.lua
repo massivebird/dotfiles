@@ -33,7 +33,8 @@ return {
          completion = {
             menu = {
                border = 'rounded',
-               min_width = 30,
+               min_width = 15,
+               max_width = 25,
                max_height = 10,
                scrolloff = 2,
                direction_priority = { 's', 'n' },
@@ -59,7 +60,7 @@ return {
                update_delay_ms = 100,
                treesitter_highlighting = true,
                window = {
-                  min_width = 10,
+                  min_width = 25,
                   max_width = 60,
                   max_height = 20,
                   scrollbar = true,
