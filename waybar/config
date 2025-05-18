@@ -90,7 +90,7 @@
       "format-alt": "{icon} {volume}",
       "format-alt-click": "click-right",
       "format-icons": {
-         "headphone": [" 󰋋 ", " 󰋋 ", "󰋋 ", " 󰋋 "],
+         "headphone": [" 󰋋 ", " 󰋋 ", " 󰋋 ", " 󰋋 "],
          "headphone-muted": " 󰋋 ",
          "default": ["", "", "", ""],
          "default-muted": "",
