@@ -306,7 +306,10 @@ end
 
 # starship ############################
 
-starship init fish | source
+# Do not run starship in a TTY
+if test "$TERM" != linux
+   starship init fish | source
+end
 
 # The rest of this section removes the annoying empty line at the top of the
 # screen after a `clear`.
