@@ -1,0 +1,58 @@
+# Color specifiers:
+# ["bright-" prefix] black, red, green, blue, yellow, purple, cyan, white
+
+# Inspired by:
+# + https://github.com/starship/starship/discussions/1107#discussioncomment-12783392
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$rust\
+$python\
+$nix_shell\
+$fill\
+$time
+$character
+"""
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[time]
+disabled = false
+format = "[$time](#333333)"
+
+[character] # Icon(s) beside text entry
+success_symbol = '[╰─](fg:bright-black)[ ➜](bold green)'
+error_symbol = '[╰─](fg:bright-black)[ ➜](bold red)'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[directory]
+format = '[╭─](fg:bright-black)[ 󰉋 ](fg:black bg:green)[ $read_only$truncation_symbol$path ](fg:bright-white bg:bright-black)'
+home_symbol       = "󱂵 ~/"
+read_only         = '󰌾 '
+read_only_style   = ''
+truncation_length = 2
+
+[git_branch]
+format = '[─](fg:bright-black)[ $symbol ](fg:black bg:yellow)[ $branch ](fg:bright-white bg:bright-black)'
+symbol = '󰘬'
+
+[git_status]
+format = "[ 󱈸 ](fg:black bg:red)"
+
+[nix_shell]
+format = "[─](fg:bright-black)[ 󱄅 ](fg:black bg:blue)[ $state ](fg:bright-white bg:bright-black)"
+
+[rust]
+format = "[─](fg:bright-black)[  ](fg:black bg:208)[ $version ](fg:bright-white bg:bright-black)"
+
+[python]
+format = "[─](fg:bright-black)[  ](fg:black bg:33)[ $version ](fg:bright-white bg:bright-black)"
