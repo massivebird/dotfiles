@@ -303,3 +303,23 @@ if status is-interactive
    # custom splash program
    try_running minifetch
 end
+
+# starship ############################
+
+starship init fish | source
+
+# The rest of this section removes the annoying empty line at the top of the
+# screen after a `clear`.
+#
+# https://github.com/starship/starship/issues/560#issuecomment-2409922650
+
+function starship_transient_prompt_func
+	tput cuu1
+	starship module character
+end
+
+function prompt_newline --on-event fish_postexec
+	echo
+end
+
+alias clear "command clear; commandline -f clear-screen"

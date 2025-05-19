@@ -10,6 +10,10 @@ in
     # Configure fish as an interactive shell.
     programs.fish.enable = true;
 
+    # Configure starship as a whatever.
+    # Why do I even need these lines?
+    programs.starship.enable = true;
+
     users.users.${userName} = {
       isNormalUser = true;
       initialPassword = "password"; # change with `passwd`
@@ -58,6 +62,7 @@ in
       playerctl # keyboard audio controls
       python311
       ripgrep # real fast grep written in rust
+      starship
       tldr
       tree
       unzip

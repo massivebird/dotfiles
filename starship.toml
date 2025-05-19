@@ -8,6 +8,7 @@ format = """
 $directory\
 $git_branch\
 $git_status\
+$git_commit\
 $rust\
 $python\
 $nix_shell\
@@ -20,7 +21,7 @@ $character
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 [time]
 disabled = false
@@ -29,6 +30,10 @@ format = "[$time](#333333)"
 [character] # Icon(s) beside text entry
 success_symbol = '[╰─](fg:bright-black)[ ➜](bold green)'
 error_symbol = '[╰─](fg:bright-black)[ ➜](bold red)'
+vimcmd_symbol = "[╰─](fg:bright-black)[ ➜](bold white)"
+vimcmd_replace_one_symbol = "[╰─](fg:bright-black)[ ➜](bold white)"
+vimcmd_replace_symbol = "[╰─](fg:bright-black)[ ➜](bold white)"
+vimcmd_visual_symbol = "[╰─](fg:bright-black)[ ➜](bold white)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -43,10 +48,15 @@ truncation_length = 2
 
 [git_branch]
 format = '[─](fg:bright-black)[ $symbol ](fg:black bg:yellow)[ $branch ](fg:bright-white bg:bright-black)'
+only_attached = true
 symbol = '󰘬'
 
+[git_commit]
+format = '[─](fg:bright-black)[   ](fg:black bg:yellow)[ $hash ](fg:bright-white bg:bright-black)'
+only_detached = true
+
 [git_status]
-format = "[ 󱈸 ](fg:black bg:red)"
+format = "[( $all_status )](fg:black bg:red)"
 
 [nix_shell]
 format = "[─](fg:bright-black)[ 󱄅 ](fg:black bg:blue)[ $state ](fg:bright-white bg:bright-black)"
