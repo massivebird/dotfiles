@@ -306,6 +306,14 @@ end
 
 # starship ############################
 
+# If `starship` doesn't exist on this machine,
+# don't do anything else.
+#
+# Note to future self: I hope this causes you pain
+if not type -q starship
+   return
+end
+
 # Do not run starship in a TTY
 if test "$TERM" != linux
    starship init fish | source
