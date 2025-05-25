@@ -34,7 +34,6 @@ return {
             menu = {
                border = 'rounded',
                min_width = 15,
-               max_width = 25,
                max_height = 10,
                scrolloff = 2,
                direction_priority = { 's', 'n' },
