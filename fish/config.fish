@@ -146,6 +146,7 @@ if status is-interactive
    alias cgf 'cargo fmt'
    alias cgi 'cargo init'
    alias cgr 'cargo run'
+   alias cgrr 'cargo run --release'
    alias cgt 'cargo test'
    alias cgtr 'cargo tree'
    alias cgu 'cargo update'
