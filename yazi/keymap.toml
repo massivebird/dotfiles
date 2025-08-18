@@ -1,14 +1,14 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "a" ]
 run  = "cd ~/academia/"
 desc = "Go ~/academia"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "/" ]
 run  = "cd /"
 desc = "Go root"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "g", "p" ]
 run  = "cd ~/Pictures"
 desc = "Go ~/Pictures"
