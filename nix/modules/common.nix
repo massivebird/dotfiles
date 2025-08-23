@@ -131,7 +131,7 @@ in
     };
 
     services = {
-      desktopManager.gnome.enable = true;
+      desktopManager.gnome.enable = false;
       printing.enable = true; # enable CUPS for printing documents
       pipewire = {
         enable = true;
@@ -142,6 +142,7 @@ in
         pulse.enable = true; # PulseAudio server emulation
       };
       xserver = {
+        displayManager.startx.enable = true;
         # Fixes cursor issues in Sway/Wayland. Why? How? idk
         xkb = {
           layout = "us";
@@ -173,18 +174,17 @@ in
 
     nix = {
       # Nix package instance to use throughout the system.
-      package = pkgs.nixVersions.latest;
+      package = pkgs.nix;
 
       # Additional text appended to `nix.conf`.
       extraOptions = "experimental-features = nix-command flakes";
 
-      # Garbage collector.
-      gc = {
-        # Automatically remove unused nix store entries.
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 14d";
-      };
+      # gc = {
+      #   # Automatically remove unused nix store entries.
+      #   automatic = true;
+      #   dates = "weekly";
+      #   options = "--delete-older-than 14d";
+      # };
 
       # https://nixos.wiki/wiki/Storage_optimization
       # Optimize nix store during every build. May slow down builds.
