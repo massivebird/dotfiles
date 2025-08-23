@@ -4,7 +4,6 @@
       # jetbrains.idea-ultimate
       # zoom-us
       discord
-      electron
       firefox
       glfw # temp solution for kitty GLFW launch error
       grim # screenshots in wayland
@@ -16,7 +15,7 @@
       obsidian # markdown note taking app
       rofi # "start menu" pop-up
       slurp # display region selector for Wayland
-      vlc
+      # vlc
       waybar
       wl-mirror # sway output mirror solution
       wlsunset

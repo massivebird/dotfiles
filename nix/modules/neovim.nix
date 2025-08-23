@@ -8,7 +8,7 @@
       fd # telescope dep: alternative to `find`
       gnat13 # GNU C++ compiler collection
       jdt-language-server # Java language server
-      lldb_16 # C/C++/Rust debugger
+      # lldb_16 # C/C++/Rust debugger
       lua-language-server
       lua51Packages.lua # lazy.nvim requires Lua 5.1
       luarocks
