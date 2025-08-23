@@ -59,8 +59,8 @@ return {
                update_delay_ms = 100,
                treesitter_highlighting = true,
                window = {
-                  min_width = 25,
-                  max_width = 60,
+                  min_width = 45,
+                  max_width = 70,
                   max_height = 20,
                   scrollbar = true,
                   border = 'rounded',
