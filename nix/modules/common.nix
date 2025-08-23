@@ -131,6 +131,7 @@ in
     };
 
     services = {
+      desktopManager.gnome.enable = true;
       printing.enable = true; # enable CUPS for printing documents
       pipewire = {
         enable = true;
@@ -142,7 +143,6 @@ in
       };
       xserver = {
         # Fixes cursor issues in Sway/Wayland. Why? How? idk
-        desktopManager.gnome.enable = true;
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
