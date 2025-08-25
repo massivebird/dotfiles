@@ -131,7 +131,7 @@ in
     };
 
     services = {
-      desktopManager.gnome.enable = false;
+      desktopManager.gnome.enable = true; # GUI GNOME apps
       printing.enable = true; # enable CUPS for printing documents
       pipewire = {
         enable = true;
