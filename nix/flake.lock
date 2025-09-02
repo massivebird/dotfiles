@@ -249,11 +249,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1730935506,
-        "narHash": "sha256-WE0WKmVWqnr9mWgP5BdDHQYZ5DCBe6pE8EjcpsvervU=",
+        "lastModified": 1756372594,
+        "narHash": "sha256-7w5uQCR2dbGOnLMCH4riG5VR2z64514sKlkRJfVtm0U=",
         "owner": "massivebird",
         "repo": "minifetch",
-        "rev": "0373c098e7c6dcbf565dab32806f10dc02c1b1ff",
+        "rev": "3f0cdf98083159a2ad311c739dead1f1a844d337",
         "type": "github"
       },
       "original": {
@@ -397,11 +397,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755615617,
-        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
+        "lastModified": 1756542300,
+        "narHash": "sha256-tlOn88coG5fzdyqz6R93SQL5Gpq+m/DsWpekNFhqPQk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
+        "rev": "d7600c775f877cd87b4f5a831c28aa94137377aa",
         "type": "github"
       },
       "original": {
