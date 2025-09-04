@@ -2,6 +2,8 @@
 
 ## keys ###############################
 
+map Q quit
+
 map <C-e> feedkeys j
 map <C-y> feedkeys k
 
