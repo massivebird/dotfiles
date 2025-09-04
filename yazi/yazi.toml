@@ -25,11 +25,11 @@ image_quality = 50
 sixel_fraction = 20
 
 [opener]
-zathura = [
-	{ run = 'zathura "$@"', desc = "Open in Zathura" },
+zathura_custom = [
+	{ run = 'zathura "$@" &', desc = "Open in Zathura" },
 ]
 
 [open]
 prepend_rules = [
-	{ name = "*.pdf", use = "zathura" },
+	{ name = "*.pdf", use = "zathura_custom" },
 ]
