@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    virtualbox.url = "github:nixos/nixpkgs/bf9fa86a9b1005d932f842edf2c38eeecc98eef3";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,11 +70,11 @@
           system = "x86_64-linux";
         };
 
-        mini = nixosMachine {
-          hostName = "mini";
-          userName = "mini";
-          system = "x86_64-linux";
-        };
+        # mini = nixosMachine {
+        #   hostName = "mini";
+        #   userName = "mini";
+        #   system = "x86_64-linux";
+        # };
 
       };
 

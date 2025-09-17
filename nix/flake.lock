@@ -420,7 +420,8 @@
         "lanturn": "lanturn",
         "minifetch": "minifetch",
         "nixpkgs": "nixpkgs",
-        "subterfuge": "subterfuge"
+        "subterfuge": "subterfuge",
+        "virtualbox": "virtualbox"
       }
     },
     "rust-analyzer-src": {
@@ -549,6 +550,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "virtualbox": {
+      "locked": {
+        "lastModified": 1754248685,
+        "narHash": "sha256-IUGNakaPUF8JOBZlO8ISQzIC4ZSpowzZgcCw9Co8eqk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "bf9fa86a9b1005d932f842edf2c38eeecc98eef3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "bf9fa86a9b1005d932f842edf2c38eeecc98eef3",
         "type": "github"
       }
     }

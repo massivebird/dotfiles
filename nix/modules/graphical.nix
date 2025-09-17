@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   config = {
     environment.systemPackages = with pkgs; [
       # jetbrains.idea-ultimate
@@ -23,6 +23,7 @@
     ];
 
     virtualisation.virtualbox.host.enable = true;
+    virtualisation.virtualbox.host.package = inputs.virtualbox.legacyPackages.${pkgs.system}.virtualbox;
     users.extraGroups.vboxusers.members = [ "root penguino" ];
     virtualisation.virtualbox.host.enableExtensionPack = true;
 

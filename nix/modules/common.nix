@@ -1,6 +1,7 @@
 # Common configuration applied to all hosts
 { inputs, pkgs, userName, hostName, ... }:
 let
+    my_pkg_new_schema = name: inputs.${name}.defaultPackage.${pkgs.system};
     my_pkg = name: inputs.${name}.packages.${pkgs.system}.default;
 in
 {
@@ -32,7 +33,7 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      (my_pkg "arcsearch")
+      (my_pkg_new_schema "arcsearch")
       (my_pkg "arcstat")
       (my_pkg "died")
       (my_pkg "lanturn")
@@ -142,8 +143,7 @@ in
         pulse.enable = true; # PulseAudio server emulation
       };
       xserver = {
-        displayManager.startx.enable = true;
-        # Fixes cursor issues in Sway/Wayland. Why? How? idk
+        displayManager.startx.enable = false;
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
