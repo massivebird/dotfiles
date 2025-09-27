@@ -159,6 +159,11 @@ if status is-interactive
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
    alias nlg 'nix-env --list-generations' 
    alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
+   if type -q nh
+      abbr --add nor 'nh os switch --ask --update --accept-flake-config ~/.config/nix -H ray'
+   else
+      abbr --add nor 'sudo nixos-rebuild switch --flake ~/.config/nix#'
+   end
 
    alias nc '$EDITOR ~/.config/nvim/init.lua'
    alias ncf '$EDITOR ~/.config/fish/config.fish'
