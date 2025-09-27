@@ -59,6 +59,7 @@ in
       helvetica-neue-lt-std
       jdk # java
       libnotify # notify-send and other notification utils
+      nh # NixOS ergonomic utils
       nix-diff
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
