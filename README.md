@@ -37,7 +37,7 @@ git clone https://github.com/massivebird/dotfiles .config
 
 The `nix` directory contains my NixOS system config flake.
 
-After [installation](#installation), substitute `<hostname>` and run the following:
+After installation, substitute `<hostname>` and run the following:
 
 ```bash
 sudo nixos-rebuild switch --flake ~/.config/nix#<hostname>
