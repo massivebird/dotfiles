@@ -172,7 +172,6 @@ if status is-interactive
    alias nck '$EDITOR ~/.config/kitty/kitty.conf'
    alias ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/\'} hidden=false path_display={\'smart\'} prompt_title='Modules'"'
    alias ncn '$EDITOR ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
-   alias ncr '$EDITOR ~/.config/ranger/rc.conf'
    alias ncs '$EDITOR ~/.config/sway/config'
    alias ncw '$EDITOR -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
    alias ncz '$EDITOR ~/.config/zathura/zathurarc'
@@ -187,10 +186,8 @@ if status is-interactive
    alias greep 'grep' # ben
    alias less 'less -r --jump-target=3'
    alias n '$EDITOR'
-   alias nn 'ranger $NOTES_DIR'
    alias nr '$EDITOR -R'
    alias pingg 'ping github.com'
-   alias r 'ranger'
    alias s 'source ~/.config/fish/config.fish'
    alias sc 'clear && source ~/.config/fish/config.fish -f'
    alias sf 'source ~/.config/fish/config.fish -f'
