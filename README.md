@@ -15,7 +15,7 @@ This repository is an XDG-compliant, OS-agnostic, drop-in replacement for `$HOME
 + [`fish`](https://github.com/fish-shell/fish-shell) shell
 + [`kitty`](https://sw.kovidgoyal.net/kitty/) terminal
 + [`neovim`](https://github.com/neovim/neovim) text editor
-+ [`ranger`](https://github.com/ranger/ranger) file browser
++ [`yazi`](https://github.com/sxyazi/yazi) file browser
 + [`rofi`](https://github.com/davatorium/rofi) app launcher
 + [`sway`](https://github.com/swaywm/sway) window manager
 + [`waybar`](https://github.com/Alexays/Waybar) status bar
