@@ -201,6 +201,7 @@ if status is-interactive
    alias tree 'tree -RC --dirsfirst'
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+   abbr --add pkill "pkill --ignore-case"
    abbr --add ytd 'yt-dlp'
    abbr --add ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "archive mode"
    abbr --add ytdt 'ytd --embed-thumbnail --embed-subs -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "twitter mode"
