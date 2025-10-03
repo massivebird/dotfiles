@@ -46,6 +46,7 @@ in
       cmatrix
       coreutils
       croc
+      dict
       dmidecode # get hardware info
       duf # disk usage util, better than `df`
       dust # `du` alternative written in rust
@@ -76,6 +77,9 @@ in
 
     # Add ~/bin/ to PATH.
     environment.homeBinInPath = true;
+
+    # https://nixos.wiki/wiki/Dict
+    environment.etc."dict.conf".text = "server dict.org";
 
     environment.variables = {
       HOSTNAME = hostName;
@@ -149,6 +153,7 @@ in
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
+          variant = "altgr-intl"; # Accents w right alt
         };
       };
     };
