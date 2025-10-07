@@ -52,6 +52,12 @@ return {
 
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 
+      vim.lsp.config("*", {
+         on_attach = on_attach,
+         capabilities = capabilities,
+         root_markers = { '.git' },
+      })
+
       -- npm i -g vscode-langservers-extracted
       vim.lsp.config("html", {
          on_attach = on_attach,
@@ -102,10 +108,9 @@ return {
       -- Just touch an empty one or something?
       -- https://github.com/neovim/nvim-lspconfig/blob/3fe1e8de80b98c7a6b16f730711b5eafe84212e1/lua/lspconfig/server_configurations/jdtls.lua#L79
       vim.lsp.config("jdtls", {
-         on_attach = on_attach,
-         capabilities = capabilities,
          cmd = { "jdtls" },
       })
+      vim.lsp.enable("jdtls")
 
       vim.lsp.config("clangd", {
          on_attach = on_attach,
