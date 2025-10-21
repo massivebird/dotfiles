@@ -3,6 +3,7 @@ return {
    {
       'neovim/nvim-lspconfig',
       lazy = false,
+      tag = "v2.4.0",
       dependencies = {
          {
             "mfussenegger/nvim-jdtls",

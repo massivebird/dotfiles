@@ -44,8 +44,8 @@ set default-fg "#eeeeee"
 set default-bg "#0e0e0e"
 
 # highlighting text
-set highlight-color "#aaddff"
-set highlight-active-color "#00bbff"
+set highlight-color "rgba(170, 221, 255, 0.4)"
+set highlight-active-color "rgba(0, 187, 255, 0.5)"
 
 set statusbar-fg "#eeeeee"
 set statusbar-bg "#0e0e0e"

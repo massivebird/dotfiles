@@ -139,18 +139,18 @@ if status is-interactive
    alias ghilm 'gh issue list --assignee "@me"'
    alias ghiv 'gh issue view'
 
-   alias cg 'cargo'
-   alias cgb 'cargo build'
-   alias cgbr 'cargo build --release'
-   alias cgcl 'cargo clippy -- -W clippy::pedantic -W clippy::nursery'
-   alias cgf 'cargo fmt'
-   alias cgi 'cargo init'
-   alias cgr 'cargo run'
-   alias cgrr 'cargo run --release'
-   alias cgt 'cargo test'
-   alias cgtr 'cargo tree'
-   alias cgu 'cargo update'
-   alias cgw 'cargo watch --clear'
+   abbr --add cg 'cargo'
+   abbr --add cgb 'cargo build'
+   abbr --add cgbr 'cargo build --release'
+   abbr --add cgcl 'cargo clippy -- -W clippy::pedantic -W clippy::nursery'
+   abbr --add cgf 'cargo fmt'
+   abbr --add cgi 'cargo init'
+   abbr --add cgr 'cargo run'
+   abbr --add cgrr 'cargo run --release'
+   abbr --add cgt 'cargo test'
+   abbr --add cgtr 'cargo tree'
+   abbr --add cgu 'cargo update'
+   abbr --add cgw 'cargo watch --clear'
 
    alias nbu "nix build"
    alias ncg 'sudo nix-collect-garbage --delete-old'
@@ -159,6 +159,11 @@ if status is-interactive
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
    alias nlg 'nix-env --list-generations' 
    alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
+   if type -q nh
+      abbr --add nor 'nh os switch --ask --update --accept-flake-config ~/.config/nix -H ray'
+   else
+      abbr --add nor 'sudo nixos-rebuild switch --flake ~/.config/nix#'
+   end
 
    alias nc '$EDITOR ~/.config/nvim/init.lua'
    alias ncf '$EDITOR ~/.config/fish/config.fish'
@@ -167,7 +172,6 @@ if status is-interactive
    alias nck '$EDITOR ~/.config/kitty/kitty.conf'
    alias ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/\'} hidden=false path_display={\'smart\'} prompt_title='Modules'"'
    alias ncn '$EDITOR ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
-   alias ncr '$EDITOR ~/.config/ranger/rc.conf'
    alias ncs '$EDITOR ~/.config/sway/config'
    alias ncw '$EDITOR -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
    alias ncz '$EDITOR ~/.config/zathura/zathurarc'
@@ -182,10 +186,8 @@ if status is-interactive
    alias greep 'grep' # ben
    alias less 'less -r --jump-target=3'
    alias n '$EDITOR'
-   alias nn 'ranger $NOTES_DIR'
    alias nr '$EDITOR -R'
    alias pingg 'ping github.com'
-   alias r 'ranger'
    alias s 'source ~/.config/fish/config.fish'
    alias sc 'clear && source ~/.config/fish/config.fish -f'
    alias sf 'source ~/.config/fish/config.fish -f'
@@ -199,9 +201,11 @@ if status is-interactive
    alias tree 'tree -RC --dirsfirst'
    alias trees 'tree -RCI .g -L 2 --dirsfirst'
    alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
-   alias ytd 'yt-dlp'
-   alias ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "archive mode"
-   alias ytdt 'ytd --embed-thumbnail --embed-subs -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "twitter mode"
+   abbr --add batt "cat /sys/class/power_supply/BAT0/capacity"
+   abbr --add pkill "pkill --ignore-case"
+   abbr --add ytd 'yt-dlp'
+   abbr --add ytda 'ytd --embed-thumbnail --embed-chapters --embed-subs --compat-options no-live-chat -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "archive mode"
+   abbr --add ytdt 'ytd --embed-thumbnail --embed-subs -o "%(uploader)s - %(title)s (%(upload_date)s) [%(display_id)s]" -f 'bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/mp4'' # "twitter mode"
 
    abbr --add dn --position=anywhere /dev/null
 

@@ -33,12 +33,12 @@ in
     };
 
     environment.systemPackages = with pkgs; [
-      (my_pkg_new_schema "arcsearch")
       (my_pkg "arcstat")
       (my_pkg "died")
       (my_pkg "lanturn")
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
+      (my_pkg_new_schema "arcsearch")
       bat # `less` clone
       brightnessctl # keyboard brightness controls
       btop # command line process manager
@@ -46,6 +46,7 @@ in
       cmatrix
       coreutils
       croc
+      dict
       dmidecode # get hardware info
       duf # disk usage util, better than `df`
       dust # `du` alternative written in rust
@@ -59,6 +60,8 @@ in
       helvetica-neue-lt-std
       jdk # java
       libnotify # notify-send and other notification utils
+      nh # NixOS ergonomic utils
+      nix-diff
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
       python311
@@ -74,6 +77,9 @@ in
 
     # Add ~/bin/ to PATH.
     environment.homeBinInPath = true;
+
+    # https://nixos.wiki/wiki/Dict
+    environment.etc."dict.conf".text = "server dict.org";
 
     environment.variables = {
       HOSTNAME = hostName;
@@ -147,6 +153,7 @@ in
         xkb = {
           layout = "us";
           options = pkgs.lib.mkDefault "caps:swapescape"; # caps as escape
+          variant = "altgr-intl"; # Accents w right alt
         };
       };
     };
