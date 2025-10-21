@@ -44,6 +44,7 @@ bindsym $mod+o+1 exec firefox
 bindsym $mod+o+2 exec nautilus
 bindsym $mod+o+d exec discord
 bindsym $mod+o+z exec zathura
+bindsym $mod+o+c exec gnome-calculator
 bindsym $win+r exec $menu
 
 # reload mako
