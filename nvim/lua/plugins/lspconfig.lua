@@ -181,6 +181,7 @@ return {
             }
          }
       })
+      vim.lsp.enable("rust_analyzer")
 
       vim.lsp.config("nixd", {
          on_attach = on_attach,
