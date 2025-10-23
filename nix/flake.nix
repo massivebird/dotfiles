@@ -28,6 +28,10 @@
       url = "github:massivebird/minifetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scoundrel = {
+      url = "github:massivebird/scoundrel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     subterfuge = {
       url = "github:massivebird/subterfuge";
       inputs.nixpkgs.follows = "nixpkgs";
