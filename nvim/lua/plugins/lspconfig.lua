@@ -76,6 +76,7 @@ return {
             }
          }
       })
+      vim.lsp.enable("lua_ls")
 
       -- Python (static analysis)
       vim.lsp.config("basedpyright", {
@@ -128,6 +129,7 @@ return {
          capabilities = capabilities,
          filetypes = { "markdown" }
       })
+      vim.lsp.enable("marksman")
 
       vim.lsp.config("bashls", {
          on_attach = on_attach,
@@ -135,6 +137,7 @@ return {
          cmd = { "bash-language-server", "start" },
          filetypes = { "sh" }
       })
+      vim.lsp.enable("bashls")
 
       -- https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
       vim.lsp.config("rust_analyzer", {
@@ -187,6 +190,7 @@ return {
          on_attach = on_attach,
          capabilities = capabilities,
       })
+      vim.lsp.enable("nixd")
 
       vim.lsp.config("ts_ls", {
          on_attach = on_attach,
