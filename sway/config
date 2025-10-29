@@ -257,6 +257,7 @@ focus_follows_mouse no
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
 
 for_window [window_role="Preferences"] floating enable
 for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
