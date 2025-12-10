@@ -22,11 +22,6 @@
       zathura # pdf viewer
     ];
 
-    virtualisation.virtualbox.host.enable = true;
-    virtualisation.virtualbox.host.package = inputs.virtualbox.legacyPackages.${pkgs.system}.virtualbox;
-    users.extraGroups.vboxusers.members = [ "root penguino" ];
-    virtualisation.virtualbox.host.enableExtensionPack = true;
-
     boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
     # boot.kernelModules = [ "vboxdrv" "vboxnetadp" "vboxnetflt" ];
     # boot.extraModulePackages = [ kernelModules ];
