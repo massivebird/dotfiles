@@ -39,6 +39,7 @@ in
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
       (my_pkg_new_schema "arcsearch")
+      (my_pkg_new_schema "bsrc")
       (my_pkg_new_schema "scoundrel")
       bat # `less` clone
       brightnessctl # keyboard brightness controls

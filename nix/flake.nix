@@ -15,6 +15,10 @@
       url = "github:massivebird/arcstat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bsrc = {
+      url = "github:massivebird/bsrc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     died = {
       url = "github:massivebird/died";
       inputs.nixpkgs.follows = "nixpkgs";
