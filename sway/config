@@ -13,7 +13,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 ## daemon initialization ###############
 
 # notification popups
-exec systemctl --user start mako
+# exec systemctl --user start mako
 
 ## default apps ########################
 
@@ -79,19 +79,27 @@ bindsym ctrl+shift+n nop
 
 ## display #############################
 
+# AOC monitor
+output DP-1 {
+   resolution 3840x1440
+      scale 2.0
+      pos 0 0
+}
+
+# ray laptop display
 output eDP-1 {
    resolution 1600x900
       scale 1.3
       pos 0 0
 }
 
-output HDMI-A-1 {
-   background #0e0e0e solid_color
-      resolution 1600x900
-      scale 1.5
-      # 0 -1440 is "above" laptop display
-      pos 0 -1440
-}
+# output HDMI-A-1 {
+#    background #0e0e0e solid_color
+#       resolution 1600x900
+#       scale 1.5
+#       # 0 -1440 is "above" laptop display
+#       pos 0 -1440
+# }
 
 # focus on startup (does not trigger on reload)
 exec swaymsg focus output eDP-1
