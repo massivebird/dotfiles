@@ -77,6 +77,13 @@
           system = "x86_64-linux";
         };
 
+        # clint
+        clint = nixosMachine {
+          hostName = "clint";
+          userName = "penguino";
+          system = "x64";
+        };
+
         # mini = nixosMachine {
         #   hostName = "mini";
         #   userName = "mini";

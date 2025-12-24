@@ -50,6 +50,9 @@ in
       croc
       dict
       dmidecode # get hardware info
+      kitty # terminal emulator
+      waybar
+      mako # wayland notification daemon
       duf # disk usage util, better than `df`
       dust # `du` alternative written in rust
       exiftool # read/write metadata
