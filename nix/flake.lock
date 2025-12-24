@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766534389,
-        "narHash": "sha256-yCbwJt9cEUie/isBRKAhsubHtcWJv/phhlTb4eq28lE=",
+        "lastModified": 1766553336,
+        "narHash": "sha256-DFDqHR5lWjtXfjG40e4eAxiZWXvo32O4OZrKUS5cS0s=",
         "owner": "massivebird",
         "repo": "bsrc",
-        "rev": "bf876f0625dec423d0349a6cabeaa372bcbcbc6c",
+        "rev": "8f8c29693fb862f56804776f8faa5e2f741b9583",
         "type": "github"
       },
       "original": {
