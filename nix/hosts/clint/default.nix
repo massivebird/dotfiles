@@ -4,6 +4,7 @@
     ../../modules/common.nix
     ../../modules/extra-clis.nix
     ../../modules/graphical.nix
+    ../../modules/sway.nix
     ../../modules/neovim.nix
     ../../modules/rust.nix
     ./hardware-configuration.nix

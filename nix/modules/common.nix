@@ -6,8 +6,6 @@ let
 in
 {
   config = {
-    programs.sway.enable = true;
-
     # Configure fish as an interactive shell.
     programs.fish.enable = true;
 
@@ -50,15 +48,13 @@ in
       croc
       dict
       dmidecode # get hardware info
-      kitty # terminal emulator
-      waybar
-      mako # wayland notification daemon
       duf # disk usage util, better than `df`
       dust # `du` alternative written in rust
       exiftool # read/write metadata
       eza # modern alternative to `ls` written in rust
       ffmpeg
       file # file metadata
+      gh # github cli, I love `gh auth login`
       git
       glib
       gnumake42 # `make` command
