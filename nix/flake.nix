@@ -77,7 +77,7 @@
           system = "x86_64-linux";
         };
 
-        # clint
+        # win/nixos pc
         clint = nixosMachine {
           hostName = "clint";
           userName = "penguino";
