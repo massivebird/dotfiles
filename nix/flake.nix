@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     arcsearch = {
-      url = "github:massivebird/arcsearch";
+      url = "github:massivebird/arcsearch?tag=v0.2.12";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     arcstat = {
