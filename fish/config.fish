@@ -153,7 +153,6 @@ if status is-interactive
    abbr --add cgw 'cargo watch --clear'
 
    alias nbu "nix build"
-   alias ncg 'sudo nix-collect-garbage --delete-old'
    alias nde 'nix develop'
    alias nfu "nix flake update --commit-lock-file --flake ~/.config/nix/#"
    alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
@@ -161,8 +160,10 @@ if status is-interactive
    alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
    if type -q nh
       abbr --add nor 'nh os switch --ask --update --accept-flake-config ~/.config/nix -H ray'
+      abbr --add ncg 'nh clean all --keep 3 --verbose --ask'
    else
       abbr --add nor 'sudo nixos-rebuild switch --flake ~/.config/nix#'
+      abbr --add ncg 'sudo nix-collect-garbage --delete-old'
    end
 
    alias nc '$EDITOR ~/.config/nvim/init.lua'
