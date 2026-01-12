@@ -123,6 +123,7 @@ return {
             "--fallback-style=webkit"
          }
       })
+      vim.lsp.enable("clangd")
 
       vim.lsp.config("marksman", {
          on_attach = on_attach,
