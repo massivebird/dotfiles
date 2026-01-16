@@ -1,3 +1,5 @@
+# https://dystroy.org/bacon/config/
+
 # This is a preferences file for the bacon tool
 # More info at https://github.com/Canop/bacon
 
@@ -29,6 +31,35 @@ enabled = false
 path = ".bacon-locations"
 line_format = "{kind} {path}:{line}:{column} {message}"
 
+[jobs.clippy-all]
+command = [
+	"cargo", "clippy",
+	"--",
+	"-W", "clippy::derive_partial_eq_without_eq",
+	"-W", "clippy::len_without_is_empty",
+	"-W", "clippy::map_entry",
+	"-W", "clippy::pedantic",
+	"-W", "clippy::nursery",
+]
+need_stdout = false
+
+# https://github.com/Canop/bacon/blob/main/src/conf/skin.rs
+[skin]
+computing_bg = 0
+computing_fg = 7
+found_bg = 0
+found_fg = 4
+found_selected_bg = 4
+found_selected_fg = 0
+job_label_badge_bg = 0
+job_label_badge_fg = 11
+project_name_badge_bg = 0
+project_name_badge_fg = 15
+status_bg = 0
+status_fg = 15
+status_key_bg = 0
+status_key_fg = 11
+
 # Uncomment and change the key-bindings you want to define
 # (some of those ones are the defaults and are just here
 #  for illustration)
@@ -48,12 +79,12 @@ line_format = "{kind} {path}:{line}:{column} {message}"
 # Space = "scroll-pages(1)"
 # a = "job:check-all"
 # i = "job:initial"
-# c = "job:clippy"
 # d = "job:doc-open"
 # t = "job:test"
 # r = "job:run"
 esc = "back"
 q = "quit"
+shift-q = "quit"
 g = "scroll-to-top"
 shift-g = "scroll-to-bottom"
 k = "scroll-lines(-1)"
