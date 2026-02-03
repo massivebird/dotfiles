@@ -23,8 +23,8 @@
       url = "github:massivebird/died";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lanturn = {
-      url = "github:massivebird/lanturn";
+    lantern = {
+      url = "github:massivebird/lantern";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     minifetch = {

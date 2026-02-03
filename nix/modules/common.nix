@@ -33,7 +33,7 @@ in
     environment.systemPackages = with pkgs; [
       (my_pkg "arcstat")
       (my_pkg "died")
-      (my_pkg "lanturn")
+      (my_pkg "lantern")
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
       (my_pkg_new_schema "arcsearch")
