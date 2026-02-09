@@ -96,9 +96,9 @@ if status is-interactive
    function .....; '../../../..'; end
    function ......; '../../../../..'; end
 
-   alias conf  'cd ~/.config'
-   alias docc  'cd ~/docs'
-   alias schoo 'cd ~/academia'
+   abbr --add conf  'cd ~/.config'
+   abbr --add docc  'cd ~/docs'
+   abbr --add schoo 'cd ~/academia'
 
    abbr --add g 'git'
    abbr --add ga 'git add'
@@ -152,12 +152,12 @@ if status is-interactive
    abbr --add cgu 'cargo update'
    abbr --add cgw 'cargo watch --clear'
 
-   alias nbu "nix build"
-   alias nde 'nix develop'
-   alias nfu "nix flake update --commit-lock-file --flake ~/.config/nix/#"
-   alias ninfo 'nix-shell -p nix-info --run "nix-info -m"'
-   alias nlg 'nix-env --list-generations' 
-   alias nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
+   abbr --add nbu "nix build"
+   abbr --add nde 'nix develop'
+   abbr --add nfu "nix flake update --commit-lock-file --flake ."
+   abbr --add ninfo 'nix-shell -p nix-info --run "nix-info -m"'
+   abbr --add nlg 'nix-env --list-generations' 
+   abbr --add nor "sudo nixos-rebuild switch --flake ~/.config/nix#"
    if type -q nh
       abbr --add nor 'nh os switch --ask --update --accept-flake-config ~/.config/nix -H ray'
       abbr --add ncg 'nh clean all --keep 3 --verbose --ask'
@@ -166,42 +166,42 @@ if status is-interactive
       abbr --add ncg 'sudo nix-collect-garbage --delete-old'
    end
 
-   alias nc '$EDITOR ~/.config/nvim/init.lua'
-   alias ncf '$EDITOR ~/.config/fish/config.fish'
-   alias nci '$EDITOR ~/.config/i3/config'
-   alias ncis '$EDITOR ~/.config/i3status/config'
-   alias nck '$EDITOR ~/.config/kitty/kitty.conf'
-   alias ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/\'} hidden=false path_display={\'smart\'} prompt_title='Modules'"'
-   alias ncn '$EDITOR ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
-   alias ncs '$EDITOR ~/.config/sway/config'
-   alias ncw '$EDITOR -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
-   alias ncz '$EDITOR ~/.config/zathura/zathurarc'
+   abbr --add nc '$EDITOR ~/.config/nvim/init.lua'
+   abbr --add ncf '$EDITOR ~/.config/fish/config.fish'
+   abbr --add nci '$EDITOR ~/.config/i3/config'
+   abbr --add ncis '$EDITOR ~/.config/i3status/config'
+   abbr --add nck '$EDITOR ~/.config/kitty/kitty.conf'
+   abbr --add ncm '$EDITOR -c ":Telescope find_files search_dirs={\'$HOME/.config/nvim/\'} hidden=false path_display={\'smart\'} prompt_title='Modules'"'
+   abbr --add ncn '$EDITOR ~/.config/nix/flake.nix -c ":Neotree action=show dir=~/.config/nix"'
+   abbr --add ncs '$EDITOR ~/.config/sway/config'
+   abbr --add ncw '$EDITOR -O2 ~/.config/waybar/config ~/.config/waybar/style.css'
+   abbr --add ncz '$EDITOR ~/.config/zathura/zathurarc'
 
-   alias c 'cd'
-   alias clj 'clj/'
-   alias diff 'diff --color=always'
-   alias dirl 'dirs -v'
-   alias exp 'explorer.exe' # WSL: open cwd in Windows File Explorer
-   alias foxalive "systemctl reboot"
-   alias foxdie "systemctl poweroff"
-   alias greep 'grep' # ben
-   alias less 'less -r --jump-target=3'
-   alias n '$EDITOR'
-   alias nr '$EDITOR -R'
-   alias pingg 'ping github.com'
-   alias s 'source ~/.config/fish/config.fish'
-   alias sc 'clear && source ~/.config/fish/config.fish -f'
-   alias sf 'source ~/.config/fish/config.fish -f'
-   alias shx 'chmod +x *.sh'
-   alias sv 'source ~/.config/fish/config.fish -v'
-   alias ta 'task add'
-   alias tc 'task calendar'
-   alias tl 'task list'
-   alias tn 'task next'
-   alias tpc 'tput cnorm'
-   alias tree 'tree -RC --dirsfirst'
-   alias trees 'tree -RCI .g -L 2 --dirsfirst'
-   alias update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
+   abbr --add c 'cd'
+   abbr --add clj 'clj/'
+   abbr --add diff 'diff --color=always'
+   abbr --add dirl 'dirs -v'
+   abbr --add exp 'explorer.exe' # WSL: open cwd in Windows File Explorer
+   abbr --add foxalive "systemctl reboot"
+   abbr --add foxdie "systemctl poweroff"
+   abbr --add greep 'grep' # ben
+   abbr --add less 'less -r --jump-target=3'
+   abbr --add n '$EDITOR'
+   abbr --add nr '$EDITOR -R'
+   abbr --add pingg 'ping github.com'
+   abbr --add s 'source ~/.config/fish/config.fish'
+   abbr --add sc 'clear && source ~/.config/fish/config.fish -f'
+   abbr --add sf 'source ~/.config/fish/config.fish -f'
+   abbr --add shx 'chmod +x *.sh'
+   abbr --add sv 'source ~/.config/fish/config.fish -v'
+   abbr --add ta 'task add'
+   abbr --add tc 'task calendar'
+   abbr --add tl 'task list'
+   abbr --add tn 'task next'
+   abbr --add tpc 'tput cnorm'
+   abbr --add tree 'tree -RC --dirsfirst'
+   abbr --add trees 'tree -RCI .g -L 2 --dirsfirst'
+   abbr --add update-grub 'sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
    abbr --add batt "cat /sys/class/power_supply/BAT0/capacity"
    abbr --add pkill "pkill --ignore-case"
    abbr --add rg "rg -i"
