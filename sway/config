@@ -42,6 +42,7 @@ bindsym $mod+shift+s exec systemctl suspend -i
 bindsym $mod+Return exec $term
 bindsym $mod+o+1 exec firefox
 bindsym $mod+o+2 exec nautilus
+bindsym $mod+o+b exec kitty btop
 bindsym $mod+o+d exec discord
 bindsym $mod+o+z exec zathura
 bindsym $mod+o+c exec gnome-calculator
