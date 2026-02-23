@@ -17,7 +17,7 @@ set.spelllang = 'en_us'
 set.spell = false
 -- highlight entire cursor line
 set.cursorline = true
--- minimal lines above/below cursor
+-- minimum lines above/below cursor
 set.scrolloff = 2
 -- line numbers
 set.number = true
@@ -33,7 +33,7 @@ cmd [[ set nrformats+=alpha ]]
 set.tabstop = 3
 -- << and >> # of spaces (0 -> tabstop)
 set.shiftwidth = 0
--- default to spaces instead of tab characters
+-- tabs become spaces
 set.expandtab = true
 -- new window appears to right of current one
 set.splitright = true

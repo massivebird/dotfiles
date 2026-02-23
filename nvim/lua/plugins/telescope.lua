@@ -64,21 +64,19 @@ return {
                },
                -- prompt_title = false,
                results_title = false,
-               -- preview_title = false,
                prompt_prefix = '  ',
-               -- selection_caret = '  ',
                path_display = { "truncate" },
                layout_config = {
-                  prompt_position = 'bottom'
+                  prompt_position = 'bottom',
+                  width = 0.85
                },
-               width = 0.8
             },
             pickers = {
                find_files = {
                   find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
                   results_title = false,
                   prompt_title = false,
-                  previewer = false,
+                  previewer = true,
                },
             },
          }
