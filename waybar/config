@@ -1,6 +1,7 @@
 {
    // dock | hide | invisible | overlay
    "mode": "dock",
+   "ipc": true,
 
    "layer": "top",
    "position": "top",

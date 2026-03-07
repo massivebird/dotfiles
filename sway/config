@@ -48,6 +48,9 @@ bindsym $mod+o+z exec zathura
 bindsym $mod+o+c exec gnome-calculator
 bindsym $win+r exec $menu
 
+# toggle waybar
+bindsym $mod+shift+w exec kill -s USR1 $(pidof waybar)
+
 # reload mako
 bindsym $mod+shift+n exec makoctl reload && bash ~/.config/scripts/mako-test.sh
 
