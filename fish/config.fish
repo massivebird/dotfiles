@@ -72,9 +72,9 @@ if status is-interactive
       alias ll 'ls -1Alh  --color=always --group-directories-first'
    end
 
-   if test "$TERM" = "xterm-kitty"
-      alias ssh 'kitty +kitten ssh' # solves SSH kitty issues [kovidgoyal/kitty#713]
-   end
+   # if test "$TERM" = "xterm-kitty"
+   #    alias ssh 'kitty +kitten ssh' # solves SSH kitty issues [kovidgoyal/kitty#713]
+   # end
 
    if not type -q rename
       alias rename 'prename'
