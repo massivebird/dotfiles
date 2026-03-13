@@ -39,6 +39,10 @@
       url = "github:massivebird/subterfuge";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    telegraph = {
+      url = "github:massivebird/telegraph";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {

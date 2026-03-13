@@ -36,6 +36,7 @@ in
       (my_pkg "lantern")
       (my_pkg "minifetch")
       (my_pkg "subterfuge")
+      (my_pkg "telegraph")
       (my_pkg_new_schema "arcsearch")
       (my_pkg_new_schema "bsrc")
       (my_pkg_new_schema "scoundrel")
@@ -65,7 +66,6 @@ in
       nix-diff
       pamixer # pulseaudio control
       playerctl # keyboard audio controls
-      python311
       ripgrep # real fast grep written in rust
       starship
       tldr
