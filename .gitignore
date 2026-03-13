@@ -10,10 +10,12 @@ KeepOrDelete/
 NecroDancer
 QtProject.conf
 Unknown Organization
+VirtualBox/
 anthy
 autostart/
 azuredatastudio
 bottom
+bsrc/
 btop/btop.conf
 btop/btop.log
 btop/themes
@@ -29,6 +31,7 @@ dolphin-emu/
 enchant
 eog
 evolution
+fish/completions/
 fontconfig
 fontforge/
 gedit
@@ -44,6 +47,8 @@ heaptrack_gui
 htop
 ibus
 jgit/
+kitty/*.conf
+lantern/
 lanturn/
 lazygit/
 libreoffice
