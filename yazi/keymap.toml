@@ -1,14 +1,24 @@
 [[mgr.prepend_keymap]]
 on   = [ "g", "a" ]
 run  = "cd ~/academia/"
-desc = "Go ~/academia"
+desc = "goto academia"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "/" ]
 run  = "cd /"
-desc = "Go root"
+desc = "goto root"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "t" ]
+run  = "cd /tmp"
+desc = "goto tmp"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "v" ]
+run  = "cd ~/Videos"
+desc = "goto Videos"
 
 [[mgr.prepend_keymap]]
 on   = [ "g", "p" ]
 run  = "cd ~/Pictures"
-desc = "Go ~/Pictures"
+desc = "goto Pictures"
