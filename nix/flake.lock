@@ -53,11 +53,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771802243,
-        "narHash": "sha256-+r0hi4PpLQgSNIYs78L/G+YmwphGIaz5vxz1jBoB2Qs=",
+        "lastModified": 1773973750,
+        "narHash": "sha256-zxDqZ0gDinHIXVfYdBgTcWR1Qmg0fnarizlUnyvTQqQ=",
         "owner": "massivebird",
         "repo": "bsrc",
-        "rev": "a44bff942cdc7285443ab48df9f38cd4283121cc",
+        "rev": "27c0fac838d84e8894e7811c39f8e562ae8cad69",
         "type": "github"
       },
       "original": {
@@ -635,11 +635,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1772963539,
-        "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
+        "lastModified": 1774386573,
+        "narHash": "sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9dcb002ca1690658be4a04645215baea8b95f31d",
+        "rev": "46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9",
         "type": "github"
       },
       "original": {
