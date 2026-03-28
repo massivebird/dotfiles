@@ -249,8 +249,9 @@ mode "resize" {
 ## input ###############################
 
 input "type:keyboard" {
-   xkb_layout us
+   xkb_layout us,us
       xkb_options caps:escape
+      xkb_variant altgr-intl
 }
 
 input "type:touchpad" {
