@@ -41,7 +41,7 @@ return {
          )
 
          -- Levels by name: "TRACE" (0), "DEBUG", "INFO", "WARN", "ERROR", "OFF" (5)
-         vim.lsp.set_log_level(4)
+         vim.lsp.log.set_level(4)
 
          -- Add borders to :LspInfo floating window
          -- https://neovim.discourse.group/t/lspinfo-window-border/1566/2
