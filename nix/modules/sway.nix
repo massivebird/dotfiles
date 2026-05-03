@@ -9,7 +9,6 @@
       grim # screenshots in wayland
       kitty # terminal emulator
       mako # wayland notification daemon
-      mpv
       nsxiv # image viewer
       rofi # "start menu" pop-up
       slurp # display region selector for Wayland
