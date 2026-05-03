@@ -89,8 +89,8 @@ setkeymap('n', 'zl', 'zA', {silent = true})
 setkeymap('n', 'zh', 'zC', {silent = true})
 
 -- diagnostic keymaps
-setkeymap('n', '[d', vim.diagnostic.goto_prev)
-setkeymap('n', ']d', vim.diagnostic.goto_next)
+setkeymap('n', ']d', function() vim.diagnostic.jump { count = 1, float = true } end)
+setkeymap('n', '[d', function() vim.diagnostic.jump { count = -1, float = true } end)
 -- setkeymap('n', '<leader>e', vim.diagnostic.open_float)
 -- setkeymap('n', '<leader>q', vim.diagnostic.setloclist)
 

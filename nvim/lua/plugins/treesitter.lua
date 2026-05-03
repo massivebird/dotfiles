@@ -2,6 +2,8 @@ return {
 
    {
       'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      branch = 'main',
       build = ':TSUpdate',
       event = { "BufReadPost", "BufNewFile" },
       opts = {
@@ -21,8 +23,8 @@ return {
             "vimdoc",
          },
 
-         -- Install missing parsers when entering a buffer.
-         auto_install = true,
+         -- -- Install missing parsers when entering a buffer.
+         -- auto_install = true,
 
          -- Do not install these parsers.
          ignore_install = {},
@@ -99,8 +101,8 @@ return {
                return true
             end, opts.ensure_installed)
          end
-         require("nvim-treesitter.configs").setup(opts)
+         -- require("nvim-treesitter.configs").setup(opts)
       end,
-   }
+    }
 
 }
