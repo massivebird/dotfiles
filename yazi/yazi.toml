@@ -31,5 +31,5 @@ zathura_custom = [
 
 [open]
 prepend_rules = [
-	{ name = "*.pdf", use = "zathura_custom" },
+	{ url = "*.pdf", use = "zathura_custom" },
 ]
