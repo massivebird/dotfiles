@@ -4,9 +4,10 @@
     ../../modules/common.nix
     ../../modules/extra-clis.nix
     ../../modules/graphical.nix
-    ../../modules/sway.nix
     ../../modules/neovim.nix
+    ../../modules/python.nix
     ../../modules/rust.nix
+    ../../modules/sway.nix
     ./hardware-configuration.nix
   ];
 

@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   config = {
     environment.systemPackages = with pkgs; [
-      basedpyright # Python language server
       bash-language-server
       binutils # nvim tree-sitter dep
       clang
@@ -17,7 +16,6 @@
       nixd # Nix language server
       nodejs
       php82Extensions.mysqlnd # PHP MySQL extension
-      ruff
       tree-sitter # the executable
       typescript
       typescript-language-server

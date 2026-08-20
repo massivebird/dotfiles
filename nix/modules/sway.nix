@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, ... }: {
   # Introduces sway wm, quasi-deps, and the "bare essentials" graphical suite.
   config = {
     programs.sway.enable = true;
