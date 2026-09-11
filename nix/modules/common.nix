@@ -105,7 +105,8 @@ in
       networkmanager.enable = true;
       firewall.allowedTCPPorts = [ 22 7878 7879 25565 8080 ];
       useDHCP = false;
-      hosts."192.168.1.152" = [ "clint" ];
+      hosts."10.0.0.151" = [ "clint" ];
+      hosts."10.0.0.47" = [ "pi" ];
     };
 
     services.getty = {
